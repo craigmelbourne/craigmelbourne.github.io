@@ -1,0 +1,20 @@
+/* bg color: #f8f6f2 */
+/* font: #059FE1 */
+
+body {background-color: #fff; font-family: 'Roboto Slab', serif; color:#059fe1;}
+
+
+@media only screen and (min-width:0px) {
+	#content {text-align:center; height:224px; width:100%; position:absolute; top:50%; margin-top:-112px;}
+	img {width:110px;}
+	.strap {display:block; margin-bottom:30px; font-size:24px;}
+	.soon {display:block; margin-top:30px; font-size:18px; color:#d7d4c1;}
+
+}
+@media only screen and (min-width:600px) {
+	#content {}
+	img {width:110px;}
+	.strap {font-size:32px;}
+	.soon {font-size:24px; }
+}
+@media only screen and (min-width:900px) {}

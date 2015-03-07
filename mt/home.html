@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/mt-base.css">
+
+		<!-- Roboto font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+		<!-- Scripts -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			$(function(){
+
+				$("#content label a").on("click", function(e){
+					e.preventDefault();
+					$(".transport ul").show();
+				});
+
+				$(".transport ul li").on("click", function(e){
+					e.preventDefault();
+					$("#content label a").text($(this).text());
+					$(".transport ul").hide();
+				});
+
+			});
+
+		</script>
+
+	</head>
+
+	<body>
+		<div id="header">
+			<div id="logo">My Trips</div>
+			<div id="tools">Sign in | Sign up</div>
+		</div>
+
+		<div id="sidebar">
+			<div>
+				<img src="i/home-clock-icon.png" />
+				<p>
+					Tired of opening a bunch of tabs and spending countless hours planning your next trip?
+				</p>
+			</div>
+		</div>
+
+		<div id="content-wrapper">
+			<div id="content">
+				<h1>Plan your next <strong>romantic</strong> trip</h1>
+				<div class="transport">
+					<label>I want to <a href="">fly</a> to</label>
+					<ul>
+						<li>No transport needed</li>
+						<li>Walk</li>
+						<li>Bike</li>
+						<li>Drive</li>
+						<li>Taxi</li>
+						<li>Bus / Tube</li>
+						<li>Train</li>
+						<li>Fly</li>
+					</ul>
+				</div>
+				<input type="text" placeholder="Destination"/>
+
+				<div id="destinations">
+					<p>Popular destinations from London</p>
+					<ul>
+						<li>Bath</li>
+						<li>Brighton</li>
+						<li>Oxford</li>
+						<li>Paris</li>
+						<li>Edinburgh</li>
+						<li>Rome</li>
+						
+					</ul>	
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>

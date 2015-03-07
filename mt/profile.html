@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/mt-base.css">
+
+		<!-- Roboto font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+		<!-- Scripts -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			$(function(){
+
+				$("#content label a").on("click", function(e){
+					e.preventDefault();
+					$(".transport ul").show();
+				});
+
+				$(".transport ul li").on("click", function(e){
+					e.preventDefault();
+					$("#content label a").text($(this).text());
+					$(".transport ul").hide();
+				});
+
+			});
+
+		</script>
+
+	</head>
+
+	<body id="profile">
+		<div id="header">
+			<div id="logo">My Trips</div>
+			<div id="tools">Sign in | Sign up</div>
+		</div>
+
+		<div id="sidebar">
+			<div class="title">Profile</div>
+			<div style="width:80%; margin:30px auto 0">
+				<img src="i/add_photo.png" /> <br />
+				<a href="">Add photo</a>
+
+				<fieldset>
+					<input type="text" placeholder="First Name" />
+					<input type="text" placeholder="Last Name" />
+					<input type="text" placeholder="Email" />
+					<input type="text" placeholder="Mobile #" />
+				</fieldset>
+			</div>
+		</div>
+
+		<div id="content-wrapper">
+			<div class="title">Interests</div>
+			<div id="content">
+				
+				<ul>
+					<li><input type="checkbox" id="food"> <label for="food">Food and Drink</label></li>
+					<li><input type="checkbox" id="shopping"> <label for="shopping">Shopping</label></li>
+					<li><input type="checkbox" id="sightseeing"> <label for="sightseeing">Sightseeing tours</label></li>
+					<li><input type="checkbox" id="food"> <label for="food">Wellness and Spas</label></li>
+					<li><input type="checkbox" id="shopping"> <label for="shopping">Museums</label></li>
+					<li><input type="checkbox" id="sightseeing"> <label for="sightseeing">Landmarks & History</label></li>
+					<li><input type="checkbox" id="food"> <label for="food">Art & paintings</label></li>
+					<li><input type="checkbox" id="shopping"> <label for="shopping">Performances</label></li>
+					<li><input type="checkbox" id="sightseeing"> <label for="sightseeing">Cultural</label></li>
+					<li><input type="checkbox" id="shopping"> <label for="shopping">Sports</label></li>
+					<li><input type="checkbox" id="sightseeing"> <label for="sightseeing">Outdoors</label></li>
+				</ul>
+
+				<ul>
+					<li><input type="checkbox" id="food"> <label for="food">Adventure</label></li>
+					<li><input type="checkbox" id="shopping"> <label for="shopping">Amusement</label></li>
+					<li><input type="checkbox" id="sightseeing"> <label for="sightseeing">Zoos and Aquariams</label></li>
+					<li><input type="checkbox" id="food"> <label for="food">Classes</label></li>
+					<li><input type="checkbox" id="shopping"> <label for="shopping">Bars</label></li>
+					<li><input type="checkbox" id="sightseeing"> <label for="sightseeing">Clubs</label></li>
+					<li><input type="checkbox" id="food"> <label for="food">Gear rentals</label></li>
+					<li><input type="checkbox" id="shopping"> <label for="shopping">Ranch and farm</label></li>
+					
+				</ul>
+				
+			</div>
+		</div>
+
+		<div id="footer">
+			<a href="settings.html">Next:Trip Settings</a>
+		</div>
+	</body>
+</html>

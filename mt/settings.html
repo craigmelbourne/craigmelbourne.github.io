@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/mt-base.css">
+
+		<!-- Roboto font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+		<!-- Scripts -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			$(function(){
+
+				$("#content label a").on("click", function(e){
+					e.preventDefault();
+					$(".transport ul").show();
+				});
+
+				$(".transport ul li").on("click", function(e){
+					e.preventDefault();
+					$("#content label a").text($(this).text());
+					$(".transport ul").hide();
+				});
+
+			});
+
+		</script>
+
+	</head>
+
+	<body id="settings">
+		<div id="header">
+			<div id="logo">My Trips</div>
+			<div id="tools">Sign in | Sign up</div>
+		</div>
+
+		<div id="what" class="panel">
+			<div class="title">What</div>
+			<div style="width:80%; margin:30px auto 0; ">
+				<h4 style="text-align:center;">Type</h4>
+
+				<ul class="multi-select">
+					<li>Leisure</li>
+					<li>Business</li>
+					<li>Both</li>
+				</ul>
+
+				<h4 style="text-align:center;">Budget</h4>
+
+				<ul class="multi-select">
+					<li>Thrifty</li>
+					<li>Moderate</li>
+					<li>Luxury</li>
+				</ul>
+			</div>
+			
+		</div>
+
+		<div id="when" class="panel">
+			<div class="title">When</div>
+			<div style="width:80%; margin:30px auto 0; ">
+				<h4 style="text-align:center;">TBD</h4>
+			</div>
+		</div>
+
+		<div id="who" class="panel">
+			<div class="title">Who</div>
+			<div style="width:70%; margin:30px auto 0; ">
+				<h4 style="text-align:center;">1 Traveller</h4>
+				<ul class="people">
+					<li>
+						<div class="avatar"></div>
+						<p style="text-align:center;">You</p>
+					</li>
+					<li>
+						<div class="avatar" style="background-color:#3B98AF"></div>
+						<a href="#" style="display:block; text-align:center;">Add</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="footer">
+			<a href="details.html">Next: Trip details</a>
+		</div>
+	</body>
+</html>
