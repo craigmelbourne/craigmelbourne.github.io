@@ -23,7 +23,7 @@
 				$.ajax({
         			crossDomain: true,
         			//url: "https://api.eancdn.com/ean-services/rs/hotel/v3/list",
-        			url: "http://api.tripadvisor.com/api/partner/2.0/location/187870/attractions?subcategory=cultural,museums&key=ebf73cf58f37431baa30d8cf98bd0884",
+        			url: "http://api.tripadvisor.com/api/partner/2.0/location/190454/attractions?subcategory=other&key=ebf73cf58f37431baa30d8cf98bd0884",
 			        type: "GET",
 			        dataType : "json",
 					timeout:3000,
@@ -38,11 +38,20 @@
         					$("#list").append(
         						"<div class='item' id='" + poi.location_id + "'><div>" 
         						+ "<div class='name' style='margin-bottom:6px;'>" + poi.name + "</div>"
+        						+ "<div class='snippet'></div>"
+        						+ "<div style='position:absolute; bottom:8px; left:8px;'>"
         						+ "<div style='font-size:12px'><img src='" + poi.rating_image_url + "' style='height:14px'/> (" + poi.num_reviews + ") reviews</div>"
         						+ "<div style='font-size:12px'>" + poi.percent_recommended + "% recommended</div>"
+        						+ "</div>"
         						+ "</div></div>"
 
         					)
+        					fetchLocationDetails(poi.location_id);
+
+        					if (poi.wikipedia_info != null) {
+        						console.log("not null");
+        					}
+        					//fetchThumbnail(poi.location_id, poi.)
         				});
         			}
         			
@@ -54,6 +63,52 @@
 				});
 
 			});
+
+			function fetchLocationDetails(id){
+				var apiLink = "http://api.tripadvisor.com/api/partner/2.0/location/"+id+"?key=ebf73cf58f37431baa30d8cf98bd0884"
+
+				$.ajax({
+        			crossDomain: true,
+        			//url: "https://api.eancdn.com/ean-services/rs/hotel/v3/list",
+        			url: apiLink,
+			        type: "GET",
+			        dataType : "json",
+					timeout:3000,
+ 
+        			success: function( json ) {
+        				console.log(json.reviews[0].text)
+        				$("#list").find("div#" + id + " div.snippet").text('"' + json.reviews[0].text + '"')
+        			
+        			}
+        			
+        		});
+
+				
+			}
+
+			function fetchThumbnail(id, wikiid){
+
+				var wikilink = "https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=thumbnail&pithumbsize=200&rawcontinue=&pageids="+wikiid+"&redirects="
+
+				$.ajax({
+        			//crossDomain: true,
+        			//url: "https://api.eancdn.com/ean-services/rs/hotel/v3/list",
+        			url: wikilink,
+			        type: "GET",
+			        contentType: "application/json; charset=utf-8",
+			        async: false,
+			        dataType : "jsonp",
+					timeout:3000,
+ 
+        			success: function( json ) {
+        				console.log(json.query.pages)
+        				//$("#list").find("div#" + id + " div.snippet").text('"' + json.reviews[0].text + '"')
+        			
+        			}
+        			
+        		});
+
+			}
 
 		</script>
 

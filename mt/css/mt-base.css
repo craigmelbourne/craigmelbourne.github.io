@@ -60,8 +60,9 @@ body#details #itinerary {width:33.33%; background-color:#E7E3D8;}
 body#details #content {left:33.33%; right:0;}
 
 body#details #content #list .item {width:50%; box-sizing:border-box; float:left; padding-right:18px; margin-bottom:18px;}
-body#details #content #list .item > div {height:100px; border:solid 1px #eee; padding:8px;}
+body#details #content #list .item > div {height:130px; border:solid 1px #eee; padding:8px; position:relative;}
 body#details #content #list .item > div:hover {cursor: pointer; background-color:#eee;}
+body#details #content #list .item .snippet {font-size:13px; line-height: 16px}
 
 body#details  ul#dates {margin-left:18px;}
 body#details  ul#dates li {display:inline-block; padding:6px 12px; height:50px; border-right:solid 1px #eee;}
