@@ -15,10 +15,16 @@
 
 		<!-- Scripts -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 
 		<script type="text/javascript">
 
 			$(function(){
+
+				$( "#itinerary-elements ul" ).sortable({
+  					placeholder: "empty"
+				});
+    			$( "#itinerary-elements ul" ).disableSelection();
 
 				$.ajax({
         			crossDomain: true,
@@ -59,8 +65,21 @@
 
 				$("#list").on("click", "div.item", function(){
 					console.log($(this).attr("id"));
-					$("#itinerary-elements ul").append("<li>" + $(this).find(".name").text() + "</li>");
+					$(this).addClass("item-selected");
+					var name = $(this).find(".name").text(); 
+					var id = $(this).attr("id");
+					$("#itinerary-elements ul").append(
+						"<li>" + name
+						+ "<div class='delete' rel=" + id + " > X </div>"
+						+ "</li>"
+					);
 				});
+
+				$("#itinerary-elements ul").on("click", ("li div.delete"), function(){
+					console.log($(this).attr("rel"));
+					$("#list").find("div#" + $(this).attr("rel")).removeClass("item-selected");
+					$(this).closest("li").remove();
+				})
 
 			});
 

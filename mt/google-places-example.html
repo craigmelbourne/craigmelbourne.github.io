@@ -80,6 +80,7 @@ function createMarkers(places) {
   var bounds = new google.maps.LatLngBounds();
 
   for (var i = 0, place; place = places[i]; i++) {
+    console.log(place);
     var image = {
       url: place.icon,
       size: new google.maps.Size(71, 71),
