@@ -26,15 +26,15 @@
         var attractions = [
           {
             "name": "Kunsthistorisches Museum",
-            "location": new google.maps.LatLng(48.204327, 16.361376)
+            "location": "Kunsthistorisches Museum, Vienna"
           },
           {
             "name": "Historic Center of Vienna",
-            "location": new google.maps.LatLng(48.205036, 16.370039)
+            "location": "Historic Center of Vienna, Vienna"
           },
           {
             "name": "The Third Man Museum",
-            "location": new google.maps.LatLng(48.19618, 16.362602)
+            "location": "The Third Man Museum, Vienna"
           }
         ]
         
@@ -67,8 +67,8 @@ function initialize() {
 }
 
 function calcRoute() {
-  var start = attractions[document.getElementById('start').value].location;
-  var end = attractions[document.getElementById('end').value].location;
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('end').value;
 
 
 
@@ -138,18 +138,22 @@ function calcRoute() {
       <h2>Directions</h2>
       <div style="margin-bottom:8px;"><label style="display:inline-block; width:40px">Start:</label>
       <select id="start" onchange="calcRoute();">
-        <option value="0">Kunsthistorisches Museum</option>
-        <option value="1">Historic Center of Vienna</option>
-        <option value="2">The Third Man Museum</option>
+        <option value="Kunsthistorisches Museum, Vienna">Kunsthistorisches Museum</option>
+        <option value="Historic Center of Vienna, Vienna">Historic Center of Vienna</option>
+        <option value="The Third Man Museum, Vienna">The Third Man Museum</option>
+        <option value="Tiergarten Schoenbrunn, Vienna">Tiergarten Schoenbrunn - Zoo Vienna</option>
         
       </select>
     </div>
     <div>
       <label style="display:inline-block; width:40px">End:</label>
       <select id="end" onchange="calcRoute();">
-        <option value="0">Kunsthistorisches Museum</option>
-        <option value="1">Historic Center of Vienna</option>
-        <option value="2">The Third Man Museum</option>
+        <option value="Kunsthistorisches Museum, Vienna">Kunsthistorisches Museum</option>
+        <option value="Historic Center of Vienna, Vienna">Historic Center of Vienna</option>
+        <option value="The Third Man Museum, Vienna">The Third Man Museum</option>
+        <option value="Tiergarten Schoenbrunn, Vienna">Tiergarten Schoenbrunn - Zoo Vienna</option>
+        
+
         
       </select>
      </div>
