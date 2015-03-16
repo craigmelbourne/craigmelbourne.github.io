@@ -15,7 +15,7 @@
     <script>
         var map, placesList;
         var geocoder = new google.maps.Geocoder();
-        var dest = "Venice";
+        var dest = "Vienna";
         var destination;
         var placeRequest = {}
         
@@ -39,15 +39,15 @@ function initialize() {
 
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     center: placetogo,
-    zoom: 15
+    zoom: 14
   });
     
     
 
   var request = {
     location: placetogo,
-    radius: 1000,
-    types: ['museum', 'art_gallery', 'church']
+    radius: 1000
+    //types: ['point_of_interest']
   };
 
   placesList = document.getElementById('places');
