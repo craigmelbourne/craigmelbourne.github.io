@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Place search pagination</title>
+
+        <!-- Meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <!-- style sheets -->
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/mt-base.css">
+
+        <!-- Roboto font -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <script>
+            var directionsService = new google.maps.DirectionsService();
+            function calcRoute(pa, pb) {
+                var start = $("#itinerary li").eq(pa).attr("rel");
+                var end = $("#itinerary li").eq(pb).attr("rel");
+
+                var request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.TravelMode.WALKING
+                };
+    
+                directionsService.route(request, function(response, status) {
+                    console.log(response)
+                    var duration = response.routes[0].legs[0].duration
+                    var mode = response.nc.travelMode
+                    console.log(status)
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        //directionsDisplay.setDirections(response);
+                        $("#itinerary li").eq(pa).find(".time").text(duration.text + " " + mode)
+                    }
+                });
+            }
+
+            $(function(){
+                //calcRoute(0, 1);
+
+                $("#items li").on("click", function(e){
+                    console.log($(this).attr("rel"))
+                    $("#itinerary").append(
+                        "<li rel='"+ $(this).attr("rel") +"'>"
+                        + "<div class='name'>" + $(this).find("div.name").text() + "</div>"
+                        + "<div class='time'></div>"
+                        + "</li>"
+                    ); 
+
+                    console.log($("#itinerary li").length);
+
+                    calcRoute($("#itinerary li").length-2, $("#itinerary li").length-1);
+                })
+            });
+        </script>
+    </head>
+
+    <body>
+
+        <style type="text/css">
+            body {background-color:#eee;}
+            .name { padding:8px; background-color:#fff;}
+            .time {font-size:12px; margin:8px 0; text-transform: lowercase; text-align: right;}
+
+            #items li {margin-bottom:8px;}
+        </style>
+        <div style="width:240px; display:inline-block; padding:16px; vertical-align:top;">
+            <ul id="itinerary">
+                <li rel="Kunsthistorisches Museum, Vienna">
+                    <div class="name">Kunsthistorisches Museum</div>
+                    <div class="time"></div>
+                </li>
+            </ul>
+        </div>
+
+        <div style="width:240px; display:inline-block; padding:16px; vertical-align:top;">
+            <ul id="items">
+                <li rel="Kunsthistorisches Museum, Vienna">
+                    <div class="name">Kunsthistorisches Museum</div>
+                </li>
+                <li rel="The Third Man Museum, Vienna">
+                    <div class="name">The Third Man Museum</div>
+                </li>
+                <li rel="Tiergarten Schoenbrunn - Zoo Vienna">
+                    <div class="name">Tiergarten Schoenbrunn - Zoo Vienna</div>
+                </li>
+                <li rel="Schonbrunner Gardens, Vienna">
+                    <div class="name">Schonbrunner Gardens</div>
+                </li>
+                <li rel="Schoenbrunn Palace">
+                    <div class="name">Schoenbrunn Palace</div>
+                </li>
+                <li rel="Schlosspark Schonbrunn, Vienna">
+                    <div class="name">Schlosspark Schonbrunn</div>
+                </li>
+                <li rel="Naturhistorisches Museum, Vienna">
+                    <div class="name">Natural History Museum (Naturhistorisches Museum)</div>
+                </li>
+                <li rel="Rathaus, Vienna">
+                    <div class="name">Rathaus</div>
+                </li>
+            </ul>
+        </div>
+        
+
+    </body>
+
+</html>
+  
