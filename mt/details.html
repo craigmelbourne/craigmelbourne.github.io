@@ -14,12 +14,31 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
 		<!-- Scripts -->
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 
 		<script type="text/javascript">
 
+			var map;
+        	var geocoder = new google.maps.Geocoder();
+        	var dest = "Vienna";
+        	var destination;
+
+        	var directionsDisplay;
+			var directionsService = new google.maps.DirectionsService();
+
 			$(function(){
+
+				geocoder.geocode( { 'address': dest}, function(pos, status) {
+        			if (status == google.maps.GeocoderStatus.OK) {
+            			//console.log (pos[0].geometry.location.k + " " + pos[0].geometry.location.B)
+            			destination = pos[0].geometry.location
+            			//map.setCenter(pos[0].geometry.location);
+            			console.log(destination)
+            			//initialize();
+        			}; 
+        		});
 
 				$( "#itinerary-elements ul" ).sortable({
   					placeholder: "empty"
@@ -52,12 +71,7 @@
         						+ "</div></div>"
 
         					)
-        					fetchLocationDetails(poi.location_id);
-
-        					if (poi.wikipedia_info != null) {
-        						console.log("not null");
-        					}
-        					//fetchThumbnail(poi.location_id, poi.)
+        					//fetchLocationDetails(poi.location_id);
         				});
         			}
         			
@@ -68,17 +82,40 @@
 					$(this).addClass("item-selected");
 					var name = $(this).find(".name").text(); 
 					var id = $(this).attr("id");
+					var index = $("#itinerary-elements ul li").length
+					console.log(index);
 					$("#itinerary-elements ul").append(
-						"<li>" + name
+						"<li rel='" + name + "'>" 
+						+ "<div class='name'>" + name + "</div>"
+						+ "<a class='time' rel='" + index + "'></a>"
 						+ "<div class='delete' rel=" + id + " > X </div>"
 						+ "</li>"
 					);
+					//console.log(name)
+					if ($("#itinerary-elements ul li").length >= 2){
+						calcRoute($("#itinerary-elements ul li").length-2, $("#itinerary-elements ul li").length-1);
+					}
+					
 				});
 
 				$("#itinerary-elements ul").on("click", ("li div.delete"), function(){
-					console.log($(this).attr("rel"));
+					//console.log($(this).attr("rel"));
 					$("#list").find("div#" + $(this).attr("rel")).removeClass("item-selected");
 					$(this).closest("li").remove();
+				})
+
+				$("#itinerary-elements ul").on("click", ("li a.time"), function(){
+					$("#directions-window").show();
+					console.log($(this).attr("rel"))
+					initialize($(this).attr("rel"));
+					//var index = $(this).parent().children().index(this);
+					//console.log($(this).attr("rel"));
+				});
+
+				$("#close-map").on("click", function(e){
+					e.preventDefault();
+					$("#directions-window").hide();
+					$("#directions-panel").empty();
 				})
 
 			});
@@ -101,33 +138,66 @@
         			}
         			
         		});
+			}
+
+			function initialize(pos) {
 
 				
+  
+    			directionsDisplay = new google.maps.DirectionsRenderer();
+    			var mapOptions = {
+      				zoom: 13,
+      				center: new google.maps.LatLng(destination.lat(), destination.lng())
+      				//center: new google.maps.LatLng(41.850033, -87.6500523)
+   				 };  
+
+    			var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    			directionsDisplay.setMap(map);
+   				directionsDisplay.setPanel(document.getElementById('directions-panel'));
+
+   				var start = $("#itinerary-elements ul li").eq(parseInt(pos)).attr("rel");
+  				var end = $("#itinerary-elements ul li").eq(parseInt(pos)+1).attr("rel");
+
+  				console.log(pos + " - " + pos+1)
+
+  				var request = {
+    				origin: start,
+    				destination: end,
+    				travelMode: google.maps.TravelMode.WALKING
+  				};
+  
+  				directionsService.route(request, function(response, status) {
+    				//console.log(response)
+    				if (status == google.maps.DirectionsStatus.OK) {
+      					directionsDisplay.setDirections(response);
+					}
+  				});
+
 			}
+			
+            function calcRoute(pa, pb) {
+                var start = $("#itinerary-elements ul li").eq(pa).attr("rel");
+                var end = $("#itinerary-elements ul li").eq(pb).attr("rel");
 
-			function fetchThumbnail(id, wikiid){
+               // console.log(start + " - " + end)
 
-				var wikilink = "https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=thumbnail&pithumbsize=200&rawcontinue=&pageids="+wikiid+"&redirects="
-
-				$.ajax({
-        			//crossDomain: true,
-        			//url: "https://api.eancdn.com/ean-services/rs/hotel/v3/list",
-        			url: wikilink,
-			        type: "GET",
-			        contentType: "application/json; charset=utf-8",
-			        async: false,
-			        dataType : "jsonp",
-					timeout:3000,
- 
-        			success: function( json ) {
-        				console.log(json.query.pages)
-        				//$("#list").find("div#" + id + " div.snippet").text('"' + json.reviews[0].text + '"')
-        			
-        			}
-        			
-        		});
-
-			}
+                var request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.TravelMode.WALKING
+                };
+    
+                directionsService.route(request, function(response, status) {
+                    console.log(response)
+                    var duration = response.routes[0].legs[0].duration
+                    var mode = response.nc.travelMode
+                    console.log(status)
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        //directionsDisplay.setDirections(response);
+                        $("#itinerary-elements ul li").eq(pa).find(".time").text(duration.text + " " + mode)
+                    }
+                });
+            }
 
 		</script>
 
@@ -173,6 +243,35 @@
 
 		</div>
 
+		<style type="text/css">
+			#map-canvas {height:100%;}
+			#results {
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        left: 0px;
+        top: 0;
+        bottom:0;
+        width: 350px;
+        padding: 12px;
+        z-index: 5;
+        background: #fff;
+          overflow-y: scroll;
+      }
+
+      	.adp-directions {width:100%;}
+      .adp-directions td {padding:8px 0;}
+		</style>
+		<div id="directions-window" style="display:none; position:absolute; top:30px; left:0; right:0; bottom:0; background-color:#fff;">
+			
+			<div id="results">
+				<a href="details.html" id="close-map" style="font-size:12px; display:block; margin-bottom:12px;">< Daily planner</a>
+				<div id="directions-panel" style="margin-top:12px; overflow-y:scroll; position:absolute; top:30px; bottom:0; left:12px; right:12px; font-size:14px;"></div>
+			</div>
+
+			<div id="map-wrapper" style="position:absolute; top:0px; left:360px; right:0; bottom:0;">
+      			<div id="map-canvas"></div>
+    		</div>
+		</div>
 		
 
 		
