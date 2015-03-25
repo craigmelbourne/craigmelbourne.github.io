@@ -22,13 +22,24 @@
 
 			var map;
         	var geocoder = new google.maps.Geocoder();
-        	var dest = "Vienna";
+        	var dest = "New York";
         	var destination;
+        	var taDestination;
+        	var ta = ["190454", "60763", "186338", "187147", "32655"]
 
         	var directionsDisplay;
 			var directionsService = new google.maps.DirectionsService();
 
 			$(function(){
+
+				console.log(getParameterByName("destination"));
+
+				if (getParameterByName("destination") == ""){
+					taDestination = ta[0]
+				} else {
+					console.log("false");
+					taDestination = ta[getParameterByName("destination")];
+				}
 
 				geocoder.geocode( { 'address': dest}, function(pos, status) {
         			if (status == google.maps.GeocoderStatus.OK) {
@@ -48,7 +59,7 @@
 				$.ajax({
         			crossDomain: true,
         			//url: "https://api.eancdn.com/ean-services/rs/hotel/v3/list",
-        			url: "http://api.tripadvisor.com/api/partner/2.0/location/190454/attractions?subcategory=other&key=ebf73cf58f37431baa30d8cf98bd0884",
+        			url: "http://api.tripadvisor.com/api/partner/2.0/location/" + taDestination + "/attractions?subcategory=other&key=ebf73cf58f37431baa30d8cf98bd0884",
 			        type: "GET",
 			        dataType : "json",
 					timeout:3000,
@@ -190,7 +201,7 @@
                 directionsService.route(request, function(response, status) {
                     console.log(response)
                     var duration = response.routes[0].legs[0].duration
-                    var mode = response.nc.travelMode
+                    var mode = "walking";
                     console.log(status)
                     if (status == google.maps.DirectionsStatus.OK) {
                         //directionsDisplay.setDirections(response);
@@ -198,6 +209,13 @@
                     }
                 });
             }
+
+            function getParameterByName(name) {
+    			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        		results = regex.exec(location.search);
+    			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
 
 		</script>
 
@@ -235,7 +253,7 @@
 				<div style="margin-left:18px;" id="list">
 					<img src="i/details_trip.png" />
 					<h3 style="margin:0 0 18px 0;">
-						Top 10 attractions in Vienna
+						Top 10 attractions
 					</h3>
 					
 					
