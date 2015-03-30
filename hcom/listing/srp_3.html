@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+		<title>SRP Mobile</title>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="../hcom-services.js"></script>
+		<!--<script src="srp.js"></script>-->
+
+		<script type="text/javascript">
+
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="srp.css">
+
+		<style type="text/css">
+
+			#page-wrapper {background-color:#fff; min-height:500px;}
+			#header {background-color:#E84C3D; height:50px;}
+#list .hotel {padding:12px 0 12px 12px; border-bottom:solid 1px #eee;}
+#list .hotel {overflow:hidden;}
+
+
+
+			.hotel .top-row {overflow:hidden;}
+			.hotel .top-row .image{width:100px; float:left;}
+			.hotel .top-row .image img {max-width:100%;}
+			.hotel .details {width:100%; padding:0 0 0 0;}
+			.hotel .details .name {font-size:14px; margin: 0 0 0px 0;}
+			.hotel .details .stars {font-size:13px; color:#d41200;}
+			.hotel .details .stars .grey {font-size:13px; color:#999;}
+			.hotel .details .neighbourhood {font-size:13px}
+
+			.hotel .images-wrapper {overflow:hidden; margin:6px 0;}
+			.hotel .images-wrapper .image {float:left; width:33.33%; box-sizing:border-box; padding-right:12px;}
+			.hotel .images-wrapper .image div {height:55px; overflow: hidden;}
+			.hotel .images-wrapper .image div img {max-width:100%;}
+
+
+			.hotel .bottom-row {overflow:hidden;}
+			.hotel .bottom-row .qual {width:33.33%; text-align:center; padding:0 0 6px 0; float:left; box-sizing:border-box;}
+			.hotel .bottom-row .qual .badge {font-size:12px; padding:3px 0;}
+			.hotel .bottom-row .qual .qual-wrapper {padding-right:12px;}
+			.hotel .bottom-row .qual .score {font-size:16px; font-weight:bold; margin:3px 0;}
+			.hotel .bottom-row .qual .reviews {font-size:11px; color:#999;}
+			.hotel .bottom-row .price { text-align:right; float:left:66.66%; box-sizing:border-box; padding-right:12px;}
+			.hotel .bottom-row .price .total {font-size:20px; color:#d41200; font-weight:bold;}
+			.hotel .bottom-row .price .strikethrough {font-size:13px; color:#555; text-decoration: line-through;}
+			.hotel .bottom-row .price .taxes {font-size:11px; color:#999; padding:3px 0 0 0;}
+			.hotel .bottom-row .price .badge {font-size:12px; color:#d41200; padding:3px 0;}
+			.hotel .bottom-row .price .specialdeal {margin-bottom:3px;}
+			.hotel .bottom-row .price .specialdeal .label {font-size:12px; color:#d41200; padding:3px 0; display:inline-block; padding:3px;}
+			.hotel .bottom-row .price .specialdeal .highlight {display:inline-block; background-color: #d41200; color:#fff; padding:3px; font-weight:bold;font-size:12px; }
+		</style>
+
+
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+			<div id="header">
+			</div>
+
+			<div id="list">
+
+				<div class="hotel">
+					<div class="details">
+						<div class="name"><a href="#">Corinthia Hotel London</a></div> 
+						<div><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="neighbourhood">West End</span></div>
+					</div>
+					<div class="images-wrapper">
+
+						<div class="image">
+							<div>
+								<img src="http://exp.cdn-hotels.com/hotels/4000000/3850000/3849200/3849185/3849185_68_e.jpg" />
+							</div>
+						</div>
+						<div class="image">
+							<div><img src="http://exp.cdn-hotels.com/hotels/4000000/3850000/3849200/3849185/3849185_65_b.jpg" />
+							</div>
+						</div>
+						<div class="image">
+							<div><img src="http://exp.cdn-hotels.com/hotels/4000000/3850000/3849200/3849185/3849185_30_b.jpg" />
+							</div>
+						</div>
+	
+					</div>
+
+					<div class="bottom-row">
+						<div class="qual">
+							<div class="qual-wrapper">
+								<div class="badge">Outstanding</div>
+								<div class="score">4.9 / 5</div>
+								<div class="reviews">(230 reviews)</div>
+							</div>
+						</div>
+						<div class="price">
+							<div class="badge">Great rate</div>
+							<div><span class="strikethrough">$1,014</span> <span class="total">$438</span>  </div>
+							<div class="taxes">price for 1 night including taxes and fees</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="hotel">
+					<div class="details">
+						<div class="name"><a href="#">Park Plaza Westminster Bridge London</a></div> 
+						<div><span class="stars">&#9733;&#9733;&#9733;&#9733;<span class="grey">&#9733;</span></span>  <span class="neighbourhood">South Bank</span></div>
+					</div>
+					<div class="images-wrapper">
+
+						<div class="image">
+							<div>
+								<img src="http://exp.cdn-hotels.com/hotels/4000000/3120000/3113100/3113039/3113039_31_b.jpg" />
+							</div>
+						</div>
+						<div class="image">
+							<div><img src="http://exp.cdn-hotels.com/hotels/4000000/3120000/3113100/3113039/3113039_48_b.jpg" />
+							</div>
+						</div>
+						<div class="image">
+							<div><img src="http://exp.cdn-hotels.com/hotels/4000000/3120000/3113100/3113039/3113039_32_b.jpg" />
+							</div>
+						</div>
+	
+					</div>
+
+					<div class="bottom-row">
+						<div class="qual">
+							<div class="qual-wrapper">
+								<div class="badge">Excellent</div>
+								<div class="score">4.5 / 5</div>
+								<div class="reviews">(230 reviews)</div>
+							</div>
+						</div>
+						<div class="price">
+							<div class="specialdeal"> <span class="highlight">Special Deal</span></div>
+							<div><span class="strikethrough">$229</span> <span class="total">$206</span>  </div>
+							<div class="taxes">price for 1 night including taxes and fees</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="hotel">
+					<div class="details">
+						<div class="name"><a href="#">The Kensington Close Hotel & Spa</a></div> 
+						<div><span class="stars">&#9733;&#9733;&#9733;&#9733;<span class="grey">&#9733;</span></span>  <span class="neighbourhood">Kensington</span></div>
+					</div>
+					<div class="images-wrapper">
+
+						<div class="image">
+							<div>
+								<img src="http://exp.cdn-hotels.com/hotels/1000000/10000/9800/9789/9789_76_e.jpg" />
+							</div>
+						</div>
+						<div class="image">
+							<div><img src="http://exp.cdn-hotels.com/hotels/1000000/10000/9800/9789/9789_98_b.jpg" />
+							</div>
+						</div>
+						<div class="image">
+							<div><img src="http://exp.cdn-hotels.com/hotels/1000000/10000/9800/9789/9789_241_b.jpg" />
+							</div>
+						</div>
+	
+					</div>
+
+					<div class="bottom-row">
+						<div class="qual">
+							<div class="qual-wrapper">
+								<div class="badge">Good</div>
+								<div class="score">3.6 / 5</div>
+								<div class="reviews">(230 reviews)</div>
+							</div>
+						</div>
+						<div class="price">
+							<div class="specialdeal"> <span class="highlight">Special Deal</span></div>
+							<div><span class="strikethrough">$160</span> <span class="total">$125</span>  </div>
+							<div class="taxes">price for 1 night including taxes and fees</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="hotel">
+					<div class="details">
+						<div class="name"><a href="#">Millennium Gloucester Hotel London Kensington</a></div> 
+						<div><span class="stars">&#9733;&#9733;&#9733;&#9733;<span class="grey">&#9733;</span></span>  <span class="neighbourhood">Kensington</span></div>
+					</div>
+					<div class="images-wrapper">
+
+						<div class="image">
+							<div>
+								<img src="http://exp.cdn-hotels.com/hotels/1000000/530000/523300/523228/523228_94_e.jpg" />
+							</div>
+						</div>
+						<div class="image">
+							<div><img src="http://exp.cdn-hotels.com/hotels/1000000/530000/523300/523228/523228_135_b.jpg" />
+							</div>
+						</div>
+						<div class="image">
+							<div><img src="http://exp.cdn-hotels.com/hotels/1000000/530000/523300/523228/523228_102_b.jpg" />
+							</div>
+						</div>
+	
+					</div>
+
+					<div class="bottom-row">
+						<div class="qual">
+							<div class="qual-wrapper">
+								<div class="badge">Excellent</div>
+								<div class="score">4.1 / 5</div>
+								<div class="reviews">(230 reviews)</div>
+							</div>
+						</div>
+						<div class="price">
+							<div class="badge">Great rate</div>
+							<div><span class="strikethrough">$406</span> <span class="total">$128</span>  </div>
+							<div class="taxes">price for 1 night including taxes and fees</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="hotel">
+					<div class="details">
+						<div class="name"><a href="#">Park Plaza County Hall London</a></div> 
+						<div><span class="stars">&#9733;&#9733;&#9733;&#9733;<span class="grey">&#9733;</span></span>  <span class="neighbourhood">South Bank</span></div>
+					</div>
+					<div class="images-wrapper">
+
+						<div class="image">
+							<div>
+								<img src="http://exp.cdn-hotels.com/hotels/2000000/1750000/1742200/1742184/1742184_75_b.jpg" />
+							</div>
+						</div>
+						<div class="image">
+							<div><img src="http://exp.cdn-hotels.com/hotels/2000000/1750000/1742200/1742184/1742184_88_b.jpg" />
+							</div>
+						</div>
+						<div class="image">
+							<div><img src="http://exp.cdn-hotels.com/hotels/2000000/1750000/1742200/1742184/1742184_61_b.jpg" />
+							</div>
+						</div>
+	
+					</div>
+
+					<div class="bottom-row">
+						<div class="qual">
+							<div class="qual-wrapper">
+								<div class="badge">Excellent</div>
+								<div class="score">4.5 / 5</div>
+								<div class="reviews">(230 reviews)</div>
+							</div>
+						</div>
+						<div class="price">
+							<div class="specialdeal"> <span class="highlight">Special Deal</span></div>
+							<div><span class="strikethrough">$199</span> <span class="total">$179</span>  </div>
+							<div class="taxes">price for 1 night including taxes and fees</div>
+						</div>
+					</div>
+				</div>
+
+				<!--<div class="hotel">
+					<div class="top-row">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/4000000/3120000/3113100/3113039/3113039_116_e.jpg" />
+						</div>
+						<div class="details">
+							<div class="name"><a href="#">Park Plaza Westminster Bridge London</a></div> 
+							<div><span class="stars">&#9733;&#9733;&#9733;&#9733;<span class="grey">&#9733;</span></span> <span class="neighbourhood">South Bank</span></div>
+							
+						</div>
+					</div>
+
+					<div class="bottom-row">
+						<div class="qual">
+							<div class="badge">Excellent</div>
+							<div class="score">4.5 / 5</div>
+							<div class="reviews">(230 reviews)</div>
+						</div>
+						<div class="price">
+							<div class="specialdeal"><span class="highlight">Special Deal</span><span class="label">Book early and save 10%</span> </div>
+							<div><span class="total">$206</span> <span class="strikethrough">$229</span> </div>
+							<div class="taxes">price for 1 night including taxes and fees</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="hotel">
+					<div class="top-row">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/1000000/530000/523300/523228/523228_94_e.jpg" />
+						</div>
+						<div class="details">
+							<div class="name"><a href="#">Millennium Gloucester Hotel London Kensington</a></div> 
+							<div><span class="stars">&#9733;&#9733;&#9733;&#9733;<span class="grey">&#9733;</span></span> <span class="neighbourhood">Kensington</span></div>
+							
+						</div>
+					</div>
+
+					<div class="bottom-row">
+						<div class="qual">
+							<div class="badge">Excellent</div>
+							<div class="score">4.1 / 5</div>
+							<div class="reviews">(230 reviews)</div>
+						</div>
+						<div class="price">
+							<div class="badge">Great rate</div>
+							<div><span class="total">$122</span> <span class="strikethrough">$281</span> </div>
+							<div class="taxes">price for 1 night including taxes and fees</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="hotel">
+					<div class="top-row">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/1000000/10000/9800/9789/9789_76_e.jpg" />
+						</div>
+						<div class="details">
+							<div class="name"><a href="#">The Kensington Close Hotel & Spa</a></div> 
+							<div><span class="stars">&#9733;&#9733;&#9733;&#9733;<span class="grey">&#9733;</span></span> <span class="neighbourhood">Kensington</span></div>
+							
+						</div>
+					</div>
+
+					<div class="bottom-row">
+						<div class="qual">
+							<div class="badge">Good</div>
+							<div class="score">3.8 / 5</div>
+							<div class="reviews">(230 reviews)</div>
+						</div>
+						<div class="price">
+							<div class="specialdeal"><span class="highlight">Special Deal</span> <span class="label">Save 25%</span> </div>
+							<div><span class="total">$125</span> <span class="strikethrough">$160</span> </div>
+							<div class="taxes">price for 1 night including taxes and fees</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="hotel">
+					<div class="top-row">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/1000000/30000/26200/26145/26145_156_e.jpg" />
+						</div>
+						<div class="details">
+							<div class="name"><a href="#">Copthorne Tara Hotel London Kensington</a></div> 
+							<div><span class="stars">&#9733;&#9733;&#9733;&#9733;<span class="grey">&#9733;</span></span> <span class="neighbourhood">Kensington</span></div>
+							
+						</div>
+					</div>
+
+					<div class="bottom-row">
+						<div class="qual">
+							<div class="badge">Good</div>
+							<div class="score">3.8 / 5</div>
+							<div class="reviews">(230 reviews)</div>
+						</div>
+						<div class="price">
+							<div class="badge">Great rate</div>
+							<div><span class="total">$133</span> <span class="strikethrough">$189</span> </div>
+							<div class="taxes">price for 1 night including taxes and fees</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="hotel">
+					<div class="top-row">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/1000000/30000/27200/27158/27158_88_e.jpg" />
+						</div>
+						<div class="details">
+							<div class="name"><a href="#">The Savoy, A Fairmont Managed Hotel</a></div> 
+							<div><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="neighbourhood">West End</span></div>
+							
+						</div>
+					</div>
+
+					<div class="bottom-row">
+						<div class="qual">
+							<div class="badge">Outstanding</div>
+							<div class="score">4.8 / 5</div>
+							<div class="reviews">(230 reviews)</div>
+						</div>
+						<div class="price">
+							<div class="specialdeal"><span class="highlight">Special Deal</span> <span class="label">Save 15% on this stay</span> </div>
+							<div><span class="total">$362</span> <span class="strikethrough">$415</span> </div>
+							<div class="taxes">price for 1 night including taxes and fees</div>
+						</div>
+					</div>
+				</div>
+
+			</div>-->
+
+		</div>
+	</body>
+</html>
