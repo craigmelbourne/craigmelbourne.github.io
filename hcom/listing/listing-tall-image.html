@@ -11,18 +11,18 @@
 
 		<style type="text/css">
 			.hotel {border-bottom:solid 1px #eee; margin:8px; position:relative; padding:0 0 8px;}
-			.hotel .thumbnail {position:absolute; top:0; left:0; bottom:6px; width:30%; text-align: center; overflow: hidden;}
+			.hotel .thumbnail {position:absolute; top:0; left:0; bottom:6px; width:25%; text-align: center; overflow: hidden;}
 			.hotel .thumbnail img { position: relative; left: 100%; margin-left: -200%; height:100%;}
-			.hotel .name {margin-left:30%; padding:0 8px 4px; font-size:12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
-			.hotel .stars { margin-left:30%; padding:1px 8px 0; vertical-align: top; font-size:12px; color: #D41200}
+			.hotel .name {margin-left:25%; margin-right:60px; padding:0 8px 4px; font-size:12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+			.hotel .stars { margin-left:25%; vertical-align: top; font-size:12px; color: #D41200; padding:0 8px 4px;}
 			.hotel .stars span {color:#999;}
-			.hotel .neighbourhood {padding:0; vertical-align: top; font-size:12px; margin-left:30%; padding:4px 8px;}
-			.hotel .qual {margin-left:30%;font-weight:bold; font-size:12px; background-color:#fff; padding:0 8px;}
-			.hotel .price {text-align:right; margin-left:40%; }
+			.hotel .neighbourhood {padding:0; vertical-align: top; font-size:12px; margin-left:25%; padding:0 8px 4px;}
+			.hotel .qual {position:absolute; top:-2px; right:0; padding:0; font-weight:bold; font-size:12px; background-color:#fff; width:60px; text-align:right; line-height: 16px}
+			.hotel .price {text-align:right; margin-left:40%; padding-top:4px;}
 
-			.hotel .price .badge {margin-bottom:4px; position:absolute; top:8px; left:-4px; max-width:25%; text-align:left;}
-			.hotel .price .great { padding:4px; color:#D41200; font-weight:bold; font-size:12px; background-color: #fff;}
-			.hotel .price .special {padding:4px; background-color:#D41200; color:#fff; font-weight:bold; font-size:12px;}
+			.hotel .price .badge {display:inline-block;}
+			.hotel .price .great { padding:4px 0 ; color:#D41200; font-weight:bold; font-size:12px; background-color: #fff;}
+			.hotel .price .special {padding:4px; background-color:#D41200; color:#fff; font-weight:bold; font-size:11px; margin-bottom:4px;}
 			.hotel .price .total {font-size:16px; font-weight:bold;}
 			.hotel .price .strikethrough {font-size:12px; color:#555; text-decoration: line-through;}
 			.hotel .price .red {color:#D41200; margin:0 0 4px;}
@@ -80,7 +80,7 @@
 				<div class="neighbourhood">Broadway - Times Square</div>
 				<div class="qual">Excellent 4.1/5</div>
 				<div class="price">
-					<div class="badge special">Special deal</div>
+					<div class="badge special">24 hour deal: Save 39%</div>
 					<div class="total red"> <span class="strikethrough">$275</span> $150</div>
 					<div class="nights">price for 1 night</div>
 					<div class="nights">$175 including taxes and fees</div>
@@ -96,7 +96,7 @@
 				<div class="neighbourhood">Broadway - Times Square</div>
 				<div class="qual">Excellent 4.0/5</div>
 				<div class="price">
-					<div class="badge special">Special deal</div>
+					<div class="badge special">Seasonal deal: Save 20%</div>
 					<div class="total red"> <span class="strikethrough">$199</span> $140</div>
 					<div class="nights">price for 1 night</div>
 					<div class="nights">$164 including taxes and fees</div>
