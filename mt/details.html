@@ -17,76 +17,51 @@
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+		<script src="tabletop.js"></script>
 
 		<script type="text/javascript">
 
-			var map;
-        	var geocoder = new google.maps.Geocoder();
-        	var dest = "New York";
-        	var destination;
-        	var taDestination;
-        	var ta = ["190454", "60763", "186338", "187147", "32655"]
-
-        	var directionsDisplay;
-			var directionsService = new google.maps.DirectionsService();
+			
 
 			$(function(){
 
-				console.log(getParameterByName("destination"));
-
-				if (getParameterByName("destination") == ""){
-					taDestination = ta[0]
-				} else {
-					console.log("false");
-					taDestination = ta[getParameterByName("destination")];
-				}
-
-				geocoder.geocode( { 'address': dest}, function(pos, status) {
-        			if (status == google.maps.GeocoderStatus.OK) {
-            			//console.log (pos[0].geometry.location.k + " " + pos[0].geometry.location.B)
-            			destination = pos[0].geometry.location
-            			//map.setCenter(pos[0].geometry.location);
-            			console.log(destination)
-            			//initialize();
-        			}; 
-        		});
+				Tabletop.init( { key: '1OyBSRHM5jfeHGqiFSdAHikPP0MBBNfw1k4epiF7Nib0',
+                   callback: function(data, tabletop) {displayList (data) },
+                   simpleSheet: false } );
 
 				$( "#itinerary-elements ul" ).sortable({
   					placeholder: "empty"
 				});
     			$( "#itinerary-elements ul" ).disableSelection();
 
-				$.ajax({
-        			crossDomain: true,
-        			//url: "https://api.eancdn.com/ean-services/rs/hotel/v3/list",
-        			url: "http://api.tripadvisor.com/api/partner/2.0/location/" + taDestination + "/attractions?subcategory=other&key=ebf73cf58f37431baa30d8cf98bd0884",
-			        type: "GET",
-			        dataType : "json",
-					timeout:3000,
- 
-        			success: function( json ) {
-        				
-        				var list = json.data
-        				console.log(list);
+				var displayList = function(data){
+					console.log(data);
+					console.log(data.Attractions.elements)
 
-        				$.each(list, function(i, poi) {
-        					console.log(poi.name);
+					$.each(data.Attractions.elements, function(i, poi) {
+						console.log(poi.Title)
+					});
+
+					$.each(data.Attractions.elements, function(i, poi) {
+        					console.log(poi.Title);
         					$("#list").append(
-        						"<div class='item' id='" + poi.location_id + "'><div>" 
-        						+ "<div class='name' style='margin-bottom:6px;'>" + poi.name + "</div>"
-        						+ "<div class='snippet'></div>"
-        						+ "<div style='position:absolute; bottom:8px; left:8px;'>"
-        						+ "<div style='font-size:12px'><img src='" + poi.rating_image_url + "' style='height:14px'/> (" + poi.num_reviews + ") reviews</div>"
-        						+ "<div style='font-size:12px'>" + poi.percent_recommended + "% recommended</div>"
+        						"<div class='item' id='" + poi.ID + "'><div>" 
+        						+ "<div class='image'></div>"
+        						+ "<div class='name' style='margin-bottom:6px;'>" + poi.Title + "</div>"
+        						+ "<div class='snippet'>" + poi.Description + "</div>"
+        						+ "<div style='overflow:hidden; margin-top:8px'>"
+        						+ "<div style='font-size:12px; float:left;'>" + poi.Rating + " (" + poi.Reviewers + ") reviews</div>"
+        						+ "<div style='font-size:12px; float:right;'>" + poi.Percent_Rec + "% recommended</div>"
         						+ "</div>"
         						+ "</div></div>"
 
         					)
-        					fetchLocationDetails(poi.location_id);
+        					//fetchLocationDetails(poi.location_id);
         				});
-        			}
-        			
-        		});
+				}
+
+
+
 
 				$("#list").on("click", "div.item", function(){
 					console.log($(this).attr("id"));
@@ -131,91 +106,11 @@
 
 			});
 
-			function fetchLocationDetails(id){
-				var apiLink = "http://api.tripadvisor.com/api/partner/2.0/location/"+id+"?key=ebf73cf58f37431baa30d8cf98bd0884"
-
-				$.ajax({
-        			crossDomain: true,
-        			//url: "https://api.eancdn.com/ean-services/rs/hotel/v3/list",
-        			url: apiLink,
-			        type: "GET",
-			        dataType : "json",
-					timeout:3000,
- 
-        			success: function( json ) {
-        				console.log(json.reviews[0].text)
-        				$("#list").find("div#" + id + " div.snippet").text('"' + json.reviews[0].text + '"')
-        			
-        			}
-        			
-        		});
-			}
-
-			function initialize(pos) {
-
-				
-  
-    			directionsDisplay = new google.maps.DirectionsRenderer();
-    			var mapOptions = {
-      				zoom: 13,
-      				center: new google.maps.LatLng(destination.lat(), destination.lng())
-      				//center: new google.maps.LatLng(41.850033, -87.6500523)
-   				 };  
-
-    			var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    			directionsDisplay.setMap(map);
-   				directionsDisplay.setPanel(document.getElementById('directions-panel'));
-
-   				var start = $("#itinerary-elements ul li").eq(parseInt(pos)).attr("rel");
-  				var end = $("#itinerary-elements ul li").eq(parseInt(pos)+1).attr("rel");
-
-  				console.log(pos + " - " + pos+1)
-
-  				var request = {
-    				origin: start,
-    				destination: end,
-    				travelMode: google.maps.TravelMode.WALKING
-  				};
-  
-  				directionsService.route(request, function(response, status) {
-    				//console.log(response)
-    				if (status == google.maps.DirectionsStatus.OK) {
-      					directionsDisplay.setDirections(response);
-					}
-  				});
-
-			}
 			
-            function calcRoute(pa, pb) {
-                var start = $("#itinerary-elements ul li").eq(pa).attr("rel");
-                var end = $("#itinerary-elements ul li").eq(pb).attr("rel");
 
-               // console.log(start + " - " + end)
-
-                var request = {
-                    origin: start,
-                    destination: end,
-                    travelMode: google.maps.TravelMode.WALKING
-                };
-    
-                directionsService.route(request, function(response, status) {
-                    console.log(response)
-                    var duration = response.routes[0].legs[0].duration
-                    var mode = "walking";
-                    console.log(status)
-                    if (status == google.maps.DirectionsStatus.OK) {
-                        //directionsDisplay.setDirections(response);
-                        $("#itinerary-elements ul li").eq(pa).find(".time").text(duration.text + " " + mode)
-                    }
-                });
-            }
-
-            function getParameterByName(name) {
-    			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        		results = regex.exec(location.search);
-    			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-			}
+			
+			
+            
 
 		</script>
 
@@ -251,10 +146,7 @@
 				</div>
 
 				<div style="margin-left:18px;" id="list">
-					<img src="i/details_trip.png" />
-					<h3 style="margin:0 0 18px 0;">
-						Top 10 attractions
-					</h3>
+					
 					
 					
 				</div>

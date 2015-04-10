@@ -21,8 +21,17 @@
 
 			$(function(){
 				Tabletop.init( { key: '1OyBSRHM5jfeHGqiFSdAHikPP0MBBNfw1k4epiF7Nib0',
-                   callback: function(data, tabletop) { console.log(data) },
-                   simpleSheet: true } )
+                   callback: function(data, tabletop) {displayList (data) },
+                   simpleSheet: false } );
+
+				var displayList = function(data){
+					console.log(data);
+					console.log(data.Attractions.elements)
+
+					$.each(data.Attractions.elements, function(i, poi) {
+						console.log(poi.Title)
+					});
+				}
 			});
 
 		</script>
