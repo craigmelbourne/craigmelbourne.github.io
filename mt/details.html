@@ -21,7 +21,10 @@
 
 		<script type="text/javascript">
 
-			
+			var attractions;
+			var activities;
+			var hotels;
+			var restaurants;
 
 			$(function(){
 
@@ -36,34 +39,94 @@
 
 				var displayList = function(data){
 					console.log(data);
-					console.log(data.Attractions.elements)
+					//console.log(data.Attractions.elements)
 
-					$.each(data.Attractions.elements, function(i, poi) {
-						console.log(poi.Title)
-					});
+					attractions = data.Attractions.elements;
+					activities = data.Activities.elements;
+					restaurants = data.Restaurants.elements;
+					hotels = data.Hotels.elements;
 
-					$.each(data.Attractions.elements, function(i, poi) {
-        					console.log(poi.Title);
-        					$("#list").append(
-        						"<div class='item' id='" + poi.ID + "'><div>" 
-        						+ "<div class='image'></div>"
-        						+ "<div class='name' style='margin-bottom:6px;'>" + poi.Title + "</div>"
-        						+ "<div class='snippet'>" + poi.Description + "</div>"
-        						+ "<div style='overflow:hidden; margin-top:8px'>"
-        						+ "<div style='font-size:12px; float:left;'>" + poi.Rating + " (" + poi.Reviewers + ") reviews</div>"
-        						+ "<div style='font-size:12px; float:right;'>" + poi.Percent_Rec + "% recommended</div>"
-        						+ "</div>"
-        						+ "</div></div>"
+					console.log(activities);
+					console.log(restaurants);
+					console.log(hotels);
 
-        					)
-        					//fetchLocationDetails(poi.location_id);
-        				});
+					$.each(attractions, function(i, attraction) {
+       					//console.log(poi.Title);
+       					$("#attractions").append(
+        					"<div class='item' id='" + attraction.ID + "'><div>" 
+        					+ "<div class='image'><img src='" + attraction.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
+        					+ "<div class='name' style='margin-bottom:6px;'>" + attraction.Title + "</div>"
+        					+ "<div class='snippet'>" + attraction.Description + "</div>"
+        					+ "<div style='overflow:hidden; margin-top:8px'>"
+        					+ "<div style='font-size:12px; float:left;'>" + attraction.Rating + " (" + attraction.Reviewers + ") reviews</div>"
+        					+ "<div style='font-size:12px; float:right;'>" + attraction.Percent_Rec + "% recommended</div>"
+        					+ "</div>"
+        					+ "<input type='hidden' name='latlong' value='" + attraction.Lat_Long +"' />"
+        					+ "</div></div>"
+        				)
+        			});
+
+        			$.each(activities, function(i, activity) {
+       					//console.log(poi.Title);
+       					$("#activities").append(
+        					"<div class='item' id='" + activity.ID + "'><div>" 
+        					+ "<div class='image'><img src='" + activity.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
+        					+ "<div class='name' style='margin-bottom:6px;'>" + activity.Title + "</div>"
+        					+ "<div class='snippet'>" + activity.Description + "</div>"
+        					+ "<div style='overflow:hidden; margin-top:8px'>"
+        					+ "<div style='font-size:12px; float:left;'>" + activity.Rating + " (" + activity.Reviewers + ") reviews</div>"
+        					+ "<div style='font-size:12px; float:right;'>" + activity.Percent_Rec + "% recommended</div>"
+        					+ "</div>"
+        					+ "<input type='hidden' name='latlong' value='" + activity.Lat_Long +"' />"
+        					+ "</div></div>"
+        				)
+        			});
+
+        			$.each(hotels, function(i, hotel) {
+       					//console.log(poi.Title);
+       					$("#hotels").append(
+        					"<div class='item' id='" + hotel.ID + "'><div>" 
+        					+ "<div class='image'><img src='" + hotel.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
+        					+ "<div class='name' style='margin-bottom:6px;'>" + hotel.Title + "</div>"
+        					+ "<div class='snippet'>" + hotel.Description + "</div>"
+        					+ "<div style='overflow:hidden; margin-top:8px'>"
+        					+ "<div style='font-size:12px; float:left;'>" + hotel.Rating + " (" + hotel.Reviewers + ") reviews</div>"
+        					+ "<div style='font-size:12px; float:right;'>" + hotel.Percent_Rec + "% recommended</div>"
+        					+ "</div>"
+        					+ "<input type='hidden' name='latlong' value='" + hotel.Lat_Long +"' />"
+        					+ "</div></div>"
+        				)
+        			});
+
+        			$.each(restaurants, function(i, restaurant) {
+       					//console.log(poi.Title);
+       					$("#restaurants").append(
+        					"<div class='item' id='" + restaurant.ID + "'><div>" 
+        					+ "<div class='image'><img src='" + restaurant.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
+        					+ "<div class='name' style='margin-bottom:6px;'>" + restaurant.Title + "</div>"
+        					+ "<div class='snippet'>" + restaurant.Description + "</div>"
+        					+ "<div style='overflow:hidden; margin-top:8px'>"
+        					+ "<div style='font-size:12px; float:left;'>" + restaurant.Rating + " (" + restaurant.Reviewers + ") reviews</div>"
+        					+ "<div style='font-size:12px; float:right;'>" + restaurant.Percent_Rec + "% recommended</div>"
+        					+ "</div>"
+        					+ "<input type='hidden' name='latlong' value='" + restaurant.Lat_Long +"' />"
+        					+ "</div></div>"
+        				)
+        			});
 				}
 
 
+				$("#poi-menu li a").on("click", function(e){
+					e.preventDefault();
+					var selected = $(this).attr("rel");
+					$("#poi-menu li a.selected").removeClass("selected");
+					
+					$(this).addClass("selected");
+					$(".list").hide();
+					$("#" + selected).show();
+				})
 
-
-				$("#list").on("click", "div.item", function(){
+				$(".list").on("click", "div.item", function(){
 					console.log($(this).attr("id"));
 					$(this).addClass("item-selected");
 					var name = $(this).find(".name").text(); 
@@ -139,16 +202,38 @@
 			
 		</div>
 
+		<style type="text/css">
+			#poi-menu {overflow:hidden; margin-left:10px;}
+			#poi-menu li {float:left;}
+			#poi-menu li a {display:block; padding:8px;}
+			#poi-menu li a.selected {font-weight:bold;}
+		</style>
+
 		<div id="content" class="panel">
 				
 				<div style="height:100px; padding:18px">
 					<h1 style="font-size:24px;">Airport first?</h1>
 				</div>
+				<div>
+					<ul id="poi-menu">
+						<li><a href="#" rel="attractions" class="selected">Attractions</a></li>
+						<li><a href="#" rel="activities">Activities</a></li>
+						<li><a href="#" rel="hotels">Hotels</a></li>
+						<li><a href="#" rel="restaurants">Restaurants</a></li>
+					</ul>
+				</div>
+				<div style="margin-left:18px;" id="attractions" class="list">
+				</div>
 
-				<div style="margin-left:18px;" id="list">
-					
-					
-					
+				<div style="margin-left:18px; display:none;" id="activities" class="list">
+				</div>
+
+				
+
+				<div style="margin-left:18px; display:none;" id="hotels" class="list">
+				</div>
+
+				<div style="margin-left:18px; display:none;" id="restaurants" class="list">
 				</div>
 
 		</div>
