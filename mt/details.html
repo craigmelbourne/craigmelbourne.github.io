@@ -28,6 +28,12 @@
 
 			$(function(){
 
+				$(".airports li#heathrow").on("click", function(){
+					$("li[rel=home] a.time").show();
+					$("li[rel=htr]").show();
+					$("li[rel=cdg]").show();
+				})
+
 				Tabletop.init( { key: '1OyBSRHM5jfeHGqiFSdAHikPP0MBBNfw1k4epiF7Nib0',
                    callback: function(data, tabletop) {displayList (data) },
                    simpleSheet: false } );
@@ -196,8 +202,22 @@
 			</div>
 			<div id="itinerary-elements">
 				<ul>
+					<li rel='home'>
+						<div class='name'>Home</div>
+						<a class='time' rel='' style="display:none;">55 min taxi</a>
+						<!--<div class='delete' rel="" > X </div>-->
+					</li>
+					<li rel='htr' style="display:none;">
+						<div class='name'>Heathrow</div>
+						<a class='time' rel=''>1hr 10min flight</a>
+						<!--<div class='delete' rel="" > X </div>-->
+					</li>
+					<li rel='cdg' style="display:none;">
+						<div class='name'>Charles de Gaulle</div>
+						<a class='time' rel=''></a>
+						<!--<div class='delete' rel="" > X </div>-->
+					</li>
 				</ul>
-				<div class="empty">Add things to your itinerary</div>
 			</div>
 			
 		</div>
@@ -207,13 +227,35 @@
 			#poi-menu li {float:left;}
 			#poi-menu li a {display:block; padding:8px;}
 			#poi-menu li a.selected {font-weight:bold;}
+			.airports {overflow:hidden; margin-top:16px;}
+			.airports li {float:left; text-align: center; width:25%;}
+			.airports li#heathrow:hover {cursor: pointer;}
 		</style>
 
 		<div id="content" class="panel">
 				
-				<div style="height:100px; padding:18px">
+				<div style="min-height:100px; padding:16px; margin:16px; background-color:#fff;">
 					<h1 style="font-size:24px;">Airport first?</h1>
+					<ul class="airports">
+						<li id="heathrow"><img src="i/lhr.png" />
+							<div>Heathrow</div>
+							<div>55 mins</div>
+						</li>
+						<li><img src="i/stn.png" />
+							<div>Stansted</div>
+							<div>55 mins</div>
+						</li>
+						<li><img src="i/ltn.png" />
+							<div>Luton</div>
+							<div>55 mins</div>
+						</li>
+						<li><img src="i/gtw.png" />
+							<div>Gatwick</div>
+							<div>55 mins</div>
+						</li>
+					</ul>
 				</div>
+				<div style="background-color:#fff; padding:16px; overflow:hidden; margin:16px;">
 				<div>
 					<ul id="poi-menu">
 						<li><a href="#" rel="attractions" class="selected">Attractions</a></li>
@@ -222,20 +264,20 @@
 						<li><a href="#" rel="restaurants">Restaurants</a></li>
 					</ul>
 				</div>
-				<div style="margin-left:18px;" id="attractions" class="list">
+				<div style="" id="attractions" class="list">
 				</div>
 
-				<div style="margin-left:18px; display:none;" id="activities" class="list">
+				<div style="display:none;" id="activities" class="list">
 				</div>
 
 				
 
-				<div style="margin-left:18px; display:none;" id="hotels" class="list">
+				<div style=" display:none;" id="hotels" class="list">
 				</div>
 
-				<div style="margin-left:18px; display:none;" id="restaurants" class="list">
+				<div style="display:none;" id="restaurants" class="list">
 				</div>
-
+				</div>
 		</div>
 
 		<style type="text/css">
