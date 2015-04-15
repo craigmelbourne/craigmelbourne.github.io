@@ -1,0 +1,273 @@
+/* 
+	Resets defualt browser settings
+	reset.css
+*/
+
+#content img, a, .rating {
+    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
+}
+
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td { margin:0; padding:0; border:0; outline:0; font-weight:inherit; font-style:inherit; font-size:100%; font-family:inherit; vertical-align:baseline; }
+:focus { outline:0; }
+a:active { outline:none; }
+body { line-height:1; color:black; background:white; }
+ul { list-style:none; }
+table { border-collapse:separate; border-spacing:0; }
+caption,th,td { text-align:left; font-weight:normal; }
+blockquote:before,blockquote:after,q:before,q:after { content:""; }
+blockquote,q { quotes:"" ""; }
+
+/****** Basic styles *******/
+html {}
+body { margin:0; padding:0; font-family:arial; color:#555; background:#F5F4F0}
+a {text-decoration:none;}
+h1, h2, h3, h4, p {margin:0; padding:0;}
+h1 {margin: 0; color:#555; font-weight:normal; font-size:1.5em;}
+h2 {margin: 0px 0 10px; color:#555; font-weight:normal; font-size:1.2em;}
+h3 {font-size:1.1em; font-weight:normal; margin-bottom:6px;}
+p {line-height:140%; font-size:0.9em;}
+strong {font-weight:bold;}
+
+dl {}
+dt {float: left; clear: left; width: 50px; font-weight: bold;}
+dt:after {content: ":";}
+dd {margin: 0 0 0 60px;padding: 0 0 0.5em 0;}
+
+/****** Global components *******/
+
+/* wrapper */ 
+.w {margin:0 auto; width:950px; /*max-width:1160px; min-width:760px;*/}
+
+/* header */ 
+#h {background: url('i/header-red-bg.png'); height:54px; width:100%; text-align:center;}
+#n {background-color:#262626; height:30px; -moz-box-shadow: 0px 4px 5px #262626; -webkit-box-shadow: 0px 4px 5px #262626; box-shadow: 0px 4px 5px #262626;		
+text-align:center;}
+#n ul#sNav {width:950px;}
+#n ul#sNav li {float:left; display:block; font-size:0.9em; color:white; height:30px; padding:9px 0 0; margin-right:15px;}
+#n ul#sNav li.right {float:right; margin-right:0; background:url('i/sub-nav-arrow.png') no-repeat right 9px; padding-right:18px;}
+#n ul#sNav li:last-child {margin-right:10px;}
+
+/* Travel guide navigation */
+ul#tgNav {margin-left:20px}
+ul#tgNav  li {float:left; display:block; font-size:1.2em; margin-right:25px; color:#597a99}
+ul#tgNav  li.selected {font-weight:bold}
+
+
+/* content */
+#content #frame {padding:30px 0 20px; background-color:white; border-radius: 5px;}
+
+#city #content #hero {position:relative; height:518px; background-color:#eee; margin: 18px 20px; border-radius: 15px;}
+#city #content #hero h1 {color:#fff; font-weight:bold; font-size:2.1em; padding:20px;}
+#city #content .block {border-radius:15px; position:relative; height:190px;  box-shadow: 1px 4px 5px #666; border:solid 2px #fff;}
+#city #content .block .link {position:absolute; bottom:0; width:246px; height:35px; overflow:hidden; background-color:#262626; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; padding:30px 20px 10px; line-height:130%;}
+#city #content .link a {color:white; font-size:1.1em;}
+
+#city #content .block .link {
+		background: rgb(0, 0, 0); 
+	background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+}
+
+#city #content .blockbig .link {
+	background: rgb(0, 0, 0); 
+background: -webkit-linear-gradient(bottom, rgba(0,0,0,1.0) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left bottom, left top, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+background: -o-linear-gradient(bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+background: linear-gradient(to top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+#city #content .blockbig {border-radius:15px; position:relative; height:350px; background-size:100%; background-color:#eee; box-shadow: 1px 4px 5px #666; border:solid 2px #fff; color:#fff;}
+#city #content .blockbig .link a {font-size:1.6em; opacity:1.0;}
+#city #content .blockbig .label, #city #content .block .label {position:absolute; top:10px; left:-5px; padding:8px 8px 8px 20px; font-style:italic; border-radius:5px; box-shadow: 1px 2px 2px #666; color:#fff;}
+#city #content .blockbig .guide, #city #content .block .guide {background-color:#9E2A32;}
+#city #content .blockbig .neighbourhood {background-color:#789A17;}
+#city #content .block .hotel {background-color:#85A2C0;}
+
+.l{
+
+}
+
+#city #content .slot1 {width:360px; margin-left:10px; margin-right:10px;}
+#city #content .slot2 {width:530px; margin-left:10px; margin-right:10px;}
+#city #content .slot3 {width:290px; margin-left:10px; margin-right:10px;}
+
+
+#content .article {float:left; width:600px; margin-left:10px; margin-right:10px;}
+#content .article .breadcrumb {margin:20px 0 10px; color:#999;}
+
+#content .article h1 {font-size:1.6em; line-height:130%; margin-bottom:20px;}
+#content .article h2 {margin-top:30px;}
+#content .article p {margin:10px 0;}
+#content .article p.first {margin-bottom:20px; font-size:1.0em; font-weight:bold;}
+
+#content .article .headline .breadcrumb {margin:0 0 5px 0; color:#999;}
+#content .article .headline h1 {font-size:1.6em;}
+
+.asmart {float:left; width:220px; margin-right:10px;} 
+.acontent {float:right; width:360px; margin-left:10px;}
+
+ul.tagnav li {display:block; padding:4px 8px; margin-right:5px; float:left; font-size:0.9em;}
+ul.tagnav li.selected {display:block; padding:5px 10px; margin-right:5px; float:left; background-color:#eee; font-size:0.9em; font-weight:bold}
+
+
+#content .smartbox-b {background-color:#E5E3DB; font-size:0.9em; float:left; width:240px; margin:20px 20px 20px 0}
+#content .smartbox-b h3 {padding:5px 10px; font-size:0.9em; color:white; background-color:#666}
+#content .smartbox-b p {padding:5px 15px; margin:0;}
+
+#content .smartbox {background-color:#E5E3DB; font-size:0.9em; width:220px; margin:20px 20px 20px 0}
+#content .smartbox h3 {padding:5px 10px; font-size:0.9em; color:white; background-color:#666}
+#content .smartbox p {padding:5px 10px; margin:0;}
+
+#content #allhotels {}
+#content #allhotels p {margin:0 0 5px; font-size:0.8em;}
+
+/* use for top 10 list pages*/
+ol.toplist {margin-left: 20px; margin-top:20px}
+ol.toplist li {margin-bottom:30px;}
+ol.toplist li ul li {display:block; padding:3px 6px; margin-right:5px; float:left; background-color:#E5E3DB; font-size:0.8em;}
+
+ol.toplist li div.hotel {float:left; margin-left:10px; width:400px;}
+#content .article ol.toplist li div.hotel h2 {margin:0;}
+ol.toplist li div.hotel div.detail {padding:0 10px;}
+ol.toplist li div.hotel img.stars {display:block; margin:5px 0;}
+ol.toplist li div.hotel div.rating {margin:0 0 10px; width:100%; background-color:#D6EBF5; padding:10px}
+ol.toplist li div.hotel div.rating span {font-size:1.2em;}
+ol.toplist li div.hotel div.rating a {font-size:0.7em;}
+ol.toplist li div.hotel div.review {padding:10px;}
+
+/* side bar */
+#content .sidebar {float:left; width:290px; margin-left:10px; margin-right:10px; font-size:0.9em;}
+#content .sidebar .sblock {padding:0 10px;}
+#content .sidebar .sblock h3 {font-size:1.0em;}
+#content .sidebar .related {}
+#content .sidebar .related li {margin-bottom:10px}
+#content .sidebar .related li a {font-size:0.8em;}
+.fixed {position:fixed; top:0px;}
+
+.sidebar .destinations {padding:10px 0; border-bottom:solid 1px #E5E3DB;}
+.sidebar .destinations h4 {margin-bottom:10px;}
+.sidebar .destinations ul.tags {}
+.sidebar .destinations ul.tags li {display:block; padding:3px 6px; margin-right:5px; float:left; background-color:#eee; font-size:0.7em; }
+
+
+/* columns */
+.colWrapper {display:table; width:100%;}
+.colRow {display:table-row; width:100%; }
+.colCellTwo {display:table-cell; width:50%; vertical-align:top;/*float:left;fix for  buggy browsers*/}
+.colCellThree {display:table-cell; width:33.33%; vertical-align: top; padding-top:0;/*float:left;fix for  buggy browsers*/}
+.colCellFour {display:table-cell; width:25%; /*float:left;fix for  buggy browsers*/}
+
+
+/* columns floats */
+.f2 {float:left; width:50%;}
+.f3 {float:left; width:33.33%;}
+
+
+.slot1, .slot2, .slot3, .g4, .g5{
+	display:inline;
+	float: left;
+	position: relative;
+}
+
+
+/* template specific */
+
+/* neighbourhoods */
+.range {margin-top:15px; border-top:solid 1px #E5E3DB; padding:15px 0 0 0; border-bottom:solid 1px #E5E3DB;}
+.range h2 {}
+.range div {margin:10px 0; padding:10px 0; border-top:solid 1px #ccc; border-bottom:solid 1px #ccc;} 
+.range p {font-size:0.8em; margin: 15px 0 0; padding:0;}
+
+.range h3 {font-size:0.9em;}
+.range table {width:100%;}
+.range table th {font-size:0.8em; padding:5px 0; font-weight:bold;}
+.range table td {padding:0; font-size:0.9em;height:30px; vertical-align:middle;}
+.range table td img {padding-top:5px;}
+.range table td.rating {}
+.range table td.rating div {padding:5px; font-size:0.8em; font-weight:bold; color:#666; background-color:#F5F4F0; width:35px; margin:0; float:left;}
+.range table td.rating span {display:block; float:left; padding:5px 10px; font-size:0.9em;}
+
+
+
+ /* clearfix */
+.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;line-height: 0;height: 0;}
+.clearfix {display: inline-block;}
+html[xmlns] .clearfix {display: block;}
+* html .clearfix {height: 1%;}
+
+/* menu */
+
+#menu {list-style:none; width:940px; margin:-20px auto 0; padding:0px 20px 0px 10px; }
+#menu li {float:left; display:block; text-align:center; position:relative; padding: 6px 10px; margin-right:20px; border:none;   
+}
+#menu li:hover {background: #eee;}
+#menu li a {font-size:1.0em; display:block; text-decoration:none; outline:0;}
+.dropdown_1column, .dropdown_2columns, .dropdown_3columns, .dropdown_4columns, .dropdown_5columns {margin:4px auto; position:absolute; left:-999em; text-align:left; padding:20px; background-color:#eee;z-index:1000;}
+.dropdown_1column {width: 140px;}  
+.dropdown_2columns {width: 280px;}  
+.dropdown_3columns {width: 440px;}  
+.dropdown_4columns {width: 560px;}  
+.dropdown_5columns {width: 700px;}
+
+#menu ul.submenu {text-align:left; font-size:0.9em; margin:0; padding:0;}
+#menu ul.submenu li {text-align:left; width:120px; font-size:0.9em; color:#666; padding:0; line-height:150%; margin-bottom:10px;}
+#menu ul.submenu li:last-child {margin-bottom:20px}
+#menu ul.submenu li.selected {background-color:#ccc; color:#000;}
+#menu ul.submenu li a {display:inline;}
+
+#menu li:hover .dropdown_1column,  
+#menu li:hover .dropdown_2columns,  
+#menu li:hover .dropdown_3columns,  
+#menu li:hover .dropdown_4columns,  
+#menu li:hover .dropdown_5columns {left:-80px;top:auto;}
+
+/* ordered list styling */
+ol {
+    counter-reset:li; /* Initiate a counter */
+    margin-left:0; /* Remove the default left margin */
+    padding-left:0; /* Remove the default left padding */
+}
+ol > li {
+    position:relative; /* Create a positioning context */
+    margin:0 0 6px 10px; /* Give each list item a left margin to make room for the numbers */
+    padding:4px 8px; /* Add some spacing around the content */
+    list-style:none; /* Disable the normal item numbering */
+    border-top:2px solid white;
+}
+ol > li:before {
+    content:counter(li); /* Use the counter as content */
+    counter-increment:li; /* Increment the counter by 1 */
+    /* Position and style the number */
+    position:absolute;
+    top:-2px;
+    left:-2em;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    width:2em;
+    /* Some space between the number and the content in browsers that support
+       generated content but not positioning it (Camino 2 is one example) */
+    margin-right:12px;
+    padding:4px;
+    border-top:2px solid white;
+    color:#fff;
+    background:#000;
+    font-weight:bold;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    text-align:center;
+}
+
+ol.picture > li:before {color:#000;
+background:#fff; font-size:1.2em; margin-top:5px;}
+
+li ol,
+li ul {margin-top:6px;}
+ol ol li:last-child {margin-bottom:0;}
+
+
+

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Travel guides :: Article frame</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				var top = $('#fixedcontent').offset().top - parseFloat($('#fixedcontent').css('marginTop').replace(/auto/,0));
+				$(window).scroll(function (event) {
+					// what the y position of the scroll is
+					var y = $(this).scrollTop();
+					// whether that's below the form
+					if (y >= top) {
+						console.log($(".sidebar").width());
+						// if so, add the fixed class
+						$('#fixedcontent').addClass('fixed').css("width", $(".sidebar").width() + "px");
+						
+						//$('div#morearticles').show("slide", { direction: "right" }, 500);
+					} else {
+						// otherwise remove it
+						$('#fixedcontent').removeClass('fixed').css("width", "auto");
+
+					}
+					
+				 });
+				
+				
+			})
+		</script>
+		<link rel="stylesheet" href="hcom-grid.css">
+			<style>
+			#grid img, #grid a, .rating {
+			    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+			    filter: gray; /* IE6-9 */
+			    -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
+			}
+
+			p {line-height:140%; font-size:0.9em;}
+			a {text-decoration:none;}
+
+
+
+			</style>
+	</head>
+	<body>
+		<div id="header">
+			<div id="content">
+				<div id="logo"><img src="i/hcom-logo.png"/></div>
+				<div id="currency"><img src="i/header-picker.png" style="display:block; margin:0 auto;"/></div>
+				<div id="contact"><img src="i/header-contact.png"></div>
+			</div>
+		</div>
+		<div id="nav">
+			<div id="w">
+				<ul id="sNav">
+					<li>Home</li>
+					<li>Hotel Deals</li>
+					<li>Travel guides</li>
+					<li class="right">Accounts and Bookings</li>
+					<li class="right">Customer Service & Feedback</li>
+				</ul>
+			</div>
+		</div>
+		<div id="pagebg">
+			<div id="frame" >
+				<div id="grid" >
+					<div class="grid-12" style="margin:20px 0;">logo</div>
+					<div class="grid-8">
+						
+						<h1 style="background-color:#fff;">Top rated hotels in New York</h1>
+						<div style="border">
+							<ul class="tagnav clearfix">
+								<li class="selected">Family</li><li>Business</li><li>Group</li><li>Romance</li>
+							</ul>
+						</div>
+						
+						<ol class="toplist picture" style="margin-top:30px">
+							<li>
+								<div class="clearfix" style="margin-top:-4px;">
+									<div class="image" style=""><img src="http://exp.cdn-hotels.com/hotels/4000000/3930000/3928700/3928653/3928653_30_e.jpg">
+									</div>
+									<div class="hotel" style="">
+										<div class="detail">
+											<h2><a href="#">The Jewell facing Rockerfeller Center</a></h2>
+											<img class="stars" src="i/4stars.png" />
+											<p>Broadway - Times Square</p>
+										</div>
+										<div class="rating">
+											<span>4.6 / 5 &nbsp;Outstanding</span> &nbsp;<a href="#">577 reviews</a>
+										</div>
+										<div class="review">
+											<h3>The Jewell in New York</h3>
+											<p class="reviewer">Reviewed by Ian C. of UK</a></p>
+											<p style="font-size:0.8em;">Excellent hotel right in the middle of the action.Has everything you need and close to all shops etc. Being opposite Rockefeller Plaza meant that seeing the Christmas Tree was simple. Would recommend to anyone wanting decent accommodation at a reasonable price near to main attractions.</p>
+
+										</div>
+
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="clearfix" style="margin-top:-4px;">
+									<div class="image"><img src="http://exp.cdn-hotels.com/hotels/1000000/430000/423400/423330/423330_85_e.jpg" style="width:160px;">
+									</div>
+									<div class="hotel">
+										<div class="detail">
+											<h2><a href="#">Hilton Times Square</a></h2>
+											<img class="stars" src="i/4stars.png" />
+											<p>Broadway - Times Square</p>
+										</div>
+										<div class="rating">
+											<span>4.5 / 5 &nbsp;Outstanding</span> &nbsp;<a href="#">842 reviews</a>
+										</div>
+										<div class="review">
+											<h3>Felt right at home</h3>
+											<p class="reviewer">Reviewed by a Hotels.com guest</a></p>
+											<p style="font-size:0.8em;">Loved it. The friendliness of the staff on all levels was great. Everyone always greeted us with a smile. Doormen were very helpful. Had a great time and everyone at the Hilton Times Square made our stay even better. Felt right at home...</p>
+
+										</div>
+
+									</div>
+
+								
+								</div>
+							</li>
+							<li>
+								<div class="clearfix" style="margin-top:-4px;">
+									<div class="image"><img src="http://exp.cdn-hotels.com/hotels/1000000/20000/17500/17497/17497_88_e.jpg" style="width:160px;">
+									</div>
+									<div class="hotel">
+										<div class="detail">
+											<h2><a href="#">DoubleTree Suites by Hilton New York City - Times Square</a></h2>
+											<img class="stars" src="i/4stars.png" />
+											<p>Broadway - Times Square</p>
+										</div>
+										<div class="rating">
+											<span>4.5 / 5 &nbsp;Outstanding</span> &nbsp;<a href="#">638 reviews</a>
+										</div>
+										<div class="review">
+											<h3>Right in the middle of all the action</h3>
+											<p class="reviewer">Reviewed by a Hotels.com guest</a></p>
+											<p style="font-size:0.8em;">I was only in New York City for a 2-day business meeting and wanted a hotel close to Times Square so I could enjoy the area after my meetings. As a female it is great to be so close by as it is safe to go out at night. I enjoyed some nice dining and a wonderful Broadway show.</p>
+
+										</div>
+
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="clearfix" style="margin-top:-4px;">
+									<div class="image"><img src="http://exp.cdn-hotels.com/hotels/5000000/4190000/4182800/4182702/4182702_35_e.jpg">
+									</div>
+									<div class="hotel">
+										<div class="detail">
+											<h2><a href="#">YOTEL New York at Times Square</a></h2>
+											<img class="stars" src="i/4stars.png" />
+											<p>Midtown West</p>
+										</div>
+										<div class="rating">
+											<span>4.4 / 5 &nbsp;Very Good</span> &nbsp;<a href="#">924 reviews</a>
+										</div>
+										<div class="review">
+											<h3>The future of hotels</h3>
+											<p class="reviewer">Reviewed by a Hotels.com guest</a></p>
+											<p style="font-size:0.8em;">The hotel is brilliant. You might think that the rooms are small, but they have managed to make them some of the best organised, fitted, practical and useful rooms I have stayed on. And the value for money is excellent: complimentary breakfast (coffee and muffins) and should you feel like something more substantial they do have a menu too.</p>
+
+										</div>
+
+									</div>
+								</div>
+							</li>
+						</ol>
+					</div>
+					<div class="grid-4 sidebar">
+						
+						<div style="padding:10px; background-color:#eee; height:70px; margin-bottom:20px;">
+							See these hotels on a map
+						</div>
+						
+						<div class="sblock related" style='margin-bottom:30px; border:1px solid #eee;'>
+							<h3 style='margin:10px 0; padding:5px; background-color:#eee;'>New York guides</h3>
+							<ul class="linkslist" style="list-style-type:circle; margin-left:20px;">
+								<li><a href="#">A New York travel guide - designer shopping, Broadway shows, and peaceful park strolls</a></li>
+								<li><a href="#">Where to stay in New York - a travel guide to New York's neighborhoods</a></li>
+								<li><a href="#">Short getaways in New York City – strolling, sightseeing and shopping in 48 hours</a></li><li style="list-style-type:square;">Top 10 shopping things to do in New York</li>
+								<li><a href="#">Top 10 nightlife moments in New York</a></li>
+								<li><a href="#">A New York Central Park travel guide – peaceful strolls, ice skating and Shakespeare</a></li>
+								<li><a href="#">Top rated hotels in New York</a></li>
+								<li style="list-style-type:none;font-weight:bold; font-size:1.2em;"><a href="#">All New York travel guides</a></li>
+							</ul>
+						</div>
+						<div style="padding:10px; background-color:#eee; height:150px; margin-bottom:20px;">
+							Deals in [destination name]
+						</div>
+						<div class="sblock related" style="margin-top:30px;border:1px solid #eee;">
+							<h3 style='font-size:0.9em; margin:10px 0; padding:5px; background-color:#eee;'>Similar destinations</h3>
+							<div class="destinations" style="padding:0 5px;">
+									<h4><a href="#">London</a> - UK</h4>
+									<ul class="tags clearfix">
+										<li>Culture</li>
+										<li>Shopping</li>
+										<li>Entertainment</li>
+									</ul>
+									<ul class="linkslist" style="list-style-type:circle; margin-left: 20px;">
+										<li><a href="#">Top rated hotels in London</a></li>
+										<li><a href="#">Short beaks in London - 48 hours of markets, museums, and musicals</a></li>
+									</ul>
+							</div>
+							<div class="destinations" style="padding:10px 5px;">
+									<h4><a href="#">Paris</a> - France</h4>
+									<ul class="tags clearfix">
+										<li>Culture</li>
+										<li>Shopping</li>
+										<li>Entertainment</li>
+									</ul>
+									<ul class="linkslist" style="list-style-type:circle; margin-left: 20px;">
+										<li><a href="#">What to Do in Paris - culture, architecture, monuments, museums, shops, music and much more.</a></li>
+										<li><a href="#">Where to stay in Paris – a travel guide to Paris’ neighbourhoods</a></li>
+									</ul>
+							</div>
+						</div>
+						<div id="fixedcontent" style="background-color:#eee; height:150px; margin-bottom:20px;">
+							Search for hotels in New York
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

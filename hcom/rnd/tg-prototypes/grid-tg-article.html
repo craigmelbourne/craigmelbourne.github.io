@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Travel guides :: Article frame</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				var top = $('#fixedcontent').offset().top - parseFloat($('#fixedcontent').css('marginTop').replace(/auto/,0));
+				$(window).scroll(function (event) {
+					// what the y position of the scroll is
+					var y = $(this).scrollTop();
+					// whether that's below the form
+					if (y >= top) {
+						console.log($(".sidebar").width());
+						// if so, add the fixed class
+						$('#fixedcontent').addClass('fixed').css("width", $(".sidebar").width() + "px");
+						
+						//$('div#morearticles').show("slide", { direction: "right" }, 500);
+					} else {
+						// otherwise remove it
+						$('#fixedcontent').removeClass('fixed').css("width", "auto");
+
+					}
+					
+				 });
+				
+				
+			})
+		</script>
+		<link rel="stylesheet" href="hcom-grid.css">
+			<style>
+			#grid img, .rating {
+			    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+			    filter: gray; /* IE6-9 */
+			    -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
+			}
+
+			p {line-height:140%; font-size:0.9em;}
+			a {text-decoration:none;}
+
+
+
+			</style>
+	</head>
+	<body>
+		<div id="header">
+			<div id="content">
+				<div id="logo"><img src="i/hcom-logo.png"/></div>
+				<div id="currency"><img src="i/header-picker.png" style="display:block; margin:0 auto;"/></div>
+				<div id="contact"><img src="i/header-contact.png"></div>
+			</div>
+		</div>
+		<div id="nav">
+			<div id="w">
+				<ul id="sNav">
+					<li>Home</li>
+					<li>Hotel Deals</li>
+					<li>Travel guides</li>
+					<li class="right">Accounts and Bookings</li>
+					<li class="right">Customer Service & Feedback</li>
+				</ul>
+			</div>
+		</div>
+		<div id="pagebg">
+			<div id="frame" >
+				<div id="grid" >
+					<div class="grid-12" style="margin:20px 0;">
+						<ul>
+							<li>Logo</li>
+							<li><a href="grid_tg_home.html">New York City, USA</a></li>
+							<li><a href="#">change</a></li>
+						</ul>
+						
+						logo &raquo New York City, USA &nbsp;&nbsp;&nbsp;<a href="#" style="font-size:0.8em;">change</a></div>
+					<div class="grid-8">
+						<div class="headline" style="position:relative; height:320px; ">
+							<div style="height:320px; overflow:hidden;">
+							<img src="http://a1.cdn-hotels.com/images/themedcontent/en_GB/New%20York_Top%2010%20shopping.jpg" style="min-width:100%;"></div>
+
+
+								<h1 style="position:absolute; bottom:10px; background-color:#fff; padding:10px;">Top 10 shopping things to do in New York </h1>
+
+
+						</div>
+						
+							<p class="first" style="margin-top:10px">Vintage clothing emporiums, couture shops and stylish department stores – shopping is part of the Big Apple life style. Book a New York City hotel and browse the boutiques with this guide to the top 10 shopping things to do in New York City.</p>
+									<h2>Madison Avenue window shopping</h2>
+									<p>A visit to the platinum boutique corridor is shopper’s paradise. Along the 22-block stretch, international designers like Vera Wang and Yves Saint Laurent entice shoppers with eye-popping window displays starring their latest creations.  </p>
+									<p>Madison Avenue, between 57th and 79th streets, Upper East Side</p>
+
+									<h2>Beauty in a bottle at Kiehl’s</h2>
+									<p>Don’t be deceived by the simple bottles and jars. Kiehl’s Since 1851 is a first stop shop for many top models and stylists. White-smocked assistants can recommend lotions, facial scrubs and super-rich creams.</p>
+									<p>
+										109 Third Ave., East Village 10003 <br />
+										<a href="#">Kiehl’s Since 1851 Website</a>
+									</p>
+
+
+									<div class="smartbox-b">
+										<h3 style="">Where to stay</h3>
+										<p><img src="i/c-shopping-skinny.png" /></p>
+									</div>
+
+									<h2>Breakfast at Tiffany’s</h2>
+									<p>Put on your best Audrey Hepburn outfit and check out the dazzling gems and pearls in New York City’s favorite jewelery emporium. Grab a morning bagel by your New York City hotel and be the first to see the equally dazzling window displays. </p>
+									<p>
+										727 Fifth Ave., Midtown 10022 <br />
+										<a href="#">Tiffany & Co. Website </a>
+									</p>
+
+
+
+									<h2>See the latest technology at the Apple Store</h2>
+									<p>iMacs, iPods, iPhones, oh my! The glass edifice is hard to miss, but inside is where the action is. The latest gadgets and gizmos fill the store, which stays open 24 hours every day. Gamers head to the glass staircase, where 14 interconnected computers stand ready to play. </p>
+									<p>
+										767 Fifth Ave., Midtown 10019  <br />
+										<a href="#">The Apple Website </a>
+									</p>
+
+
+
+									<h2>Find a favourite book at The Strand</h2>
+									<p>Crane your neck among the skyscraper-tall stacks, filled with “eight miles of books,” new and old. Looking for a first-edition James Joyce or John Grisham? Head to the third floor and sift among the near-mint copies of rarities</p>
+									<p>
+										828 Broadway, East Village 10003  <br />
+										<a href="#">The Strand Bookstore Website  </a>
+									</p>
+
+									<h2>Take home chocolate from Jacques Torres</h2>
+									<p>Watch goodies go from bean to bar in the glass-walled space of this chocolate factory, while sipping a cocoa in the café. Take some chocolate home from the shop, where you can buy bars, truffles, cocoa and brownie mixes. </p>
+									<p>
+										350 Hudson St., SoHo 10014 <br />
+										<a href="#">Jacques Torres Website </a>
+									</p>
+
+									<h2>Street smart shopping in SoHo</h2>
+									<p>Tables jammed with homemade jewelery, leather belts and purses line Spring and Prince streets in SoHo. But it’s the tables with art books that have the real deals. Pick up a coffee-table collectible by Annie Leibovitz or Diego Rivera far cheaper than retail.</p>
+									<p>
+										Spring and Prince streets, SoHo  <br />
+									</p>
+
+									<h2>Browsing Macy’s department store</h2>
+									<p>Getting lost in America’s largest department store is a New York City shopping ritual. The 10-story behemoth takes up an entire city block, and carries nearly everything, including designer fashions, jewelery, house wares, luggage and even furniture. Ride the wooden escalator for a floor-to-floor tour. </p>
+									<p>
+										151 W. 34th St., Midtown 10001 <br />
+										<a href="#">Macy’s Website </a>
+									</p>
+
+									<h2>Toys R Us</h2>
+									<p>A visit to this Times Square megastore delights kids of all ages. Wander among thousands of stuffed animals, a Barbie showcase, educational toys and hundreds of video games. Most fun is a ride on the indoor Ferris Wheel. Look for the life-sized dinosaur. >
+									<p>
+										1514 Broadway, Midtown 10036 <br />
+										<a href="#">Toys R Us Website </a>
+									</p>
+					</div>
+					<div class="grid-4 sidebar">
+						<div class="sblock related" style='margin-bottom:30px; border:1px solid #eee;'>
+							<h3 style='margin:10px 0; padding:5px; background-color:#eee;'>New York guides</h3>
+							<ul class="linkslist" style="list-style-type:circle; margin-left:20px;">
+								<li><a href="#">A New York travel guide - designer shopping, Broadway shows, and peaceful park strolls</a></li>
+								<li><a href="#">Where to stay in New York - a travel guide to New York's neighborhoods</a></li>
+								<li><a href="#">Short getaways in New York City – strolling, sightseeing and shopping in 48 hours</a></li><li style="list-style-type:square;">Top 10 shopping things to do in New York</li>
+								<li><a href="#">Top 10 nightlife moments in New York</a></li>
+								<li><a href="#">A New York Central Park travel guide – peaceful strolls, ice skating and Shakespeare</a></li>
+								<li><a href="#">Top rated hotels in New York</a></li>
+								<li style="list-style-type:none;font-weight:bold; font-size:1.2em;"><a href="#">All New York travel guides</a></li>
+							</ul>
+						</div>
+						<div style="padding:10px; background-color:#eee; height:150px; margin-bottom:20px;">
+							Deals in [destination name]
+						</div>
+						<div class="sblock related" style="margin-top:30px;border:1px solid #eee;">
+							<h3 style='font-size:0.9em; margin:10px 0; padding:5px; background-color:#eee;'>Similar destinations</h3>
+							<div class="destinations" style="padding:0 5px;">
+									<h4><a href="#">London</a> - UK</h4>
+									<ul class="tags clearfix">
+										<li>Culture</li>
+										<li>Shopping</li>
+										<li>Entertainment</li>
+									</ul>
+									<ul class="linkslist" style="list-style-type:circle; margin-left: 20px;">
+										<li><a href="#">Top rated hotels in London</a></li>
+										<li><a href="#">Short beaks in London - 48 hours of markets, museums, and musicals</a></li>
+									</ul>
+							</div>
+							<div class="destinations" style="padding:10px 5px;">
+									<h4><a href="#">Paris</a> - France</h4>
+									<ul class="tags clearfix">
+										<li>Culture</li>
+										<li>Shopping</li>
+										<li>Entertainment</li>
+									</ul>
+									<ul class="linkslist" style="list-style-type:circle; margin-left: 20px;">
+										<li><a href="#">What to Do in Paris - culture, architecture, monuments, museums, shops, music and much more.</a></li>
+										<li><a href="#">Where to stay in Paris – a travel guide to Paris’ neighbourhoods</a></li>
+									</ul>
+							</div>
+						</div>
+						<div id="fixedcontent" style="background-color:#eee; height:150px; margin-bottom:20px;">
+							Search for hotels in New York
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

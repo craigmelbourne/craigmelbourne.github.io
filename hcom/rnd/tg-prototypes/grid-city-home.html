@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title></title>
+		<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+		<script>
+			$(function() {
+		        // run the currently selected effect
+		        $("div.month").click(function () {
+					$("#popularity").find("div.selected").removeClass("selected");
+					$("#popularity").find("span.arrow-up").remove();
+					$(this).addClass("selected");
+					$(this).append('<span class="arrow-up"></span>');
+				    $('.arrow_box .month-selected').text($(this).attr("title"));
+				});
+		    });
+		</script>
+		<link rel="stylesheet" href="hcom-grid.css">
+	</head>
+	<body>
+		<div id="header">
+			<div id="content">
+				<div id="logo"><img src="i/hcom-logo.png"/></div>
+				<div id="currency"><img src="i/header-picker.png" style="display:block; margin:0 auto;"/></div>
+				<div id="contact"><img src="i/header-contact.png"></div>
+			</div>
+		</div>
+		<div id="nav">
+			<div id="w">
+				<ul id="sNav">
+					<li>Home</li>
+					<li>Hotel Deals</li>
+					<li>Travel guides</li>
+					<li class="right">Accounts and Bookings</li>
+					<li class="right">Customer Service & Feedback</li>
+				</ul>
+			</div>
+		</div>
+		<div id="pagebg">
+			<div id="frame" >
+				<div id="grid" >
+					<div id="hero" class="grid-12" style="height:420px; margin-top:50px; border-radius:4px; position:relative; overflow:hidden; background:url('http://younggov.org/wp-content/uploads/2012/01/newyorkcity2.jpg') 0% 50%; background-size:100%;">
+						
+						<div style="position:absolute; width:330px; right:0; height:420px; opacity:0.8; background: rgb(0, 0, 0); background-color:#000; border-bottom-right-radius: 4px;
+						border-top-right-radius: 4px;">
+
+							<div id="data-block">
+								<h1 style="color:white; margin:0px 0px 10px; font-size:1.8em; font-weight:bold;">New York</h1>
+								<div id="tags">
+									<ul>
+										<li>culture</li>
+										<li>entertainment</li>
+										<li>shopping</li>
+										<li>parks and gardens</li>
+										<li>sightseeing</li>
+									</ul>
+								</div>
+								<hr align="left" style="color: #fff;
+								background-color: #fff;
+								height: 1px; width:270px; margin:15px 0"/>
+								<div id="data">
+									<h3>Popular time to visit</h3>
+									<div id="popularity">
+										<div class="month" title="January">
+											<div class="initial">J</div>
+											<div class="data" style="height:15px;"></div>
+										</div>
+										<div class="month" title="February">
+											<div class="initial">F</div>
+											<div class="data" style="height:20px;"></div>
+										</div>
+										<div class="month" title="March">
+											<div class="initial">M</div>
+											<div class="data" style="height:25px;"></div>
+										</div>
+										<div class="month" title="April">
+											<div class="initial">A</div>
+											<div class="data" style="height:25px;"></div>
+										</div>
+										<div class="month" title="May">
+											<div class="initial">M</div>
+											<div class="data" style="height:30px;"></div>
+										</div>
+										<div class="month" title="June">
+											<div class="initial">J</div>
+											<div class="data" style="height:30px;"></div>
+										</div>
+										<div class="month" title="July">
+											<div class="initial">J</div>
+											<div class="data" style="height:45px;"></div>
+										</div>
+										<div class="month" title="August">
+											<div class="initial">A</div>
+											<div class="data" style="height:35px;"></div>
+										</div>
+										<div class="month" title="September">
+											<div class="initial">S</div>
+											<div class="data" style="height:30px;"></div>
+										</div>
+										<div class="month selected" title="October">
+											<div class="initial initon">O</div>
+											<div class="data" style="height:45px;"></div>
+											<span class="arrow-up"></span>
+										</div>
+										<div class="month" title="November">
+											<div class="initial">N</div>
+											<div class="data" style="height:30px;"></div>
+										</div>
+										<div class="month" title="December">
+											<div class="initial">D</div>
+											<div class="data" style="height:25px;"></div>
+										</div>
+									</div>
+
+										<div class="arrow_box">
+											<div style="padding:10px;">
+												<div class="month-selected">October</div>
+												<div style="display:inline-block; width:120px; height:100px">
+													Weather
+												
+												</div>
+												<div style="display:inline-block; width:120px; height:100px">
+													Average hotel price
+													
+												</div>
+											</div>
+										</div>
+
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<div class="grid-4">
+						<div id="about" style="background:url('http://a1.cdn-hotels.com/images/themedcontent/en_GB/New%20York_Overview.jpg')">
+							<div class="title" style="bottom:0;"><a href="#">About New York</a> <p>Each visitor finds a different experience on a New York vacation. Underneath a skyline of skyscrapers lies a jumble of cutting-edge restaurants, glittering Broadway shows and quiet brownstone townhouses. </p></div>
+						</div>
+					</div>
+					<div class="grid-8">
+						<div id="where" style="background:url('i/Neighbourhood.png')">
+							<div id="linkbox">
+								<div class="label">Where to stay</div>
+								<h2 style="margin-top:40px;">New York neighbourhood guide</h2>
+								<p>Each visitor finds a different experience on a New York vacation.</p>
+								<h2 style="margin-top:20px;">Top rated hotels in New York</h2>
+								<p>Each visitor finds a different experience on a New York vacation.</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="grid-4">
+						<div class="block">
+							<img src="http://a1.cdn-hotels.com/images/themedcontent/en_GB/Custom%20POI_Central%20Park.jpg" />
+							<a class="title">Short getaways in New York City - strolling, sightseeing and shopping in 48 hours</a>
+						</div>
+					</div>
+					<div class="grid-4">
+						<div class="block">
+							<img src="http://a1.cdn-hotels.com/images/themedcontent/en_GB/New%20York_Top10.jpg" />
+							<a class="title">Top 10 nightlife moments in New York</a>
+						</div>
+					</div>
+					<div class="grid-4">
+						<div class="block">
+							<img src="http://a1.cdn-hotels.com/images/themedcontent/en_GB/New%20York_Top%2010%20shopping.jpg" />
+							<a class="title">Top 10 shopping things to do in New York City</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
