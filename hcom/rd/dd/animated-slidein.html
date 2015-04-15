@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			$(function(){
+
+				$(document).scroll(function() {
+  					var y = $(this).scrollTop();
+  					if (y > 800) {
+    					$(".dd").slideDown(400, function(){
+							$(".content").animate({
+								marginTop: 0
+							}, function(){
+								$(".arrows").fadeIn();
+							});
+						});
+  					} else {
+    					//$('.bottomMenu').fadeOut();
+  					}
+});
+
+				
+			});
+
+
+
+		</script>
+
+
+		<style type="text/css">
+			body {margin-top:50px; font-family: arial}
+			#wrapper {width:960px; margin:0 auto;}
+			.dd {background-color:#990066; border-radius:4px; margin:8px 14px 12px 0; overflow:hidden; position:relative; padding:16px 0; text-align:center; color:#fff; display:none; height:20px;}
+			.dd .arrows {display:none;}
+			.dd .arrows span {color:#fff; font-size:32px;}
+			.dd .arrows span.one {-webkit-animation: one 0.75s infinite; animation: myfirst 5s infinite;}
+			.dd .arrows span.two {-webkit-animation: two 0.75s infinite; animation: myfirst 5s infinite;}
+			.dd .arrows span.three {-webkit-animation: three 0.75s infinite; animation: myfirst 5s infinite;}
+
+			.dd .content {margin-top:-50px;}
+
+
+
+			@-webkit-keyframes one {
+    			0%   {color: white;}
+    			33%  {color: #F8BBD0;}
+    			66%  {color: white;}
+    			100% {color: white;}
+			}
+			@-webkit-keyframes two {
+    			0%   {color: white;}
+    			33%  {color: white;}
+    			66%  {color: #F8BBD0;}
+    			100% {color: white;}
+			}
+
+			@-webkit-keyframes three {
+    			0%   {color: white;}
+    			33%  {color: white;}
+    			66%  {color: white;}
+    			100% {color: #F8BBD0;}
+			}
+			/** #F8BBD0 **/
+		</style>
+	</head>
+	<body>
+
+
+		<div id="wrapper">
+			<div class="listing">
+				<img src="i/sponsored-listing.png" style="width:100%;" />
+			</div>
+
+			<div class="listing">
+				<img src="i/listing-1.png" style="width:100%;" />
+			</div>
+
+			
+
+			<div class="listing">
+				<img src="i/listing-2.png" style="width:100%;" />
+			</div>
+
+			<div class="listing">
+				<img src="i/listing-3.png" style="width:100%;" />
+			</div>
+			<div class="listing">
+				<img src="i/listing-1.png" style="width:100%;" />
+			</div>
+
+			<div class="dd">
+				<div class="arrows" style="position:absolute; top:6px; left:12px;">
+					<span class="one">&#10095;</span><span class="two">&#10095;</span><span class="three">&#10095;</span>
+					<!--<span class="one">N</span><span class="two">E</span><span class="three">W</span>-->
+				</div>
+				<div class="content"><strong style="color:yellow">Unlock even lower prices</strong> on selected hotels. These prices aren't available to everyone</div>
+				<div class="arrows" style="position:absolute; top:6px; right:12px;">
+					<span class="three">&#10094;</span><span class="two">&#10094;</span><span class="one">&#10094;</span>
+				</div>
+			</div>
+			<div class="listing">
+				<img src="i/listing-2.png" style="width:100%;" />
+			</div>
+
+			<div class="listing">
+				<img src="i/listing-3.png" style="width:100%;" />
+			</div>
+			<div class="listing">
+				<img src="i/listing-1.png" style="width:100%;" />
+			</div>
+			
+			
+		</div>
+
+		<div class="reviews-modal"></div>
+
+	</body>
+</html>

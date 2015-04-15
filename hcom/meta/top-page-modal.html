@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>940 grid</title>
+		<link rel="stylesheet" href="base.css" type="text/css">
+		<style type="text/css">
+		/* #d7e9ff */
+		/* #102E79 */
+		.arrow_box {
+			position: absolute;
+			width:130px;
+			background: #ffffff;
+			border: 1px solid #000000;
+			z-index:1000;
+			display:none;
+			-moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888;
+		}
+		.arrow_box:after, .arrow_box:before {
+			bottom: 100%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+		.arrow_box:after {
+			border-color: rgba(255, 255, 255, 0);
+			border-bottom-color: #ffffff;
+			border-width: 12px;
+			left: 50%;
+			margin-left: -12px;
+		}
+		.arrow_box:before {
+			border-color: rgba(0, 0, 0, 0);
+			border-bottom-color: #000000;
+			border-width: 13px;
+			left: 50%;
+			margin-left: -13px;
+		}
+		
+		#overlay{position:absolute; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8;}
+		#pcPopUp{
+			     position:absolute;
+			     width:700px;
+			     height:530px;
+			     z-index:1000;
+			     top:50%;
+			     left:50%;
+			     margin:-265px 0 0 -350px;
+			     background:#fff;
+			border-radius:8px;
+			}
+		
+		
+		.block {padding: 10px; color:#999; background-color:#ddd;}
+		
+		ul.prices {margin-top:10px; margin:10px 0 0;}
+		ul.prices li {display:inline-block; color:#102E79; width:135px; margin-right:2px; text-align:center; padding:5px 0; font-size:12px; background-color:#fff; color:#102E79;}
+		ul.prices li:last-child{margin-right:0;}
+		
+		#price_match_box {position:absolute; top:2px; right:94px; width:174px; min-height:176px; background-color:#fff; }
+		#open_price_check {font-size:12px; line-height:130%; color:#102E79; padding:8px 0;  width:156px; text-align:center; position:absolute; bottom:8px; left:10px; background-color:#d7e9ff; }
+		
+		#open_price_check:hover, #compare_button:hover {cursor:pointer}
+		
+		.shadow {-moz-box-shadow: 0 0 8px #888; -webkit-box-shadow: 0 0 8px#888; box-shadow: 0 0 8px #888; margin-top:-5px; background-color:#d7e9ff !important;}
+		ul.price_list li {padding:8px; font-size:12px; color:#102E79; background-color:#fff; border-right:5px solid #d7e9ff; border-left:5px solid #d7e9ff; border-top:5px solid #d7e9ff;}
+		 ul.price_list li:last-child {border-bottom:solid 1px #dad8d0;}
+		
+			ul#price_compare li {padding:8px; border-top:solid 1px #dad8d0; font-size:13px;}
+			ul#price_compare li:last-child {border-bottom:solid 1px #dad8d0;}
+			
+				button.buy {
+					background-color: rgb(16, 46, 121);
+
+					border: 1px solid;
+					border-image-source: initial;
+					border-image-slice: initial;
+					border-image-width: initial;
+					border-image-outset: initial;
+					border-image-repeat: initial;
+					border-radius: 3px;
+					box-shadow: rgb(0, 135, 219) 0px 0px 0px 1px, rgba(60, 163, 227, 0.298039) 1px 1px 0.5px 1px;
+					color: rgb(255, 255, 255);
+					cursor: pointer;
+					display: inline-block;
+					font-size: 18px;
+					font-weight: bold;
+					line-height: 1.5;
+					overflow: visible;
+					padding: 2px 10px;
+					vertical-align: middle;
+					width: auto;
+				}
+		</style>
+		
+		<script type="text/javascript" src="jquery.js"></script>
+		
+		<script type="text/javascript">
+		
+			$(document).ready(function() {
+				
+				$("arrow")
+				
+				setTimeout(function(){
+					positionArrowBox("run_price_check");
+				}, 1000);
+				
+				$("#run_price_check button").on("click", function(){
+					$("#overlay").show();
+					$("#pcPopUp").show();
+					$(".arrow_box").hide();
+					switchPrice();
+					
+				}); 
+				
+				$("#overlay").on("click", function(){
+					$("#overlay").hide();
+					$("#pcPopUp").hide();
+				});
+				
+				$("#open_price_check").on("click", function(e){
+					$("#price_match_box").addClass("shadow");
+					$(this).hide();
+					$("#price_compare").show();
+				});
+				
+				$(".close").on("click", function(e){
+					e.preventDefault();
+					$("#price_compare").hide();
+					$("#right-triangle").hide();
+					$("#price_match_box").removeClass("shadow");
+					$("#open_price_check").show();
+					
+				});
+			});
+			
+			function positionArrowBox(el){
+				var pos = $("#" + el).offset();
+				console.log (pos.left + " " + pos.top);
+				
+				$(".arrow_box").css({
+				      "top": pos.top - 300,
+				      "left": pos.left - 10
+				    }).show();
+				
+				$(".arrow_box").animate({top: pos.top + 67}, 500)
+				
+			}
+			
+			function switchPrice()
+			  {
+			     	setTimeout(function() {
+			        	
+						
+						$("ul#price_compare li#1").fadeIn(500, function () {
+						    $("ul#price_compare li#2").fadeIn(500, function (){
+								$("ul#price_compare li#3").fadeIn(500, function (){
+									$("ul#price_compare li#4").fadeIn(500, function (){
+										$("ul#price_compare li#5").fadeIn(500, function (){
+											$("div#checking").hide();
+											$("div#done").show();
+											
+											$("#our h2").hide();
+											$("#oldprice").hide();
+											$("#pricematch").show();
+											
+											setTimeout(function(){
+												$("#pricematch").hide();
+												$("h2#matched").fadeIn('medium');
+												$("#newprice").fadeIn('medium', function(){
+													$(".extras").fadeIn('medium', function(){
+														
+													});
+													$("button.buy").fadeIn('medium');
+													$("#run_price_check").hide();
+													$("#new_price_top").show();
+												});
+												
+												
+											}, 1500)
+											
+										});
+									});
+								});
+							});
+						});
+						
+					}, 2000);
+			  }
+			
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="content">
+				<div id="logo"><img src="i/hcom-logo.png"/></div>
+				<div id="currency"><img src="i/header-picker.png" style="display:block; margin:0 auto;"/></div>
+				<div id="contact"><img src="i/header-contact.png"></div>
+			</div>
+		</div>
+		<div id="nav">
+			<div id="w">
+				<ul id="sNav">
+					<li>Home</li>
+					<li>Hotel Deals</li>
+					<li>Travel guides</li>
+					<li class="right">Accounts and Bookings</li>
+					<li class="right">Customer Service & Feedback</li>
+				</ul>
+			</div>
+		</div>
+		<div id="pagebg" style="margin-bottom:20px;">
+			<div id="frame">
+				<div id="grid">
+					<div style="position:relative">
+						
+						<img src="i/hotel_title.png" />
+						<div id="run_price_check" style="position:absolute; right:0; top:50px; width:90px; background-color:#fff; min-height:30px; text-align:center; padding:0px 10px;">
+							<button style="font-size:16px; padding:5px 0; background-color:#102E79; color:white;">Price Check</button>
+						</div>
+						
+						<div id="new_price_top" style="position:absolute; right:110px; top:50px; width:400px; height:30px; background-color:#fff; text-align:right; padding:10px; display:none;">
+							<p style="font-size:16px; font-weight:bold;">Our lowest price <span style="font-size:24px; color:#900; font-weight:bold;">&pound;32</span></p>
+							<p style="font-size:14px; margin:5px 0; color:#666;">total including taxes and fees</p>
+						</div>
+						
+					</div>
+					
+					<div style='position:relative; margin-bottom:10px;'>
+						
+					</div>
+					
+					
+					<img src="i/hotel_details.png" style="margin-top:20px;"/>
+					<div class="grid-12" style="margin-top:20px;">
+						<img src="i/choose-room.png" style="">
+					</div>
+					<div class="grid-12">
+						<img src="i/room_table_header.png" style="">
+					</div>
+					
+					<div class="grid-12" style="position:relative; overflow-x:visible;">
+						<img src="i/room_details.png" style="">
+						<div id="price_match_box" style="z-index:1000;">
+							<div id="current_price" style="position:absolute; top:15px; right:12px; text-align:right;">
+								<p style="font-size:14px; font-weight:bold;">Our lowest price</p>
+								<p style="font-size:20px; margin:5px 0; color:#666; text-decoration:line-through">&pound;51</p>
+								<p style="font-size:24px; color:#900; font-weight:bold;">&pound;32</p>
+							</div>
+							
+							<div id="open_price_check" style=""><span style="font-size:14px; font-weight:bold;">Compare our price</span> <br />with other travel sites</div>
+							<div id="price_compare" style="display:none; margin-top:100px;">
+								<div style="padding:10px; height:40px; border-top:solid 1px #102E79;">
+									<p id="found_message" style="font-size:12px; line-height:130%; color:#102E79;">Here are the lowest prices we could find for a room at this hotel</p>
+								</div>
+								<ul class="price_list">
+									<li><div style="float:right;">&pound;33</div>Agoda</li>
+									<li><div style="float:right;">&pound;37</div>LateRooms</li>
+									<li><div style="float:right;">&pound;38</div>Booking.com</li>
+									<li><div style="float:right;">&pound;41</div>LastMinute</li>
+									<li><div style="float:right;">&pound;45</div>Expedia</li>
+									<li style="text-align:center; background-color:transparent"><a href="#" class="close">Close</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<div class="grid-12" style="position:relative; overflow-x:visible;">
+						<img src="i/room_details.png" style="">
+						<div id="price_match_box" style="position:absolute; top:2px; right:94px; width:174px; min-height:176px; background-color:#fff; ">
+							<div id="current_price" style="position:absolute; top:15px; right:12px; text-align:right;">
+							
+							
+								<p style="font-size:24px; color:#666; font-weight:bold;">&pound;42</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="grid-12" style="position:relative; overflow-x:visible;">
+						<img src="i/room_details.png" style="">
+						<div id="price_match_box" style="position:absolute; top:2px; right:94px; width:174px; min-height:176px; background-color:#fff; ">
+							<div id="current_price" style="position:absolute; top:15px; right:12px; text-align:right;">
+								
+								
+								<p style="font-size:24px; color:#666; font-weight:bold;">&pound;106</p>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			<div>
+
+		</div>
+		
+		<div class="arrow_box" style="">
+			<div style="padding:10px; background-color:#fff ;">
+				<p style="font-size:12px; line-height:130%;">Click Price Check to search prices across hundreds of travel sites. If we find a cheaper price we'll better/match it. <!--We check hundreds of prices so you don't have to. Just click Price Check to find the lowest price for this hotel.--></p></div>
+		</div>
+		
+			<div id="overlay" style="display:none;"></div>
+			<div id="pcPopUp" style="display:none;">
+				<div style="padding:20px; padding-bottom:20px;">
+					<h1 style="font-size:20px; font-weight:bold; background-color:#102E79; color:#fff; padding:10px; border-top-left-radius:8px; 
+					border-top-right-radius:8px; background:url('i/pm.png') no-repeat #102E79 10px 5px; padding-left:45px;">Price check</h1>
+					<div style="background-color:#d7e9ff;">
+					<p style="font-size:14px; line-height:140%; padding:20px; color:#102E79;">Finding the best deal on a hotel room can take time so we check hundreds of prices for you. And if we find a cheaper price somewhere else, we'll match it.</p>
+					
+					<div style="display:inline-block; width:260px; height:330px; background-color:#fff; margin-top:10px; vertical-align:top; margin-left:50px; position:relative; border:solid 1px #9CC9FF; border-radius:4px;">
+						<div style="padding:20px;">
+							<h2>Price comparison</h2>
+							<div id="checking" style="line-height:140%; font-size:13px; margin:10px 0; text-align:center">
+								<img src="i/103.gif"><br />
+								<span style="font-size:12px;">Checking prices</span>
+							</div>
+							<div id="done" style="line-height:140%; font-size:13px; margin:10px 0 20px; display:none;">Here are the lowest prices we could find for a room at this hotel</div>
+							<ul id="price_compare" style="position:absolute; top:100px; width:220px;">
+								<li id="1" style="display:none;"><div style="float:right;">&pound;33</div>Agoda</li>
+								<li id="2" style="display:none;"><div style="float:right;">&pound;37</div>LateRooms</li>
+								<li id="3" style="display:none;"><div style="float:right;">&pound;38</div>Booking.com</li>
+								<li id="4" style="display:none;"><div style="float:right;">&pound;41</div>LastMinute</li>
+								<li id="5" style="display:none;"><div style="float:right;">&pound;45</div>Expedia</li>
+							</ul>
+							<p style="position:absolute; bottom:10px; left:20px; font-size:11px; line-height:140%; margin-top:10px; width:220px;">Please note that the prices we've found are the lowest around but they may not be for the room type you were looking at.</p>
+						</div>	
+						
+					</div>
+					<div style="display:inline-block; width:260px; height:330px; background-color:#fff; margin-top:10px; margin-left:30px; margin-bottom:30px; vertical-align:top; position:relative; border:solid 1px #9CC9FF; border-radius:4px;">
+						<div id="our" style="padding:20px; ">
+							<h2>Our price</h2>
+							<h2 id="matched" style="text-align:center; font-size:20px; display:none;">We've matched it!</h2>
+							<div id="hcomprice" style="text-align:center; margin-top:30px;">
+								<p id="oldprice">
+									<span style="color:#666; font-weight:bold; font-size:48px;">&pound;35</span><br />
+									<span style="font-size:12px; font-weight:bold">Deluxe room</span>
+								</p>
+								
+								<p id="pricematch" style="display:none; margin-top:10px;">	
+									<img src="i/103.gif"><br />
+									<span style="font-size:12px;">Price Matching</span>
+								</p>
+								<p id="newprice" style="display:none;">
+									<span style="color:#999; font-size:24px; text-decoration:line-through;">&pound;35</span><br />
+									<span style="color:#900; font-size:48px; font-weight:bold;">&pound;33</span><br />
+									<span style="font-size:12px; font-weight:bold">Deluxe room</span>
+								</p>
+							</div>
+							<p class="extras" style="font-size:12px;line-height:160%; position:absolute; bottom: 70px; left:20px; display:none;">
+								<span style=";font-weight:bold;font-size:13px  ">Plus</span><br />
+								Free Cancellation<br />
+								Welcome Rewards<br />
+								Price Match Guarantee
+							</p>
+							<button class="buy"  style="position:absolute; bottom:15px; font-size:20px; width:220px; display:none;">Book now</button>
+							<!--<div class="buynow" style="position:absolute; bottom:15px; width:200px; display:none; padding:10px; background-color:#d7e9ff; ">
+								
+								<p style="font-size:12px; line-height:130%;">Explain that if they want this price they have to book from here</p>
+								
+							</div>-->
+							
+						</div>
+						
+						
+					</div>
+					
+					</div>
+				</div>
+			</div>
+		
+		
+	</body>
+</html>

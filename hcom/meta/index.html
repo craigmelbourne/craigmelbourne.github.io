@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Prototypes</title>
+		<link rel="stylesheet" href="base.css" type="text/css">
+		<style type="text/css">
+		.block {padding: 10px; color:#999; background-color:#ddd;}
+		h1 {font-size:28px; margin:30px 0 30px; background-color:#fff; font-weight:bold;}
+		h2 {font-size:20px; margin:30px 0 20px; background-color:#fff; font-weight:bold;}
+		body {background-color:#fff; margin-top:50px;}
+		ul li {margin-bottom:15px;}
+		ul li span {font-size:12px; color:#666;}
+		</style>
+		
+		<script type="text/javascript" src="jquery.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$("ul.dest-list a").on("click", function(e){
+					e.preventDefault();
+					console.log($(this).attr("rel"));
+					$("ul.map").hide();
+					$("ul#" + $(this).attr("rel")).show();
+				});
+			});
+		</script>
+	</head>
+	<body>
+
+		<div id="pagebg" style="margin-bottom:20px;">
+			<div id="frame">
+				<div id="grid">
+					<h1 class="grid-12">Shopping project</h1>
+					<div class="grid-8">
+						
+						<h2>Prototypes &amp; designs</h2>
+						<ul>
+							<li><a href="run-price-check_v2.html">[Pull] User triggered - Launch modal window from room rates section (UX &amp; CD)</a></li>
+							<li><a href="top-page-modal.html" style="font-size:12px;">User triggered - Modal window (near top of page)</a></li>
+							<li><a href="run-price-check-in-page-v2b.html" style="font-size:12px;">User triggered - In-page animation</a></li>
+							<li>---------</li>
+							<li><a href="top-page-bolder.html">[Push] Autorun - Animation near page header and alters visual treatment of cheapest room rate (UX Only)</a></li>
+							<li><a href="top-page.html" style="font-size:12px;">Autorun (first stab)</a></li>
+							<li>---------</li>
+							
+							<li><a href="i/Booking_Form_discount_applied_v2.png">Booking form with discount applied (UX &amp; CD)</a></li>
+						</ul>
+						<h2 style="margin-top:50px;">States to consider</h2>
+						<ul>
+							<li>Introduce <span>(Visibility level, placement on page, customer segmentation)</span></li>
+							<li>Explain <span>(What is this? What are the rules? Why are you doing it?)</span></li>
+							<li>Prove <span>(Convince me that you've given me the best price')</span></li>
+							<li>Redeem <span>(Reduce purchase friction)</span></li>
+						</ul>
+						
+						<h2>Some of the rules</h2>
+						<ul>
+							<li>Only applies to a certain number of hotels</li>
+							<li>Only applies to cheapest available room for selected hotels</li>
+							<li>Only applies to certain search criteria <span>(length of stay, number of travellers etc...)</span></li>
+							<li>Compares on cheapest available room price <span>(not guaranteed to room match)</span></li>
+							<li>Will only be redeemable is price difference is a specific amount  (&euro;10)</li>
+							<li>Needs the user to trigger an action to redeem coupon</li>
+						</ul>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+					</div>
+				</div>
+			<div>
+
+		</div>
+		
+	</body>
+</html>

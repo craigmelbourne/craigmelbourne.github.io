@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>940 grid</title>
+		<link rel="stylesheet" href="base.css" type="text/css">
+		<style type="text/css">
+		/* #d7e9ff */
+		/* #102E79 */
+		#fadingBarsG{
+		position:absolute;
+		left:-50px;
+		margin-left:50%;
+		margin-top:10px;
+		height:12px; 
+		width:100px; text-align:center;}
+		.fadingBarsG{
+		position:absolute;
+		top:0;
+		background-color:#003789;
+		width:12px;
+		height:12px;
+		border-radius:4px;
+		-moz-animation-name:bounce_fadingBarsG;
+		-moz-animation-duration:1.3s;
+		-moz-animation-iteration-count:infinite;
+		-moz-animation-direction:linear;
+		-moz-transform:scale(.3);
+		-webkit-animation-name:bounce_fadingBarsG;
+		-webkit-animation-duration:1.3s;
+		-webkit-animation-iteration-count:infinite;
+		-webkit-animation-direction:linear;
+		-webkit-transform:scale(.3);
+		-ms-animation-name:bounce_fadingBarsG;
+		-ms-animation-duration:1.3s;
+		-ms-animation-iteration-count:infinite;
+		-ms-animation-direction:linear;
+		-ms-transform:scale(.3);
+		-o-animation-name:bounce_fadingBarsG;
+		-o-animation-duration:1.3s;
+		-o-animation-iteration-count:infinite;
+		-o-animation-direction:linear;
+		-o-transform:scale(.3);
+		animation-name:bounce_fadingBarsG;
+		animation-duration:1.3s;
+		animation-iteration-count:infinite;
+		animation-direction:linear;
+		transform:scale(.3);
+		}
+
+		#fadingBarsG_1{
+		left:0;
+		-moz-animation-delay:0.52s;
+		-webkit-animation-delay:0.52s;
+		-ms-animation-delay:0.52s;
+		-o-animation-delay:0.52s;
+		animation-delay:0.52s;
+		}
+
+		#fadingBarsG_2{
+		left:12px;
+		-moz-animation-delay:0.65s;
+		-webkit-animation-delay:0.65s;
+		-ms-animation-delay:0.65s;
+		-o-animation-delay:0.65s;
+		animation-delay:0.65s;
+		}
+
+		#fadingBarsG_3{
+		left:25px;
+		-moz-animation-delay:0.78s;
+		-webkit-animation-delay:0.78s;
+		-ms-animation-delay:0.78s;
+		-o-animation-delay:0.78s;
+		animation-delay:0.78s;
+		}
+
+		#fadingBarsG_4{
+		left:37px;
+		-moz-animation-delay:0.91s;
+		-webkit-animation-delay:0.91s;
+		-ms-animation-delay:0.91s;
+		-o-animation-delay:0.91s;
+		animation-delay:0.91s;
+		}
+
+		#fadingBarsG_5{
+		left:50px;
+		-moz-animation-delay:1.04s;
+		-webkit-animation-delay:1.04s;
+		-ms-animation-delay:1.04s;
+		-o-animation-delay:1.04s;
+		animation-delay:1.04s;
+		}
+
+		#fadingBarsG_6{
+		left:62px;
+		-moz-animation-delay:1.17s;
+		-webkit-animation-delay:1.17s;
+		-ms-animation-delay:1.17s;
+		-o-animation-delay:1.17s;
+		animation-delay:1.17s;
+		}
+
+		#fadingBarsG_7{
+		left:74px;
+		-moz-animation-delay:1.3s;
+		-webkit-animation-delay:1.3s;
+		-ms-animation-delay:1.3s;
+		-o-animation-delay:1.3s;
+		animation-delay:1.3s;
+		}
+
+		#fadingBarsG_8{
+		left:87px;
+		-moz-animation-delay:1.43s;
+		-webkit-animation-delay:1.43s;
+		-ms-animation-delay:1.43s;
+		-o-animation-delay:1.43s;
+		animation-delay:1.43s;
+		}
+
+		@-moz-keyframes bounce_fadingBarsG{
+		0%{
+		-moz-transform:scale(1);
+		background-color:#003789;
+		}
+
+		100%{
+		-moz-transform:scale(.3);
+		background-color:#D7E9FF;
+		}
+
+		}
+
+		@-webkit-keyframes bounce_fadingBarsG{
+		0%{
+		-webkit-transform:scale(1);
+		background-color:#003789;
+		}
+
+		100%{
+		-webkit-transform:scale(.3);
+		background-color:#D7E9FF;
+		}
+
+		}
+
+		@-ms-keyframes bounce_fadingBarsG{
+		0%{
+		-ms-transform:scale(1);
+		background-color:#003789;
+		}
+
+		100%{
+		-ms-transform:scale(.3);
+		background-color:#D7E9FF;
+		}
+
+		}
+
+		@-o-keyframes bounce_fadingBarsG{
+		0%{
+		-o-transform:scale(1);
+		background-color:#003789;
+		}
+
+		100%{
+		-o-transform:scale(.3);
+		background-color:#D7E9FF;
+		}
+
+		}
+
+		@keyframes bounce_fadingBarsG{
+		0%{
+		transform:scale(1);
+		background-color:#003789;
+		}
+
+		100%{
+		transform:scale(.3);
+		background-color:#D7E9FF;
+		}
+
+		}
+		
+		.block {padding: 10px; color:#999; background-color:#ddd;}
+		h2 {font-size:20px; margin:30px 0 20px; background-color:#fff;}
+		
+		ul.prices {margin-top:10px; margin:10px 0 0;}
+		ul.prices li {display:inline-block; color:#102E79; width:135px; margin-right:2px; text-align:center; padding:5px 0; font-size:12px; background-color:#fff; color:#102E79;}
+		ul.prices li:last-child{margin-right:0;}
+		
+		#price_match_box {position:absolute; top:2px; right:94px; width:174px; min-height:176px; background-color:#fff; }
+		#open_price_check {font-size:12px; line-height:130%; color:#102E79; padding:8px 0;  width:156px; text-align:center; position:absolute; bottom:8px; left:10px; background-color:#d7e9ff; }
+		
+		#open_price_check:hover, #compare_button:hover {cursor:pointer}
+		
+		.shadow {-moz-box-shadow: 0 0 8px #888; -webkit-box-shadow: 0 0 8px#888; box-shadow: 0 0 8px #888; margin-top:-5px; background-color:#d7e9ff !important;}
+		ul.price_list li {padding:8px; font-size:12px; color:#102E79; background-color:#fff; border-right:5px solid #d7e9ff; border-left:5px solid #d7e9ff; border-top:5px solid #d7e9ff;}
+		 ul.price_list li:last-child {border-bottom:solid 1px #dad8d0;}
+		
+		button#buy {background-position: 50% 50%;
+		border: 1px solid;
+		border-radius: 3px;
+		color: rgb(255, 255, 255);
+		cursor: pointer;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 1.5;
+		margin: 0px 2px 4px;
+		overflow: visible;
+		padding: 2px 10px;
+		background-color:#102E79;
+		}
+		
+		</style>
+		
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="waypoints.min.js"></script>
+		
+		<script type="text/javascript">
+		var roomCheckOffset = $.waypoints('viewportHeight') - 400;
+		$(document).ready(function() {
+			
+				
+				//$("#notify").html("bh:" + roomCheckOffset);
+			
+				$('#cheap_room').waypoint(function(direction) {
+					//$("#cheap_room_check").slideDown();
+					//$("#cheap_room_prices").slideDown();
+				}, { offset: 200 })
+			
+				setTimeout(function(){
+					$("#price_list").slideDown('slow', function(){
+						setTimeout(function(){
+							$("#price_checking").hide();
+							$("#prices_checked").fadeIn(function(){
+								$("#price_updating").show();
+								$("#new_price_top").fadeIn();
+								$("#new_price_book").fadeIn();
+								
+								setTimeout(function(){
+									$("#arrow_new_price").fadeIn();
+								}, 500)
+								
+							});
+							//$("#price_updating").show();
+							
+							/*setTimeout(function(){
+								$("#price_updating").hide();
+								$("#new_price_top").show();	
+							}, 2000)*/
+							
+						}, 2000)
+					});
+				}, 1000); 
+				
+				
+		});
+			
+		</script>
+	</head>
+	<body>
+		<div id="notify" style="position:fixed; bottom:10px; left:10px;"></div>
+		<div id="header">
+			<div id="content">
+				<div id="logo"><img src="i/hcom-logo.png"/></div>
+				<div id="currency"><img src="i/header-picker.png" style="display:block; margin:0 auto;"/></div>
+				<div id="contact"><img src="i/header-contact.png"></div>
+			</div>
+		</div>
+		<div id="nav">
+			<div id="w">
+				<ul id="sNav">
+					<li>Home</li>
+					<li>Hotel Deals</li>
+					<li>Travel guides</li>
+					<li class="right">Accounts and Bookings</li>
+					<li class="right">Customer Service & Feedback</li>
+				</ul>
+			</div>
+		</div>
+		<div id="pagebg" style="margin-bottom:20px;">
+			<div id="frame">
+				<div id="grid">
+					
+					<div style="position:relative">
+						
+						<div id="price_updating" style="position:absolute; right:0; top:50px; width:400px; background-color:#fff; height:30px; text-align:right; padding:10px; display:none;">
+							<div style="margin-right:120px">
+								<p style="font-size:14px; font-weight:bold; margin-bottom:5px; color:#999;">Original price</p>
+								<span style="font-size:18px; color:#999; text-decoration:line-through;">&pound;196</span> <span style="font-size:24px; color:#999;">&pound;59</span>
+							</div>	
+						</div>
+						
+						
+						<img src="i/hotel_title.png" />
+						<img id="arrow_new_price" src="i/arrow.png" style="position:absolute; top:80px; right:60px; z-index:2000; display:none;"/>
+					</div>
+					
+					<div style='position:relative; margin-bottom:10px;'>
+						
+					</div>
+					<div id="price_list" style=" position:relative; background-color:#d7e9ff; border-radius:4px; padding:10px; margin-top:20px; height:85px; display:none;">
+						<div id="price_checking" style="text-align:center; height:50px;">
+							<p style="margin-top:20px;">Checking for the lowest rates across hundreds of travel sites<br />
+								<div id="fadingBarsG">
+								<div id="fadingBarsG_1" class="fadingBarsG">
+								</div>
+								<div id="fadingBarsG_2" class="fadingBarsG">
+								</div>
+								<div id="fadingBarsG_3" class="fadingBarsG">
+								</div>
+								<div id="fadingBarsG_4" class="fadingBarsG">
+								</div>
+								<div id="fadingBarsG_5" class="fadingBarsG">
+								</div>
+								<div id="fadingBarsG_6" class="fadingBarsG">
+								</div>
+								<div id="fadingBarsG_7" class="fadingBarsG">
+								</div>
+								<div id="fadingBarsG_8" class="fadingBarsG">
+								</div>
+								</div>
+							</p>
+						</div>
+						<div id="prices_checked" style="margin: 5px 0 0 30px; display:none;">
+							<p style="font-size:16px; font-weight:bold; margin-bottom:10px;">Price Check</p>
+							<p style="line-height:130%; color:#102E79; font-size:13px;">We've searched hundreds of travel sites and these are the lowest prices we could find for a room at this hotel.</p>
+							<ul class="prices" style="">
+								<li id="1" style="">Agoda.com &pound;53</li>
+								<li id="2" style="">LateRooms &pound;58</li>
+								<li id="3" style="">Booking.com &pound;61</li>
+								<li id="4" style="">LastMinute &pound;61</li>
+								<li id="5" style="">Expedia &pound;65</li>
+								<!--<li id="1" style="">Venere &pound;43</li>
+								<li id="2" style="">EasyToBook &pound;44</li>
+								<li id="3" style="">Ebookers &pound;47</li>-->
+							</ul>
+						</div>
+						
+						<div id="new_price_top" style="position:absolute; right:120px; top:5px; width:400px; background-color:transparent; text-align:right; padding:10px; display:none;">
+							<p style="font-size:16px; font-weight:bold;">Our lowest price</p> <p style="margin-top:5px;"> <span style="font-size:32px; color:#900; font-weight:bold;">&pound;53</span></p>
+							<p style="font-size:12px; margin-top:7px;">total includes taxes and fees</p>
+					
+						</div>
+						
+						<div id="new_price_book" style="position:absolute; right:0px; top:26px; width:110px; background-color:transparent; text-align:center; padding:10px; display:none;">
+							
+							<button id="buy">Book now</button>
+							<p style="font-size:12px;margin-top:5px;"><a href="#">See room details</a></p>
+						</div>
+					</div>
+					
+					<img src="i/hotel_details.png" style="margin-top:20px;"/>
+					<div class="grid-12" style="margin-top:20px;">
+						<img src="i/choose-room.png" style="">
+					</div>
+					<div class="grid-12">
+						<img src="i/room_table_header.png" style="">
+					</div>
+					
+					<div class="grid-12" style="position:relative; overflow-x:visible;">
+						<!--<div id="cheap_room_check" style=" color:#fff; width:1148px; border-top-left-radius:4px; border-top-right-radius:4px; background:url('i/pm.png') no-repeat #102E79 10px 5px; margin-left:5px; display:none;">
+							<p style="margin-left:50px; padding:12px 0">Our lowest price</p>
+						</div>-->
+						
+						<div id="cheap_room"><img  src="i/cheap_room_designed.png" ></div>
+						
+						<!--<div id="cheap_room_prices" style=" color:#102E79; width:1148px; border-bottom-left-radius:4px; border-bottom-right-radius:4px; background: no-repeat #d7e9ff 10px 5px; margin-left:5px; display:none;">
+							<p style="margin-left:10px; padding:12px 0; display:inline-block; width:380px; font-size:14px;">Compare lowest available prices form other travel sites</p>
+							<ul class="prices" style="display:inline-block;">
+								<li id="1" style="">Agoda.com &pound;53</li>
+								<li id="2" style="">LateRooms &pound;58</li>
+								<li id="3" style="">Booking.com &pound;61</li>
+								<li id="4" style="">LastMinute &pound;61</li>
+								<li id="5" style="">Expedia &pound;65</li>
+								
+							</ul>
+						</div>-->
+						
+					</div>
+					
+					<div class="grid-12" style="position:relative; overflow-x:visible;">
+						<img src="i/room_details.png" style="">
+						
+					</div>
+					
+					
+					
+				</div>
+			<div>
+
+		</div>
+		
+	</body>
+</html>
