@@ -187,8 +187,8 @@ function fetchResults(result){
 
     geocoder.geocode( { 'address': result}, function(pos, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            //console.log(pos);
-            lon = pos[0].geometry.location.B;
+            console.log(pos);
+            lon = pos[0].geometry.location.D;
             lat = pos[0].geometry.location.k;
 
             //console.log("pos");
@@ -227,7 +227,7 @@ function fetchResults(result){
         // code to run if the request succeeds;
         // the response is passed to the function
         success: function( json ) {
-
+            console.log(json);
            
            var hotels = json.HotelListResponse.HotelList.HotelSummary;
            //console.log(hotels);
