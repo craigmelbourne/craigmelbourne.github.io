@@ -1,10 +1,9 @@
 <html><head>
-    <title>Browse Flow</title>
+    <title>SQM: Autosuggest on single key press</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, width=320, minimal-ui">
     <link rel="stylesheet" type="text/css" href="http://ux.hotels.com/browseFlow/variant_3/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="http://ux.hotels.com/browseFlow/variant_3/cssstyles.css">
-  <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
-  body {font-family:arial; margin:50px;}
+  <style>/* Copyright 2014 Evernote Corporation. All rights reserved. */
+  body {font-family:arial; background-color: #EAE8E0;}
 
 .widget-autosuggest-options {width:280px; left:100px; border:solid 1px #eee; background-color:#fff;}
 .widget-autosuggest-options thead, tfoot {display:none;}
@@ -26,7 +25,28 @@ span.highlighted {font-weight:bold;}
   margin:0;
   font-size:14px;
 }
-</style></head>
+
+#desc {display:none;}
+
+@media only screen and (min-width:600px) {
+ #wrapper {width:360px; margin:0 auto;}
+}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/core/dio.js"></script>
+    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/core/event.js"></script>
+    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/core/polyfills.js"></script>
+    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/core/widget.js"></script>
+    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/prototype/dio.widget.autosuggest.js"></script>
+    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/HotelSearch.js"></script>
+    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/AutoSuggest.js"></script>
+    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/BrowseLocations.js"></script>
+    <script type="text/javascript" src="typeahead.bundle.js"></script>
+
+
+</head>
   <body cz-shortcut-listen="true" class="">
     <section class="overlay">
       <div class="browse_locations">
@@ -44,11 +64,9 @@ span.highlighted {font-weight:bold;}
     </section>
 
 
-    <section id="wrapper">
-      <article id="query" style="padding:20px;">
-        <p style="line-height:24px; margin-bottom:20px">1-2 characters: suggestions made from 'top 200 destinations' <br />
-        3+ characters: returns standard auto suggest</p>
-        <form action="index_submit" method="post" accept-charset="utf-8">
+    <div id="wrapper">
+      <div id="query" style="width:100%">
+        
           <div class="destination" style="padding:16px; background-color:#EAE8E0; display:inline-block">
             <h1 style="font-size:24px; line-height:32px;">Hotel search</h1>
             <input type="text" id="search_destination" class="typeahead" autocorrect="off" autocomplete="off" class="autosuggest-enabled" autofocus style="padding:4px; font-size:14px; width:280px">
@@ -58,22 +76,13 @@ span.highlighted {font-weight:bold;}
             </p>
           <input type="hidden" name="as-shown" value="true"></div>
 
-        </form>
+        
       </article>
       
     
     </section>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/core/dio.js"></script>
-    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/core/event.js"></script>
-    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/core/polyfills.js"></script>
-    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/core/widget.js"></script>
-    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/prototype/dio.widget.autosuggest.js"></script>
-    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/HotelSearch.js"></script>
-    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/AutoSuggest.js"></script>
-    <script type="text/javascript" src="http://ux.hotels.com/browseFlow/variant_3/js/BrowseLocations.js"></script>
-    <script type="text/javascript" src="typeahead.bundle.js"></script>
+    
     <script type="text/javascript">
     $(function(){
      
