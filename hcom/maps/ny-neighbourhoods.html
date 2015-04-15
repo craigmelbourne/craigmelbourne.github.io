@@ -68,7 +68,7 @@
 	}
 	
 	var kmlOptions = {
-		suppressInfoWindows: false, 
+		suppressInfoWindows: true, 
 		preserveViewport: true
 	}
 	
@@ -79,7 +79,19 @@
 		var district = kmlEvent.featureData.description;
 		//alert(text);
 		showInContentWindow(district, listnum);
+		infowindow.close();
+		showInInfoWindow(kmlEvent.latLng, kmlEvent.featureData.description);
 	});
+
+	function showInInfoWindow(position, text) {
+		
+  		var content = "<div>" + text +  "</div>";
+  		infowindow = new google.maps.InfoWindow({
+    		content: content, 
+    		position: position
+  		})
+  		infowindow.open(map);
+	}
 	
   
 	layer = new google.maps.FusionTablesLayer({
@@ -90,11 +102,14 @@
       }
     });
   
+  	var map;
+  	var infowindow = new google.maps.InfoWindow;
+
 	$(document).ready(function () {
 		
 		//initialize()
 		
-		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 		ctaLayer.setMap(map);
 		//layer.setMap(map);
 		$("a#showhotels").click(function(e){
