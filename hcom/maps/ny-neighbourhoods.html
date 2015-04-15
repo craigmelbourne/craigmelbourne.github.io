@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <title>Google Maps JavaScript API v3 Example: Fusion Tables Layer</title>
+  
+  <link rel="stylesheet" href="thickbox.css" media="screen" />
+  <link rel="stylesheet" href="global.css" media="screen" />
+  <style type="text/css">
+    html {}
+    body { margin:0 10px; padding:0 10px; font-family:arial;}
+	a {text-decoration:none;}
+    #map_canvas { height: 100%; }
+	#filters {}
+	h1, h2, h3, h4, p {margin:0; padding:0;}
+	h1 {margin: 0 0 16px; color:#555; font-weight:normal; font-size:26px;}
+	h2 {font-size:1.2em;}
+	h3 {color:#777; font-size:0.9em; font-weight:normal; margin-bottom:6px;}
+	#map {}
+	#filters {}
+	#filters p {line-height:150%;}
+	#filters p.notes {color:#777; font-size:0.8em; margin-bottom:5px;}
+	#hotellist {height:460px; overflow:auto;}
+	#hotellist .hotels {display:table; display:none;}
+	#hotellist .hotel {display:table-row; border-bottom:solid 1px #ccc; width:100%; padding-bottom:15px;}
+	.hotel div {vertical-align: top; padding:0px 0 15px;}
+	.hotel .photo {display:table-cell; width:20%}
+	.hotel .details {display:table-cell; width:57%; font-size:1.0em; padding-left:10px;}
+	.hotel .price {display:table-cell; width:15%; text-align:right; padding-right:10px;}
+	.hotel .number {display:table-cell; font-weight:bold; font-size:1.2em; color:#999; width:8%}
+	.hotel h4 {font-weight:normal; margin-bottom:6px;}
+	
+	#header {background-color:#EE3424; color:white;}
+	
+	.showhide {margin-top:20px; font-size:0.8em;}
+	#popularneighbourhoods {}
+	#popularneighbourhoods .title {height:30px;}
+	
+	#hoteldetails {color:#555;}
+	#hoteldetails h2 {font-weight:bold;}
+	#hoteldetails button {padding:2px 4px; border:solid 1px #eee; margin-right:5px;}
+	
+	.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;line-height: 0;height: 0;}
+	.clearfix {display: inline-block;}
+	html[xmlns] .clearfix {display: block;}
+	* html .clearfix {height: 1%;}
+  </style>
+ 
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+     <!--<script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>-->
+   <script src="thickbox.js"></script>
+
+
+      <script src="slides.min.jquery.js"></script>
+<script type="text/javascript"
+    src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI&sensor=false">
+  </script>
+  <script type="text/javascript">
+
+	var newYork = new google.maps.LatLng(40.76193, -73.97751);
+	var listnum;
+	
+	var myOptions = {
+	  zoom: 12,
+	  center: newYork,
+	  mapTypeId: google.maps.MapTypeId.ROADMAP
+	}
+	
+	var kmlOptions = {
+		suppressInfoWindows: true, 
+		preserveViewport: true
+	}
+	
+	var ctaLayer = new google.maps.KmlLayer('http://craigmelbourne.github.io/hcom/maps/nyneighbourhoods.kml', kmlOptions);
+
+	google.maps.event.addListener(ctaLayer, 'click', function(kmlEvent) {
+		listnum = kmlEvent.featureData.name;
+		var district = kmlEvent.featureData.description;
+		//alert(text);
+		showInContentWindow(district, listnum);
+	});
+	
+  
+	layer = new google.maps.FusionTablesLayer({
+      query: {
+        select: 'geometry',
+        from: "3273612",
+		suppressInfoWindows: true
+      }
+    });
+  
+	$(document).ready(function () {
+		
+		//initialize()
+		
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		ctaLayer.setMap(map);
+		//layer.setMap(map);
+		$("a#showhotels").click(function(e){
+			//alert("hello")
+			layer.setMap(map);
+		})
+		
+		$("a#hidehotels").click(function(e){
+			//alert("hello")
+			
+		})
+		
+		$("a.openMap").click(function(e){
+			e.preventDefault();
+			var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+			
+			//layer.setMap(map);
+		})
+		
+		$(".details h4 a").click(function(e){
+			e.preventDefault();
+			$("#hotellist .hotels").hide()
+			$("#hoteldetails").show().css("height", "500");
+		});
+		
+		$("#backtolist").click(function(e){
+			e.preventDefault();
+			$("#hoteldetails").hide().css("height", "460");
+			$("#hotellist #n" + listnum).show()
+			
+		})
+		
+		$('#slides').slides({
+				preload: true,
+				preloadImage: 'img/loading.gif',
+				play: 0,
+				hoverPause: true
+			});
+				
+	});
+  
+
+  
+  function showInContentWindow(district, listnum) {
+  //alert(text);
+	$("#hotellist").css("height", "460px")
+	$("#hotellist .hotels").hide()
+	$("#hoteldetails").hide();
+	$("#hotellist #n" + listnum).show();
+	$(".showall").show();
+	$("h2").text(district);
+  }
+
+  </script>
+</head>
+<body>
+<div id="wrapper">
+
+
+
+
+
+	<div id="popularneighbourhoods">
+
+		<div style="position:absolute; top:0; left:0; right:400px; bottom:0;">
+			
+			<div id="map_canvas" style=""></div>
+			<!--<div class="showhide">
+				<a href="#" id="showhotels">Show hotels</a> | <a href="#" id="hidehotels">Hide hotels</a> 
+			</div>-->
+		</div>	
+		<div id= "filters" style="position:absolute; top:0; right:0; bottom:0; width:400px; padding:16px; box-sizing:border-box;">
+			<h1>New York Neighbourhoods</h1>
+			<h2 class="title">
+			</h2>
+				
+				<div id="hotellist">
+				
+					<div id="n1" class="hotels">
+						<p>Once New York’s industrial heartland, these lively Manhattan neighborhoods have undergone radical changes over the years. Now home to the super rich and famous, Tribeca’s once abandoned warehouses became squatting artists’ studios and gritty clubs before the luxurious six-figure apartments took hold, while SoHo’s elegantly preserved industrial buildings now house exclusive designer boutiques. Head off Broadway to find tenement-lined cobble stone streets dotted with old-school style local bakeries.</p>
+					</div>
+					<div id="n2" class="hotels">
+						<p>Once synonymous with student grunge hang-outs, artsy cafés, and eclectic clothes stores, East Village and Lower East Side have plaid host to typical New York gentrification over the years with super expensive apartments and exclusive designer boutiques now scattering these neighborhoods. If you fancy some serious bargain hunting head to eclectic Orchard Street, while foodies will enjoy the area’s cool mix of trendy bistros, old-town delis, and diverse restaurants. </p>
+					</div>					
+					<div id="n3" class="hotels">
+						<p>Anyone visiting the Big Apple will want to explore Midtown West  – this is where the razzle dazzle of Times Square is, after all. Take in a show on Broadway or, if you fancy giving your mind a workout, take a tour of the celebrated Museum of Modern Art (or MoMA). And when your tummy starts rumbling, check out the French brasseries, sushi bars and Russian eateries on Restaurant Row.</p>
+					</div>
+					<div id="n4" class="hotels"></div>
+					<div id="n5" class="hotels">
+						<p>Known as the "Crossroads of the World", Times Square is a dazzling intersection famed for its lavish neon signs, grand theaters, and pulsating crowds. Whether you're on your way to a Broadway show, a buzzing bar or one of the family-friendly restaurant that line the streets, look out for iconic structures like the Paramount Building and One Times Square – site of the celebrated New Year's Eve ball drop. </p>
+					</div>
+					<div id="n6" class="hotels">
+						<p>Think "New York City" and the sights of Midtown East will spring to mind . There's the towering Art Deco splendor of the Chrysler Building, the gleaming edges of the Empire State Building, and the opulence of Grand Central – arguably the world's most famous train station. For top flight shopping, make your way to Saks Fifth Avenue, and  you can even walk the corridors of power at the UN Headquarters.</p>
+					</div>
+					<div id="n7" class="hotels">
+						<p>Sandwiched between the winding Hudson River and lush Central Park, Manhattan's Upper West Side is home to New York's most exclusive high-rise apartments, as well as Columbia University. The American Museum of Natural History makes it a history-buff's dream, while the Lincoln Center showcases everything from opera to jazz. A stroll around Riverside Park in full bloom is a fine way to spend a sunny day.</p>
+					</div>
+					<div id="n8" class="hotels">
+						<p>Upper East Side has long been synonymous with wealth – think luxury Park Avenue apartments, select boutiques where the designer items are so exclusive they don’t have price tags, and high-heel clad ladies-who-lunch tottering with their miniature poodles. Recently hubs of downtown style have stretched into the neighborhood so you can try out funky restaurants as well as upscale bistros. Don’t miss Museum Mile – home to the famous Guggenheim. </p>
+					</div>
+					<div id="n9" class="hotels"></div>
+					<div id="n10" class="hotels"></div>
+					<div id="n11" class="hotels"></div>
+				
+					
+					
+					
+					
+				
+					
+				
+				</div>
+
+				
+
+		</div>
+	
+		
+	</div>
+
+	
+
+</body>
+</html>
