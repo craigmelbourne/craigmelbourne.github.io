@@ -18,18 +18,15 @@
 	h2 {font-size:1.2em;}
 	h3 {color:#777; font-size:0.9em; font-weight:normal; margin-bottom:6px;}
 	#map {}
-	#filters {}
-	#filters p {line-height:150%;}
+	#filters {-webkit-box-shadow: 0px 2px 3px 0px rgba(153,153,153,1);
+-moz-box-shadow: 0px 2px 3px 0px rgba(153,153,153,1);
+box-shadow: 0px 2px 3px 0px rgba(153,153,153,1);}
+	#filters p {line-height:20px}
 	#filters p.notes {color:#777; font-size:0.8em; margin-bottom:5px;}
-	#hotellist {height:460px; overflow:auto;}
-	#hotellist .hotels {display:table; display:none;}
-	#hotellist .hotel {display:table-row; border-bottom:solid 1px #ccc; width:100%; padding-bottom:15px;}
-	.hotel div {vertical-align: top; padding:0px 0 15px;}
-	.hotel .photo {display:table-cell; width:20%}
-	.hotel .details {display:table-cell; width:57%; font-size:1.0em; padding-left:10px;}
-	.hotel .price {display:table-cell; width:15%; text-align:right; padding-right:10px;}
-	.hotel .number {display:table-cell; font-weight:bold; font-size:1.2em; color:#999; width:8%}
-	.hotel h4 {font-weight:normal; margin-bottom:6px;}
+	#hotellist {overflow:auto; }
+	#hotellist .hotels {display:none;}
+	#hotellist .hotels p {font-size:14px;}
+	#hotellist .hotel {}
 	
 	#header {background-color:#EE3424; color:white;}
 	
@@ -37,7 +34,7 @@
 	#popularneighbourhoods {}
 	#popularneighbourhoods .title {height:30px;}
 	
-	#hoteldetails {color:#555;}
+	#hoteldetails {color:#555; }
 	#hoteldetails h2 {font-weight:bold;}
 	#hoteldetails button {padding:2px 4px; border:solid 1px #eee; margin-right:5px;}
 	
@@ -62,9 +59,14 @@
 	var listnum;
 	
 	var myOptions = {
-	  zoom: 12,
+	  zoom: 13,
 	  center: newYork,
-	  mapTypeId: google.maps.MapTypeId.ROADMAP
+	   mapTypeControl: true,
+    	zoomControlOptions: {
+        	style: google.maps.ZoomControlStyle.SMALL,
+        	position: google.maps.ControlPosition.TOP_RIGHT
+    	}, 
+    	panControl: false
 	}
 	
 	var kmlOptions = {
@@ -132,12 +134,12 @@
 		$(".details h4 a").click(function(e){
 			e.preventDefault();
 			$("#hotellist .hotels").hide()
-			$("#hoteldetails").show().css("height", "500");
+			$("#hoteldetails").show();
 		});
 		
 		$("#backtolist").click(function(e){
 			e.preventDefault();
-			$("#hoteldetails").hide().css("height", "460");
+			$("#hoteldetails").hide();
 			$("#hotellist #n" + listnum).show()
 			
 		})
@@ -155,7 +157,6 @@
   
   function showInContentWindow(district, listnum) {
   //alert(text);
-	$("#hotellist").css("height", "460px")
 	$("#hotellist .hotels").hide()
 	$("#hoteldetails").hide();
 	$("#hotellist #n" + listnum).show();
@@ -174,14 +175,14 @@
 
 	<div id="popularneighbourhoods">
 
-		<div style="position:absolute; top:0; left:0; right:400px; bottom:0;">
+		<div style="position:absolute; top:0; left:0; right:0; bottom:0;">
 			
 			<div id="map_canvas" style=""></div>
 			<!--<div class="showhide">
 				<a href="#" id="showhotels">Show hotels</a> | <a href="#" id="hidehotels">Hide hotels</a> 
 			</div>-->
 		</div>	
-		<div id= "filters" style="position:absolute; top:0; right:0; bottom:0; width:400px; padding:16px; box-sizing:border-box;">
+		<div id= "filters" style="position:absolute; top:0; left:32px; width:300px; padding:16px; box-sizing:border-box; background-color:#fff;">
 			<h1>New York Neighbourhoods</h1>
 			<h2 class="title">
 			</h2>
