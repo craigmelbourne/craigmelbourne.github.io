@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<style type="text/css">
+		body {font-family:arial;}
+		#head {background-color: #D41200; height:50px; color:#fff;}
+		#head > div, #nav > div, #search-strip > div, #wrapper {max-width:1280px; margin:0 auto;}
+		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
+		#search-strip {background-color:#F5F4F0; padding:16px;}
+		#sort-filter {border-top:#2088DB solid 3px; border-bottom:#2088DB solid 3px; height:60px; margin-top:16px;}
+		</style>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+
+			});
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div id="head">
+			<div>
+				Head
+			</div>		
+		</div>
+		<div id="nav">
+			<div>
+				nav
+			</div>
+				
+		</div>
+
+		<div id="search-strip">
+			<div>Search query</div>
+		</div>
+		
+		<div id="wrapper">
+			
+			<div id="sort-filter">
+				<div style="display:inline-block; padding:8px; color:#fff; background-color:#2088DB; font-size:12px">NARROW YOUR SEARCH</div>
+				<div style="display:inline-block; padding:8px; font-size:12px">Some positive message on filter usage </div>
+			</div>
+			<div id="results">Results</div>
+
+		</div> 
+	</body>
+</html>
