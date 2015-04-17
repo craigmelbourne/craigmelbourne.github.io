@@ -15,9 +15,9 @@
 		#head > div, #nav > div, #search-strip > div, #wrapper {max-width:1160px; margin:0 auto; padding:0 16px;}
 		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
 		#search-strip {background-color:#F5F4F0; padding:16px;}
-		#sort-filter {border-top:#2088DB solid 3px; border-bottom:#2088DB solid 3px; margin-top:16px;}
-		#filters {margin:16px 0; overflow: hidden;}
-		.filter-block {float:left; vertical-align: top; width:20%; box-sizing:border-box; padding:0 24px 0 8px;}
+		#sort-filter {border-top:#ccc solid 0px; border-bottom:#ccc solid 0px; margin-top:16px;}
+		#filters {margin:16px 0 8px; overflow: hidden;}
+		.filter-block {float:left; vertical-align: top; box-sizing:border-box; padding:0 24px 0 8px;}
 		.filter-block > label {display:block; font-size:12px; margin-bottom: 8px; font-weight:bold; }
 		</style>
 
@@ -67,8 +67,8 @@
 		
 		<div id="wrapper">
 			
-			<div id="sort-filter">
-				<div style="display:inline-block; padding:8px; color:#fff; background-color:#2088DB; font-size:12px">NARROW YOUR SEARCH</div>
+			<div id="sort-filter" style="margin-right:250px">
+				<div style="display:inline-block; padding:8px; font-size:14px; font-weight:bold">Narrow your search</div>
 				<div style="display:inline-block; padding:8px; font-size:12px">Some positive message on filter usage </div>
 
 				<style type="text/css">
@@ -109,7 +109,7 @@
 
 				<div id="filters" style="overflow:hidden;">
 					<div class="filter-block" style="width:20%">
-					<label>Name contains</label>
+					<!--<label>Name contains</label>-->
 					<div style="position:relative; margin-bottom:8px">
 						<input type="text" style="box-sizing:border-box; border:solid 1px #ccc; font-size:12px; padding:4px; width:calc(100% - 30px); height:27px"/>
 
@@ -117,50 +117,30 @@
 						">Go</button>
 
 					</div>
-					<span style="color:#999; font-size:12px">Use this space to inform users of what they can search for from here?</span>
+					
 						
 						
 					</div>
 					<div class="filter-block">
 						<label>Price range</label>
-						<div id="slider-range"></div>
-						<label style="margin-top:16px">Guest rating</label>
-						<ul id="guest">
-							<li>1</li>
-							<li>2</li>
-							<li>3</li>
-							<li>4</li>
-							<li>5</li>
-						</ul>
+						<div>$0 - $500</div>
 					</div>
-					
-					<div class="filter-block" style="width:15%">
+					<div class="filter-block">
+						<label>Guest rating</label>
+						<div>Poor - Excellent</div>
+					</div>
+					<div class="filter-block">
 						<label>Facilities</label>
-						<ul>
-							<li><label><input type="checkbox" /> Free Wi-fi</label></li>
-							<li><input type="checkbox" /> <label>Breakfast included</label></li>
-							<li><input type="checkbox" /> <label>Parking available</label></li>
-							<li class="all"><a href="#">See all</a></li>
-						</ul>
+						<div>All</div>
 					</div>
 					<div class="filter-block">
 						<label>Neighbourhood</label>
-						<ul>
-							<li><input type="checkbox" /> Louvre - Place Vendome (1 arr. and 2. arr)</li>
-							<li><label><input type="checkbox" /> Eiffel Tower - Orsay Museum (7. arr)</label></li>
-							<li><label><input type="checkbox" /> Saint-Germain-des-Pres - Luxembourg (6 arr.)‎</label></li>
-							<li class="all"><a href="#">See all</a></li>
-						</ul>
+						<div>All</div>
 
 					</div>
 					<div class="filter-block">
 						<label>Landmark</label>
-						<ul>
-							<li><label><input type="checkbox" /> City centre</label></li>
-							<li><label><input type="checkbox" /> Roissy - Charles de Gaulle Airport (CDG)</label></li>
-							<li><label><input type="checkbox" /> Disneyland Paris</label></li>
-							<li class="all"><a href="#">See all</a></li>
-						</ul>
+						<div>Any</div>
 
 					</div>
 				</div>
@@ -169,16 +149,7 @@
 			div#sort ul {overflow:hidden;}
 			div#sort ul li {float:left; padding:8px 16px; font-size: 14px; color:;}
 			</style>
-			<div id="sort">
-				<ul>
-					<li>Sort by</li>
-					<li><a href="">Price</a></li>
-					<li><a href="#">Guest Rating</a></li>
-					<li><a href="#">Distance</a></li>
-					<li><a href="#">Hotel Class</a></li>
-					<li><a href="#">Our favourites</a></li>
-				</ul>
-			</div>
+			
 			<div id="results" style="margin-top:32px;">
 				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
 				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
