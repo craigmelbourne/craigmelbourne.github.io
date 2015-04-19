@@ -31,6 +31,16 @@
 					$(".transport ul").hide();
 				});
 
+				$("div.yes").on("click", function(){
+					$(this).css("color", "#99CC33");
+					$(this).siblings(".no").css("color", "#D6D3C0")
+				});
+
+				$("div.no").on("click", function(){
+					$(this).css("color", "red");
+					$(this).siblings(".yes").css("color", "#D6D3C0")
+				});
+
 			});
 
 		</script>
@@ -43,56 +53,160 @@
 			<div id="tools">Sign in | Sign up</div>
 		</div>
 
-		<div id="sidebar">
+		<div id="col1" class="col">
 			<div class="title">Profile</div>
 			<div style="width:80%; margin:30px auto 0">
-				<img src="i/add_photo.png" /> <br />
-				<a href="">Add photo</a>
+				<div style="text-align:center;">
+					<img src="i/icon_add_photo.png" /> <br />
+				<a href="">edit photo</a>
+				</div>
+				
 
 				<fieldset>
 					<input type="text" placeholder="First Name" />
 					<input type="text" placeholder="Last Name" />
 					<input type="text" placeholder="Email" />
-					<input type="text" placeholder="Mobile #" />
+					<input type="text" placeholder="Mobile number" />
 				</fieldset>
+				<p style="font-size:12px; color:#999; padding:8px;">A temporary password will be sent to your address</p>
 			</div>
 		</div>
 
-		<div id="content-wrapper">
-			<div class="title">Interests</div>
-			<div id="content">
-				
-				<ul>
-					<li><input type="checkbox" id="food"> <label for="food">Food and Drink</label></li>
-					<li><input type="checkbox" id="shopping"> <label for="shopping">Shopping</label></li>
-					<li><input type="checkbox" id="sightseeing"> <label for="sightseeing">Sightseeing tours</label></li>
-					<li><input type="checkbox" id="food"> <label for="food">Wellness and Spas</label></li>
-					<li><input type="checkbox" id="shopping"> <label for="shopping">Museums</label></li>
-					<li><input type="checkbox" id="sightseeing"> <label for="sightseeing">Landmarks & History</label></li>
-					<li><input type="checkbox" id="food"> <label for="food">Art & paintings</label></li>
-					<li><input type="checkbox" id="shopping"> <label for="shopping">Performances</label></li>
-					<li><input type="checkbox" id="sightseeing"> <label for="sightseeing">Cultural</label></li>
-					<li><input type="checkbox" id="shopping"> <label for="shopping">Sports</label></li>
-					<li><input type="checkbox" id="sightseeing"> <label for="sightseeing">Outdoors</label></li>
-				</ul>
+		<style type="text/css">
+			div.pref {overflow:hidden;}
+			div.yes {float:left; padding:8px; margin-right:8px;}
+			div.yes:hover, div.no:hover {cursor: pointer;}
+			div.no {float:left; padding:8px; margin-right:8px;}
+			div.label {float:left; padding:8px;}
+		</style>
 
-				<ul>
-					<li><input type="checkbox" id="food"> <label for="food">Adventure</label></li>
-					<li><input type="checkbox" id="shopping"> <label for="shopping">Amusement</label></li>
-					<li><input type="checkbox" id="sightseeing"> <label for="sightseeing">Zoos and Aquariams</label></li>
-					<li><input type="checkbox" id="food"> <label for="food">Classes</label></li>
-					<li><input type="checkbox" id="shopping"> <label for="shopping">Bars</label></li>
-					<li><input type="checkbox" id="sightseeing"> <label for="sightseeing">Clubs</label></li>
-					<li><input type="checkbox" id="food"> <label for="food">Gear rentals</label></li>
-					<li><input type="checkbox" id="shopping"> <label for="shopping">Ranch and farm</label></li>
-					
-				</ul>
+		<div id="col2" class="col">
+			<div class="title">Interests</div>
+			<div style="width:80%; margin:30px auto 0">
+				<div class="pref" rel="fooddrink">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Food & Drink</div> 
+				</div>
+
+				<div class="pref" rel="shopping">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Shopping</div> 
+				</div>
+
+				<div class="pref" rel="sightseeing">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Sightseeing tours</div> 
+				</div>
+
+				<div class="pref" rel="wellness">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Wellness and Spas</div> 
+				</div>
+
+				<div class="pref" rel="museums">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Museums</div> 
+				</div>
+
+				<div class="pref" rel="landmarks">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Landmarks & History</div> 
+				</div>
+
+				<div class="pref" rel="art">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Art & Paintings</div> 
+				</div>
+
+				<div class="pref" rel="performances">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Performances</div> 
+				</div>
+
+				<div class="pref" rel="cultural">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Cultural</div> 
+				</div>
 				
+			</div>
+		</div>
+
+		<div id="col3" class="col">
+			<div class="title">Food</div>
+			<div style="width:80%; margin:30px auto 0">
+				<div class="pref" rel="american">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">American</div> 
+				</div>
+
+				<div class="pref" rel="mexican">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Mexican</div> 
+				</div>
+
+				<div class="pref" rel="southwestern">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Southwestern</div> 
+				</div>
+
+				<div class="pref" rel="italian">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Italian</div> 
+				</div>
+
+				<div class="pref" rel="japanese">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Japanese</div> 
+				</div>
+
+				<div class="pref" rel="chinese">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Chinese</div> 
+				</div>
+
+				<div class="pref" rel="french">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">French</div> 
+				</div>
+
+				<div class="pref" rel="vegetarian">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Vegetarian</div> 
+				</div>
+
+				<div class="pref" rel="spanish">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Spanish</div> 
+				</div>
+
+				<div class="pref" rel="thai">
+					<div class="yes">Y</div>
+					<div class="no">N</div>
+					<div class="label">Thai</div> 
+				</div>
 			</div>
 		</div>
 
 		<div id="footer">
-			<a href="settings.html">Next:Trip Settings</a>
+			<a href="settings.html">Next: <strong>Trip Settings</strong></a>
 		</div>
 	</body>
 </html>

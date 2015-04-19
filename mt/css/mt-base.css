@@ -2,13 +2,14 @@
 body {margin:0; font-family: 'Roboto'; color: #605445;}
 strong {font-weight:bold;}
 a {text-decoration: none; color:#3B98AF;}
+strong {font-weight:bold;}
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
     outline: none;
 }
-input[type="text"] {width:100%; font-size:20px; border:solid 1px #E7E3D8; padding:8px; box-sizing:border-box;}
+input[type="text"] {width:100%; font-size:16px; border:solid 1px #E7E3D8; padding:8px; border-radius:4px; box-sizing:border-box;}
 ul.multi-select {margin:20px 0 30px;}
 ul.multi-select li {display:block; padding:12px; background-color:#fff; border-bottom:3px solid #E7E3D8;}
 
@@ -38,18 +39,18 @@ ul.multi-select li {display:block; padding:12px; background-color:#fff; border-b
 
 /* profile page */
 body#profile {} 
+
+body#profile .col {position:absolute; top:30px; bottom:70px; box-sizing:border-box; width:33.33%; overflow-y:scroll; background-color:#EEEBE2;}
+body#profile #col1 {left:0;}
+body#profile #col2 {left:33.33%; border-left:dotted 1px #D6D3C0;}
+body#profile #col3 {right:0; border-left:dotted 1px #D6D3C0;}
+
 body#profile #sidebar {position:absolute; top:30px; bottom:50px; left:0; width:320px; background-color:#E7E3D8; color: #605445; box-sizing:border-box; text-align: center; line-height: 16px; padding:0; }
-body#profile #sidebar fieldset {margin-top:30px;}
-body#profile #sidebar input {margin-bottom:8px;}
-body#profile #content-wrapper {position:absolute; top:30px; left:320px; right:0; bottom:50px; margin:0; background-color:#E7E3D8; border-left:3px solid #D6D3C0; overflow-y:scroll	;}
-body#profile #content {width:600px; margin:60px auto 0; text-align: left;}
-body#profile #content ul {float:left; width:50%; vertical-align: top;}
-body#profile #content ul li {margin-bottom:12px;}
-body#profile #content input[type="checkbox"] {border-top: solid 1px #ddd; display:inline; width:auto;}
-body#profile #content label {display:inline; border-top: solid 1px #ddd; color:#3B98AF;}
+body#profile #col1 fieldset {margin-top:30px;}
+body#profile #col1 input {margin-bottom:8px;}
 .title {text-align:center; padding:12px; background-color:#786956; color:#fff;}
- #footer {position:absolute;  left:0px; right:0; bottom:0px; height:50px; background-color: #E7E3D8; border-top:3px solid #D6D3C0; padding:12px; box-sizing:border-box; text-align:right;}
- #footer a {}
+ #footer {position:absolute;  left:0px; right:0; bottom:0px; height:70px; background-color: #fff; border-top:3px solid #D6D3C0; padding:16px; box-sizing:border-box; text-align:right;}
+ #footer a {display: inline-block; color:#fff; background-color:#99CC33; padding:8px; border-radius:4px;}
 
 body#settings {} 
 body#settings .panel {position:absolute; top:30px; box-sizing:border-box; width:33.33%; bottom:50px; background-color:#E7E3D8;}
