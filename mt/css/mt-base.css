@@ -2,27 +2,34 @@
 body {margin:0; font-family: 'Roboto'; color: #605445;}
 strong {font-weight:bold;}
 a {text-decoration: none; color:#3B98AF;}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
 input[type="text"] {width:100%; font-size:20px; border:solid 1px #E7E3D8; padding:8px; box-sizing:border-box;}
 ul.multi-select {margin:20px 0 30px;}
 ul.multi-select li {display:block; padding:12px; background-color:#fff; border-bottom:3px solid #E7E3D8;}
 
 
-#header {height:30px; background-color: #605445; color:#E7E3D8; padding:8px 8px 0; box-sizing:border-box; font-size:14px; position:fixed; top:0; left:0; right:0;}
+#header {height:30px; background-color: #312D26; color:#E7E3D8; padding:8px 8px 0; box-sizing:border-box; font-size:14px; position:fixed; top:0; left:0; right:0;}
 #header #logo {display:inline-block; vertical-align:top;}
 #header #tools {display:inline-block; vertical-align:top; float:right;}
-#sidebar {position:fixed; top:30px; bottom:0; left:0; width:320px; background-color:#E7E3D8; color: #605445; box-sizing:border-box; text-align: center; padding:20px; line-height: 24px; padding-top:200px;}
-#content-wrapper {margin:0 0 0 320px;}
+#content-wrapper {margin:0 0 0 0}
 
-#content-wrapper #content {width:384px; margin:60px auto; text-align: center;}
-#content-wrapper #content h1 {font-size:24px; padding-top:30px;}
-#content-wrapper #content label {display:block; margin: 24px 0 12px;}
-#content-wrapper #content label a {text-transform: lowercase;}
-#content-wrapper #content input {width:100%; font-size:20px; border:solid 1px #E7E3D8; padding:8px; box-sizing:border-box;}
-#content-wrapper #content #destinations {margin-top:100px; font-size:14px;}
-#content-wrapper #content #destinations ul {margin-top:24px;}
-#content-wrapper #content #destinations ul li {float:left; margin:0 12px 12px 0; width:120px; background-color:#eee; height:120px; box-sizing:border-box; padding-top:50px;}
-#content-wrapper #content #destinations ul li:nth-child(3n+1){clear:left;}
-#content-wrapper #content #destinations ul li:nth-child(3n){margin-right: 0}
+#content-wrapper #content {margin:0 auto; text-align: center;}
+
+#home #search {background-color:#EDE8DF; padding:80px 0;}
+#home #search > div {width:400px; margin:0 auto;}
+#home #search h1 {font-size:24px; margin-bottom:16px;}
+#home #search input {}
+
+#home #destinations {margin:40px auto; font-size:20px; width:400px; text-align: center;}
+#home #destinations ul {margin:24px auto;}
+#home #destinations ul li {float:left; margin:0 16px 16px 0; width:120px; background-color:#eee; height:120px; box-sizing:border-box; padding-top:50px; font-size: 14px}
+#home #destinations ul li:nth-child(3n+1){clear:left;}
+#home #destinations ul li:nth-child(3n){margin-right: 0}
 
 .transport {position:relative;}
 .transport ul {text-align:left; position:absolute; top:0; background-color:#fff; border:solid 6px #E7E3D8; left:0; width:180px; left:50%; margin-left:-90px; display:none;}
