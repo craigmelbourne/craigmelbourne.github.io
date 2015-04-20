@@ -11,12 +11,14 @@
 		<style type="text/css">
 		body {font-family:arial;}
 		a {color:#2088DB; text-decoration: none}
+		.arrow-down { display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
+			border-top: 8px solid #2088DB; vertical-align:top; margin-top:4px;}
 		#head {background-color: #D41200; height:50px; color:#fff; }
 		#head > div, #nav > div, #search-strip > div, #wrapper {max-width:1160px; margin:0 auto; padding:0 16px;}
 		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
 		#search-strip {background-color:#F5F4F0; padding:16px;}
 		#sort-filter {border-top:#ccc solid 0px; border-bottom:#ccc solid 0px; margin-top:16px;}
-		#filters {margin:16px 0 8px; overflow: hidden;}
+		
 		.filter-block {float:left; vertical-align: top; box-sizing:border-box; padding:0 24px 0 8px;}
 		.filter-block > label {display:block; font-size:12px; margin-bottom: 8px; font-weight:bold; }
 		</style>
@@ -67,9 +69,82 @@
 		
 		<div id="wrapper">
 			
-			<div id="sort-filter" style="margin-right:250px">
-				<div style="display:inline-block; padding:8px; font-size:14px; font-weight:bold">Narrow your search</div>
-				<div style="display:inline-block; padding:8px; font-size:12px">Some positive message on filter usage </div>
+			<div id="sort-filter" style="overflow:hidden;">
+				<div id="filters" style="width:calc(100% - 326px); background-color:#eee; float:left; box-sizing:border-box;">
+					<!--<div style="background-color:#555; color:#fff; padding:8px; font-size:12px">Narrow your search</div>-->
+
+					<style type="text/css">
+						#filters ul {overflow:hidden; height:52px;}
+						#filters ul li {margin-right:24px; bor/der:solid 1px #ccc; float:left; ba/ckground-color:#ddd; padding:8px 0; height:52px; box-sizing:border-box;}
+						#filters ul li#name-contains {position:relative;  width:150px; border:0; background-color:transparent;}
+						#filters ul li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:12px; padding:4px; width:calc(100% - 30px); height:20px}
+						#filters ul li#name-contains button {position:absolute; bottom:8px; right:0; width:30px; background-color:#2088DB; color:#fff; border:0; height:20px; display:inline-block; margin-top:-1px}
+
+						#filters ul li label {font-size:12px; margin-bottom:4px; display:block;}
+						#filters ul li div.data {font-size:14px; color:#2088DB; padding-top:2px; font-weight:bold;}
+					</style>
+
+					<ul>
+						<li id="title" style="background-color:#555; color:#fff; padding: 8px;">
+							<label>Narrow Search</label>
+						</li>
+						<li id="name-contains">
+							<label>Name contains</label>
+							<div>
+								<input type="text"/><button>Go</button>
+							</div>
+						</li>
+						<li id="price-range">
+							<label>Price range</label>
+							<div class="data">$0 - $500 <div class="arrow-down"></div></div>
+						</li>
+						<li id="price-range">
+							<label>Guest rating</label>
+							<div class="data">1-5 <div class="arrow-down"></div></div>
+						</li>
+						<li id="price-range">
+							<label>Neighbourhood</label>
+							<div class="data">All <div class="arrow-down"></div></div>
+						</li>
+						<li id="price-range">
+							<label>Landmarks</label>
+							<div class="data">All <div class="arrow-down"></div></div>
+						</li>
+						<li id="price-range">
+							<label>Facilities</label>
+							<div class="data">All <div class="arrow-down"></div></div>
+						</li>
+						<li id="price-range">
+							<label>Type</label>
+							<div class="data">All <div class="arrow-down"></div></div>
+						</li>
+					</ul>
+
+				</div>
+				<div style="float:left; width:60px; background-color:#ccc; height:52px; box-sizing:border-box; font-size:14px; padding-top:24px; text-align:center;">
+					more <div class="arrow-down"></div>
+				</div>
+				<div id="sort" style="width:250px; height:52px; float:right; background-color:#eee; box-sizing:border-box;">
+					<ul>
+						<li>
+							<label style="display:block; font-size:12px; margin-bottom:4px">Sort By</label>
+							<select style="width:220px;">
+								<option>Price (low to high)</option>
+								<option>Price (high to low)</option>
+							</select>
+
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+
+
+			<div id="filter" style="background-color:">
+				
 
 				<style type="text/css">
 				.filter-block ul li {
@@ -107,43 +182,7 @@
 
 				</style>
 
-				<div id="filters" style="overflow:hidden;">
-					<div class="filter-block" style="width:20%">
-					<!--<label>Name contains</label>-->
-					<div style="position:relative; margin-bottom:8px">
-						<input type="text" style="box-sizing:border-box; border:solid 1px #ccc; font-size:12px; padding:4px; width:calc(100% - 30px); height:27px"/>
-
-						<button style="position:absolute; top:1px; right:0; width:30px; background-color:#2088DB; color:#fff; border:0; height:27px; display:inline-block; margin-top:-1px
-						">Go</button>
-
-					</div>
-					
-						
-						
-					</div>
-					<div class="filter-block">
-						<label>Price range</label>
-						<div>$0 - $500</div>
-					</div>
-					<div class="filter-block">
-						<label>Guest rating</label>
-						<div>Poor - Excellent</div>
-					</div>
-					<div class="filter-block">
-						<label>Facilities</label>
-						<div>All</div>
-					</div>
-					<div class="filter-block">
-						<label>Neighbourhood</label>
-						<div>All</div>
-
-					</div>
-					<div class="filter-block">
-						<label>Landmark</label>
-						<div>Any</div>
-
-					</div>
-				</div>
+				
 			</div>
 			<style type="text/css">
 			div#sort ul {overflow:hidden;}
