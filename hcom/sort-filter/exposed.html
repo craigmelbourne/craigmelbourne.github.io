@@ -8,17 +8,9 @@
 
 		<!-- style sheets -->
 		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="base-exposed.css">
 		<style type="text/css">
-		body {font-family:arial;}
-		a {color:#2088DB; text-decoration: none}
-		#head {background-color: #D41200; height:50px; color:#fff; }
-		#head > div, #nav > div, #search-strip > div, #wrapper {max-width:1160px; margin:0 auto; padding:0 16px;}
-		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
-		#search-strip {background-color:#F5F4F0; padding:16px;}
-		#sort-filter {border-top:#555 solid 3px; border-bottom:#555 solid 3px; margin-top:16px;}
-		#filters {margin:16px 0; overflow: hidden;}
-		.filter-block {float:left; vertical-align: top; width:16%; box-sizing:border-box; padding:0 24px 0 8px;}
-		.filter-block > label {display:block; font-size:12px; margin-bottom: 8px; font-weight:bold; }
+		
 		</style>
 
 		<!-- Scripts -->
@@ -67,7 +59,7 @@
 		
 		<div id="wrapper">
 			
-			<div id="sort-filter">
+			<div id="filter">
 				<div style="background-color:#555;">
 					<div style="display:inline-block; padding:8px; color:#fff; background-color:#555; font-size:14px; font-weight:bold">Narrow your search</div>
 					<div style="display:inline-block; padding:8px; font-size:12px; color:#ccc;">Some positive message on filter usage </div>
@@ -75,38 +67,7 @@
 				
 
 				<style type="text/css">
-				.filter-block ul li {
-					white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size:12px; 
-				}
-				 .filter-block ul li.all {padding:8px 0}
 				
-				 #slider-range{
-    border-width: 1px;
-    border-style: solid;
-    border-color: #ccc #ccc #ddd #ccc;
-    border-radius: 4px;
-
-    height: 8px;
-    background-color: #ffffff;
-  bo/x-shadow: inset 0 1px 1px 0px rgba(0, 0, 0, .5), 
-                 0 1px 0 0px rgba(250, 250, 250, .5);
-                 position:relative;
-}
-
-.ui-slider-range {
-    /*background: linear-gradient(top, #cccccc 0%,#ffffff 100%);*/
-    background-color: #2088DB;
-    position: absolute;
-    border: 0;
-    top: 0;
-    height: 100%;
-    border-radius: 4px;
-}
-
-				ul#guest {overflow:hidden;}
-				ul#guest li {float:left; padding:8px 0; border-top:solid 1px #ccc; border-bottom:solid 1px #ccc; border-left:solid 1px #ccc; box-sizing:border-box; width:20%; text-align:center;}
-				ul#guest li:first-child {border-top-left-radius: 4px; border-bottom-left-radius: 4px}
-				ul#guest li:last-child {border-right:solid 1px #ccc; border-top-right-radius: 4px; border-bottom-right-radius: 4px}
 
 				</style>
 
