@@ -9,7 +9,7 @@ textarea:focus,
 button:focus {
     outline: none;
 }
-input[type="text"] {width:100%; font-size:16px; border:solid 1px #E7E3D8; padding:8px; border-radius:4px; box-sizing:border-box;}
+input[type="text"] {width:100%; font-size:14px; border:solid 1px #E7E3D8; padding:8px; border-radius:4px; box-sizing:border-box;}
 ul.multi-select {margin:20px 0 30px;}
 ul.multi-select li {display:block; padding:12px; background-color:#fff; border-bottom:3px solid #E7E3D8;}
 
