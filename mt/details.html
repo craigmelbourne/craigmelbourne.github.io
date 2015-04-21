@@ -16,7 +16,7 @@
 		<!-- Scripts -->
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>-->
 		<script src="tabletop.js"></script>
 
 		<script type="text/javascript">
@@ -26,22 +26,53 @@
 			var hotels;
 			var restaurants;
 
+			var directionsDisplay;
+			var directionsService = new google.maps.DirectionsService();
+
+			function calcRoute(pa, pb) {
+                var start = $("#itinerary-elements ul li").eq(pa).find("div.latlong").attr("rel");
+                
+                var end = $("#itinerary-elements ul li").eq(pb).find("div.latlong").attr("rel");
+
+                console.log(start + " " + end)
+
+               // console.log(start + " - " + end)
+
+                var request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.TravelMode.DRIVING
+                };
+    
+                directionsService.route(request, function(response, status) {
+                    console.log(response)
+                    var duration = response.routes[0].legs[0].duration
+                    var mode = "taxi";
+                    console.log(status)
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        //directionsDisplay.setDirections(response);
+                        $("#itinerary-elements ul li").eq(pb).find(".time").text(duration.text + " " + mode)
+                    }
+                });
+            }
+
 			$(function(){
 
 				$(".airports li#heathrow").on("click", function(){
 					$("li[rel=home] a.time").show();
 					$("li[rel=htr]").show();
 					$("li[rel=cdg]").show();
+					$("#airports").hide();
 				})
 
 				Tabletop.init( { key: '1OyBSRHM5jfeHGqiFSdAHikPP0MBBNfw1k4epiF7Nib0',
                    callback: function(data, tabletop) {displayList (data) },
                    simpleSheet: false } );
 
-				$( "#itinerary-elements ul" ).sortable({
-  					placeholder: "empty"
-				});
-    			$( "#itinerary-elements ul" ).disableSelection();
+				//$( "#itinerary-elements ul" ).sortable({
+  				//	placeholder: "empty"
+				//});
+    			//$( "#itinerary-elements ul" ).disableSelection();
 
 				var displayList = function(data){
 					console.log(data);
@@ -59,7 +90,7 @@
 					$.each(attractions, function(i, attraction) {
        					//console.log(poi.Title);
        					$("#attractions").append(
-        					"<div class='item' id='" + attraction.ID + "'><div>" 
+        					"<div class='item' rel='attraction' id='" + attraction.ID + "'><div>" 
         					+ "<div class='image'><img src='" + attraction.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
         					+ "<div class='name'>" + attraction.Title + "</div>"
         					+ "<div class='snippet'>" + attraction.Description + "</div>"
@@ -67,7 +98,7 @@
         					+ "<div style='font-size:12px; float:left;'><img src='i/icons/ta_rating_" + attraction.Rating + ".png' /> <br />" + attraction.Reviewers + " reviews</div>"
         					+ "<div style='font-size:24px; float:right;'>" + attraction.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
         					+ "</div>"
-        					+ "<input type='hidden' name='latlong' value='" + attraction.Lat_Long +"' />"
+        					+ "<div class='latlong' rel='" + attraction.Lat_Long +"'></div>"
         					+ "<div class='add-pin'><img src='i/icons/large_add_pin.png' /></div>"
         					+ "</div></div>"
         				)
@@ -76,7 +107,7 @@
         			$.each(activities, function(i, activity) {
        					//console.log(poi.Title);
        					$("#activities").append(
-        					"<div class='item' id='" + activity.ID + "'><div>" 
+        					"<div class='item' rel='activity' id='" + activity.ID + "'><div>" 
         					+ "<div class='image'><img src='" + activity.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
         					+ "<div class='name' style='margin-bottom:6px;'>" + activity.Title + "</div>"
         					+ "<div class='snippet'>" + activity.Description + "</div>"
@@ -85,7 +116,7 @@
         					+ "<div style='font-size:24px; float:right;'>" + activity.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
         					+ "</div>"
         					+ "<div class='add-pin'><img src='i/icons/large_add_pin.png' /></div>"
-        					+ "<input type='hidden' name='latlong' value='" + activity.Lat_Long +"' />"
+        					+ "<div class='latlong' rel='" + activity.Lat_Long +"'></div>"
         					+ "</div></div>"
         				)
         			});
@@ -93,7 +124,7 @@
         			$.each(hotels, function(i, hotel) {
        					//console.log(poi.Title);
        					$("#hotels").append(
-        					"<div class='item' id='" + hotel.ID + "'><div>" 
+        					"<div class='item' rel='hotel' id='" + hotel.ID + "'><div>" 
         					+ "<div class='image'><img src='" + hotel.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
         					+ "<div class='name' style='margin-bottom:6px;'>" + hotel.Title + "</div>"
         					+ "<div class='snippet'>" + hotel.Description + "</div>"
@@ -102,7 +133,7 @@
         					+ "<div style='font-size:24px; float:right;'>" + hotel.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
         					+ "</div>"
         					+ "<div class='add-pin'><img src='i/icons/large_add_pin.png' /></div>"
-        					+ "<input type='hidden' name='latlong' value='" + hotel.Lat_Long +"' />"
+        					+ "<div class='latlong' rel='" + hotel.Lat_Long +"'></div>"
         					+ "</div></div>"
         				)
         			});
@@ -110,7 +141,7 @@
         			$.each(restaurants, function(i, restaurant) {
        					//console.log(poi.Title);
        					$("#restaurants").append(
-        					"<div class='item' id='" + restaurant.ID + "'><div>" 
+        					"<div class='item' rel='restaurant' id='" + restaurant.ID + "'><div>" 
         					+ "<div class='image'><img src='" + restaurant.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
         					+ "<div class='name' style='margin-bottom:6px;'>" + restaurant.Title + "</div>"
         					+ "<div class='snippet'>" + restaurant.Description + "</div>"
@@ -119,7 +150,7 @@
         					+ "<div style='font-size:24px; float:right;'>" + restaurant.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
         					+ "</div>"
         					+ "<div class='add-pin'><img src='i/icons/large_add_pin.png' /></div>"
-        					+ "<input type='hidden' name='latlong' value='" + restaurant.Lat_Long +"' />"
+        					+ "<div class='latlong' rel='" + restaurant.Lat_Long +"'></div>"
         					+ "</div></div>"
         				)
         			});
@@ -141,13 +172,16 @@
 					$(this).addClass("item-selected");
 					var name = $(this).find(".name").text(); 
 					var id = $(this).attr("id");
-					var index = $("#itinerary-elements ul li").length
-					console.log(index);
+					var index = $("#itinerary-elements ul li").length;
+					var type = $(this).attr("rel");
+					var latlong = $(this).find(".latlong").attr("rel");
+					//var mins = randomIntFromInterval(1,60)
+					console.log(latlong);
 					$("#itinerary-elements ul").append(
-						"<li rel='" + name + "'>" 
-						+ "<div class='name'>" + name + "</div>"
+						"<li rel='" + type + "'>" 
 						+ "<a class='time' rel='" + index + "'></a>"
-						+ "<div class='delete' rel=" + id + " > X </div>"
+						+ "<div class='name " + type + "'>" + name + "<div class='delete' rel='" + id + "'> X </div></div>"
+						+ "<div class='latlong' rel='" + latlong + "'></div>"
 						+ "</li>"
 					);
 					//console.log(name)
@@ -157,6 +191,10 @@
 					
 				});
 
+				function randomIntFromInterval(min,max){
+    				return Math.floor(Math.random()*(max-min+1)+min);
+				}
+
 				$("#itinerary-elements ul").on("click", ("li div.delete"), function(){
 					//console.log($(this).attr("rel"));
 					$("#list").find("div#" + $(this).attr("rel")).removeClass("item-selected");
@@ -164,9 +202,9 @@
 				})
 
 				$("#itinerary-elements ul").on("click", ("li a.time"), function(){
-					$("#directions-window").show();
-					console.log($(this).attr("rel"))
-					initialize($(this).attr("rel"));
+					//$("#directions-window").show();
+					//console.log($(this).attr("rel"))
+					//initialize($(this).attr("rel"));
 					//var index = $(this).parent().children().index(this);
 					//console.log($(this).attr("rel"));
 				});
@@ -226,18 +264,21 @@
 			<div id="itinerary-elements">
 				<ul>
 					<li rel='home'>
-						<div class='name'>Home</div>
-						<a class='time' rel='' style="display:none;">55 min taxi</a>
+						<div class='name home'>Home</div>
+						
 						<!--<div class='delete' rel="" > X </div>-->
 					</li>
 					<li rel='htr' style="display:none;">
-						<div class='name'>Heathrow</div>
-						<a class='time' rel=''>1hr 10min flight</a>
+						<a class='time' rel='' style="">55 min taxi</a>
+						<div class='name airport-up'>Heathrow</div>
+						
 						<!--<div class='delete' rel="" > X </div>-->
 					</li>
 					<li rel='cdg' style="display:none;">
-						<div class='name'>Charles de Gaulle</div>
-						<a class='time' rel=''></a>
+						<a class='time' rel=''>1hr 10min flight</a>
+						<div class='name airport-down'>Charles de Gaulle</div>
+						<div class='latlong' rel="49.009849, 2.547956"></div>
+						
 						<!--<div class='delete' rel="" > X </div>-->
 					</li>
 				</ul>
@@ -246,7 +287,7 @@
 		</div>
 
 		<style type="text/css">
-			#poi-menu {overflow:hidden; margin-bottom:16px;}
+			#poi-menu {overflow:hidden; margin:8px 0 16px;}
 			#poi-menu li {float:left;}
 			#poi-menu li a {display:block; padding:0 8px; border-left:solid 1px #ddd; font-size:16px;}
 			#poi-menu li a.selected {color:#000;}
@@ -258,7 +299,7 @@
 
 		<div id="content" class="panel">
 				
-				<div style="min-height:100px; padding:16px; margin:16px; background-color:#fff;">
+				<div id="airports" style="min-height:100px; padding:16px; margin:16px; background-color:#fff; border-radius:4px;">
 					<h1 style="font-size:24px;">Airport first?</h1>
 					<ul class="airports">
 						<li id="heathrow"><img src="i/lhr.png" />
@@ -279,7 +320,8 @@
 						</li>
 					</ul>
 				</div>
-				<div style="background-color:#fff; padding:16px 0 0 16px; overflow:hidden; margin:16px;">
+				<div style="background-color:#fff; padding:16px 0 0 16px; overflow:hidden; margin:16px; border-radius:4px">
+					<img src="i/tripadvisor.png" />
 				<div>
 					<ul id="poi-menu">
 						<li><a href="#" rel="attractions" class="selected">Attractions</a></li>
