@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="css/mt-base.css">
 
 		<!-- Roboto font -->
-		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:300,300italic,500,500italic' rel='stylesheet' type='text/css'>
 
 		<!-- Scripts -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -19,18 +19,13 @@
 		<script type="text/javascript">
 
 			$(function(){
-
-				$("#content label a").on("click", function(e){
-					e.preventDefault();
-					$(".transport ul").show();
+				$( "#months li" ).click(function() {
+  					$( this ).toggleClass( "selected" );
 				});
 
-				$(".transport ul li").on("click", function(e){
-					e.preventDefault();
-					$("#content label a").text($(this).text());
-					$(".transport ul").hide();
+				$( ".multi-select li" ).click(function() {
+  					$( this ).toggleClass( "selected" );
 				});
-
 			});
 
 		</script>
@@ -39,13 +34,13 @@
 
 	<body id="settings">
 		<div id="header">
-			<div id="logo">My Trips</div>
+			<div id="logo"><img src="i/logo.png" /></div>
 			<div id="tools">Sign in | Sign up</div>
 		</div>
 
-		<div id="what" class="panel">
-			<div class="title">What</div>
-			<div style="width:80%; margin:30px auto 0; ">
+		<div id="col1" class="col">
+			<div class="title">What?</div>
+			<div style="padding:32px 32px;">
 				<h4 style="text-align:center;">Type</h4>
 
 				<ul class="multi-select">
@@ -62,6 +57,67 @@
 					<li>Luxury</li>
 				</ul>
 			</div>
+		</div>
+
+		<div id="col2" class="col">
+			<div class="title">When?</div>
+			<div style="width:272px; margin:0 auto; box-sizing:border-box; padding:32px 0">
+				<h4 style="text-align:center; ">Dates</h4>
+
+				<div style="position:relative; text-align:center; margin-top:24px;">2015</div>
+				<style type="text/css">
+					ul#months {overflow:hidden; margin-top:16px;}
+					ul#months li {width:56px; margin-right:16px; float:left; box-sizing:border-box; margin-bottom:16px; height:72px; background:url("i/calendar_active.png"); text-align:center; padding-top:24px; color:#009df5;}
+					ul#months li:hover {cursor:pointer;}
+					ul#months li:nth-child(4n) {margin-right:0;}
+					ul#months li.selected {color:#000;}
+					ul#months li.inactive {background:url("i/calendar_inactive.png"); color: #664e3c;}
+				</style>
+
+				<ul id="months">
+					<li class="inactive">Jan</li>
+					<li class="inactive">Feb</li>
+					<li class="inactive">Mar</li>
+					<li>Apr</li>
+					<li>May</li>
+					<li>Jun</li>
+					<li>Jul</li>
+					<li>Aug</li>
+					<li>Sep</li>
+					<li>Oct</li>
+					<li>Nov</li>
+					<li>Dec</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="col3" class="col">
+			<div class="title">Who?</div>
+			
+			<div style="width:256px; margin:0 auto; box-sizing:border-box; padding:32px 0">
+				<h4 style="text-align:center">1 Traveller</h4>
+				
+				<style type="text/css">
+					ul.people {overflow:hidden; margin-top:24px;}
+					ul.people li {float:left; width:128px; box-sizing:border-box; text-align: center;}
+				</style>
+
+				<ul class="people">
+					<li>
+						<img src="i/complete_profile_pic.png" />
+						<p style="text-align:center;">You</p>
+					</li>
+					<li>
+						<img src="i/add_profile_pic.png" />
+						<a href="#" style="display:block; text-align:center;">Add</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--<div id="what" class="panel">
+			<div class="title">What</div>
+			
 			
 		</div>
 
@@ -87,7 +143,7 @@
 					</li>
 				</ul>
 			</div>
-		</div>
+		</div>-->
 
 		<div id="footer">
 			<a href="details.html">Next: Trip details</a>
