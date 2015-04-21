@@ -54,7 +54,8 @@
 		</div>
 
 		<div id="search-strip">
-			<div>Search query</div>
+			<div style="font-size:24px; font-weight:bold; margin-bottom:8px">San Francisco, California, United States of America</div>
+			<div>Wed 22 - Thu 23 April 2015, 1 night, 1 room, 2 adults</div>
 		</div>
 		
 		<div id="wrapper">
@@ -128,8 +129,8 @@
 
 					</div>
 
-					<div class="filter-block" style="float:right;width:15%;">
-						<label>More</label>
+					<div class="filter-block" style="float:right;width:15%; border-left: dotted 1px #ddd; padding-left:16px">
+						<label>Other filters</label>
 						<ul>
 							<li style="margin-bottom:8px;"><label>Accommodation type</label></li>
 							<li style="margin-bottom:8px;"><label>Themes / types</label></li>
@@ -140,22 +141,30 @@
 					</div>
 				</div>
 			</div>
-			<style type="text/css">
-			div#sort {background-color: #eee; padding:8px 0; font-size:12px;}
-			div#sort ul {overflow:hidden;}
-			div#sort ul li {float:left; padding:4px 16px; font-size: 12px; color:;}
-			div#sort ul li.selected {background-color:#fff; border-radius:4px;}
-			</style>
-			<div id="sort">
-				<ul>
-					<li style="font-weight:bold;">Sort by</li>
-					<li class="selected"><a href="">Price: Low to High</a></li>
-					<li><a href="#">Guest Rating</a></li>
-					<li><a href="#">Distance</a></li>
-					<li><a href="#">Hotel Class</a></li>
-					<li><a href="#">Our favourites</a></li>
-				</ul>
+
+			<div id="sort-bar">
+				<div id="filter-button">Filters</div>
+				<div id="sort">
+					<ul>
+						<li style="font-weight:bold;">Sort by</li>
+						<li class="selected"><a href="">Price: Low to High</a></li>
+						<li><a href="#">Guest Rating</a></li>
+						<li><a href="#">Distance</a></li>
+						<li><a href="#">Hotel Class</a></li>
+						<li><a href="#">Our favourites</a></li>
+					</ul>
+					<div id="select">
+						<label style="">Sort By</label>
+						<select style="">
+							<option>Price (low to high)</option>
+							<option>Price (high to low)</option>
+						</select>
+					</div>
+				</div>
+
 			</div>
+
+			
 			<div id="results" style="margin-top:32px;">
 				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
 				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>

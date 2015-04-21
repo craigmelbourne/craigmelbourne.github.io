@@ -5,7 +5,7 @@ body {font-family:arial;}
 		#head {background-color: #D41200; height:50px; color:#fff; }
 		#head > div, #nav > div, #search-strip > div, #wrapper {max-width:1160px; margin:0 auto; padding:0 16px;}
 		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
-		#search-strip {background-color:#F5F4F0; padding:16px;}
+		#search-strip {background-color:#F5F4F0; padding:16px 0;}
 		#filter {border-top:#555 solid 3px; border-bottom:#555 solid 3px; margin-top:16px; display:none;}
 		#filters {margin:16px 0; overflow: hidden;}
 		.filter-block {float:left; vertical-align: top; width:16%; box-sizing:border-box; padding:0 24px 0 8px;}
@@ -22,13 +22,28 @@ body {font-family:arial;}
 		ul#guest li:first-child {border-top-left-radius: 4px; border-bottom-left-radius: 4px}
 		ul#guest li:last-child {border-right:solid 1px #ccc; border-top-right-radius: 4px; border-bottom-right-radius: 4px}
 
+		
+		div#sort ul {overflow:hidden;}
+		div#sort ul li {float:left; padding:4px 16px; font-size: 12px; color:;}
+		div#sort ul li.selected {background-color:#fff; border-radius:4px;}
+
 /* Media Queries - HCOM breakpoints */
 @media only screen and (min-width:0px) {
-/* this isn't really needed  */
+
+	div#sort-bar {overflow:hidden; margin-top:16px;}
+
+div#filter-button {width:100px; float:left; background-color:#555; color:#fff; height:34px; text-align:center; box-sizing:border-box; padding-top:10px; font-size:14px;}
+div#sort {float:right; width:calc(100% - 116px); background-color: #eee; padding:8px 0; font-size:14px; height:34px; box-sizing:border-box;}
+
+div#sort ul {display:none;}
+div#select {padding:0 16px;} 
 
 }
 
 @media only screen and (min-width:600px) {
+	
+	div#sort ul {display:block;}
+	div#select {display:none;}
 }
 
 @media only screen and (min-width:750px) {
@@ -36,6 +51,9 @@ body {font-family:arial;}
 
 @media only screen and (min-width:850px) {
 	#filter {display:block}
+	div#sort-bar {overflow:hidden; margin-top:0px;}
+	div#filter-button {display:none;}
+	div#sort {background-color: #eee; padding:8px 0; font-size:12px; width:100%; float:none;}
 }
 
 @media only screen and (min-width:960px) {
