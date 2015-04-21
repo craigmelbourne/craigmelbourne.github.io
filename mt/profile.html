@@ -32,14 +32,24 @@
 				});
 
 				$("div.yes").on("click", function(){
-					$(this).css("color", "#99CC33");
-					$(this).siblings(".no").css("color", "#D6D3C0")
+					$(this).find("img").attr("src", "i/icons/happy_face_selected.png");
+					$(this).siblings(".no").find("img").attr("src", "i/icons/sad_face.png");
 				});
 
 				$("div.no").on("click", function(){
-					$(this).css("color", "red");
-					$(this).siblings(".yes").css("color", "#D6D3C0")
+					$(this).find("img").attr("src", "i/icons/sad_face_selected.png");
+					$(this).siblings(".yes").find("img").attr("src", "i/icons/happy_face.png");
 				});
+
+				$(".add-photo").on("click", function(e){
+					e.preventDefault()
+					$(this).text("edit photo");
+					$(".profile-pic").attr("src", "i/complete_profile_pic.png");
+					$("#profile_first_name").val("Sarah");
+					$("#profile_last_name").val("Smith");
+					$("#profile_email").val("sarah.smith@gmail.com");
+					$("#profile_mobile").val("0123456789");
+				})
 
 			});
 
@@ -49,24 +59,24 @@
 
 	<body id="profile">
 		<div id="header">
-			<div id="logo">My Trips</div>
-			<div id="tools">Sign in | Sign up</div>
+			<div id="logo"><img src="i/logo.png" /></div>
+			<div id="tools">Sign in</div>
 		</div>
 
 		<div id="col1" class="col">
 			<div class="title">Profile</div>
-			<div style="padding:16px;">
+			<div style="padding:32px;">
 				<div style="text-align:center;">
-					<img src="i/icon_add_photo.png" /> <br />
-				<a href="">edit photo</a>
+					<img class="profile-pic" src="i/empty_profile_pic.png" /> <br />
+					<a href="#" class="add-photo">add photo</a>
 				</div>
 				
 
 				<fieldset>
-					<input type="text" placeholder="First Name" />
-					<input type="text" placeholder="Last Name" />
-					<input type="text" placeholder="Email" />
-					<input type="text" placeholder="Mobile number" />
+					<input id="profile_first_name" type="text" placeholder="First Name" />
+					<input id="profile_last_name" type="text" placeholder="Last Name" />
+					<input id="profile_email" type="text" placeholder="Email" />
+					<input id="profile_mobile" type="text" placeholder="Mobile number" />
 				</fieldset>
 				<p style="font-size:12px; color:#999; padding:8px;">A temporary password will be sent to your address</p>
 			</div>
@@ -77,63 +87,63 @@
 			div.yes {float:left; padding:8px; margin-right:8px;}
 			div.yes:hover, div.no:hover {cursor: pointer;}
 			div.no {float:left; padding:8px; margin-right:8px;}
-			div.label {float:left; padding:8px;}
+			div.label {float:left; padding:12px 8px;}
 		</style>
 
 		<div id="col2" class="col">
 			<div class="title">Interests</div>
-			<div style="width:80%; margin:30px auto 0">
+			<div style=" margin:32px 32px 0">
 				<div class="pref" rel="fooddrink">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Food & Drink</div> 
 				</div>
 
 				<div class="pref" rel="shopping">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Shopping</div> 
 				</div>
 
 				<div class="pref" rel="sightseeing">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Sightseeing tours</div> 
 				</div>
 
 				<div class="pref" rel="wellness">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Wellness and Spas</div> 
 				</div>
 
 				<div class="pref" rel="museums">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Museums</div> 
 				</div>
 
 				<div class="pref" rel="landmarks">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Landmarks & History</div> 
 				</div>
 
 				<div class="pref" rel="art">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Art & Paintings</div> 
 				</div>
 
 				<div class="pref" rel="performances">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Performances</div> 
 				</div>
 
 				<div class="pref" rel="cultural">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Cultural</div> 
 				</div>
 				
@@ -144,62 +154,62 @@
 			<div class="title">Food</div>
 			<div style="width:80%; margin:30px auto 0">
 				<div class="pref" rel="american">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">American</div> 
 				</div>
 
 				<div class="pref" rel="mexican">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Mexican</div> 
 				</div>
 
 				<div class="pref" rel="southwestern">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Southwestern</div> 
 				</div>
 
 				<div class="pref" rel="italian">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Italian</div> 
 				</div>
 
 				<div class="pref" rel="japanese">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Japanese</div> 
 				</div>
 
 				<div class="pref" rel="chinese">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Chinese</div> 
 				</div>
 
 				<div class="pref" rel="french">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">French</div> 
 				</div>
 
 				<div class="pref" rel="vegetarian">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Vegetarian</div> 
 				</div>
 
 				<div class="pref" rel="spanish">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Spanish</div> 
 				</div>
 
 				<div class="pref" rel="thai">
-					<div class="yes">Y</div>
-					<div class="no">N</div>
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
 					<div class="label">Thai</div> 
 				</div>
 			</div>

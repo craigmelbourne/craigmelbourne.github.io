@@ -23,7 +23,7 @@ ul.multi-select li:hover {cursor:pointer;}
     background: linear-gradient(#27251e, #38342b); /* Standard syntax (must be last) */
     }
 #header #logo {display:inline-block; vertical-align:top;}
-#header #tools {display:inline-block; vertical-align:top; float:right;}
+#header #tools {display:inline-block; vertical-align:top; float:right; padding-top:8px;}
 #content-wrapper {margin:0 0 0 0}
 
 #content-wrapper #content {margin:0 auto; text-align: center;}
@@ -69,7 +69,7 @@ body#settings #who ul.people li {float:left;  width:50%; box-sizing:border-box;}
 
 
 body#details {} 
-body#details .panel {position:absolute; top:30px; box-sizing:border-box; bottom:0px; overflow-y:scroll;}
+body#details .panel {position:absolute; top:48px; box-sizing:border-box; bottom:0px; overflow-y:scroll;}
 body#details #itinerary {width:33.33%; background-color:#E7E3D8;}
 body#details #itinerary-elements ul li {position:relative;}
 body#details #itinerary-elements ul li:hover {cursor: pointer}
