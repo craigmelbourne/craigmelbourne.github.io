@@ -70,7 +70,7 @@ body#settings #who ul.people li {float:left;  width:50%; box-sizing:border-box;}
 
 body#details {} 
 body#details .panel {position:absolute; top:96px; box-sizing:border-box; bottom:0px; overflow-y:scroll;}
-body#details #itinerary {width:33.33%; background-color:#E7E3D8;}
+body#details #itinerary {width:346px; background-color:#E7E3D8;}
 body#details #itinerary-elements ul li {position:relative;}
 body#details #itinerary-elements ul li:hover {cursor: pointer}
 body#details #itinerary-elements ul li:active {-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.17);
@@ -86,14 +86,16 @@ body#details #itinerary-elements .empty {background-color:#FFF2CC; height:30px; 
 body#details #itinerary-elements .empty::after {content: "Drop here";}
 body#details #itinerary-elements .empty > div {}
 
-body#details #content {left:33.33%; right:0; background-color:#E7E3D8;}
-body#details #content .list .item {width:50%; box-sizing:border-box; float:left; padding-right:18px; margin-bottom:18px;}
-body#details #content .list .item > div { border:solid 1px #eee; padding:8px; position:relative;}
+body#details #content {left:346px; right:0; background-color:#E7E3D8; padding:0;}
+body#details #content .list .item {width:50%; box-sizing:border-box; float:left; padding-right:16px; margin-bottom:16px;}
+body#details #content .list .item > div { border:solid 1px #eee; position:relative;}
 body#details #content .list .item > div:hover {cursor: pointer; border-color:#999;}
+
 body#details #content .list .item .image {background-color:#eee; margin-bottom:8px; position:relative; overflow:hidden;}
 body#details #content .list .item .image img{max-width: 100%;}
+body#details #content .list .item .name { padding:8px 16px; font-weight:bold;}
 body#details #content .list .item .image .rank {position:absolute; top:8px; left:8px; text-align:center; background-color:#fff; border-radius:50%; width:40px; height:40px; box-sizing:border-box; padding-top:12px;}
-body#details #content .list .item .snippet {position:relative; font-size:13px; line-height: 16px; height:48px; overflow:hidden;}
+body#details #content .list .item .snippet {position:relative; font-size:14px; line-height: 20px; height:60px; overflow:hidden; padding:0 16px;}
 body#details #content .list .item .snippet:after {
   content: "";
   text-align: right;
@@ -105,7 +107,7 @@ body#details #content .list .item .snippet:after {
   background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
 }
 body#details #content #list .item-selected > div {background-color:#eee; color:#999;}
-
+body#details #content .list .item .rating {overflow:hidden; margin:16px;}
 
 
 

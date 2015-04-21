@@ -61,9 +61,9 @@
        					$("#attractions").append(
         					"<div class='item' id='" + attraction.ID + "'><div>" 
         					+ "<div class='image'><img src='" + attraction.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
-        					+ "<div class='name' style='margin-bottom:6px;'>" + attraction.Title + "</div>"
+        					+ "<div class='name'>" + attraction.Title + "</div>"
         					+ "<div class='snippet'>" + attraction.Description + "</div>"
-        					+ "<div style='overflow:hidden; margin-top:8px'>"
+        					+ "<div class='rating'>"
         					+ "<div style='font-size:12px; float:left;'>" + attraction.Rating + " (" + attraction.Reviewers + ") reviews</div>"
         					+ "<div style='font-size:12px; float:right;'>" + attraction.Percent_Rec + "% recommended</div>"
         					+ "</div>"
@@ -196,8 +196,8 @@
 		<div id="itinerary" class="panel">
 			
 			<style type="text/css">
-				ul#dates {overflow:hidden;}
-				ul#dates li {width:56px; height:72px; float:left; box-sizing:border-box; margin-bottom:16px; margin-right:16px;  position:relative;  text-align:center; padding-top:20px; background:url("i/calendar_inactive.png");}
+				ul#dates {overflow:hidden; margin:0px;}
+				ul#dates li.cal {width:56px; height:72px; float:left; box-sizing:border-box; margin-bottom:16px; margin-right:16px;  position:relative;  text-align:center; padding-top:20px; background:url("i/calendar_inactive.png");}
 				ul#dates li span.day {display:block;font-size:16px; margin-bottom:4px;}
 				ul#dates li span.date {display:block;font-size:24px;}
 				ul#dates li.selected { background:url("i/calendar_active.png");  color:#009df5; }
@@ -205,10 +205,18 @@
 
 			<div style="padding:16px">
 				<ul id="dates">
-					<li class="selected"><span class="day">Fri</span><span class="date">28</span></li>
-					<li><span class="day">Sat</span><span class="date">29</span></li>
-					<li><span class="day">Sun</span><span class="date">30</span></li>
-					<li><span class="day">Mon</span><span class="date">31</span></li></li>
+					<li style="position:relative; float:left; margin-right:8px; width:12px; height:72px;">
+						<img src="i/icons/12px/tertiary/plus.png" />
+						<img src="i/icons/12px/tertiary/chevron_left.png" style="position:absolute; bottom:4px;"/>
+					</li>
+					<li class="cal selected"><span class="day">Fri</span><span class="date">28</span></li>
+					<li class="cal"><span class="day">Sat</span><span class="date">29</span></li>
+					<li class="cal"><span class="cal day">Sun</span><span class="date">30</span></li>
+					<li class="cal" style="margin-right:8px;"><span class="day">Mon</span><span class="date">31</span></li></li>
+					<li style="position:relative; float:left; width:12px; height:72px;">
+						<img src="i/icons/12px/tertiary/plus.png" />
+						<img src="i/icons/12px/tertiary/chevron_right.png" style="position:absolute; bottom:4px;"/>
+					</li>
 				</ul>
 			</div>
 			<div id="itinerary-elements">
@@ -267,7 +275,7 @@
 						</li>
 					</ul>
 				</div>
-				<div style="background-color:#fff; padding:16px; overflow:hidden; margin:16px;">
+				<div style="background-color:#fff; padding:16px 0 0 16px; overflow:hidden; margin:16px;">
 				<div>
 					<ul id="poi-menu">
 						<li><a href="#" rel="attractions" class="selected">Attractions</a></li>
