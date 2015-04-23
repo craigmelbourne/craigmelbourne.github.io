@@ -91,7 +91,7 @@
        					//console.log(poi.Title);
        					$("#attractions").append(
         					"<div class='item' rel='attraction' id='" + attraction.ID + "'><div>" 
-        					+ "<div class='image'><img src='" + attraction.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
+        					+ "<div class='image'><img src='" + attraction.Photo + "' /><div class='rank'>" + (i + 1) + "</div><div class='add-pin'><img src='i/icons/large_add_pin.png' /></div></div>"
         					+ "<div class='name'>" + attraction.Title + "</div>"
         					+ "<div class='snippet'>" + attraction.Description + "</div>"
         					+ "<div class='rating'>"
@@ -99,7 +99,7 @@
         					+ "<div style='font-size:24px; float:right;'>" + attraction.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
         					+ "</div>"
         					+ "<div class='latlong' rel='" + attraction.Lat_Long +"'></div>"
-        					+ "<div class='add-pin'><img src='i/icons/large_add_pin.png' /></div>"
+        					+ "<div class='selected'><p>Added to the list</p></div>"
         					+ "</div></div>"
         				)
         			});
@@ -108,14 +108,14 @@
        					//console.log(poi.Title);
        					$("#activities").append(
         					"<div class='item' rel='activity' id='" + activity.ID + "'><div>" 
-        					+ "<div class='image'><img src='" + activity.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
+        					+ "<div class='image'><img src='" + activity.Photo + "' /><div class='rank'>" + (i + 1) + "</div><div class='add-pin'><img src='i/icons/large_add_pin.png' /></div></div>"
         					+ "<div class='name' style='margin-bottom:6px;'>" + activity.Title + "</div>"
         					+ "<div class='snippet'>" + activity.Description + "</div>"
         					+ "<div class='rating'>"
         					+ "<div style='font-size:12px; float:left;'><img src='i/icons/ta_rating_" + activity.Rating + ".png' /> <br />" + activity.Reviewers + " reviews</div>"
         					+ "<div style='font-size:24px; float:right;'>" + activity.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
         					+ "</div>"
-        					+ "<div class='add-pin'><img src='i/icons/large_add_pin.png' /></div>"
+        					+ "<div class='selected'><p>Added to the list</p></div>"
         					+ "<div class='latlong' rel='" + activity.Lat_Long +"'></div>"
         					+ "</div></div>"
         				)
@@ -125,14 +125,14 @@
        					//console.log(poi.Title);
        					$("#hotels").append(
         					"<div class='item' rel='hotel' id='" + hotel.ID + "'><div>" 
-        					+ "<div class='image'><img src='" + hotel.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
+        					+ "<div class='image'><img src='" + hotel.Photo + "' /><div class='rank'>" + (i + 1) + "</div><div class='add-pin'><img src='i/icons/large_add_pin.png' /></div></div>"
         					+ "<div class='name' style='margin-bottom:6px;'>" + hotel.Title + "</div>"
         					+ "<div class='snippet'>" + hotel.Description + "</div>"
         					+ "<div class='rating'>"
         					+ "<div style='font-size:12px; float:left;'><img src='i/icons/ta_rating_" + hotel.Rating + ".png' /> <br />" + hotel.Reviewers + " reviews</div>"
         					+ "<div style='font-size:24px; float:right;'>" + hotel.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
         					+ "</div>"
-        					+ "<div class='add-pin'><img src='i/icons/large_add_pin.png' /></div>"
+        					+ "<div class='selected'><p>Added to the list</p></div>"
         					+ "<div class='latlong' rel='" + hotel.Lat_Long +"'></div>"
         					+ "</div></div>"
         				)
@@ -142,14 +142,14 @@
        					//console.log(poi.Title);
        					$("#restaurants").append(
         					"<div class='item' rel='restaurant' id='" + restaurant.ID + "'><div>" 
-        					+ "<div class='image'><img src='" + restaurant.Photo + "' /><div class='rank'>" + (i + 1) + "</div></div>"
+        					+ "<div class='image'><img src='" + restaurant.Photo + "' /><div class='rank'>" + (i + 1) + "</div><div class='add-pin'><img src='i/icons/large_add_pin.png' /></div></div>"
         					+ "<div class='name' style='margin-bottom:6px;'>" + restaurant.Title + "</div>"
         					+ "<div class='snippet'>" + restaurant.Description + "</div>"
         					+ "<div class='rating'>"
         					+ "<div style='font-size:12px; float:left;'><img src='i/icons/ta_rating_" + restaurant.Rating + ".png' /> <br />" + restaurant.Reviewers + " reviews</div>"
         					+ "<div style='font-size:24px; float:right;'>" + restaurant.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
         					+ "</div>"
-        					+ "<div class='add-pin'><img src='i/icons/large_add_pin.png' /></div>"
+        					+ "<div class='selected'><p>Added to the list</p></div>"
         					+ "<div class='latlong' rel='" + restaurant.Lat_Long +"'></div>"
         					+ "</div></div>"
         				)
@@ -169,7 +169,7 @@
 
 				$(".list").on("click", "div.item", function(){
 					console.log($(this).attr("id"));
-					$(this).addClass("item-selected");
+					//$(this).addClass("item-selected");
 					var name = $(this).find(".name").text(); 
 					var id = $(this).attr("id");
 					var index = $("#itinerary-elements ul li").length;
@@ -188,6 +188,8 @@
 					if ($("#itinerary-elements ul li").length >= 2){
 						calcRoute($("#itinerary-elements ul li").length-2, $("#itinerary-elements ul li").length-1);
 					}
+
+					$(this).find(".selected").show();
 					
 				});
 
@@ -196,8 +198,11 @@
 				}
 
 				$("#itinerary-elements ul").on("click", ("li div.delete"), function(){
-					//console.log($(this).attr("rel"));
-					$("#list").find("div#" + $(this).attr("rel")).removeClass("item-selected");
+					console.log($(this).attr("rel"));
+					//$("#list").find("div#" + $(this).attr("rel")).removeClass("item-selected");
+					var item = $(".list").find("div#" + $(this).attr("rel"));
+					console.log(item.find(".selected").hide());
+					
 					$(this).closest("li").remove();
 				})
 

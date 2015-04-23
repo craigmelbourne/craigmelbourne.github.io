@@ -93,11 +93,11 @@ body#details #itinerary-elements .empty::after {content: "Drop here";}
 body#details #itinerary-elements .empty > div {}
 
 body#details #content {left:346px; right:0; background-color:#E7E3D8; padding:0;}
-body#details #content .list .item {width:50%; box-sizing:border-box; float:left; padding-right:16px; margin-bottom:16px;}
+body#details #content .list .item {width:50%; box-sizing:border-box; float:left; padding-right:16px; margin-bottom:16px; position:relative;}
 body#details #content .list .item > div { border:solid 1px  #dad1c5; position:relative; border-top-left-radius: 4px; border-top-right-radius: 4px;}
 body#details #content .list .item > div:hover {cursor: pointer; border-color:#999;}
 
-body#details #content .list .item .image {background-color:#eee; margin-bottom:8px; position:relative; overflow:hidden;}
+body#details #content .list .item .image {background-color:#eee; margin-bottom:8px; position:relative;}
 body#details #content .list .item .image img{max-width: 100%; border-top-left-radius: 4px; border-top-right-radius: 4px;}
 body#details #content .list .item .name { padding:8px 16px; font-weight:bold;}
 body#details #content .list .item .image .rank {position:absolute; top:16px; left:16px; text-align:center; background-color:#fff; border-radius:50%; width:40px; height:40px; box-sizing:border-box; padding-top:12px;}
@@ -115,9 +115,13 @@ body#details #content .list .item .snippet:after {
 body#details #content #list .item-selected > div {background-color:#eee; color:#999;}
 body#details #content .list .item .rating {overflow:hidden; margin:16px;}
 
-.add-pin {position: absolute; top:270px; right:24px;}
+body#details #content .list .item .image .add-pin {position: absolute; bottom:-30px; right:24px; z-index:10000}
+body#details #content .list .item .selected {position:absolute; top:0; left:0; right:0; bottom:0; background-color:#000; opacity:0.8; z-index:10001; border-radius:4px; display:none;}
 
-
+body#details #content .list .item .selected p {position: absolute;
+  top: 50%;
+  height: 20px;
+  margin-top: -10px; color:#fff; line-height: 20px; text-align: center; left:0; right:0;}
 
 
 
