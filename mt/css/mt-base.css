@@ -9,7 +9,7 @@ textarea:focus,
 button:focus {
     outline: none;
 }
-input[type="text"] {width:100%; font-size:14px; border:solid 1px #E7E3D8; padding:8px; border-radius:4px; box-sizing:border-box;}
+input[type="text"] {width:100%; font-size:14px; border:solid 1px #dad1c5; padding:8px; border-radius:4px; box-sizing:border-box;}
 ul.multi-select {margin:16px 0 32px; padding:0px 16px; background-color:#fff; border:1px solid #E7E3D8; border-radius:4px;}
 ul.multi-select li {display:block; padding:16px 0; background-color:#fff; border-bottom:1px solid #E7E3D8; color:#009df5; position:relative;}
 ul.multi-select li img.check {position:absolute; top:16px; right:0; display:none;}
