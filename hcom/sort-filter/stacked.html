@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="base-stacked.css">
+		<style type="text/css">
+
+		</style>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				$( "#slider-range" ).slider({
+      				range: true,
+      				min: 0,
+      				max: 500,
+      				values: [ 75, 300 ],
+      				slide: function( event, ui ) {
+        				$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      				}
+    			});
+    			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      				" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+			});
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div id="head">
+			<div>
+				Head
+			</div>		
+		</div>
+		<div id="nav">
+			<div>
+				nav
+			</div>
+				
+		</div>
+
+		<div id="search-strip">
+			<div id="destination">San Francisco, California, United States of America</div>
+			<div id="dates">Wed 22 - Thu 23 April 2015, 1 night, 1 room, 2 adults</div>
+		</div>
+		
+		<div id="wrapper">
+			
+			<div id="sort-filter" style="overflow:hidden;">
+
+				
+
+				<div id="filters-button">
+					Filters
+				</div>
+				<div id="filters" style="width:calc(100% - 266px); background-color:#eee; float:left; box-sizing:border-box; border-right:solid 1px #fff;">
+					<!--<div style="background-color:#555; color:#fff; padding:8px; font-size:12px">Narrow your search</div>-->
+
+					<div id="filters-title" style="background-color:#555;">
+					<h2 style="display:inline-block; padding:8px 16px; color:#fff; font-size:14px">Narrow your search</h2>
+					<div style="display:inline-block; padding:8px; font-size:12px; color:#fff;">Message on filter usage here</div>
+				</div>
+
+					<div>
+						<ul id="primary-filters">
+							<li id="name-contains" style="">
+								<label>Name contains</label>
+								<div><input type="text"/><button>Go</button></div>
+							</li>
+							<li id="name-contains" >
+								<label>Price Range</label>
+								<div style="margin-top:12px" id="slider-range"></div>
+							</li>
+							<li id="name-contains">
+								<label>Guest rating</label>
+								<ul id="guest">
+									<li>1</li>
+									<li>2</li>
+									<li>3</li>
+									<li>4</li>
+									<li>5</li>
+								</ul>
+							</li>
+							<li id="name-contains">
+								<label>Star rating</label>
+								<ul id="guest">
+									<li>1&#9733;</li>
+									<li>2&#9733;</li>
+									<li>3&#9733;</li>
+									<li>4&#9733;</li>
+									<li>5&#9733;</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+
+					<ul id="secondary-filters">
+
+					
+						<li>
+							<div class="data">Neighbourhood <div class="arrow-down"></div></div>
+						</li>
+						<li>
+							<div class="data">Landmarks <div class="arrow-down"></div></div>
+						</li>
+						<li>
+							<div class="data">Amenities <div class="arrow-down"></div></div>
+						</li>
+						<li>
+							<div class="data">Accommodation Type <div class="arrow-down"></div></div>
+						</li>
+						<li>
+							<div class="data">Type / Theme <div class="arrow-down"></div></div>
+						</li>
+						<li>
+							<div class="data">Accessibiity features <div class="arrow-down"></div></div>
+						</li>
+					</ul>
+
+				</div>
+				
+				<!--<div id="filters-clear" style="float:left; width:120px; background-color:#eee; height:52px; box-sizing:border-box; font-size:12px; padding:8px; text-align:center; border-left:solid 1px #ccc">
+					<div style="margin-bottom:8px"><a href="#">Clear all filters X</a></div>
+					<div><a href="#">More filters</a> <div class="arrow-down"></div></div>
+				</div>-->
+				
+				<div id="sort" style="">
+					<ul>
+						<li>
+							<label style="">Sort By</label>
+							<select style="">
+								<option>Price (low to high)</option>
+								<option>Price (high to low)</option>
+							</select>
+
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			
+			<div id="results" style="margin-top:32px;">
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				
+			</div>
+
+		</div> 
+	</body>
+</html>

@@ -1,0 +1,72 @@
+/* Site wide CSS */
+/* red: #D41200 */
+body {font-family:arial;}
+
+		a {color:#2088DB; text-decoration: none}
+		.arrow-down { display:inline-block; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent;
+			border-top: 6px solid #2088DB; vertical-align:top; margin-top:3px;}
+		#head {background-color: #D41200; height:50px; color:#fff; }
+		#head > div, #nav > div, #search-strip > div, #wrapper {max-width:1160px; margin:0 auto; padding:0 16px;}
+		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
+		#search-strip {background-color:#F5F4F0; padding:16px 0;}
+		#search-strip #destination {font-size:24px; font-weight:bold; margin-bottom:8px}
+		#search-strip #dates {}
+		#sort-filter {border-top:#ccc solid 0px; border-bottom:#ccc solid 0px; margin-top:16px;}
+
+		#filters ul {overflow:hidden; border-top:1px solid #ddd;}
+		
+		#primary-filters li {box-sizing:border-box; width:25%; float:left; box-sizing:border-box; padding:8px 16px;}
+		#primary-filters li label {font-size:12px; font-weight:bold; margin-bottom:4px; display:block;}
+		#primary-filters li#name-contains {border:0; background-color:transparent; position:relative;}
+		#primary-filters li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:12px; padding:4px; width:calc(100% - 30px); height:26px}
+		#primary-filters li#name-contains button {position:absolute; bottom:8px; right:20px; width:30px; background-color:#2088DB; color:#fff; border:0; height:26px; display:inline-block; margin-top:-1px}
+		ul#guest {border-top:0;}
+		ul#guest li {float:left; width:20%; font-size:12px; padding:0; text-align:center; border-top:solid 1px #ddd; border-bottom:solid 1px #ddd; border-right:solid 1px #ddd; padding:8px 0; background-color:#fff;}
+		ul#guest li:first-child {border-top-left-radius: 4px; border-bottom-left-radius: 4px; border-left:solid 1px #ddd;}
+		ul#guest li:last-child {border-top-right-radius: 4px; border-bottom-right-radius: 4px;}
+		#secondary-filters li {box-sizing:border-box; width:auto; float:left; box-sizing:border-box; padding:8px 16px; font-size:12px;color:#2088DB; }
+
+		#slider-range{ border-width: 1px; border-style: solid; border-color: #ccc #ccc #ddd #ccc; border-radius: 4px; height: 8px; background-color: #ffffff; bo/x-shadow: inset 0 1px 1px 0px rgba(0, 0, 0, .5), 0 1px 0 0px rgba(250, 250, 250, .5); position:relative;}
+		.ui-slider-range {background-color: #2088DB; position: absolute; border: 0; top: 0; height: 100%; border-radius: 4px;}
+
+		
+
+		div#sort ul {overflow:hidden;}
+			div#sort ul li {float:left; padding:8px 16px; font-size: 14px; color:;}
+/* Media Queries - HCOM breakpoints */
+@media only screen and (min-width:0px) {
+/* this isn't really needed  */
+
+	#filters-button {width:100px; background-color:#eee; float:left; box-sizing:border-box; padding:8px; background-color: #555; color:#fff;}
+ 	
+ 	#filters-title {display:none;}
+ 	#filters {display:none;}
+ 	#filters-clear {display:none;}
+ 	div#sort {width:calc(100% - 116px); height:32px; float:right; background-color:#eee; box-sizing:border-box; font-size:16px;}
+ 	div#sort label { font-size:14px; margin-bottom:4px; }
+ 	div#sort select {margin-left:8px;}
+}
+
+@media only screen and (min-width:600px) {
+
+}
+
+@media only screen and (min-width:750px) {
+	#filters-button {display:none;}
+	#filters-title {display:block;}
+ 	#filters {display:block;}
+ 	#filters-clear {display:block;}
+ 	div#sort {width:250px; height:52px; float:right; background-color:#eee; box-sizing:border-box;}
+ 	div#sort label { font-size:12px; margin-bottom:4px; display:block;}
+ 	div#sort select {margin-left:0px;width:220px;}
+}
+
+@media only screen and (min-width:850px) {
+
+}
+
+@media only screen and (min-width:960px) {
+}
+
+@media only screen and (min-width:1260px) {
+}

@@ -73,30 +73,44 @@
 		<div id="wrapper">
 			
 			<div id="sort-filter" style="overflow:hidden;">
-				<div id="filters" style="width:calc(100% - 326px); background-color:#eee; float:left; box-sizing:border-box;">
+				<div id="filters" style=" background-color:#eee; box-sizing:border-box;">
 					<!--<div style="background-color:#555; color:#fff; padding:8px; font-size:12px">Narrow your search</div>-->
 
 					<style type="text/css">
 						#filters ul {overflow:hidden; height:52px;}
 						#filters ul li {margin-right:24px; bor/der:solid 1px #ccc; float:left; ba/ckground-color:#ddd; padding:8px 0; height:52px; box-sizing:border-box;}
-						#filters ul li#name-contains {position:relative;  width:150px; border:0; background-color:transparent;}
+						#filters ul li#name-contains {position:relative;  width:150px; border:0; background-color:transparent; padding-left:8px;}
 						#filters ul li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:12px; padding:4px; width:calc(100% - 30px); height:20px}
 						#filters ul li#name-contains button {position:absolute; bottom:8px; right:0; width:30px; background-color:#2088DB; color:#fff; border:0; height:20px; display:inline-block; margin-top:-1px}
 
 						#filters ul li label {font-size:12px; margin-bottom:4px; display:block;}
 						#filters ul li div.data {font-size:14px; color:#2088DB; padding-top:2px; font-weight:bold;}
 					</style>
+					<div style="border-bottom:solid 3px #555; overflow:hidden; background-color:#555;">
 
+					
+
+
+						<div style="width:50%; float:left; box-sizing:border-box;">
+							<div style="display:inline-block; padding:8px; background-color:#555; color:#fff;">Narrow your search</div>
+						</div>
+						<div style=" width:50%; float:left; box-sizing:border-box; text-align:right; padding-top:8px; padding-right:8px; color:#fff;">
+							<label style="font-size:12px;">Sort By</label>
+							<select style="width:220px;">
+								<option>Our favourites</option>
+								<option>Stars (low to high)</option>
+								<option>Stars (high to low)</option>
+								<option>Distance to city center</option>
+								<option>Guest rating</option>
+								<option>Price (low to high)</option>
+								<option>Price (high to low)</option>
+							</select>
+						</div>
+					</div>
 					<ul>
-						<li id="title" style="background-color:#555; color:#fff; padding: 8px;">
-							<label>Narrow Search</label>
-							<div class="data" style="color:#fff">Clear all X</div>
-						</li>
 						<li id="name-contains">
 							<label>Name contains</label>
-							<div>
-								<input type="text"/><button>Go</button>
-							</div>
+								<div><input type="text"/><button>Go</button></div>
 						</li>
 						<li id="price-range">
 							<label>Price range</label>
@@ -119,16 +133,24 @@
 							<div class="data">All <div class="arrow-down"></div></div>
 						</li>
 						<li id="price-range">
-							<label>Type</label>
+							<label>Accommodation type</label>
+							<div class="data">All <div class="arrow-down"></div></div>
+						</li>
+						<li id="price-range">
+							<label>Accessibility features</label>
+							<div class="data">All <div class="arrow-down"></div></div>
+						</li>
+						<li id="price-range">
+							<label>Themes / types</label>
 							<div class="data">All <div class="arrow-down"></div></div>
 						</li>
 					</ul>
 
 				</div>
-				<div style="float:left; width:60px; background-color:#ccc; height:52px; box-sizing:border-box; font-size:14px; padding-top:24px; text-align:center;">
+				<!--<div style="float:left; width:60px; background-color:#ccc; height:52px; box-sizing:border-box; font-size:14px; padding-top:24px; text-align:center;">
 					more <div class="arrow-down"></div>
-				</div>
-				<div id="sort" style="width:250px; height:52px; float:right; background-color:#eee; box-sizing:border-box;">
+				</div>-->
+				<!--<div id="sort" style="width:250px; height:52px; float:right; background-color:#eee; box-sizing:border-box;">
 					<ul>
 						<li>
 							<label style="display:block; font-size:12px; margin-bottom:4px">Sort By</label>
@@ -141,7 +163,7 @@
 
 						</li>
 					</ul>
-				</div>
+				</div>-->
 			</div>
 
 
