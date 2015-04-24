@@ -14,7 +14,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
 		<!-- Scripts -->
-		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=places"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>-->
 		<script src="tabletop.js"></script>
@@ -25,6 +25,8 @@
 			var activities;
 			var hotels;
 			var restaurants;
+
+			var destination;
 
 			var directionsDisplay;
 			var directionsService = new google.maps.DirectionsService();
@@ -99,7 +101,7 @@
         					+ "<div style='font-size:24px; float:right;'>" + attraction.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
         					+ "</div>"
         					+ "<div class='latlong' rel='" + attraction.Lat_Long +"'></div>"
-        					+ "<div class='selected'><p>Added to the list</p></div>"
+        					+ "<div class='selected'><p><img src='i/icons/medium_checked_pin.png' /><br />Added<br />FRI 28 MAY</p></div>"
         					+ "</div></div>"
         				)
         			});
@@ -206,23 +208,72 @@
 					$(this).closest("li").remove();
 				})
 
-				$("#itinerary-elements ul").on("click", ("li a.time"), function(){
-					//$("#directions-window").show();
-					//console.log($(this).attr("rel"))
-					//initialize($(this).attr("rel"));
-					//var index = $(this).parent().children().index(this);
-					//console.log($(this).attr("rel"));
-				});
 
 				$("#close-map").on("click", function(e){
 					e.preventDefault();
 					$("#directions-window").hide();
 					$("#directions-panel").empty();
-				})
+				});
+
+				$("#itinerary-elements ul").on("click", ("li a.time"), function(){
+					$("#directions-window").show();
+					console.log($(this).attr("rel"))
+					initialize($(this).attr("rel"));
+					//var index = $(this).parent().children().index(this);
+					//console.log($(this).attr("rel"));
+				});
 
 			});
 
-			
+			function initialize(pos) {
+
+
+				//var loc = "48.861011, 2.325708"
+				
+				console.log("pos " + pos)
+
+				var endPos = $("#itinerary-elements ul li").eq(parseInt(pos)).find(".latlong").attr("rel");
+				//console.log(center)
+				var endArr = JSON.parse("[" + endPos + "]");
+				var end = new google.maps.LatLng(endArr[0], endArr[1]); 
+
+				var startPos = $("#itinerary-elements ul li").eq(parseInt(pos - 1)).find(".latlong").attr("rel");
+				//
+				var startArr = JSON.parse("[" + startPos + "]");
+				var start = new google.maps.LatLng(startArr[0], startArr[1]); 
+				console.log(startArr[0])
+  
+    			directionsDisplay = new google.maps.DirectionsRenderer();
+    			var mapOptions = {
+      				zoom: 14,
+      				//center: new google.maps.LatLng(pos)
+
+      				center: end
+   				 };  
+
+    			var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    			directionsDisplay.setMap(map);
+   				directionsDisplay.setPanel(document.getElementById('directions-panel'));
+
+   				//var start = $("#itinerary-elements ul li").eq(parseInt(pos)).attr("rel");
+  				//var end = $("#itinerary-elements ul li").eq(parseInt(pos)+1).attr("rel");
+
+  				//console.log(pos + " - " + pos+1)
+
+  				var request = {
+    				origin: start,
+    				destination: end,
+    				travelMode: google.maps.TravelMode.DRIVING
+  				};
+  
+  				directionsService.route(request, function(response, status) {
+    				//console.log(response)
+    				if (status == google.maps.DirectionsStatus.OK) {
+      					directionsDisplay.setDirections(response);
+					}
+  				});
+
+			}
 
 			
 			
@@ -268,13 +319,13 @@
 						<!--<div class='delete' rel="" > X </div>-->
 					</li>
 					<li rel='htr' style="display:none;">
-						<a class='time' rel='' style="">55 min taxi</a>
+						<a class='time' rel='' style="">55 mins taxi</a>
 						<div class='name airport-up'>Heathrow</div>
 						
 						<!--<div class='delete' rel="" > X </div>-->
 					</li>
 					<li rel='cdg' style="display:none;">
-						<a class='time' rel=''>1hr 10min flight</a>
+						<a class='time' rel=''>1hr 10 mins flight</a>
 						<div class='name airport-down'>Charles de Gaulle</div>
 						<div class='latlong' rel="49.009849, 2.547956"></div>
 						
@@ -347,6 +398,8 @@
 				</div>
 		</div>
 
+		
+		
 		<style type="text/css">
 			#map-canvas {height:100%;}
 			#results {
@@ -363,12 +416,13 @@
       }
 
       	.adp-directions {width:100%;}
-      .adp-directions td {padding:8px 0;}
+      .adp-directions td {padding:16px 0;}
 		</style>
-		<div id="directions-window" style="display:none; position:absolute; top:30px; left:0; right:0; bottom:0; background-color:#fff;">
+		<div id="directions-window" style="display:none; position:absolute; top:48px; left:0; right:0; bottom:0; background-color:#fff; z-index:20000">
 			
 			<div id="results">
-				<a href="details.html" id="close-map" style="font-size:12px; display:block; margin-bottom:12px;">< Daily planner</a>
+				<a href="details.html" id="close-map" style="font-size:16px; display:block; margin-bottom:12px;">
+					<img src="i/icons/12px/primary/chevron_left.png" /> Daily planner</a>
 				<div id="directions-panel" style="margin-top:12px; overflow-y:scroll; position:absolute; top:30px; bottom:0; left:12px; right:12px; font-size:14px;"></div>
 			</div>
 
@@ -376,8 +430,6 @@
       			<div id="map-canvas"></div>
     		</div>
 		</div>
-		
-
 		
 	</body>
 </html>

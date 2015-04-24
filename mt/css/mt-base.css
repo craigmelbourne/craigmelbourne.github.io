@@ -131,12 +131,11 @@ body#details #content #list .item-selected > div {background-color:#eee; color:#
 body#details #content .list .item .rating {overflow:hidden; margin:16px;}
 
 body#details #content .list .item .image .add-pin {position: absolute; bottom:-30px; right:24px; z-index:10000}
-body#details #content .list .item .selected {position:absolute; top:0; left:0; right:0; bottom:0; background-color:#000; opacity:0.8; z-index:10001; border-radius:4px; display:none;}
+body#details #content .list .item .selected {position:absolute; top:0; left:0; right:0; bottom:0; background-color:#fff; opacity:0.9; z-index:10001; border-radius:4px; display:none;}
 
 body#details #content .list .item .selected p {position: absolute;
-  top: 50%;
-  height: 20px;
-  margin-top: -10px; color:#fff; line-height: 20px; text-align: center; left:0; right:0;}
+  top: 25%;
+ text-align: center; left:0; right:0; line-height: 1.5}
 
 
 
