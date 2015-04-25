@@ -97,7 +97,9 @@ body#details #itinerary-elements ul li {}
 body#details #itinerary-elements ul li div.name {margin:8px 16px; background-color:#fff; padding:16px 16px 16px 48px; border:solid 1px #dad1c5; border-radius:4px; position:relative;}
 body#details #itinerary-elements ul li div.home {background: url('../i/icons/16px/secondary/home.png') no-repeat 16px 14px #fff; }
 body#details #itinerary-elements ul li div.hotel {background: url('../i/icons/16px/secondary/hotel.png') no-repeat 16px 14px #fff; }
-body#details #itinerary-elements ul li div.attraction {background: url('../i/icons/16px/secondary/monument.png') no-repeat 16px 14px #fff; }
+body#details #itinerary-elements ul li div.attraction {background: url('../i/icons/16px/secondary/camera.png') no-repeat 16px 14px #fff; }
+body#details #itinerary-elements ul li div.activity {background: url('../i/icons/16px/secondary/activity.png') no-repeat 16px 14px #fff; }
+body#details #itinerary-elements ul li div.restaurant {background: url('../i/icons/16px/secondary/food.png') no-repeat 16px 14px #fff; }
 body#details #itinerary-elements ul li div.airport-up {background: url('../i/icons/16px/secondary/plane_depart.png') no-repeat 16px 14px #fff; }
 body#details #itinerary-elements ul li div.airport-down {background: url('../i/icons/16px/secondary/plane_arrive.png') no-repeat 16px 14px #fff; }
 body#details #itinerary-elements ul li a.time {display:block; font-size:12px; text-align: right; padding-right:24px; text-transform:lowercase;}
