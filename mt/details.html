@@ -297,24 +297,32 @@
 		<div id="itinerary" class="panel">
 			
 			<style type="text/css">
-				ul#dates {overflow:hidden; margin:0px;}
-				ul#dates li.cal {width:56px; height:72px; float:left; box-sizing:border-box; margin-bottom:16px; margin-right:16px;  position:relative;  text-align:center; padding-top:20px; background:url("i/calendar_inactive.png");}
+				ul#dates {overflow:hidden; margin:0px; position:relative; height: 72px;}
+				ul#dates li.cal {width:56px; height:72px; box-sizing:border-box; margin-bottom:16px; margin-right:16px; text-align:center; padding-top:20px; background:url("i/calendar_inactive.png"); position:absolute;}
 				ul#dates li span.day {display:block;font-size:16px; margin-bottom:4px;}
 				ul#dates li span.date {display:block;font-size:24px;}
 				ul#dates li.selected { background:url("i/calendar_active.png");  color:#009df5; }
 			</style>
 
-			<div style="padding:16px">
+			<div style="padding:16px; position:relative">
+				
 				<ul id="dates">
-					
-					<li class="cal selected"><span class="day">Fri</span><span class="date">28</span></li>
-					<li class="cal"><span class="day">Sat</span><span class="date">29</span></li>
-					<li class="cal"><span class="cal day">Sun</span><span class="date">30</span></li>
-					<li class="cal" style="margin-right:8px;"><span class="day">Mon</span><span class="date">31</span></li></li>
+					<img src="i/icons/12px/tertiary/chevron_left.png" style="position:absolute; bottom:2px; left:0;" />
+					<img src="i/icons/12px/tertiary/chevron_right.png" style="position:absolute; bottom:2px; right:0;" />
+					<img src="i/icons/12px/tertiary/plus.png" style="position:absolute; top:2px; left:0;" />
+					<img src="i/icons/12px/tertiary/plus.png" style="position:absolute; top:2px; right:0;" />
+					<li class="cal selected" style="left:20px">
+						<span class="day">Fri</span><span class="date">28</span>
+					</li>
+					<li class="cal" style="left:92px">
+						<span class="day">Sat</span><span class="date">29</span>
+					</li>
+					<li class="cal" style="left:162px;"><span class="cal day">Sun</span><span class="date">30</span></li>
+					<li class="cal" style="left:234px;"><span class="day">Mon</span><span class="date">31</span></li>
 					
 				</ul>
 			</div>
-			<div id="itinerary-elements">
+			<div id="itinerary-elements" style="border-top:1px solid #B9A785;">
 				<ul>
 					<li rel='home'>
 						<div class='name home'>Home</div>
