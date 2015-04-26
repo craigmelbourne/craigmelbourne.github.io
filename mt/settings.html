@@ -41,6 +41,17 @@
   					$(this).find("img.check").show();
   						
 				});
+
+				$(".add-person").on("click", function(e){
+					e.preventDefault();
+					$(this).hide();
+					$(".check-person").show();
+					$(".add-new-person").hide();
+					$(".person").show();
+					$(".person-name").show();
+					$(".add-link").hide();
+					$(".link-add-new").show();
+				})
 			});
 
 		</script>
@@ -133,10 +144,20 @@
 					<li style="position:relative">
 						<div style="position:absolute; top:0; right:16px; border-radius: 50%;
 	width:28px;
+	height: 28px; background-color:#fff; padding-top:6px; box-sizing:border-box;"><a href="#" class="add-person" ><img src="i/icons/12px/primary/plus.png" /></a><img class="check-person" src="i/icons/12px/secondary/check.png" style="display:none;"/></div>
+						<img class="add-new-person" src="i/add_profile_pic.png" />
+						<img src="i/a.png" class="person" style="width:96px; display:none;"/>
+						<a href="#" class="add-link" style="display:block; text-align:center;">Add</a>
+						<p class="person-name" style="text-align:center; display:none;">Alex</p>
+					</li>
+					<li style="position:relative; margin-top:16px; display:none;" class="link-add-new">
+						<div style="position:absolute; top:0; right:16px; border-radius: 50%;
+	width:28px;
 	height: 28px; background-color:#fff; padding-top:6px; box-sizing:border-box;"><img src="i/icons/12px/primary/plus.png" /></div>
 						<img src="i/add_profile_pic.png" />
-						<img src="i/a.png" style="width:96px; display:none;"/>
+	
 						<a href="#" style="display:block; text-align:center;">Add</a>
+						
 					</li>
 				</ul>
 			</div>
