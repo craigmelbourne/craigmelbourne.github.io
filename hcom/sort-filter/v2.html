@@ -45,6 +45,16 @@
     			});
     			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
       				" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+    			var elementPosition = $('#sort-filter').offset();
+
+				$(window).scroll(function(){
+        			if($(window).scrollTop() > elementPosition.top){
+              			$('#sort-filter').css('position','fixed').css('top','0');
+        			} else {
+            			$('#sort-filter').css('position','static');
+        			}    
+				});
 			});
 
 		</script>
@@ -216,6 +226,18 @@
 			</style>
 			
 			<div id="results" style="margin-top:32px;">
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
 				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
 				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
 				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
