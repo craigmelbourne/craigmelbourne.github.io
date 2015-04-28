@@ -13,16 +13,73 @@
 		a {color:#2088DB; text-decoration: none}
 		.arrow-down { display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
 			border-top: 8px solid #2088DB; vertical-align:top; margin-top:4px;}
+		.arrow-down-grey {display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
+			border-top: 8px solid #555; vertical-align:top; margin-top:4px;}
 		#head {background-color: #D41200; height:50px; color:#fff; }
 		#head > div, #nav > div, #search-strip > div, #wrapper {max-width:1160px; margin:0 auto; padding:0 16px;}
 		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
-		#search-strip {background-color:#F5F4F0; padding:16px 0;}
+		#search-strip {background-color:#F5F4F0; padding:16px 0; margin-bottom:16px;}
 		#search-strip #destination {font-size:24px; font-weight:bold; margin-bottom:8px}
 		#search-strip #dates {}
-		#sort-filter {border-top:#ccc solid 0px; border-bottom:#ccc solid 0px; margin-top:16px;}
+		#sort-filter {border-top:#ccc solid 0px; border-bottom:#ccc solid 0px; }
 		
 		.filter-block {float:left; vertical-align: top; box-sizing:border-box; padding:0 24px 0 8px;}
 		.filter-block > label {display:block; font-size:12px; margin-bottom: 8px; font-weight:bold; }
+
+		#filters {box-sizing:border-box;}
+		#filters ul {overflow:hidden; height:52px; overflow:hidden;}
+		#filters ul li { float:left;   height:52px; box-sizing:border-box;  border-right:solid 1px #ddd; padding:8px 0 0 16px;}
+		#filters ul li#name-contains {position:relative; box-sizing:border-box; padding-left:0; padding-right:16px;}
+		#filters ul li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:12px; padding:4px; width:calc(100% - 30px); height:24px}
+		#filters ul li#name-contains button {position:absolute; bottom:2px; right:16px; width:30px; background-color:#2088DB; color:#fff; border:0; height:24px; display:inline-block; margin-top:-1px}
+
+		#filters ul li label {font-size:14px; margin-bottom:4px; display:block;}
+		#filters ul li div.data {font-size:16px; color:#2088DB; padding-top:2px; font-weight:bold;}
+
+		/* Media Queries - HCOM breakpoints */
+		@media only screen and (min-width:0px) {
+			/* this isn't really needed  */
+
+		}
+
+		@media only screen and (min-width:600px) {
+			.filter-fixed {position:fixed; top:0; left:16px; right:16px;}
+		}
+
+		@media only screen and (min-width:750px) {
+			#filters ul li#name-contains {width:26%;}
+			#filters ul li#price-range {width:20%;}
+			#filters ul li#guest-rating {width:17%;}
+			#filters ul li#star-rating {width:17%;}
+			#filters ul li#neighbourhood {width:20%;}
+			#filters ul li#landmarks {width:16.666666%; display:none;}
+			#filters ul li#facilities {width:14.2857%; display:none;}
+		}
+
+		@media only screen and (min-width:850px) {
+			
+		}
+
+		@media only screen and (min-width:960px) {
+			#filters ul li#name-contains {width:20.666666%;}
+			#filters ul li#price-range {width:16.666666%;}
+			#filters ul li#guest-rating {width:14.666666%;}
+			#filters ul li#star-rating {width:14.666666%;}
+			#filters ul li#neighbourhood {width:16.666666%;}
+			#filters ul li#landmarks {width:16.666666%; display:block;}
+			#filters ul li#facilities {width:14.2857%; display:none;}
+		}
+
+		@media only screen and (min-width:1160px) {
+			.filter-fixed {position:fixed; width:1160px; top:0; left:auto; right:auto;}
+			#filters ul li#name-contains {width:18.2857%;}
+			#filters ul li#price-range {width:14.2857%;}
+			#filters ul li#guest-rating {width:12.2857%;}
+			#filters ul li#star-rating {width:12.2857%;}
+			#filters ul li#neighbourhood {width:14.2857%;}
+			#filters ul li#landmarks {width:14.2857%;}
+			#filters ul li#facilities {width:14.2857%; display:block;}
+		}
 		</style>
 
 		<!-- Scripts -->
@@ -50,9 +107,9 @@
 
 				$(window).scroll(function(){
         			if($(window).scrollTop() > elementPosition.top){
-              			$('#sort-filter').css('position','fixed').css('top','0');
+              			$('#sort-filter').addClass("filter-fixed");
         			} else {
-            			$('#sort-filter').css('position','static');
+            			$('#sort-filter').removeClass("filter-fixed");
         			}    
 				});
 			});
@@ -87,14 +144,7 @@
 					<!--<div style="background-color:#555; color:#fff; padding:8px; font-size:12px">Narrow your search</div>-->
 
 					<style type="text/css">
-						#filters ul {overflow:hidden; height:52px;}
-						#filters ul li {margin-right:24px; bor/der:solid 1px #ccc; float:left; ba/ckground-color:#ddd; padding:8px 0; height:52px; box-sizing:border-box;}
-						#filters ul li#name-contains {position:relative;  width:150px; border:0; background-color:transparent; padding-left:8px;}
-						#filters ul li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:12px; padding:4px; width:calc(100% - 30px); height:20px}
-						#filters ul li#name-contains button {position:absolute; bottom:8px; right:0; width:30px; background-color:#2088DB; color:#fff; border:0; height:20px; display:inline-block; margin-top:-1px}
-
-						#filters ul li label {font-size:12px; margin-bottom:4px; display:block;}
-						#filters ul li div.data {font-size:14px; color:#2088DB; padding-top:2px; font-weight:bold;}
+						
 					</style>
 					<div style="border-bottom:solid 3px #555; overflow:hidden; background-color:#555;">
 
@@ -117,44 +167,54 @@
 							</select>
 						</div>
 					</div>
-					<ul>
-						<li id="name-contains">
+					<div style="overflow:hidden; padding:8px; box-sizing:border-box;">
+						<ul style="width:calc(100% - 120px); float:left;">
+							<li id="name-contains">
 							<label>Name contains</label>
 								<div><input type="text"/><button>Go</button></div>
-						</li>
-						<li id="price-range">
-							<label>Price range</label>
-							<div class="data">$0 - $500 <div class="arrow-down"></div></div>
-						</li>
-						<li id="price-range">
-							<label>Guest rating</label>
-							<div class="data">1-5 <div class="arrow-down"></div></div>
-						</li>
-						<li id="price-range">
-							<label>Neighbourhood</label>
-							<div class="data">All <div class="arrow-down"></div></div>
-						</li>
-						<li id="price-range">
-							<label>Landmarks</label>
-							<div class="data">All <div class="arrow-down"></div></div>
-						</li>
-						<li id="price-range">
-							<label>Facilities</label>
-							<div class="data">All <div class="arrow-down"></div></div>
-						</li>
-						<li id="price-range">
-							<label>Accommodation type</label>
-							<div class="data">All <div class="arrow-down"></div></div>
-						</li>
-						<li id="price-range">
-							<label>Accessibility features</label>
-							<div class="data">All <div class="arrow-down"></div></div>
-						</li>
-						<li id="price-range">
-							<label>Themes / types</label>
-							<div class="data">All <div class="arrow-down"></div></div>
-						</li>
-					</ul>
+							</li>
+							<li id="price-range">
+								<label>Price range</label>
+								<div class="data">$0 - $500 <div class="arrow-down"></div></div>
+							</li>
+							<li id="guest-rating">
+								<label>Guest rating</label>
+								<div class="data">1-5 <div class="arrow-down"></div></div>
+							</li>
+							<li id="star-rating">
+								<label>Star rating</label>
+								<div class="data">1-5 <div class="arrow-down"></div></div>
+							</li>
+							<li id="neighbourhood">
+								<label>Neighbourhood</label>
+								<div class="data">All <div class="arrow-down"></div></div>
+							</li>
+							<li id="landmarks">
+								<label>Landmarks</label>
+								<div class="data">All <div class="arrow-down"></div></div>
+							</li>
+							<li id="facilities">
+								<label>Facilities</label>
+								<div class="data">All <div class="arrow-down"></div></div>
+							</li>
+							<!--<li id="price-range">
+								<label>Accommodation type</label>
+								<div class="data">All <div class="arrow-down"></div></div>
+							</li>
+							<li id="price-range">
+								<label>Accessibility features</label>
+								<div class="data">All <div class="arrow-down"></div></div>
+							</li>
+							<li id="price-range">
+								<label>Themes / types</label>
+								<div class="data">All <div class="arrow-down"></div></div>
+							</li>-->
+						</ul>
+
+						<div style="text-align:center;float:right; width:120px; background-color:#ddd; box-sizing:border-box; padding:8px;">All fliters <div class="arrow-down-grey"></div></div>
+
+					</div>
+					
 
 				</div>
 				<!--<div style="float:left; width:60px; background-color:#ccc; height:52px; box-sizing:border-box; font-size:14px; padding-top:24px; text-align:center;">
