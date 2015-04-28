@@ -16,13 +16,30 @@
 		#head {background-color: #D41200; height:50px; color:#fff; }
 		#head > div, #nav > div, #search-strip > div, #wrapper {max-width:1160px; margin:0 auto; padding:0 16px;}
 		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
-		#search-strip {background-color:#F5F4F0; padding:16px 0;}
+		#search-strip {background-color:#F5F4F0; padding:16px 0; margin-bottom:16px;}
 		#search-strip #destination {font-size:24px; font-weight:bold; margin-bottom:8px}
 		#search-strip #dates {}
-		#sort-filter {border-top:#ccc solid 0px; border-bottom:#ccc solid 0px; margin-top:16px;}
+		#sort-filter {border-top:#ccc solid 0px; border-bottom:#ccc solid 0px;}
 		
 		.filter-block {float:left; vertical-align: top; box-sizing:border-box; padding:0 24px 0 8px;}
 		.filter-block > label {display:block; font-size:12px; margin-bottom: 8px; font-weight:bold; }
+
+		@media only screen and (min-width:600px) {
+		}
+
+		@media only screen and (min-width:750px) {
+		}
+
+		@media only screen and (min-width:850px) {
+		}
+
+		@media only screen and (min-width:960px) {
+			.filter-fixed {position:fixed; top:0; left:16px; right:16px;}
+		}
+
+		@media only screen and (min-width:1160px) {
+			.filter-fixed {position:fixed; top:0; right:auto; width:1160px; left:auto;}
+		}
 		</style>
 
 		<!-- Scripts -->
@@ -50,9 +67,9 @@
 
 				$(window).scroll(function(){
         			if($(window).scrollTop() > elementPosition.top){
-              			$('#sort-filter').css('position','fixed').css('top','0');
+              			$('#sort-filter').addClass("filter-fixed");
         			} else {
-            			$('#sort-filter').css('position','static');
+            			$('#sort-filter').removeClass("filter-fixed");
         			}    
 				});
 			});
@@ -83,18 +100,18 @@
 		<div id="wrapper">
 			
 			<div id="sort-filter" style="overflow:hidden;">
-				<div id="filters" style=" background-color:#eee; box-sizing:border-box;">
+				<div id="filters" style=" background-color:#eee; box-sizing:border-box; border-bottom:solid 3px #555;">
 					<!--<div style="background-color:#555; color:#fff; padding:8px; font-size:12px">Narrow your search</div>-->
 
 					<style type="text/css">
-						#filters ul {overflow:hidden; height:52px;}
-						#filters ul li {margin-right:24px; bor/der:solid 1px #ccc; float:left; ba/ckground-color:#ddd; padding:8px 0; height:52px; box-sizing:border-box;}
-						#filters ul li#name-contains {position:relative;  width:150px; border:0; background-color:transparent; padding-left:8px;}
-						#filters ul li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:12px; padding:4px; width:calc(100% - 30px); height:20px}
-						#filters ul li#name-contains button {position:absolute; bottom:8px; right:0; width:30px; background-color:#2088DB; color:#fff; border:0; height:20px; display:inline-block; margin-top:-1px}
+						#filters ul {overflow:hidden;}
+						#filters ul li {margin-right:24px; bor/der:solid 1px #ccc; float:left; ba/ckground-color:#ddd; padding:12px 8px 8px; box-sizing:border-box;}
+						#filters ul li#name-contains {position:relative;  width:150px; border:0; background-color:transparent; padding-left:8px; width:200px;}
+						#filters ul li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:16px; padding:4px; width:calc(100% - 30px); height:24px}
+						#filters ul li#name-contains button {position:absolute; bottom:8px; right:8px; width:30px; background-color:#2088DB; color:#fff; border:0; height:24px; display:inline-block; margin-top:-0px}
 
-						#filters ul li label {font-size:12px; margin-bottom:4px; display:block;}
-						#filters ul li div.data {font-size:14px; color:#2088DB; padding-top:2px; font-weight:bold;}
+						#filters ul li label {font-size:14px; margin-bottom:8px; display:block; font-weight:bold;}
+						#filters ul li div.data {font-size:16px; color:#2088DB; padding-top:4px; font-weight:bold;}
 					</style>
 					<div style="border-bottom:solid 3px #555; overflow:hidden; background-color:#555;">
 
@@ -131,6 +148,10 @@
 							<div class="data">1-5 <div class="arrow-down"></div></div>
 						</li>
 						<li id="price-range">
+							<label>Star rating</label>
+							<div class="data">1-5 <div class="arrow-down"></div></div>
+						</li>
+						<li id="price-range">
 							<label>Neighbourhood</label>
 							<div class="data">All <div class="arrow-down"></div></div>
 						</li>
@@ -142,7 +163,7 @@
 							<label>Facilities</label>
 							<div class="data">All <div class="arrow-down"></div></div>
 						</li>
-						<li id="price-range">
+						<!--<li id="price-range">
 							<label>Accommodation type</label>
 							<div class="data">All <div class="arrow-down"></div></div>
 						</li>
@@ -153,7 +174,7 @@
 						<li id="price-range">
 							<label>Themes / types</label>
 							<div class="data">All <div class="arrow-down"></div></div>
-						</li>
+						</li>-->
 					</ul>
 
 				</div>
