@@ -25,7 +25,8 @@ body {font-family:arial;}
 		
 		div#sort ul {overflow:hidden;}
 		div#sort ul li {float:left; padding:8px 16px; font-size: 14px; color:;}
-		div#sort ul li.selected {background-color:#fff; border-radius:4px;}
+		div#sort ul li.selected {background-color:#fff; border-radius:4px; }
+		div#sort ul li.selected a {color:#555; font-weight:bold;}
 
 /* Media Queries - HCOM breakpoints */
 @media only screen and (min-width:0px) {
