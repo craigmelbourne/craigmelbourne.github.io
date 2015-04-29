@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="reset.css" />
+		<link rel="stylesheet" type="text/css" href="base.css" />
+
+		<style type="text/css">
+			body {font-family:arial; margin:0; padding:0;}
+		a {color:#2088DB; text-decoration: none}
+		#head {background-color: #D41200; height:50px; color:#fff; }
+		#head > div, #nav > div, #search-strip > div, #wrapper {max-width:1160px; margin:0 auto; padding:0 16px;}
+		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
+		#w { background-color:#999;}
+
+		@media only screen and (min-width:0px) {
+/* this isn't really needed  */
+		#sqm  {background-color:#eee; height:368px; width:auto;}
+
+}
+
+@media only screen and (min-width:600px) {
+	#w {width:auto; margin:0 16px; padding:32px;}
+	
+}
+
+@media only screen and (min-width:750px) {
+	#sqm {background-color:#eee; height:368px; width:300px;}
+}
+
+@media only screen and (min-width:850px) {
+}
+
+@media only screen and (min-width:960px) {
+}
+
+@media only screen and (min-width:1192px) {
+
+	#w {width:1160px; margin:0 auto;}
+
+}
+		</style>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+
+			});
+
+		</script>
+
+	</head>
+
+	<body>
+		<div id="head">
+			<div>
+				Head
+			</div>		
+		</div>
+		<div id="nav">
+			<div>
+				nav
+			</div>
+				
+		</div>
+
+		<div id="w">
+			
+				<div id="sqm">
+					<p style="padding-top:25%; text-align:center; box-sizing:border-box;">SQM</p>
+				</div>
+			
+		</div>
+	</body>
+</html>
