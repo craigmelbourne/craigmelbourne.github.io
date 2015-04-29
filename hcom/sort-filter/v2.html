@@ -21,46 +21,50 @@
 		#search-strip {background-color:#F5F4F0; padding:16px 0; margin-bottom:16px;}
 		#search-strip #destination {font-size:24px; font-weight:bold; margin-bottom:8px}
 		#search-strip #dates {}
-		#sort-filter {border-top:#ccc solid 0px; border-bottom:#ccc solid 0px; }
+
+		#sort-filter {border-top:#ccc solid 0px; border-bottom:#ccc solid 0px;}
+
 		
 		.filter-block {float:left; vertical-align: top; box-sizing:border-box; padding:0 24px 0 8px;}
 		.filter-block > label {display:block; font-size:12px; margin-bottom: 8px; font-weight:bold; }
 
-		#filters {box-sizing:border-box;}
-		#filters ul {overflow:hidden; height:52px; overflow:hidden;}
-		#filters ul li { float:left;   height:52px; box-sizing:border-box;  border-right:solid 1px #ddd; padding:8px 0 0 16px;}
-		#filters ul li#name-contains {position:relative; box-sizing:border-box; padding-left:0; padding-right:16px;}
-		#filters ul li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:12px; padding:4px; width:calc(100% - 30px); height:24px}
-		#filters ul li#name-contains button {position:absolute; bottom:2px; right:16px; width:30px; background-color:#2088DB; color:#fff; border:0; height:24px; display:inline-block; margin-top:-1px}
+		#filters ul {overflow:hidden;}
+		#filters ul li {float:left;  box-sizing:border-box; border-right:solid 1px #ccc; padding:0 8px;}
+		#filters ul li#name-contains {position:relative;}
+		#filters ul li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:16px; padding:4px; width:calc(100% - 30px); height:24px}
+		#filters ul li#name-contains button {position:absolute; bottom:0px; right:8px; width:30px; background-color:#2088DB; color:#fff; border:0; height:24px; display:inline-block; margin-top:-0px}
 
-		#filters ul li label {font-size:14px; margin-bottom:4px; display:block;}
-		#filters ul li div.data {font-size:16px; color:#2088DB; padding-top:2px; font-weight:bold;}
+						#filters ul li label {font-size:14px; margin-bottom:4px; display:block; font-weight:bold;}
+						#filters ul li div.data {font-size:16px; color:#2088DB; padding-top:6px; font-weight:bold;}
 
-		/* Media Queries - HCOM breakpoints */
-		@media only screen and (min-width:0px) {
-			/* this isn't really needed  */
+		#filter-title-bar {border-bottom:solid 3px #555; overflow:hidden; background-color:#555;}
+		#filter-title-bar #filter-title {width:50%; float:left; box-sizing:border-box;}
+		#filter-title-bar #filter-sort {width:50%; float:left; box-sizing:border-box; text-align:right; padding-top:8px; padding-right:8px; color:#fff;}
 
-		}
-
+		#filter-list {display:none;}
+		.filter-fixed {position:fixed; top:0; left:16px; right:16px;}
+		
 		@media only screen and (min-width:600px) {
-			.filter-fixed {position:fixed; top:0; left:16px; right:16px;}
-			#filters ul li#name-contains {width:26%; display:none;}
-			#filters ul li#price-range {width:25%;}
-			#filters ul li#guest-rating {width:25%;}
-			#filters ul li#star-rating {width:25%;}
-			#filters ul li#neighbourhood {width:25%;}
-			#filters ul li#landmarks {width:16.666666%; display:none;}
-			#filters ul li#facilities {width:14.2857%; display:none;}
+			#filter-list {display:block;}
+			
+			#filters ul li#name-contains {display:none;}
+			#filters ul li#price-range {width:33.33%; display:block;}
+			#filters ul li#star-rating {display:none;}
+			#filters ul li#guest-rating {width:33.33%; display:block;}
+			#filters ul li#neighbourhood {width:33.33%; display:block;}
+			#filters ul li#landmarks {display:none;}
+			#filters ul li#faciltites {display:none;}
 		}
 
 		@media only screen and (min-width:750px) {
-			#filters ul li#name-contains {width:26%; display:block;}
-			#filters ul li#price-range {width:20%;}
-			#filters ul li#guest-rating {width:17%;}
-			#filters ul li#star-rating {width:17%;}
-			#filters ul li#neighbourhood {width:20%;}
-			#filters ul li#landmarks {width:16.666666%; display:none;}
-			#filters ul li#facilities {width:14.2857%; display:none;}
+			#filters ul li#name-contains {width:30%; display:block;}
+			#filters ul li#price-range {width:25%; display:block;}
+			#filters ul li#star-rating {display:none;}
+			#filters ul li#guest-rating {width:20%; display:block;}
+			#filters ul li#neighbourhood {width:25%; display:block;}
+			#filters ul li#landmarks {display:none;}
+			#filters ul li#faciltites {display:none;}
+
 		}
 
 		@media only screen and (min-width:850px) {
@@ -71,21 +75,22 @@
 			#filters ul li#name-contains {width:20.666666%;}
 			#filters ul li#price-range {width:16.666666%;}
 			#filters ul li#guest-rating {width:14.666666%;}
-			#filters ul li#star-rating {width:14.666666%;}
+			#filters ul li#star-rating {width:14.666666%; display:block;}
 			#filters ul li#neighbourhood {width:16.666666%;}
 			#filters ul li#landmarks {width:16.666666%; display:block;}
 			#filters ul li#facilities {width:14.2857%; display:none;}
 		}
 
 		@media only screen and (min-width:1160px) {
-			.filter-fixed {position:fixed; width:1160px; top:0; left:auto; right:auto;}
-			#filters ul li#name-contains {width:18.2857%;}
-			#filters ul li#price-range {width:14.2857%;}
-			#filters ul li#guest-rating {width:12.2857%;}
-			#filters ul li#star-rating {width:12.2857%;}
-			#filters ul li#neighbourhood {width:14.2857%;}
-			#filters ul li#landmarks {width:14.2857%;}
-			#filters ul li#facilities {width:14.2857%; display:block;}
+			.filter-fixed {position:fixed; top:0; right:auto; width:1160px; left:auto;}
+			#filters ul li#name-contains {width:18.2857%; display:block;}
+			#filters ul li#price-range {width:14.2857%; display:block;}
+			#filters ul li#star-rating {width:12.2857%; display:block;}
+			#filters ul li#guest-rating {width:12.2857%; display:block;}
+			#filters ul li#neighbourhood {width:14.2857%; display:block;}
+			#filters ul li#landmarks {width:14.2857%; display:block;}
+			#filters ul li#faciltites {width:14.2857%; display:block;}
+
 		}
 		</style>
 
@@ -147,21 +152,21 @@
 		<div id="wrapper">
 			
 			<div id="sort-filter" style="overflow:hidden;">
-				<div id="filters" style=" background-color:#eee; box-sizing:border-box;">
+				<div id="filters" style=" background-color:#eee; box-sizing:border-box; border-bottom:solid 3px #555;">
 					<!--<div style="background-color:#555; color:#fff; padding:8px; font-size:12px">Narrow your search</div>-->
 
 					<style type="text/css">
 						
 					</style>
-					<div style="border-bottom:solid 3px #555; overflow:hidden; background-color:#555;">
+					<div id="filter-title-bar">
 
 					
 
 
-						<div style="width:50%; float:left; box-sizing:border-box;">
+						<div id="filter-title">
 							<div style="display:inline-block; padding:8px; background-color:#555; color:#fff;">Narrow your search</div>
 						</div>
-						<div style=" width:50%; float:left; box-sizing:border-box; text-align:right; padding-top:8px; padding-right:8px; color:#fff;">
+						<div id="filter-sort">
 							<label style="font-size:12px;">Sort By</label>
 							<select style="width:220px;">
 								<option>Our favourites</option>
@@ -174,54 +179,58 @@
 							</select>
 						</div>
 					</div>
-					<div style="overflow:hidden; padding:8px; box-sizing:border-box;">
-						<ul style="width:calc(100% - 120px); float:left;">
-							<li id="name-contains">
+
+					
+
+					<div id="filter-list" style="overflow:hidden; padding:8px 0">
+
+
+					<ul style="float:left; width:calc(100% - 120px)">
+						<li id="name-contains">
 							<label>Name contains</label>
 								<div><input type="text"/><button>Go</button></div>
-							</li>
-							<li id="price-range">
-								<label>Price range</label>
-								<div class="data">$0 - $500 <div class="arrow-down"></div></div>
-							</li>
-							<li id="guest-rating">
-								<label>Guest rating</label>
-								<div class="data">1-5 <div class="arrow-down"></div></div>
-							</li>
-							<li id="star-rating">
-								<label>Star rating</label>
-								<div class="data">1-5 <div class="arrow-down"></div></div>
-							</li>
-							<li id="neighbourhood">
-								<label>Neighbourhood</label>
-								<div class="data">All <div class="arrow-down"></div></div>
-							</li>
-							<li id="landmarks">
-								<label>Landmarks</label>
-								<div class="data">All <div class="arrow-down"></div></div>
-							</li>
-							<li id="facilities">
-								<label>Facilities</label>
-								<div class="data">All <div class="arrow-down"></div></div>
-							</li>
-							<!--<li id="price-range">
-								<label>Accommodation type</label>
-								<div class="data">All <div class="arrow-down"></div></div>
-							</li>
-							<li id="price-range">
-								<label>Accessibility features</label>
-								<div class="data">All <div class="arrow-down"></div></div>
-							</li>
-							<li id="price-range">
-								<label>Themes / types</label>
-								<div class="data">All <div class="arrow-down"></div></div>
-							</li>-->
-						</ul>
-
-						<div style="text-align:center;float:right; width:120px; background-color:#ddd; box-sizing:border-box; padding:8px;">All filters <div class="arrow-down-grey"></div></div>
-
+						</li>
+						<li id="price-range">
+							<label>Price range</label>
+							<div class="data">$0 - $500 <div class="arrow-down"></div></div>
+						</li>
+						<li id="guest-rating">
+							<label>Guest rating</label>
+							<div class="data">1-5 <div class="arrow-down"></div></div>
+						</li>
+						<li id="star-rating">
+							<label>Star rating</label>
+							<div class="data">1-5 <div class="arrow-down"></div></div>
+						</li>
+						<li id="neighbourhood">
+							<label>Neighbourhood</label>
+							<div class="data">All <div class="arrow-down"></div></div>
+						</li>
+						<li id="landmarks">
+							<label>Landmarks</label>
+							<div class="data">All <div class="arrow-down"></div></div>
+						</li>
+						<li id="faciltites">
+							<label>Facilities</label>
+							<div class="data">All <div class="arrow-down"></div></div>
+						</li>
+						<!--<li id="price-range">
+							<label>Accommodation type</label>
+							<div class="data">All <div class="arrow-down"></div></div>
+						</li>
+						<li id="price-range">
+							<label>Accessibility features</label>
+							<div class="data">All <div class="arrow-down"></div></div>
+						</li>
+						<li id="price-range">
+							<label>Themes / types</label>
+							<div class="data">All <div class="arrow-down"></div></div>
+						</li>-->
+					</ul>
+					<div style="float:right; text-align:center; width:120px; font-size:14px">
+						<div style="width:100px; background-color:#ddd; margin:auto; padding:12px 0">All filters <div class="arrow-down"></div></div></div>
 					</div>
-					
+
 
 				</div>
 				<!--<div style="float:left; width:60px; background-color:#ccc; height:52px; box-sizing:border-box; font-size:14px; padding-top:24px; text-align:center;">
