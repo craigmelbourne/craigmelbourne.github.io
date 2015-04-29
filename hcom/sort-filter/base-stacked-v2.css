@@ -8,10 +8,10 @@ body {font-family:arial;}
 		#head {background-color: #D41200; height:50px; color:#fff; }
 		#head > div, #nav > div, #search-strip > div, #wrapper {max-width:1160px; margin:0 auto; padding:0 16px;}
 		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
-		#search-strip {background-color:#F5F4F0; padding:16px 0;}
+		#search-strip {background-color:#F5F4F0; padding:16px 0; margin-bottom:16px;}
 		#search-strip #destination {font-size:24px; font-weight:bold; margin-bottom:8px}
 		#search-strip #dates {}
-		#sort-filter {border-top:#ccc solid 0px; border-bottom:#ccc solid 0px; margin-top:16px;}
+		#sort-filter {border-top:#ccc solid 0px; border-bottom:#ccc solid 0px; }
 
 		#filters ul {overflow:hidden; border-top:1px solid #ddd;}
 		
@@ -58,7 +58,7 @@ body {font-family:arial;}
 }
 
 @media only screen and (min-width:600px) {
-
+	.filter-fixed {position:fixed; top:0; right:16px; left:16px;}
 }
 
 @media only screen and (min-width:750px) {
@@ -78,5 +78,9 @@ body {font-family:arial;}
 @media only screen and (min-width:960px) {
 }
 
-@media only screen and (min-width:1260px) {
+@media only screen and (min-width:1160px) {
+	.filter-fixed {position:fixed; top:0; right:auto; width:1160px; left:auto;}
 }
+
+
+

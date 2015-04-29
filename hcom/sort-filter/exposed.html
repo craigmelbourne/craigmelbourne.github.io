@@ -33,9 +33,23 @@
     			});
     			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
       				" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+    			var elementPosition = $('#sort-filter').offset();
+
+				$(window).scroll(function(){
+        			if($(window).scrollTop() > elementPosition.top){
+              			$('#sort-filter').addClass("filter-fixed");
+        			} else {
+            			$('#sort-filter').removeClass("filter-fixed");
+        			}    
+				});
 			});
 
 		</script>
+
+		<style type="text/css">
+			
+		</style>
 
 	</head>
 
@@ -60,7 +74,7 @@
 		
 		<div id="wrapper">
 			
-			<div id="filter">
+			<div id="sort-filter" style="background-color:#fff;">
 				<div style="background-color:#555;">
 					<div style="display:inline-block; padding:8px; color:#fff; background-color:#555; font-size:14px; font-weight:bold">Narrow your search</div>
 					<div style="display:inline-block; padding:8px; font-size:12px; color:#ccc;">Some positive message on filter usage </div>
@@ -72,7 +86,7 @@
 
 				</style>
 
-				<div id="filters" style="overflow:hidden;">
+				<div id="filters" style="overflow:hidden; ">
 					<div class="filter-block" style="width:20%">
 					<label>Name contains</label>
 					<div style="position:relative; margin-bottom:8px">
@@ -140,9 +154,7 @@
 
 					</div>
 				</div>
-			</div>
-
-			<div id="sort-bar">
+				<div id="sort-bar">
 				<div id="filter-button">Filters</div>
 				<div id="sort">
 					<ul>
@@ -163,9 +175,24 @@
 				</div>
 
 			</div>
+			</div>
+
+			
 
 			
 			<div id="results" style="margin-top:32px;">
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
 				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
 				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
 				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
