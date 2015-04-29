@@ -8,7 +8,7 @@ body {font-family:arial;}
 		#search-strip {background-color:#F5F4F0; padding:16px 0; margin-bottom:16px;}
 		#sort-filter {border-top:#555 solid 3px;   display:none;}
 		#filters {margin:16px 0; overflow: hidden;}
-		.filter-block {float:left; vertical-align: top; width:16%; box-sizing:border-box; padding:0 24px 0 8px;}
+		.filter-block {float:left; vertical-align: top; width:20%; box-sizing:border-box; padding:0 24px 0 8px;}
 		.filter-block > label {display:block; font-size:12px; margin-bottom: 8px; font-weight:bold; }
 
 		.filter-block ul li {white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size:12px; }

@@ -8,7 +8,7 @@
 
 		<!-- style sheets -->
 		<link rel="stylesheet" type="text/css" href="reset.css">
-		<link rel="stylesheet" type="text/css" href="base-exposed.css">
+		<link rel="stylesheet" type="text/css" href="base-exposed-v2.css">
 		<style type="text/css">
 		
 		</style>
@@ -34,13 +34,13 @@
     			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
       				" - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
-    			var elementPosition = $('#sort-filter').offset();
+    			var elementPosition = $('#sort-bar').offset();
 
 				$(window).scroll(function(){
         			if($(window).scrollTop() > elementPosition.top){
-              			$('#sort-filter').addClass("filter-fixed");
+              			$('#sort-bar').addClass("filter-fixed");
         			} else {
-            			$('#sort-filter').removeClass("filter-fixed");
+            			$('#sort-bar').removeClass("filter-fixed");
         			}    
 				});
 
@@ -112,7 +112,7 @@
 						
 						
 					</div>
-					<div class="filter-block" style="width:17%">
+					<div class="filter-block" style="width:20%">
 						<label>Price range</label>
 						<div id="slider-range"></div>
 						<label style="margin-top:16px">Guest rating</label>
@@ -125,7 +125,7 @@
 						</ul>
 					</div>
 					
-					<div class="filter-block" style="width:16%">
+					<div class="filter-block" style="width:20%">
 						<label>Facilities</label>
 						<ul>
 							<li><label><input type="checkbox" /> Free Wi-fi</label></li>
@@ -154,19 +154,10 @@
 						</ul>
 
 					</div>
-
-					<div class="filter-block" style="float:right;width:15%; border-left: dotted 1px #ddd; padding-left:16px">
-						<label>Other filters</label>
-						<ul>
-							<li style="margin-bottom:8px;"><label>Accommodation type</label></li>
-							<li style="margin-bottom:8px;"><label>Themes / types</label></li>
-							<li style="margin-bottom:8px;"><label>Accessibility</label></li>
-							<li class="all" style="padding:0"><a href="#">See all</a></li>
-						</ul>
-
-					</div>
 				</div>
-				<div id="sort-bar" style="overflow:hidden;">
+				
+			</div>
+			<div id="sort-bar" style="overflow:hidden;">
 					
 					<div id="sort" style="float:left;">
 						<ul>
@@ -188,7 +179,6 @@
 					</div>
 					<div id="filter-button" style="float:right; display:block">Show All Filters</div>
 
-			</div>
 			</div>
 
 			
