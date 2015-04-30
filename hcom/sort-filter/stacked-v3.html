@@ -34,13 +34,13 @@
     			$( "#amount" ).text( "$" + $( "#slider-range" ).slider( "values", 0 ) +
       				" - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
-    			var elementPosition = $('#sort-filter').offset();
+    			var elementPosition = $('#sort-bar-2').offset();
 
 				$(window).scroll(function(){
         			if($(window).scrollTop() > elementPosition.top){
-              			$('#sort-filter').addClass("filter-fixed");
+              			$('#sort-bar-2').addClass("filter-fixed");
         			} else {
-            			$('#sort-filter').removeClass("filter-fixed");
+            			$('#sort-bar-2').removeClass("filter-fixed");
         			}    
 				});
 			});
@@ -145,7 +145,7 @@
 					</ul>
 
 				</div>
-				<div id="sort-bar-2" style="overflow:hidden; background-color:#eee; padding:8px 16px; border-top:2px solid #555;">
+				<div id="sort-bar-2" style="overflow:hidden; background-color:#eee; padding:8px 16px; border-top:2px solid #555; box-sizing:border-box;">
 					<div id="filter-button" style="float:left; background-color:#2088DB; color:#fff; padding:8px; text-align:center; box-sizing:border-box; font-size:14px; border-bottom:solid 2px #90caf9; border-radius:4px;">Show All Filters</div>
 					<div id="sort-tool" style="float:right; font-size:14px; padding-top:4px">
 						Sort by: 
