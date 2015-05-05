@@ -35,6 +35,8 @@ body {font-family:arial;}
 	div#sort-bar {overflow:hidden; margin-top:16px; border-top:#555 solid 3px; background-color: #eee;}
 
 div#filter-button {float:right; background-color:#2088DB; color:#fff; padding:8px; text-align:center; box-sizing:border-box; font-size:14px; margin:8px; border-bottom:solid 2px #90caf9; border-radius:4px;}
+div#close-filters {background-color:#2088DB; color:#fff; padding:8px; text-align:center; box-sizing:border-box; font-size:14px; border-bottom:solid 2px #90caf9; border-radius:4px;}
+div#close-filters:hover {cursor: pointer;}
 div#sort {float:left;  padding:12px 0; font-size:18px; box-sizing:border-box;}
 
 div#sort ul {display:none;}

@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="reset.css">
 		<link rel="stylesheet" type="text/css" href="base-exposed-v2.css">
 		<style type="text/css">
-		
+			
 		</style>
 
 		<!-- Scripts -->
@@ -47,7 +47,7 @@
 				$(".all a").on("click", function(e){
 					e.preventDefault();
 					$("#overlay").show();
-					$("div.options").hide()
+					$("div.options").hide();
 					$("#modal").show().find("li#filter-" + $(this).attr("rel")).find("div.options").show();
 
 				});
@@ -57,6 +57,19 @@
 					$("#overlay").hide();
 					$("#modal").hide();
 				});
+
+				$("#filter-button").on("click", function(){
+					$("#overlay").show();
+					$("#modal").show();
+					$("div.options").hide();
+				}); 
+
+				$("#close-filters").on("click", function(){
+					$("#overlay").hide();
+					$("#modal").hide();
+					$("div.options").hide();
+				})
+
 			});
 
 		</script>
@@ -90,7 +103,7 @@
 			
 			<div id="sort-filter" style="background-color:#fff;">
 				<div style="background-color:#555;">
-					<div style="display:inline-block; padding:8px; color:#fff; background-color:#555; font-size:14px; font-weight:bold">Popular filters</div>
+					<div style="display:inline-block; padding:8px; color:#fff; background-color:#555; font-size:14px; font-weight:bold">Narrow your search</div>
 					<div style="display:inline-block; padding:8px; font-size:12px; color:#ccc;">Some positive message on filter usage </div>
 				</div>
 				
@@ -117,7 +130,7 @@
 					<div class="filter-block" style="width:20%">
 						<label>Price range</label>
 						<div id="slider-range"></div>
-						<label style="margin-top:16px">Guest rating</label>
+						<label style="margin-top:36px">Guest rating</label>
 						<ul id="guest">
 							<li>1</li>
 							<li>2</li>
@@ -133,6 +146,8 @@
 							<li><label><input type="checkbox" /> Free Wi-fi</label></li>
 							<li><input type="checkbox" /> <label>Breakfast included</label></li>
 							<li><input type="checkbox" /> <label>Parking available</label></li>
+							<li><input type="checkbox" /> <label>Gym</label></li>
+							<li><input type="checkbox" /> <label>Restaurant</label></li>
 							<li class="all" ><a href="#" rel="facilities">All facilities</a></li>
 						</ul>
 					</div>
@@ -142,6 +157,8 @@
 							<li><input type="checkbox" /> Union Square</li>
 										<li><input type="checkbox" /> Fishermans wharf</li>
 										<li><input type="checkbox" /> Financial District - Ferry building</li>
+										<li><input type="checkbox" /> South Market</li>
+										<li><input type="checkbox" /> Chinatown</li>
 							<li class="all"><a href="#" rel="neighbourhoods">All neighbourhoods</a></li>
 						</ul>
 
@@ -152,6 +169,8 @@
 							<li><label><input type="checkbox" /> City centre</label></li>
 							<li><label><input type="checkbox" /> San Francisco International Airport (SFO)‎</label></li>
 							<li><label><input type="checkbox" /> Oakland, CA (OAK-Oakland Intl.)‎</label></li>
+							<li><label><input type="checkbox" /> AT&T Park‎</label></li>
+							<li><label><input type="checkbox" /> Downtown San Francisco‎</label></li>
 							<li class="all"><a href="#" rel="landmarks">All landmarks</a></li>
 						</ul>
 
@@ -210,7 +229,8 @@
 		</div> 
 
 		<style type="text/css">
-			#filter-menu ul li {padding:16px 0px; border-top:solid 1px #eee; overflow:hidden;}
+			.arrow-down { position:absolute; right:0; top:12px; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 12px solid #2088DB; vertical-align:top; margin-top:4px;}
+			#filter-menu ul li {padding:16px 0px; border-bottom:solid 1px #eee; overflow:hidden; position:relative;}
 			#filter-menu ul li label {font-weight: bold; display:block;}
 			#filter-menu ul li div.options {margin-top:8px;}
 			#filter-menu ul li div.options ul li {padding:0; border:0; font-size:14px; float:left; width:50%; margin-bottom:4px;}
@@ -218,16 +238,21 @@
 
 		<div id="overlay" style="position:fixed; top:0; left:0; right:0; bottom:0; background-color:#000; opacity:0.6; display:none;"></div>
 
-		<div id="modal" style="position:fixed; width:33%; top:0; bottom:0; right:0; background-color:#fff; padding:16px; overflow-y:scroll; display:none;">
-			<div id="filter-menu" style="margin:16px;">
+		<div id="modal" style="position:fixed; width:33%; top:0; bottom:0; right:0; background-color:#fff; padding:16px; display:none;">
+			<div id="" style="position:absolute; top:16px; left:32px; right:32px; height:48px; border-bottom:solid 2px #eee;">
+				<div id="close-filters" style="float:right; display:block">Close</div>
+				<p style="font-size:18px; font-weight:bold; margin-top:6px">Narrow your search</p>
+
+			</div>
+			<div id="filter-menu" style="padding:0 32px; position:absolute; top:64px; left:0; right:0; bottom:0; overflow-y:scroll;">
 				<ul>
-					<li><label>Name Contains</label></li>
-					<li><label>Price range</label></li>
+					<li><label>Name Contains</label><div class="arrow-down"></div></li>
+					<li><label>Price range</label><div class="arrow-down"></div></li>
 					<li>
-						<label>Star Rating</label>
+						<label>Star Rating</label><div class="arrow-down"></div>
 					</li>
 					<li id="filter-neighbourhoods">
-						<label>Neighbourhood</label>
+						<label>Neighbourhood</label><div class="arrow-down"></div>
 						<div class="options" style="display:none;">
 							<ul>
 										<li><input type="checkbox" /> Union Square</li>
@@ -240,7 +265,7 @@
 									</ul>
 						</div></li>
 					<li id="filter-landmarks">
-						<label>Landmarks</label>
+						<label>Landmarks</label><div class="arrow-down"></div>
 						<div class="options" style="display:none;">
 							<ul>
 										<li><input type="checkbox" /> City centre</li>
@@ -266,7 +291,7 @@
 									</ul>
 						</div>
 					</li>
-					<li id="filter-facilities"><label>Facilities</label>
+					<li id="filter-facilities"><label>Facilities</label><div class="arrow-down"></div>
 						<div class="options" style="display:none;">
 							<ul>
 										<li><input type="checkbox" /> Airport transfers</li>
@@ -292,10 +317,10 @@
 									</ul>
 						</div>
 					</li>
-					<li><label>Hotels.com rewards</label></li>
-					<li><label>Accommodation type</label></li>
-					<li><label>Themes / types</label></li>
-					<li><label>Accessibility features</label></li>
+					<li><label>Hotels.com rewards</label><div class="arrow-down"></div></li>
+					<li><label>Accommodation type</label><div class="arrow-down"></div></li>
+					<li><label>Themes / types</label><div class="arrow-down"></div></li>
+					<li><label>Accessibility features</label><div class="arrow-down"></div></li>
 				</ul>
 
 			</div>
