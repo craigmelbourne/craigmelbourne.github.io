@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<style type="text/css">
+		body {font-family:arial;}
+		a {color:#2088DB; text-decoration: none}
+		.arrow-down { display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
+			border-top: 8px solid #2088DB; vertical-align:top; margin-top:4px;}
+		.arrow-down-grey {display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
+			border-top: 8px solid #555; vertical-align:top; margin-top:4px;}
+			.arrow-down-white {display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
+			border-top: 8px solid #fff; vertical-align:top; margin-top:4px;}
+		#head {background-color: #D41200; height:50px; color:#fff; }
+		#head > div, #nav > div, #search-strip > div, #wrapper, #sort-filter > div  {max-width:1160px; margin:0 auto; padding:0 16px;}
+		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
+		#search-strip {background-color:#F5F4F0; padding:16px 0; margin-bottom:16px;}
+		#search-strip #destination {font-size:24px; font-weight:bold; margin-bottom:8px}
+		#search-strip #dates {}
+
+		#sort-filter {}
+
+		
+		.filter-block {float:left; vertical-align: top; box-sizing:border-box; padding:0 24px 0 8px;}
+		.filter-block > label {display:block; font-size:12px; margin-bottom: 8px; font-weight:bold; }
+
+		#filters ul {display:inline;}
+		#filters ul li {display:inline-block; margin-right:-4px;box-sizing:border-box; border-right:solid 1px #ccc; padding:0 8px; position:relative;}
+		#filters ul li#name-contains {position:relative;}
+		#filters ul li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:16px; padding:4px; width:calc(100% - 30px); height:24px}
+		#filters ul li#name-contains button {position:absolute; bottom:0px; right:8px; width:30px; background-color:#2088DB; color:#fff; border:0; height:24px; display:inline-block; margin-top:-0px}
+
+		#filters ul li label {font-size:14px; margin-bottom:4px; display:block; font-weight:bold;}
+		#filters ul li div.data {font-size:16px; color:#2088DB; padding-top:6px; font-weight:bold;}
+		#filters ul li div.data:hover {cursor:pointer;}
+
+		.menu-options {position:absolute; top:50px; background-color:#fff; border:solid 1px #eee; padding:16px; margin-left:-8px;-webkit-box-shadow: 0px 0px 5px 0px rgba(153,153,153,1);
+-moz-box-shadow: 0px 0px 5px 0px rgba(153,153,153,1);
+box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
+
+		.menu-options a.close {display:block; margin-top:8px; text-align: right; font-size:12px;}
+
+		#filters ul li .menu-options ul li {border-right:0; font-size:12px; padding:0; margin-bottom:4px; white-space: nowrap; float:none; display:block;} 
+
+		#filter-title-bar {border-bottom:solid 3px #555; overflow:hidden; background-color:#555;}
+		#filter-title-bar #filter-title {width:50%; float:left; box-sizing:border-box;}
+		#filter-title-bar #filter-sort {width:50%; float:left; box-sizing:border-box; text-align:right; padding-top:8px; padding-right:8px; color:#fff;}
+
+		#filter-list {display:none;}
+		.filter-fixed {position:fixed; top:0; left:0; right:0;}
+
+		#more-filters {width:100px; background-color:#2088DB; color:#fff; margin:auto; padding:12px 0; border-radius:4px; border:outset 2px #2088DB}
+
+		#more-filters:hover {cursor: pointer;}
+
+		#menu {position:fixed; top:0; bottom:0; right:0; width:300px; background-color:#fff; box-sizing:border-box; overflow-y:scroll; display:none;}
+		
+		@media only screen and (min-width:600px) {
+			#filter-list {display:block;}
+			
+			#filters ul li#name-contains {display:none;}
+			#filters ul li#price-range {width:33.33%; display:inline-block;}
+			#filters ul li#star-rating {display:none;}
+			#filters ul li#guest-rating {width:33.33%; display:inline-block;}
+			#filters ul li#neighbourhood {width:33.33%; display:inline-block;}
+			#filters ul li#landmarks {display:none;}
+			#filters ul li#faciltites {display:none;}
+			#menu-price, #menu-guest, #menu-neighbourhood {display:none;}
+		}
+
+		@media only screen and (min-width:750px) {
+			#filters ul li#name-contains {width:30%; display:inline-block;}
+			#filters ul li#price-range {width:25%; display:inline-block;}
+			#filters ul li#star-rating {display:none;}
+			#filters ul li#guest-rating {width:20%; display:inline-block;}
+			#filters ul li#neighbourhood {width:25%; display:inline-block;}
+			#filters ul li#landmarks {display:none;}
+			#filters ul li#faciltites {display:none;}
+			#menu-name {display:none;}
+
+		}
+
+		@media only screen and (min-width:850px) {
+			
+		}
+
+		@media only screen and (min-width:960px) {
+			#filters ul li#name-contains {width:20%;}
+			#filters ul li#price-range {width:20%;}
+			#filters ul li#guest-rating {width:20%;}
+			#filters ul li#star-rating {width:20%; display:inline-block;}
+			#filters ul li#neighbourhood {width:20%;}
+			#filters ul li#facilities {width:14.2857%; display:none;}
+
+			#menu-star {display:none;}
+		}
+
+		@media only screen and (min-width:1160px) {
+			.filter-fixed {position:fixed; top:0;}
+			#filters ul li#name-contains {width:20%; display:inline-block;}
+			#filters ul li#price-range {width:16%; display:inline-block;}
+			#filters ul li#star-rating {width:16%; display:inline-block;}
+			#filters ul li#guest-rating {width:16%; display:inline-block;}
+			#filters ul li#neighbourhood {width:16%; display:inline-block;}
+			#filters ul li#faciltites {width:16%; display:inline-block;}
+			#filters ul li#landmarks {width:12.5%; display:none;}
+			
+			#filters ul li#type {width:12.5%; display:none; border-right:0;}
+
+			#menu {width:33%;}
+
+			#menu-facilities {display:none;}
+
+		}
+		</style>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				$( "#slider-range" ).slider({
+      				range: true,
+      				min: 0,
+      				max: 500,
+      				values: [ 0, 500 ],
+      				slide: function( event, ui ) {
+        				$( "#amount" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      				}
+    			});
+    			$( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      				" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+    			$( "#guest-slider-range" ).slider({
+      				range: true,
+      				min: 1,
+      				max: 5,
+      				values: [ 1, 5 ],
+      				slide: function( event, ui ) {
+        				$( "#amount" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      				}
+    			});
+
+    			var elementPosition = $('#sort-filter').offset();
+
+				$(window).scroll(function(){
+        			if($(window).scrollTop() > elementPosition.top){
+              			$('#sort-filter').addClass("filter-fixed");
+        			} else {
+            			$('#sort-filter').removeClass("filter-fixed");
+        			}    
+				});
+
+				$("#more-filters").on("click", function(){
+					$("#overlay").fadeIn(200);
+					$("#menu").fadeIn(200);
+					
+				});
+
+				$("#overlay").on("click", function(){
+					$(this).hide();
+					$("#menu").hide();
+					$("#filters ul li").find(".menu-options").hide();
+				});
+
+				$("#filters ul li div.data").on("click", function(){
+					$("#filters ul li").find(".menu-options").hide();
+					$(this).siblings(".menu-options").show();
+				});
+
+				$(".menu-options a.close").on("click", function(e){
+					e.preventDefault();
+					$("#filters ul li").find(".menu-options").hide();
+				})
+			});
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div id="head">
+			<div>
+				Head
+			</div>		
+		</div>
+		<div id="nav">
+			<div>
+				nav
+			</div>
+				
+		</div>
+
+		<div id="search-strip">
+			<div id="destination">San Francisco, California, United States of America</div>
+			<div id="dates">Wed 22 - Thu 23 April 2015, 1 night, 1 room, 2 adults</div>
+		</div>
+		
+		
+			
+			<div id="sort-filter">
+				<div id="filters">
+					
+					<div id="filter-title-bar">
+						<div id="filter-title">
+							<div style="display:inline-block; padding:8px; background-color:#555; color:#fff;">Narrow your search</div>
+						</div>
+						<div id="filter-sort">
+							<label style="font-size:12px;">Sort By</label>
+							<select style="width:220px;">
+								<option>Our favourites</option>
+								<option>Stars (low to high)</option>
+								<option>Stars (high to low)</option>
+								<option>Distance to city center</option>
+								<option>Guest rating</option>
+								<option>Price (low to high)</option>
+								<option>Price (high to low)</option>
+							</select>
+						</div>
+					</div>
+
+					
+
+					<div id="filter-list" style=" padding:8px 0; background-color:#eee;">
+
+
+						<ul style="display:inline-block; width:calc(100% - 120px); margin-right:-4px">
+							<li id="name-contains">
+								<label>Name contains</label>
+								<div><input type="text"/><button>Go</button></div>
+
+							</li>
+							<li id="price-range">
+								<label>Price range</label>
+								<div class="data"><span id="amount">$0 - $500</span> <div class="arrow-down"></div></div>
+								<div class="menu-options" style="width:200px">
+									<div id="slider-range"></div>
+									<a href="#" class="close">close</a>
+								</div>
+							</li>
+							<li id="guest-rating" >
+								<label>Guest rating</label>
+								<div class="data">Any <div class="arrow-down"></div></div>
+								<div class="menu-options" style="width:200px">
+									<div id="guest-slider-range"></div>
+									<a href="#" class="close">close</a>
+								</div>
+							</li>
+							<li id="star-rating">
+								<label>Star rating</label>
+								<div class="data">Any <div class="arrow-down"></div></div>
+								<div class="menu-options" style="">
+									<ul>
+										<li><input type="checkbox" /> &#9733;&#9733;&#9733;&#9733;&#9733;</li>
+										<li><input type="checkbox" /> &#9733;&#9733;&#9733;&#9733;</li>
+										<li><input type="checkbox" /> &#9733;&#9733;&#9733;</li>
+										<li><input type="checkbox" /> &#9733;&#9733;</li>
+										<li><input type="checkbox" /> &#9733;</li>
+
+									</ul>
+									<a href="#" class="close">close</a>
+								</div>
+							</li>
+							<li id="faciltites">
+								<label>Facilities</label>
+								<div class="data">Any <div class="arrow-down"></div></div>
+								<div class="menu-options" style="">
+									<ul>
+										<li><input type="checkbox" /> Airport transfers</li>
+										<li><input type="checkbox" /> Bar</li>
+										<li><input type="checkbox" /> Bathtub in room</li>
+										<li><input type="checkbox" /> Business facilities</li>
+										<li><input type="checkbox" /> Child care</li>
+										<li><input type="checkbox" /> Connecting rooms available</li>
+										<li><input type="checkbox" /> Cribs available</li>
+										<li><input type="checkbox" /> Free breakfast</li>
+										<li><input type="checkbox" /> Free parking</li>
+										<li><input type="checkbox" /> Free Wi-fi</li>
+										<li><input type="checkbox" /> Gym</li>
+										<li><input type="checkbox" /> Internet access</li>
+										<li><input type="checkbox" /> Meeting facilities</li>
+										<li><input type="checkbox" /> Non-smoking</li>
+										<li><input type="checkbox" /> Parking available</li>
+										<li><input type="checkbox" /> Pet friendly</li>
+										<li><input type="checkbox" /> Pool</li>
+										<li><input type="checkbox" /> Restaurant</li>
+										<li><input type="checkbox" /> Smoking areas</li>
+										<li><input type="checkbox" /> Spa</li>
+									</ul>
+									<a href="#" class="close">close</a>
+								</div>
+							</li>
+							<li id="neighbourhood">
+								<label>Neighbourhood</label>
+								<div class="data">Any <div class="arrow-down"></div></div>
+								<div class="menu-options">
+									<ul>
+										<li><input type="checkbox" /> Union Square</li>
+										<li><input type="checkbox" /> Fishermans wharf</li>
+										<li><input type="checkbox" /> Financial District - Ferry building</li>
+										<li><input type="checkbox" /> South Market</li>
+										<li><input type="checkbox" /> Marina District</li>
+										<li><input type="checkbox" /> Civic Center</li>
+										<li><input type="checkbox" /> Chinatown</li>
+									</ul>
+									<a href="#" class="close">close</a>
+								</div>
+							</li>
+							
+						</ul>
+					
+						<div style="display:inline-block; margin-right:-4px; text-align:center; width:120px; font-size:14px; vertical-align:top;">
+							<div id="more-filters" style="">More filters</div></div>
+						</div>
+					</div>
+
+
+				</div>
+				
+			</div>
+
+
+
+
+			<div id="filter" style="background-color:">
+				
+
+				<style type="text/css">
+				.filter-block ul li {
+					white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size:12px; 
+				}
+				 .filter-block ul li.all {padding:4px 0 4px 20px;}
+				
+				 #slider-range, #guest-slider-range{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc #ccc #ddd #ccc;
+    border-radius: 4px;
+
+    height: 8px;
+    background-color: #ffffff;
+  bo/x-shadow: inset 0 1px 1px 0px rgba(0, 0, 0, .5), 
+                 0 1px 0 0px rgba(250, 250, 250, .5);
+                 position:relative;
+}
+
+.ui-slider-range {
+    /*background: linear-gradient(top, #cccccc 0%,#ffffff 100%);*/
+    background-color: #2088DB;
+    position: absolute;
+    border: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 4px;
+}
+
+				ul#guest {overflow:hidden;}
+				ul#guest li {float:left; padding:8px 0; border-top:solid 1px #ccc; border-bottom:solid 1px #ccc; border-left:solid 1px #ccc; box-sizing:border-box; width:20%; text-align:center;}
+				ul#guest li:first-child {border-top-left-radius: 4px; border-bottom-left-radius: 4px}
+				ul#guest li:last-child {border-right:solid 1px #ccc; border-top-right-radius: 4px; border-bottom-right-radius: 4px}
+
+				</style>
+
+				
+			</div>
+			<style type="text/css">
+			div#sort ul {overflow:hidden;}
+			div#sort ul li {float:left; padding:8px 16px; font-size: 14px; color:;}
+			</style>
+
+			<div id="wrapper">
+			
+			<div id="results" style="margin-top:32px;">
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				
+			</div>
+
+		</div> 
+
+
+		<div id="overlay" style="position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.6; display:none;"></div>
+
+
+		<style type="text/css">
+		#menu label {font-weight:bold; margin-top:16px; display:block; margin-bottom:8px; border-top:solid 1px #eee;padding-top:16px;}
+		#menu ul {display:none;}
+		#menu ul li {font-size:14px; margin-bottom:4px;}
+		</style>
+
+		<div id="menu" style="">
+			<div style="padding:32px;">Additional menu options
+			<div id="menu-name">
+				<label>Name contains</label>
+			</div>
+			<div id="menu-price">
+				<label>Price range</label>
+			</div>
+			<div id="menu-guest">
+				<label>Guest rating</label>
+			</div>
+			<div id="menu-star">
+				<label>Star rating</label>
+			</div>
+			<div id="menu-facilities">
+				<label>Facilties</label>
+			</div>
+			<div id="menu-neighbourhood">
+				<label>Neighbourhood</label>
+			</div>
+
+			<div>
+				<label>Landmarks</label>
+				<ul>
+					<li><input type="checkbox" />City Center</li>
+					<li><input type="checkbox" />San Francisco International Airport (SFO)‎</li>
+					<li><input type="checkbox" />Oakland, CA (OAK-Oakland Intl.)‎</li>
+					<li><input type="checkbox" />AT&T Park‎</li>
+					<li><input type="checkbox" />Moscone Convention Center‎</li>
+					<li><a href="#">15 more</a></li>
+				</ul>
+			</div>
+			<div>
+				<label>Hotels.com rewards</label>
+				<ul>
+					<li><input type="checkbox" />Collect nights</li>
+					<li><input type="checkbox" />Redeem free nights</li>
+				</ul>
+			</div>
+			<div>
+				<label>Accommodation type</label>
+				<ul>
+					<li><input type="checkbox" />Apart-hotel</li>
+					<li><input type="checkbox" />Apartment</li>
+					<li><input type="checkbox" />Bed and breakfast</li>
+					<li><input type="checkbox" />Hostel</li>
+					<li><input type="checkbox" />Hotel</li>
+					<li><a href="#">4 more</a></li>
+				</ul>
+			</div>
+			<div>
+				<label>Themes / Types</label>
+				<ul>
+					<li><input type="checkbox" />Adventure</li>
+					<li><input type="checkbox" />Beach</li>
+					<li><input type="checkbox" />Boutique</li>
+					<li><input type="checkbox" />Buinsess</li>
+					<li><input type="checkbox" />Family friendly</li>
+					<li><a href="#">7 more</a></li>
+				</ul>
+			</div>
+			<div>
+				<label>Accessibility features</label>
+				<ul>
+					<li><input type="checkbox" />Accessibility equipment for the deaf‎</li>
+					<li><input type="checkbox" />Accessible bathroom‎</li>
+					<li><input type="checkbox" />Accessible path of travel‎</li>
+					<li><input type="checkbox" />Braille or raised signage‎</li>
+					<li><input type="checkbox" />Handicapped parking‎</li>
+					<li><a href="#">2 more</a></li>
+				</ul>
+			</div>
+			</div>
+		</div>
+
+	</body>
+</html>
