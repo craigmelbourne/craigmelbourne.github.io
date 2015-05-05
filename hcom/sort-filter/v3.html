@@ -15,31 +15,33 @@
 			border-top: 8px solid #2088DB; vertical-align:top; margin-top:4px;}
 		.arrow-down-grey {display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
 			border-top: 8px solid #555; vertical-align:top; margin-top:4px;}
+			.arrow-down-white {display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
+			border-top: 8px solid #fff; vertical-align:top; margin-top:4px;}
 		#head {background-color: #D41200; height:50px; color:#fff; }
 		#head > div, #nav > div, #search-strip > div, #wrapper {max-width:1160px; margin:0 auto; padding:0 16px;}
 		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
-		#search-strip {background-color:#F5F4F0; padding:16px 0; margin-bottom:16px;}
+		#search-strip {background-color:#F5F4F0; padding:16px 0;}
 		#search-strip #destination {font-size:24px; font-weight:bold; margin-bottom:8px}
 		#search-strip #dates {}
 
-		#sort-filter {border-top:#ccc solid 0px; border-bottom:#ccc solid 0px;}
+		#sort-filter {background-color: #F5F4F0}
 
 		
 		.filter-block {float:left; vertical-align: top; box-sizing:border-box; padding:0 24px 0 8px;}
 		.filter-block > label {display:block; font-size:12px; margin-bottom: 8px; font-weight:bold; }
 
 		#filters ul {overflow:hidden;}
-		#filters ul li {float:left;  box-sizing:border-box; border-right:solid 1px #ccc; padding:0 8px;}
-		#filters ul li#name-contains {position:relative;}
+		#filters ul li {float:left;  box-sizing:border-box; border-right:solid 1px #ccc; padding:0 12px;}
+		#filters ul li#name-contains {position:relative; padding-left:0;}
 		#filters ul li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:16px; padding:4px; width:calc(100% - 30px); height:24px}
 		#filters ul li#name-contains button {position:absolute; bottom:0px; right:8px; width:30px; background-color:#2088DB; color:#fff; border:0; height:24px; display:inline-block; margin-top:-0px}
 
 						#filters ul li label {font-size:14px; margin-bottom:4px; display:block; font-weight:bold;}
 						#filters ul li div.data {font-size:16px; color:#2088DB; padding-top:6px; font-weight:bold;}
 
-		#filter-title-bar {border-bottom:solid 3px #555; overflow:hidden; background-color:#555;}
+		#filter-title-bar {overflow:hidden;}
 		#filter-title-bar #filter-title {width:50%; float:left; box-sizing:border-box;}
-		#filter-title-bar #filter-sort {width:50%; float:left; box-sizing:border-box; text-align:right; padding-top:8px; padding-right:8px; color:#fff;}
+		#filter-title-bar #filter-sort {width:50%; float:left; box-sizing:border-box; text-align:right;}
 
 		#filter-list {display:none;}
 		.filter-fixed {position:fixed; top:0; left:16px; right:16px;}
@@ -83,13 +85,14 @@
 
 		@media only screen and (min-width:1160px) {
 			.filter-fixed {position:fixed; top:0; right:auto; width:1160px; left:auto;}
-			#filters ul li#name-contains {width:18.2857%; display:block;}
-			#filters ul li#price-range {width:14.2857%; display:block;}
-			#filters ul li#star-rating {width:12.2857%; display:block;}
-			#filters ul li#guest-rating {width:12.2857%; display:block;}
-			#filters ul li#neighbourhood {width:14.2857%; display:block;}
-			#filters ul li#landmarks {width:14.2857%; display:block;}
-			#filters ul li#faciltites {width:14.2857%; display:block;}
+			#filters ul li#name-contains {width:17.5%; display:block;}
+			#filters ul li#price-range {width:12.5%; display:block;}
+			#filters ul li#star-rating {width:10%; display:block;}
+			#filters ul li#guest-rating {width:10%; display:block;}
+			#filters ul li#neighbourhood {width:12.5%; display:block;}
+			#filters ul li#landmarks {width:12.5%; display:block;}
+			#filters ul li#faciltites {width:12.5%; display:block;}
+			#filters ul li#type {width:12.5%; display:block; border-right:0;}
 
 		}
 		</style>
@@ -149,22 +152,14 @@
 			<div id="dates">Wed 22 - Thu 23 April 2015, 1 night, 1 room, 2 adults</div>
 		</div>
 		
-		<div id="wrapper">
+		
 			
 			<div id="sort-filter" style="overflow:hidden;">
-				<div id="filters" style=" background-color:#eee; box-sizing:border-box; border-bottom:solid 3px #555;">
-					<!--<div style="background-color:#555; color:#fff; padding:8px; font-size:12px">Narrow your search</div>-->
-
-					<style type="text/css">
-						
-					</style>
-					<div id="filter-title-bar">
-
+				<div id="filters" style=" box-sizing:border-box; width:1160px; margin:0 auto; border-top:solid 1px #ddd;">
 					
-
-
+					<div id="filter-title-bar" style="display:none;">
 						<div id="filter-title">
-							<div style="display:inline-block; padding:8px; background-color:#555; color:#fff;">Narrow your search</div>
+							<div style="display:inline-block; color:#555;">Narrow your search</div>
 						</div>
 						<div id="filter-sort">
 							<label style="font-size:12px;">Sort By</label>
@@ -185,40 +180,41 @@
 					<div id="filter-list" style="overflow:hidden; padding:8px 0">
 
 
-					<ul style="float:left; width:calc(100% - 120px)">
-						<li id="name-contains">
+					<ul style="width:100%">
+						<!--<li id="name-contains">
 							<label>Name contains</label>
 								<div><input type="text"/><button>Go</button></div>
-						</li>
+						</li>-->
 						<li id="price-range">
 							<label>Price range</label>
 							<div class="data">$0 - $500 <div class="arrow-down"></div></div>
 						</li>
 						<li id="guest-rating">
 							<label>Guest rating</label>
-							<div class="data">1-5 <div class="arrow-down"></div></div>
+							<div class="data">Any <div class="arrow-down"></div></div>
 						</li>
 						<li id="star-rating">
 							<label>Star rating</label>
-							<div class="data">1-5 <div class="arrow-down"></div></div>
-						</li>
-						<li id="neighbourhood">
-							<label>Neighbourhood</label>
-							<div class="data">All <div class="arrow-down"></div></div>
-						</li>
-						<li id="landmarks">
-							<label>Landmarks</label>
-							<div class="data">All <div class="arrow-down"></div></div>
+							<div class="data">Any <div class="arrow-down"></div></div>
 						</li>
 						<li id="faciltites">
 							<label>Facilities</label>
-							<div class="data">All <div class="arrow-down"></div></div>
+							<div class="data">Any <div class="arrow-down"></div></div>
+						</li>
+						<li id="neighbourhood">
+							<label>Neighbourhood</label>
+							<div class="data">Any <div class="arrow-down"></div></div>
+						</li>
+						<li id="landmarks">
+							<label>Landmarks</label>
+							<div class="data">Any <div class="arrow-down"></div></div>
+						</li>
+						
+						<li id="type">
+							<label>Theme / type</label>
+							<div class="data">Any <div class="arrow-down"></div></div>
 						</li>
 						<!--<li id="price-range">
-							<label>Accommodation type</label>
-							<div class="data">All <div class="arrow-down"></div></div>
-						</li>
-						<li id="price-range">
 							<label>Accessibility features</label>
 							<div class="data">All <div class="arrow-down"></div></div>
 						</li>
@@ -227,12 +223,14 @@
 							<div class="data">All <div class="arrow-down"></div></div>
 						</li>-->
 					</ul>
-					<div style="float:right; text-align:center; width:120px; font-size:14px">
-						<div style="width:100px; background-color:#ddd; margin:auto; padding:12px 0">All filters <div class="arrow-down"></div></div></div>
+
+					<div style="float:right; text-align:center; width:120px; font-size:14px; display:none;">
+						<div style="width:100px; background-color:#2088DB; color:#fff; margin:auto; padding:12px 0">All filters <div class="arrow-down-white"></div></div></div>
 					</div>
 
 
 				</div>
+				<div style="height:30px; border-top:solid 1px #ddd; width:1160px; margin:0 auto"></div>
 				<!--<div style="float:left; width:60px; background-color:#ccc; height:52px; box-sizing:border-box; font-size:14px; padding-top:24px; text-align:center;">
 					more <div class="arrow-down"></div>
 				</div>-->
@@ -296,6 +294,8 @@
 
 				
 			</div>
+
+			<div id="wrapper">
 			<style type="text/css">
 			div#sort ul {overflow:hidden;}
 			div#sort ul li {float:left; padding:8px 16px; font-size: 14px; color:;}
