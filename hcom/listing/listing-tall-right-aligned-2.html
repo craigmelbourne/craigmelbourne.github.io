@@ -25,7 +25,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 			.hotel .stars span {color:#999;}
 			.hotel .neighbourhood {background:url('i/map_pin-1.png') no-repeat; background-size:16px; background-position:8px 3px; padding:0; vertical-align: top; font-size:12px; margin-left:33%; padding:4px 8px 4px 30px;}
 			.hotel .qual {padding:4px 8px 4px 30px; font-weight:bold; font-size:12px;  margin-left:33%; color:#555; background:url('i/icon_review.png') no-repeat; background-size:16px; background-position:6px 3px;}
-			.hotel .rewards {background:url('i/icon_wr.png') no-repeat; background-size:14px; background-position:4px 3px;font-size:12px; color:#906; padding:4px 4px 4px 24px; position:absolute; bottom:4px; left:0; width:33%; background-color:#F3E5F5; box-sizing:border-box;}
+			.hotel .rewards {background:url('i/icon_wr.png') no-repeat; background-size:14px; background-position:4px 3px;font-size:12px; color:#906; padding:4px 4px 4px 24px; position:absolute; bottom:4px; left:0; width:33%; background-color:#F3E5F5; box-sizing:border-box; font-weight:bold;}
 			.hotel .price {text-align:right; margin-left:33%; padding:4px 0 0 8px}
 
 			.hotel .price .badge {display:inline-block;}
@@ -38,10 +38,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 
 
 			@media only screen and (min-width:600px) {
-				.hotel .name {font-size:16px;}
+				.hotel .thumbnail {position:absolute; top:0; left:0; bottom:6px; width:25%; text-align: center; overflow: hidden;}
+				.hotel .name {font-size:16px; margin-left:25%;}
+				.hotel .stars {width:25%;}
+				.hotel .neighbourhood {margin-left:25%;}
+				.hotel .qual {margin-left:25%;}
+				.hotel .rewards {width:25%; margin-left:25%; background-color:#fff;}
 				.hotel .price .total {font-size:24px; font-weight:bold;}
 				.hotel .price .strikethrough {font-size:14px; color:#555; text-decoration: line-through;}
-				.hotel .price .nights {font-size:12px; color:#999; margin:4px 0 0;}
+				.hotel .price .nights {font-size:12px; color:#999; margin:4px 0 0; display:inline-block;}
 			}
 		</style>
 
@@ -75,7 +80,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 					<div class="badge great">Great rate</div>
 					<div class="total red"><span class="strikethrough">$207</span> $113</div>
 					<div class="nights">price for 1 night</div>
-					<div class="nights">$132 including taxes and fees</div>
+					<div class="nights"> including taxes and fees</div>
 				</div>
 			</div>
 
@@ -98,7 +103,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 					<div class="badge great">Great rate</div>
 					<div class="total red"><span class="strikethrough">$262</span> $137 </div>
 					<div class="nights">price for 1 night</div>
-					<div class="nights">$161 including taxes and fees</div>
+					<div class="nights"> including taxes and fees</div>
 				</div>
 			</div>
 
@@ -122,7 +127,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 					<div class="badge special">Save 39%</div>
 					<div class="total red"> <span class="strikethrough">$275</span> $150</div>
 					<div class="nights">price for 1 night</div>
-					<div class="nights">$175 including taxes and fees</div>
+					<div class="nights"> including taxes and fees</div>
 				</div>
 			</div>
 
@@ -147,7 +152,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 					<div class="badge special">Save 20%</div>
 					<div class="total red"> <span class="strikethrough">$199</span> $140</div>
 					<div class="nights">price for 1 night</div>
-					<div class="nights">$164 including taxes and fees</div>
+					<div class="nights"> including taxes and fees</div>
 				</div>
 			</div>
 
@@ -170,7 +175,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 					<div class="badge great">Great rate</div>
 					<div class="total red"> <span class="strikethrough">$280</span> $107</div>
 					<div class="nights">price for 1 night</div>
-					<div class="nights">$126 including taxes and fees</div>
+					<div class="nights"> including taxes and fees</div>
 				</div>
 			</div>
 		<div>
