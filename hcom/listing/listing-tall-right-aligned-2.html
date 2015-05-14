@@ -14,8 +14,14 @@
 			.hotel .thumbnail {position:absolute; top:0; left:0; bottom:6px; width:33%; text-align: center; overflow: hidden;}
 			.hotel .thumbnail > img { position: relative; left: 100%; margin-left: -200%; height:100%;}
 			.hotel .name {margin-left:33%; padding:4px 8px 4px; font-size:14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
-			.hotel .stars { position:absolute; top:0; right:0; left:0; font-size:12px; color: #fff; padding:4px; background-color: transparent; opacity:1.0; }
-			.hotel .stars img {height:16px;}
+			.hotel .stars { position:absolute; top:0; right:0; left:0; font-size:12px; color: #fff; padding:4px; background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */ }
+			.hotel .stars img {height:12px;}
 			.hotel .stars span {color:#999;}
 			.hotel .neighbourhood {background:url('i/map_pin-1.png') no-repeat; background-size:16px; background-position:8px 3px; padding:0; vertical-align: top; font-size:12px; margin-left:33%; padding:4px 8px 4px 30px;}
 			.hotel .qual {padding:4px 8px 4px 30px; font-weight:bold; font-size:12px;  margin-left:33%; color:#555; background:url('i/icon_review.png') no-repeat; background-size:16px; background-position:6px 3px;}
