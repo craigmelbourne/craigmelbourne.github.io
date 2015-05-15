@@ -7,7 +7,7 @@ a {text-decoration: none; color:#026dc5;}
 #h h1 {color:#fff;}
 
 /* Media Queries */
-#h, #w {max-width:600px; margin:auto;}
+#h, #w {max-width:768px; margin:auto;}
 #h h1 {padding:8px;} 
 
 @media only screen and (min-width:600px) {

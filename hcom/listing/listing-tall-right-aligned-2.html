@@ -24,7 +24,7 @@
 			.hotel .price {text-align:right; margin-left:33%; padding:4px 0 0 8px}
 
 			.hotel .price .badge {display:inline-block; position:absolute; top:4px; left:-4px;}
-			.hotel .price .great { padding:4px 4px; color:#D41200; font-weight:bold; font-size:12px; background-color: #fff;}
+			.hotel .price .great { padding:4px 4px; color:#D41200; font-weight:bold; font-size:12px; background-color: #fff; border:solid 1px #D41200; margin-bottom:4px;}
 			.hotel .price .special {padding:4px; background-color:#D41200; color:#fff; font-weight:bold; font-size:12px; margin-bottom:4px;}
 			.hotel .price .total {font-size:20px; font-weight:bold;}
 			.hotel .price .strikethrough {font-size:12px; color:#555; text-decoration: line-through;}
@@ -36,13 +36,15 @@
 				.hotel {border-bottom:solid 1px #eee; margin:16px; position:relative; padding:0 0 16px;}
 				.hotel .thumbnail {position:absolute; top:0; left:0; bottom:16px; width:25%; text-align: center; overflow: hidden;}
 				.hotel .name {font-size:16px; margin-left:25%; padding:4px 16px}
-				.hotel .stars {width:25%;}
+				.hotel .stars {margin-left:25%; text-align: left; padding:4px 16px}
 				.hotel .location {margin-left:25%; background-position:16px 3px; padding:4px 8px 4px 36px;}
 				.hotel .location .distance {display:inline;}
 				.hotel .qual {margin-left:25%; background-position:16px 3px; padding:4px 8px 4px 16px; background:none; width:25%; float:left; margin-top:8px;}
 				.hotel .qual .label, .hotel .qual .number {font-size:16px;}
 				.hotel .qual .review-count {display:block; margin-top:4px;}
 				.hotel .rewards {background:url('i/icon_wr.png') no-repeat; background-size:14px; width:auto; margin-left:25%; background-color:#fff; bottom:12px; background-position:16px 3px; padding:4px 8px 4px 36px;}
+
+				.hotel .price .badge {display:inline-block; position:static;}
 				.hotel .price .total {font-size:24px; font-weight:bold;}
 				.hotel .price .strikethrough {font-size:14px; color:#555; text-decoration: line-through;}
 				.hotel .price .nights {font-size:12px; color:#999; margin:4px 0 0; display:inline-block;}
