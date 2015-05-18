@@ -34,10 +34,11 @@
 		#filters ul li {display:inline-block; margin-right:-4px;box-sizing:border-box; border-ri/ght:solid 1px #ccc; padding:0 8px; position:relative;}
 		#filters ul li#name-contains {position:relative; padding-left:0; padding-right:16px;}
 		#filters ul li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:16px; padding:4px; width:calc(100% - 30px); height:24px}
-		#filters ul li#name-contains button {position:absolute; bottom:0px; right:16px; width:30px; background-color:#2088DB; color:#fff; border:0; height:24px; display:inline-block; margin-top:-0px}
+		#name-contains button {width:30px; background-color:#2088DB; color:#fff; border:0; height:20px; display:inline-block; margin-top:-0px}
 
 		#filters ul li label {font-size:12px; margin-bottom:4px; display:block; color:#2088DB;}
-		#filters ul li div.data {font-size:16px; color:#2088DB; padding-top:6px; font-weight:bold;}
+		#filters ul li div.data {font-size:14px; color:#2088DB; padding-top:4px; font-weight:bold; }
+		.default {max-width:calc(100% - 40px); overflow: hidden; display:inline-block; white-space: nowrap; text-overflow: ellipsis;}
 		#filters ul li div.data:hover {cursor:pointer;}
 
 		.menu-options {position:absolute; top:50px; background-color:#fff; border:solid 1px #eee; padding:16px; margin-left:-8px;-webkit-box-shadow: 0px 0px 5px 0px rgba(153,153,153,1);
@@ -48,14 +49,24 @@ box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
 
 		#filters ul li .menu-options ul li {border-right:0; font-size:12px; padding:0; margin-bottom:4px; white-space: nowrap; float:none; display:block;} 
 
-		#filter-title-bar {border-bottom:solid 1px #ddd; border-top:solid 1px #ddd; overflow:hidden;}
-		#filter-title-bar #filter-title {width:50%; float:left; box-sizing:border-box;}
-		#filter-title-bar #filter-sort {width:50%; float:left; box-sizing:border-box; text-align:right; padding-top:8px; padding-right:8px;}
+		#filters ul li .menu-options ul li label {display:inline-block; color:#000;}
+
+
+		/* filter drop down styles */
+		li#star-rating ul li {}
+		li#star-rating ul li input {display:inline-block; vertical-align: top; margin-top:0px; margin-bottom:8px;}
+		li#star-rating ul li img {width:14px; height:14px; display:inline-block; vertical-align: top}
+
+		.count {display: inline-block; font-size:12px; color:#fff; padding:2px 4px; background-color:#2088DB; vertical-align:top; margin-right:4px; display:none;}
+
+		#filter-title-bar {border-top:solid 1px #ddd; overflow:hidden;}
+		#filter-title-bar #filter-title {box-sizing:border-box;}
+		#filter-title-bar #filter-sort {width:50%; float:left; box-sizing:border-box; text-align:right; padding-top:8px; padding-right:8px; display:none;}
 
 		#filter-list {display:none;}
 		.filter-fixed {position:fixed; top:0; left:0; right:0;}
 
-		#more-filters {width:100px; background-color:#2088DB; color:#fff; margin:auto; padding:12px 0; border-radius:4px; border:outset 2px #2088DB}
+		#more-filters {width:100px; background-color:#2088DB; color:#fff; margin:0 auto; padding:12px 0; border-radius:4px; border:outset 2px #2088DB}
 
 		#more-filters:hover {cursor: pointer;}
 
@@ -65,7 +76,7 @@ box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
 			#filter-list {display:block;}
 			
 			#filters ul li#name-contains {display:none;}
-			#filters ul li#price-range {width:33.33%; display:inline-block;}
+			#filters ul li#price-range {width:33.33%; display:inline-block; padding-left:0;}
 			#filters ul li#star-rating {display:none;}
 			#filters ul li#guest-rating {width:33.33%; display:inline-block;}
 			#filters ul li#neighbourhood {width:33.33%; display:inline-block;}
@@ -76,12 +87,13 @@ box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
 
 		@media only screen and (min-width:750px) {
 			#filters ul li#name-contains {width:30%; display:inline-block;}
+			
 			#filters ul li#price-range {width:25%; display:inline-block;}
 			#filters ul li#star-rating {display:none;}
 			#filters ul li#guest-rating {width:20%; display:inline-block;}
 			#filters ul li#neighbourhood {width:25%; display:inline-block;}
 			#filters ul li#landmarks {display:none;}
-			#filters ul li#faciltites {display:none;}
+			#filters ul li#faciltites {width:30%; display:inline-block;}
 			#menu-name {display:none;}
 
 		}
@@ -91,12 +103,11 @@ box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
 		}
 
 		@media only screen and (min-width:960px) {
-			#filters ul li#name-contains {width:20%;}
 			#filters ul li#price-range {width:20%;}
 			#filters ul li#guest-rating {width:20%;}
 			#filters ul li#star-rating {width:20%; display:inline-block;}
 			#filters ul li#neighbourhood {width:20%;}
-			#filters ul li#facilities {width:14.2857%; display:none;}
+			#filters ul li#faciltites {width:20%; display:inline-block;}
 
 			#menu-star {display:none;}
 		}
@@ -105,11 +116,11 @@ box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
 			.filter-fixed {position:fixed; top:0;}
 			#filters ul li#name-contains {width:20%; display:inline-block;}
 			#filters ul li#price-range {width:16%; display:inline-block;}
-			#filters ul li#star-rating {width:16%; display:inline-block;}
-			#filters ul li#guest-rating {width:16%; display:inline-block;}
-			#filters ul li#neighbourhood {width:16%; display:inline-block;}
-			#filters ul li#faciltites {width:16%; display:inline-block;}
-			#filters ul li#landmarks {width:12.5%; display:none;}
+			#filters ul li#star-rating {width:14%; display:inline-block;}
+			#filters ul li#guest-rating {width:14%; display:inline-block;}
+			#filters ul li#neighbourhood {width:18%; display:inline-block;}
+			#filters ul li#faciltites {width:18%; display:inline-block;}
+			#filters ul li#landmarks {width:20%; display:inline-block;}
 			
 			#filters ul li#type {width:12.5%; display:none; border-right:0;}
 
@@ -127,8 +138,15 @@ box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
 
 		<script type="text/javascript">
 
+			//var facilities = new Array();
+			var neighbourhoods = [];
+			var landmarks = [];
+
 			// run things on page load
 			$(function(){
+
+				var facilities = new Array();
+
 				$( "#slider-range" ).slider({
       				range: true,
       				min: 0,
@@ -182,6 +200,85 @@ box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
 					e.preventDefault();
 					$("#filters ul li").find(".menu-options").hide();
 				})
+
+				// filter selection
+				$("#faciltites .menu-options input[type=checkbox]").on("click", function(){
+					var val = $(this).siblings("label").text();
+					var data = $(this).closest(".menu-options").siblings(".data");
+
+					if ($(this).is(":checked")){
+						
+						facilities.push(val);
+						data.find(".count").text("+" + (facilities.length-1));
+						data.find(".default").text(facilities[0]);
+						if (facilities.length > 1){
+							data.find(".count").show();
+						}
+					} else {
+						var index = $.inArray(val, facilities);
+						if (index > -1){
+							facilities.splice(index, 1);
+						}
+						data.find(".count").text("+" + (facilities.length-1));
+						data.find(".default").text(facilities[0]);
+						if (facilities.length < 2){
+							data.find(".count").hide();
+						}
+					}
+
+				});
+
+				$("#neighbourhood .menu-options input[type=checkbox]").on("click", function(){
+					var val = $(this).siblings("label").text();
+					var data = $(this).closest(".menu-options").siblings(".data");
+
+					if ($(this).is(":checked")){
+						
+						neighbourhoods.push(val);
+						data.find(".count").text("+" + (neighbourhoods.length-1));
+						data.find(".default").text(neighbourhoods[0]);
+						if (neighbourhoods.length > 1){
+							data.find(".count").show();
+						}
+					} else {
+						var index = $.inArray(val, neighbourhoods);
+						if (index > -1){
+							neighbourhoods.splice(index, 1);
+						}
+						data.find(".count").text("+" + (neighbourhoods.length-1));
+						data.find(".default").text(neighbourhoods[0]);
+						if (neighbourhoods.length < 2){
+							data.find(".count").hide();
+						}
+					}
+
+				});
+
+				$("#landmarks .menu-options input[type=checkbox]").on("click", function(){
+					var val = $(this).siblings("label").text();
+					var data = $(this).closest(".menu-options").siblings(".data");
+
+					if ($(this).is(":checked")){
+						
+						landmarks.push(val);
+						data.find(".count").text("+" + (landmarks.length-1));
+						data.find(".default").text(landmarks[0]);
+						if (landmarks.length > 1){
+							data.find(".count").show();
+						}
+					} else {
+						var index = $.inArray(val, landmarks);
+						if (index > -1){
+							landmarks.splice(index, 1);
+						}
+						data.find(".count").text("+" + (landmarks.length-1));
+						data.find(".default").text(landmarks[0]);
+						if (landmarks.length < 2){
+							data.find(".count").hide();
+						}
+					}
+
+				});
 			});
 
 		</script>
@@ -214,19 +311,10 @@ box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
 					
 					<div id="filter-title-bar">
 						<div id="filter-title">
-							<div style="display:inline-block; padding:8px 0; color:#000; font-weight:bold; font-size:18px;">1248 hotels &nbsp;&nbsp;<span style="font-weight:normal; font-size:14px">add nudge message to encourage filter usage</span></div>
+							<div style="display:inline-block; padding:8px 0; color:#000; font-weight:bold; font-size:18px;">Filter results (1248 hotels)&nbsp;&nbsp;<span style="font-weight:normal; font-size:14px">add nudge message to encourage filter usage</span></div>
 						</div>
 						<div id="filter-sort">
-							<label style="font-size:12px;">Sort By</label>
-							<select style="width:220px;">
-								<option>Our favourites</option>
-								<option>Stars (low to high)</option>
-								<option>Stars (high to low)</option>
-								<option>Distance to city center</option>
-								<option>Guest rating</option>
-								<option>Price (low to high)</option>
-								<option>Price (high to low)</option>
-							</select>
+							
 						</div>
 					</div>
 
@@ -236,11 +324,11 @@ box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
 
 
 						<ul style="display:inline-block; width:calc(100% - 120px); margin-right:-4px">
-							<li id="name-contains">
+							<!--<li id="name-contains">
 								<label>Name contains</label>
 								<div><input type="text"/><button>Go</button></div>
 
-							</li>
+							</li>-->
 							<li id="price-range">
 								<label>Price range</label>
 								<div class="data"><span id="amount">$0 - $500</span> <div class="arrow-down"></div></div>
@@ -262,11 +350,11 @@ box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
 								<div class="data">Any <div class="arrow-down"></div></div>
 								<div class="menu-options" style="">
 									<ul>
-										<li><input type="checkbox" /> &#9733;&#9733;&#9733;&#9733;&#9733;</li>
-										<li><input type="checkbox" /> &#9733;&#9733;&#9733;&#9733;</li>
-										<li><input type="checkbox" /> &#9733;&#9733;&#9733;</li>
-										<li><input type="checkbox" /> &#9733;&#9733;</li>
-										<li><input type="checkbox" /> &#9733;</li>
+										<li><input type="checkbox" /> <img src="i/red_star.png" /><img src="i/red_star.png" /><img src="i/red_star.png" /><img src="i/red_star.png" /><img src="i/red_star.png" /></li>
+										<li><input type="checkbox" /> <img src="i/red_star.png" /><img src="i/red_star.png" /><img src="i/red_star.png" /><img src="i/red_star.png" /></li>
+										<li><input type="checkbox" /> <img src="i/red_star.png" /><img src="i/red_star.png" /><img src="i/red_star.png" /></li>
+										<li><input type="checkbox" /> <img src="i/red_star.png" /><img src="i/red_star.png" /></li>
+										<li><input type="checkbox" /> <img src="i/red_star.png" /></li>
 
 									</ul>
 									<a href="#" class="close">close</a>
@@ -274,45 +362,62 @@ box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
 							</li>
 							<li id="faciltites">
 								<label>Facilities</label>
-								<div class="data">Any <div class="arrow-down"></div></div>
+								<div class="data"><span class="default">Any</span> <span class="count"></span><div class="arrow-down"></div></div>
 								<div class="menu-options" style="">
 									<ul>
-										<li><input type="checkbox" /> Airport transfers</li>
-										<li><input type="checkbox" /> Bar</li>
-										<li><input type="checkbox" /> Bathtub in room</li>
-										<li><input type="checkbox" /> Business facilities</li>
-										<li><input type="checkbox" /> Child care</li>
-										<li><input type="checkbox" /> Connecting rooms available</li>
-										<li><input type="checkbox" /> Cribs available</li>
-										<li><input type="checkbox" /> Free breakfast</li>
-										<li><input type="checkbox" /> Free parking</li>
-										<li><input type="checkbox" /> Free Wi-fi</li>
-										<li><input type="checkbox" /> Gym</li>
-										<li><input type="checkbox" /> Internet access</li>
-										<li><input type="checkbox" /> Meeting facilities</li>
-										<li><input type="checkbox" /> Non-smoking</li>
-										<li><input type="checkbox" /> Parking available</li>
-										<li><input type="checkbox" /> Pet friendly</li>
-										<li><input type="checkbox" /> Pool</li>
-										<li><input type="checkbox" /> Restaurant</li>
-										<li><input type="checkbox" /> Smoking areas</li>
-										<li><input type="checkbox" /> Spa</li>
+										<li><input type="checkbox" /> <label>Airport transfers</label></li>
+										<li><input type="checkbox" /> <label>Bar</label></li>
+										<li><input type="checkbox" /> <label>Bathtub in room</label></li>
+										<li><input type="checkbox" /> <label>Business facilities</label></li>
+										<li><input type="checkbox" /> <label>Child care</label></li>
+										<li><input type="checkbox" /> <label>Connecting rooms available</label></li>
+										<li><input type="checkbox" /> <label>Cribs available</label></li>
+										<li><input type="checkbox" /> <label>Free breakfast</label></li>
+										<li><input type="checkbox" /> <label>Free parking</label></li>
+										<li><input type="checkbox" /> <label>Free Wi-fi</label></li>
+										<li><input type="checkbox" /> <label>Gym</label></li>
+										<li><input type="checkbox" /> <label>Internet access</label></li>
+										<li><input type="checkbox" /> <label>Meeting facilities</label></li>
+										<li><input type="checkbox" /> <label>Non-smoking</label></li>
+										<li><input type="checkbox" /> <label>Parking available</label></li>
+										<li><input type="checkbox" /> <label>Pet friendly</label></li>
+										<li><input type="checkbox" /> <label>Pool</label></li>
+										<li><input type="checkbox" /> <label>Restaurant</label></li>
+										<li><input type="checkbox" /> <label>Smoking areas</label></li>
+										<li><input type="checkbox" /> <label>Spa</label></li>
 									</ul>
 									<a href="#" class="close">close</a>
 								</div>
 							</li>
 							<li id="neighbourhood">
 								<label>Neighbourhoods</label>
-								<div class="data">Any <div class="arrow-down"></div></div>
+								<div class="data"><span class="default">Any</span> <span class="count"></span><div class="arrow-down"></div></div>
 								<div class="menu-options">
 									<ul>
-										<li><input type="checkbox" /> Union Square</li>
-										<li><input type="checkbox" /> Fishermans wharf</li>
-										<li><input type="checkbox" /> Financial District - Ferry building</li>
-										<li><input type="checkbox" /> South Market</li>
-										<li><input type="checkbox" /> Marina District</li>
-										<li><input type="checkbox" /> Civic Center</li>
-										<li><input type="checkbox" /> Chinatown</li>
+										<li><input type="checkbox" /> <label>Union Square</label></li>
+										<li><input type="checkbox" /> <label>Fishermans wharf</label></li>
+										<li><input type="checkbox" /> <label>Financial District - Ferry building</label></li>
+										<li><input type="checkbox" /> <label>South Market</label></li>
+										<li><input type="checkbox" /> <label>Marina District</label></li>
+										<li><input type="checkbox" /> <label>Civic Center</label></li>
+										<li><input type="checkbox" /> <label>Chinatown</label></li>
+									</ul>
+									<a href="#" class="close">close</a>
+								</div>
+							</li>
+
+							<li id="landmarks">
+								<label>Landmarks</label>
+								<div class="data"><span class="default">Any</span> <span class="count"></span><div class="arrow-down"></div></div>
+								<div class="menu-options">
+									<ul>
+										<li><input type="checkbox" /> <label>City centre‎</label></li>
+										<li><input type="checkbox" /> <label>San Francisco International Airport (SFO)‎</label></li>
+										<li><input type="checkbox" /> <label>Oakland, CA (OAK-Oakland Intl.)‎</label></li>
+										<li><input type="checkbox" /> <label>AT&T Park‎</label></li>
+										<li><input type="checkbox" /> <label>Downtown San Francisco‎</label></li>
+										<li><input type="checkbox" /> <label>Moscone Convention Center</label></li>
+										<li><input type="checkbox" /> <label>Pier 39‎</label></li>
 									</ul>
 									<a href="#" class="close">close</a>
 								</div>
@@ -321,10 +426,31 @@ box-shadow: 0px 0px 5px 0px rgba(153,153,153,1); display:none;}
 						</ul>
 					
 						<div style="display:inline-block; margin-right:-4px; text-align:center; width:120px; font-size:14px; vertical-align:top;">
-							<div id="more-filters" style="">More filters</div></div>
+							<div id="more-filters" style="">More filters</div>
+							
 						</div>
+						</div>
+						
+						<div style="border-top:solid 1px #ddd; margin-top:0px;padding:8px 0; overflow:hidden">
+							<div id="name-contains" style="float:left;">
+								<label style="display:inline-block; font-size:12px">Name contains</label>
+								<div style="display:inline-block"><input type="text"/><button>Go</button></div>
+							</div>
+							<div style="float:right;">
+								<label style="font-size:12px;">Sort By</label>
+								<select style="width:220px;">
+									<option>Our favourites</option>
+									<option>Stars (low to high)</option>
+									<option>Stars (high to low)</option>
+									<option>Distance to city center</option>
+									<option>Guest rating</option>
+									<option>Price (low to high)</option>
+									<option>Price (high to low)</option>
+								</select>
+							</div>
 
-					</div>
+							
+						</div>
 
 
 				</div>
