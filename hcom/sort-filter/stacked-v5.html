@@ -26,25 +26,38 @@
       				range: true,
       				min: 0,
       				max: 500,
-      				values: [ 75, 300 ],
+      				values: [ 0, 500 ],
       				slide: function( event, ui ) {
         				$( "#amount" ).text( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+        				$("#filter-price-range").addClass("selected")
       				}
     			});
     			$( "#amount" ).text( "$" + $( "#slider-range" ).slider( "values", 0 ) +
       				" - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
-    			var elementPosition = $('#sort-filter-2').offset();
+    			$( "#guest-range" ).slider({
+      				range: true,
+      				min: 1,
+      				max: 5,
+      				values: [ 1, 5 ],
+      				slide: function( event, ui ) {
+        				$( "#guest-amount" ).text( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+      				}
+    			});
+    			$( "#guest-amount" ).text( "" + $( "#guest-range" ).slider( "values", 0 ) +
+      				" - " + $( "#guest-range" ).slider( "values", 1 ) );
+
+    			var elementPosition = $('#sort-filter-4').offset();
 
 				$(window).scroll(function(){
         			if($(window).scrollTop() > elementPosition.top){
-              			$('#sort-filter-2').addClass("filter-fixed-2");
+              			$('#sort-filter-4').addClass("filter-fixed-2");
         			} else {
-            			$('#sort-filter-2').removeClass("filter-fixed-2");
+            			$('#sort-filter-4').removeClass("filter-fixed-2");
         			}    
 				});
 
-				$(".filter-list input[type=checkbox]").on("click", function(){
+				$(".check input[type=checkbox]").on("click", function(){
 
 					if ($(this).is(":checked")){ 
 						$(this).closest("li").addClass("selected");
@@ -55,6 +68,26 @@
 				});
 
 
+				$("li.more").on("click", function(){
+					$("#overlay").show();
+					$("#menu").show();
+					$(".menu-options").hide();
+				});
+
+				$("#overlay").on("click", function(){
+					$("#overlay").hide();
+					$("#menu").hide();
+				});
+
+				$(".arrow-down").on("click", function(){
+					$(".menu-options").hide();
+					$(this).siblings(".menu-options").show();
+				});
+
+				$(".close").on("click", function(e){
+					e.preventDefault();
+					$(this).closest(".menu-options").hide();
+				});
 			});
 
 		</script>
@@ -86,16 +119,20 @@
 			<style type="text/css">
 			.arrow-down { display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
 			border-top: 8px solid #2088DB; vertical-align:top; margin-top:4px; margin-left:8px;}
+
+			.arrow-down-white {display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
+			border-top: 8px solid #fff; vertical-align:top; margin-top:4px;}
 			#search-strip {margin-bottom:0;}
 			#wrapper {margin-top:0;}
-			#sort-filter-2 {border-top:0; background-color:#F5F4F0;}
-			#filters ul {overflow:hidden; border-top:0;}
+			#sort-filter-4 {border-top:0; background-color:#F5F4F0;}
+			#filters ul { border-top:0;}
 			#primary-filters-2 li {padding:8px 0;}
-			#secondary-filters-3 li {box-sizing:border-box; padding:8px 0px; border-bottom:solid 1px #ddd; font-size:14px; width:100%; margin-right:8px;}
-		
-			#secondary-filters-3 li ul li {padding:0; border:0; width:auto; float:left; box-sizing:border-box; padding:8px 16px 8px 8px; background-color:#fff; border:solid 1px #ddd; height:36px;}
+			#secondary-filters-4 li {box-sizing:border-box; display:inline-block; padding:8px 0px; vertical-align: top;  font-size:14px; margin-right:4px; padding:8px 16px 8px 8px; background-color:#fff; border:solid 1px #ddd; height:36px;}
 
-			#secondary-filters-3 li ul li.selected {background-color:#2088DB; color:#fff;}
+			#secondary-filters-4 li.selected {background-color:#2088DB; color:#fff;}
+
+			#filter-price-range, #filter-guest-rating, #filter-star-rating {position:relative;}
+			.menu-options {position:absolute; top:36px; left:0; width:250px; background-color:#fff; z-index:1000; border:solid 1px #ddd; padding:16px; display:none;}
 
 			@media only screen and (min-width:1160px) {
 				.filter-fixed-2 {position:fixed; top:0; left:0; right:0;}
@@ -103,14 +140,14 @@
 	
 			</style>
 			
-			<div id="sort-filter-2" style="overflow:hidden;">
+			<div id="sort-filter-4">
 
 				
 
 				<div id="filters-button">
 					Filters
 				</div>
-				<div id="filters" style="max-width:1160px; margin: 0 auto; box-sizing:border-box; overflow:hidden; border-top:solid 1px #ddd;">
+				<div id="filters" style="max-width:1160px; margin: 0 auto; box-sizing:border-box; border-top:solid 1px #ddd;">
 					<!--<div style="background-color:#555; color:#fff; padding:8px; font-size:12px">Narrow your search</div>-->
 
 					
@@ -125,25 +162,37 @@
 						</ul>
 					</div>
 
-					<ul id="secondary-filters-3">
+					<ul id="secondary-filters-4" style="display:inline;">
 
-						<li>
-							<ul class="filter-list">
-								<li>Price range: $0 - $500 <div class="arrow-down"></div></li>
-								<li>Guest rating: Any <div class="arrow-down"></div></li>
-								<li>Star rating: Any <div class="arrow-down"></div></li>
-								<li><input type="checkbox" />City center</li>
-								<li><input type="checkbox" />Free Wi-fi</li>
-								<li><input type="checkbox" />Free Breakfast</li>
-								<li><input type="checkbox" />Parking</li>
+						
+								<li id="filter-price-range" style="position:relative;">
+									Price range: <span id="amount">$0 - $500</span>
+									<div class="arrow-down"></div>
+									<div class="menu-options">
+										<div id="slider-range"></div>
+										<div style="text-align:right; padding-top:8px;"><a href="#" class="close">Close</a></div>
+									</div>
+
+								</li>
+								<li id="filter-guest-rating">Guest rating: <span id="guest-amount"></span>
+									<div class="arrow-down"></div>
+									<div class="menu-options">
+										<div id="guest-range"></div>
+										<div style="text-align:right; padding-top:8px;"><a href="#" class="close">Close</a></div>
+									</div>
+								</li>
+								<li id="filter-star-rating">Star rating: Any <div class="arrow-down"></div></li>
+								<li class="check"><input type="checkbox" />City center</li>
+								<li class="check"><input type="checkbox" />Free Wi-fi</li>
+								<li class="check"><input type="checkbox" />Free Breakfast</li>
+								<li class="check"><input type="checkbox" />Parking</li>
 								
-								<li class="more" style="background-color:transparent; border:0; padding-top:10px; color:#2088DB">Add more filters</li>
-							</ul>
-						</li>
+								<li class="more" style="background-color:transparent; border:0; padding-top:10px; color:#2088DB">All filter options</li>
+							
 						
 					</ul>
 
-					<div id="sort-bar-2" style="overflow:hidden; padding:8px 0px; border-top:0px solid #ddd; box-sizing:border-box;">
+					<div id="sort-bar-2" style="overflow:hidden; padding:8px 0px; border-top:1px solid #ddd; box-sizing:border-box; margin-top:8px">
 					<div id="filter-button" style="float:left;">
 					<label style="font-size:14px">Name contains</label>
 								<div style="display:inline-block"><input type="text"/><button>Go</button></div>
@@ -214,5 +263,12 @@
 			</div>
 
 		</div> 
+
+		<div id="overlay" style="position:fixed; top:0; right:0; bottom:0; left:0; background-color:#000; opacity:0.8; display:none;"></div>
+
+		<div id="menu" style="position:fixed; top:0; right:0; bottom:0; width:300px; background-color:#fff; padding:16px; display:none;">
+			<h2>Filters</h2>
+		</div>
+
 	</body>
 </html>
