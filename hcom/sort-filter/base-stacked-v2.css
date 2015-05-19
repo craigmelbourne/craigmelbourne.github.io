@@ -36,12 +36,12 @@ body {font-family:arial;}
 		#primary-filters-2 li#name-contains input {box-sizing:border-box; border:solid 1px #ccc; font-size:12px; padding:4px; width:calc(100% - 30px); height:26px}
 		#primary-filters-2 li#name-contains button {position:absolute; bottom:16px; right:20px; width:30px; background-color:#2088DB; color:#fff; border:0; height:26px; display:inline-block; margin-top:-1px}
 		
-		#secondary-filters-2 li {box-sizing:border-box; width:auto; float:left; box-sizing:border-box; padding:8px 16px; font-size:14px;color:#2088DB; width:16.66%;}
-		#secondary-filters-3 li {box-sizing:border-box; padding:8px 16px; border-bottom:solid 1px #ddd; font-size:14px;}
+		#secondary-filters-2 li {box-sizing:border-box; float:left; box-sizing:border-box; padding:8px 16px; font-size:14px;color:#2088DB; }
+		#secondary-filters-3 li {box-sizing:border-box; padding:8px 16px; border-bottom:solid 1px #ddd; font-size:14px; width:100%; margin-right:8px;}
 		#secondary-filters-3 li ul {overflow:hidden; border:0;}
-		#secondary-filters-3 li ul li {padding:0; border:0; width:19%; float:left; box-sizing:border-box;}
-		#secondary-filters-3 li ul li:first-child{font-weight:bold;}
-		#secondary-filters-3 li ul li:last-child{width:5%; text-align:right;}
+		#secondary-filters-3 li ul li {padding:0; border:0; width:auto; float:left; box-sizing:border-box; padding:8px; background-color:#fff;}
+	
+		
 
 
 		div#sort ul {overflow:hidden;}
