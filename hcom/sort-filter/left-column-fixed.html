@@ -26,7 +26,14 @@
 
 		#wrapper {max-width:1160px; margin:0 auto; box-sizing:border-box; position:relative;}
 
-		#filter {position:absolute; top:0; width:230px; background-color: #F5F4F0; height:300px;}
+		#sort-filter {position:absolute; top:0; width:230px; height:300px;}
+		#sort-filter h2, #filters h3  {background-color:#F5F4F0; padding:8px; font-weight: bold;}
+		#sort-filter #sort {border-top:solid 1px #ddd; background-color:#F5F4F0; padding:8px;}
+		#sort-filter label {font-size:14px; font-weight:bold; margin-bottom:8px; display:block;}
+		#filters {background-color:#F5F4F0; }
+		#filters .filter {border-top:solid 1px #ddd; padding:8px 0; box-sizing:border-box;}
+		#filters .filter ul li {font-size:12px; font-weight:normal;}
+
 		.filter-fixed {position:fixed; top:0; width:230px;}
 		#wrapper #results {margin-left:250px;}
 
@@ -67,21 +74,22 @@
 			$(function(){
 				
 
-    			var elementPosition = $('#filter').offset();
+    			var elementPosition = $('#sort-filter').offset();
 
 				$(window).scroll(function(){
         			if($(window).scrollTop() > elementPosition.top){
 
         			
-              			$('#filter').css({
+              			$('#sort-filter').css({
               				"position": "fixed",
               				"top": 0,
               				"bottom" : 0,
               				"height" : "auto",
-              				"width": 230
+              				"width": 230,
+              				"overflow-y": "scroll"
               			});
         			} else {
-            			$('#filter').css({
+            			$('#sort-filter').css({
               				"position": "absolute",
               				"top": 0,
               				"width": 230
@@ -121,8 +129,127 @@
 
 		<div id="wrapper">
 
-			<div id="filter">
-				filters
+			<div id="sort-filter">
+
+				<h2 style="font-size:18px">1234 Hotels</h2>
+				<div id="sort">
+					<label style="display:block">Sort by </label>
+
+							<select style="width:auto;">
+								<option>Price (low to high)</option>
+								<option>Price (high to low)</option>
+							</select>
+
+				</div>
+
+				<div id="filters">
+					<h3 style="margin-top:8px">Narrow your results<h3>
+					<div class="filter">
+						<label>Name contains</label>
+						<input type="text" style="width:calc(100% - 8px);"/>
+					</div>
+					<div class="filter">
+						<label>Price range</label>
+						<input id="slider1" type="range" min="100" max="500" step="10" style="width:calc(100% - 8px)" />
+
+					</div>
+					<div id="star-rating" class="filter">
+						<label>Star rating</label>
+						<ul>
+							<li>
+								<input type="checkbox" />
+								<img src="i/red_star.png" />
+								<img src="i/red_star.png" />
+								<img src="i/red_star.png" />
+								<img src="i/red_star.png" />
+								<img src="i/red_star.png" />
+							</li>
+							<li>
+								<input type="checkbox" />
+								<img src="i/red_star.png" />
+								<img src="i/red_star.png" />
+								<img src="i/red_star.png" />
+								<img src="i/red_star.png" />
+								
+							</li>
+							<li>
+								<input type="checkbox" />
+								<img src="i/red_star.png" />
+								<img src="i/red_star.png" />
+								<img src="i/red_star.png" />
+								
+							</li>
+							<li>
+								<input type="checkbox" />
+								<img src="i/red_star.png" />
+								<img src="i/red_star.png" />
+								
+							</li>
+							<li>
+								<input type="checkbox" />
+								<img src="i/red_star.png" />
+								
+							</li>
+						</ul>
+
+					</div>
+					<div class="filter">
+						<label>Guest rating</label>
+						<input id="slider2" type="range" min="100" max="500" step="10" style="width:calc(100% - 8px)" />
+					</div>
+					
+					<div class="filter">
+						<label>Hotels.com rewards</label>
+
+					</div>
+					<div class="filter">
+						<label>Neighbourhood</label>
+
+					</div>
+					<div class="filter">
+						<label>Landmarks</label>
+
+					</div>
+					<div class="filter">
+						<label>Accommodation type</label>
+
+					</div>
+					<div class="filter">
+						<label>Facilities</label>
+						<ul>
+										<li><input type="checkbox" /> Airport transfers</li>
+										<li><input type="checkbox" /> Bar</li>
+										<li><input type="checkbox" /> Bathtub in room<</li>
+										<li><input type="checkbox" /> Business facilities</li>
+										<li><input type="checkbox" /> Child care</li>
+										<li><input type="checkbox" /> Connecting rooms available</li>
+										<li><input type="checkbox" /> Cribs available</li>
+										<li><input type="checkbox" /> Free breakfast</li>
+										<li><input type="checkbox" /> Free parking</li>
+										<li><input type="checkbox" /> Free Wi-fi</li>
+										<li><input type="checkbox" /> Gym</li>
+										<li><input type="checkbox" /> Internet access</li>
+										<li><input type="checkbox" /> Meeting facilities</li>
+										<li><input type="checkbox" /> Non-smoking</li>
+										<li><input type="checkbox" /> Parking available</li>
+										<li><input type="checkbox" /> Pet friendly</li>
+										<li><input type="checkbox" /> Pool</li>
+										<li><input type="checkbox" /> Restaurant</li>
+										<li><input type="checkbox" /> Smoking areas</li>
+										<li><input type="checkbox" /> Spa</li>
+									</ul>
+					</div>
+					<div class="filter">
+						<label>Themes / types</label>
+
+					</div>
+					<div class="filter">
+						<label>Accessibility features</label>
+
+					</div>
+				</div>
+				
+				
 
 			</div>
 			
