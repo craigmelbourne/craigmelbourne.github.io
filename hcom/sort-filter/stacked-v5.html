@@ -88,6 +88,13 @@
 					e.preventDefault();
 					$(this).closest(".menu-options").hide();
 				});
+
+				$("#menu input[type=checkbox").on("click", function(){
+					var elem = $(this).closest("li").text();
+					console.log(elem);
+					//$("#secondary-filters-4").append("<li class='check selected'><input type='checkbox' checked />" + elem + "</li>");
+					$("<li class='check selected'><input type='checkbox' checked />" + elem + "</li>").insertBefore("#secondary-filters-4 li:last-child")
+				})
 			});
 
 		</script>
@@ -127,7 +134,7 @@
 			#sort-filter-4 {border-top:0; background-color:#F5F4F0;}
 			#filters ul { border-top:0;}
 			#primary-filters-2 li {padding:8px 0;}
-			#secondary-filters-4 li {box-sizing:border-box; display:inline-block; padding:8px 0px; vertical-align: top;  font-size:14px; margin-right:4px; padding:8px 16px 8px 8px; background-color:#fff; border:solid 1px #ddd; height:36px;}
+			#secondary-filters-4 li {box-sizing:border-box; display:inline-block; padding:8px 0px; vertical-align: top;  font-size:14px; margin-right:4px; padding:8px 16px 8px 8px; background-color:#fff; border:solid 1px #ddd; height:36px; margin-bottom:8px;}
 
 			#secondary-filters-4 li.selected {background-color:#2088DB; color:#fff;}
 
@@ -192,7 +199,7 @@
 						
 					</ul>
 
-					<div id="sort-bar-2" style="overflow:hidden; padding:8px 0px; border-top:1px solid #ddd; box-sizing:border-box; margin-top:8px">
+					<div id="sort-bar-2" style="overflow:hidden; padding:8px 0px; border-top:1px solid #ddd; box-sizing:border-box; margin-top:0px">
 					<div id="filter-button" style="float:left;">
 					<label style="font-size:14px">Name contains</label>
 								<div style="display:inline-block"><input type="text"/><button>Go</button></div>
@@ -266,8 +273,82 @@
 
 		<div id="overlay" style="position:fixed; top:0; right:0; bottom:0; left:0; background-color:#000; opacity:0.8; display:none;"></div>
 
-		<div id="menu" style="position:fixed; top:0; right:0; bottom:0; width:300px; background-color:#fff; padding:16px; display:none;">
-			<h2>Filters</h2>
+		<style type="text/css">
+			#menu label {display:block; padding:8px 0; border-top:solid 1px #ddd; font-weight:bold;}
+			.options ul li {font-size:14px; margin-bottom:4px;}
+		</style>
+
+		<div id="menu" style="position:fixed; top:0; right:0; bottom:0; width:300px; background-color:#fff; padding:16px;  display:none; overflow-y:scroll;">
+			<h2 style="margin-bottom:16px">Filters</h2>
+
+			<ul>
+				<li id="filter-facilities"><label>Facilities</label>
+						<div class="options" style="">
+							<ul>
+										<li><input type="checkbox" /> Airport transfers</li>
+										<li><input type="checkbox" /> Bar</li>
+										<li><input type="checkbox" /> Bathtub in room</li>
+										<li><input type="checkbox" /> Business facilities</li>
+										<li><input type="checkbox" /> Child care</li>
+										<li><input type="checkbox" /> Connecting rooms available</li>
+										<li><input type="checkbox" /> Cribs available</li>
+										<li><input type="checkbox" /> Free breakfast</li>
+										<li><input type="checkbox" /> Free parking</li>
+										<li><input type="checkbox" /> Free Wi-fi</li>
+										<li><input type="checkbox" /> Gym</li>
+										<li><input type="checkbox" /> Internet access</li>
+										<li><input type="checkbox" /> Meeting facilities</li>
+										<li><input type="checkbox" /> Non-smoking</li>
+										<li><input type="checkbox" /> Parking available</li>
+										<li><input type="checkbox" /> Pet friendly</li>
+										<li><input type="checkbox" /> Pool</li>
+										<li><input type="checkbox" /> Restaurant</li>
+										<li><input type="checkbox" /> Smoking areas</li>
+										<li><input type="checkbox" /> Spa</li>
+									</ul>
+						</div>
+					</li>
+				<li id="filter-neighbourhoods">
+						<label>Neighbourhood</label>
+						<div class="options" style="">
+							<ul>
+										<li><input type="checkbox" /> Union Square</li>
+										<li><input type="checkbox" /> Fishermans wharf</li>
+										<li><input type="checkbox" /> Financial District - Ferry building</li>
+										<li><input type="checkbox" /> South Market</li>
+										<li><input type="checkbox" /> Marina District</li>
+										<li><input type="checkbox" /> Civic Center</li>
+										<li><input type="checkbox" /> Chinatown</li>
+									</ul>
+						</div></li>
+				<li id="filter-landmarks">
+						<label>Landmarks</label>
+						<div class="options">
+							<ul>
+										<li><input type="checkbox" /> City centre</li>
+										<li><input type="checkbox" /> San Francisco International Airport (SFO)‎</li>
+										<li><input type="checkbox" /> Oakland, CA (OAK-Oakland Intl.)‎</li>
+										<li><input type="checkbox" /> AT&T Park‎</li>
+										<li><input type="checkbox" /> Moscone Convention Center‎</li>
+										<li><input type="checkbox" /> Downtown San Francisco‎</li>
+										<li><input type="checkbox" /> Pier 39‎</li>
+										<li><input type="checkbox" /> Fishermans Wharf Cable Car Turnaround‎</li>
+										<li><input type="checkbox" /> Lombard Street‎</li>
+										<li><input type="checkbox" /> Golden Gate Park‎</li>
+										<li><input type="checkbox" /> Golden Gate Bridge‎</li>
+										<li><input type="checkbox" /> Embarcadero‎</li>
+										<li><input type="checkbox" /> Mission District‎</li>
+										<li><input type="checkbox" /> San Francisco State University‎</li>
+										<li><input type="checkbox" /> Aquarium of the Bay‎</li>
+										<li><input type="checkbox" /> Alcatraz Island‎</li>
+										<li><input type="checkbox" /> Ocean Beach</li>
+										<li><input type="checkbox" /> San Francisco Zoo‎</li>
+										<li><input type="checkbox" /> Warfield Theater‎</li>
+										<li><input type="checkbox" /> San Francisco City Hall‎</li>
+									</ul>
+						</div>
+					</li>
+			</ul>
 		</div>
 
 	</body>
