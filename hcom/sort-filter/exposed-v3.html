@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="base-exposed-v2.css">
+		<style type="text/css">
+			
+		</style>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				$( "#price-slider" ).slider({
+      				range: true,
+      				min: 0,
+      				max: 500,
+      				values: [ 0, 500 ],
+      				slide: function( event, ui ) {
+        				$( "#price-slider" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      				}
+    			});
+    			$( "#price-amount" ).text( "$" + $( "#price-slider" ).slider( "values", 0 ) +
+      				" - $" + $( "#price-slider" ).slider( "values", 1 ) );
+
+    			$( "#guest-slider" ).slider({
+      				range: true,
+      				min: 1,
+      				max: 5,
+      				values: [ 1, 5 ],
+      				slide: function( event, ui ) {
+        				$( "#guest-slider" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+      				}
+    			});
+    			$( "#guest-amount" ).text( "" + $( "#guest-slider" ).slider( "values", 0 ) +
+      				" - " + $( "#guest-slider" ).slider( "values", 1 ) );
+
+    			var elementPosition = $('#sort-bar-3').offset();
+
+				$(window).scroll(function(){
+
+
+
+        			if($(window).scrollTop() > elementPosition.top){
+              			$('#sort-bar-3').addClass("filter-fixed");
+              			if ($( window ).width() > 959) {
+							$("#filter-button-1").show()
+						}
+        			} else {
+            			$('#sort-bar-3').removeClass("filter-fixed");
+            			if ($( window ).width() > 959) {
+							$("#filter-button-1").hide()
+						}
+        			}    
+				});
+
+				$(".all a").on("click", function(e){
+					e.preventDefault();
+					$("#overlay").show();
+					$("div.options").hide();
+					$("#modal").show().find("li#filter-" + $(this).attr("rel")).find("div.options").show();
+
+				});
+
+				$("#overlay").on("click", function(e){
+					e.preventDefault();
+					$("#overlay").hide();
+					$("#modal").hide();
+				});
+
+				$(".filter-button").on("click", function(){
+					$("#overlay").show();
+					$("#modal").show();
+					//$("div.options").hide();
+				}); 
+
+				$("#close-filters").on("click", function(){
+					$("#overlay").hide();
+					$("#modal").hide();
+					//$("div.options").hide();
+				});
+
+				$(".options input[type=checkbox]").on("click", function(){
+					var elem = $(this).closest("li").text();
+					$("#other-filters ul").prepend("<li><input type='checkbox' checked />" + elem + "</li>");
+					$("#other-filters ul li:last-child").remove()
+					console.log(elem);
+
+
+				})
+
+			});
+
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="head">
+			<div>
+				Head
+			</div>		
+		</div>
+		<div id="nav">
+			<div>
+				nav
+			</div>
+				
+		</div>
+
+		<div id="search-strip" style="margin-bottom:0">
+			<div style="font-size:24px; font-weight:bold; margin-bottom:8px">San Francisco, California, United States of America</div>
+			<div>Wed 22 - Thu 23 April 2015, 1 night, 1 room, 2 adults</div>
+		</div>
+		
+		<style type="text/css">
+					.filter-block ul li {margin-bottom:4px;}
+					#star-rating ul li img {height:12px;}
+
+					@media only screen and (min-width:0px) {
+						#sort-filter {display:none;}
+						#sort-bar-3 #filter-button-1 {display:none; margin-right:16px;}
+						#sort-bar-3 #filter-button-2 {margin-right:16px;}
+						.filter-fixed {position:fixed; top:0; left:0; right:0; width:auto;}
+					}
+
+					@media only screen and (min-width:960px) {
+						#sort-filter {display:block;}
+						#sort-bar-3 #filter-button-2 {display:none;}
+						#filters {overflow:hidden; padding:8px 16px; margin:0;}
+						#sort-header {margin:0 16px; box-sizing:border-box; border-top:#ddd solid 1px;}
+					}
+
+
+					@media only screen and (min-width:1160px) {
+						#filters {max-width:1160px; margin:0 auto; padding:8px 0}
+						.filter-fixed {position:fixed; top:0; left:0; right:0; width:auto;}
+						#sort-header { max-width:1160px; margin:0 auto; overflow:hidden;}
+					}
+
+				</style>
+		
+			
+			<div id="sort-filter" style="background-color:#F5F4F0; border-top:0;">
+				<div id="sort-header">
+					<div style="display:inline-block; padding:8px 0; font-size:14px; font-weight:bold">Narrow your search</div>
+					<div style="display:inline-block; padding:8px; font-size:12px; color:#ccc;">Some positive message on filter usage </div>
+					<div style="display:inline-block; float:right; padding:8px 0; font-size:14px">
+						<a href="#" class="filter-button">Show all filters</a>
+					</div>
+				</div>
+				
+
+
+
+				<div id="filters">
+					<div class="filter-block" style="width:20%; padding-left:0;">
+					<label>Price range</label>
+					<div id="price-amount" style="margin:4px 0; text-align:center; font-size:14px"></div>
+					<div id="price-slider"></div>
+					<label style="margin-top:16px;">Name contains</label>
+					<div style="position:relative; margin-bottom:8px">
+						<input type="text" style="box-sizing:border-box; border:solid 1px #ccc; font-size:12px; padding:4px; width:calc(100% - 30px); height:27px"/>
+
+						<button style="position:absolute; top:1px; right:0; width:30px; background-color:#2088DB; color:#fff; border:0; height:27px; display:inline-block; margin-top:-1px
+						">Go</button>
+
+					</div>
+					
+						
+						
+					</div>
+					<div class="filter-block" style="width:20%">
+						<label>Guest rating</label>
+						<div id="guest-amount" style="margin:4px 0; text-align:center; font-size:14px"></div>
+						<div id="guest-slider"></div>
+						<label style="margin-top:16px">Hotels.com Rewards</label>
+						<ul>
+							<li><label><input type="checkbox" /> Collect nights</label></li>
+							<li><label><input type="checkbox" /> Redeem free nights</label></li>
+							
+							
+						</ul>
+					</div>
+					
+					<div id="star-rating" class="filter-block" style="width:14%">
+						<label>Star rating</label>
+						<ul>
+							<li><input type="checkbox" /> <img src="i/red_star.png" /><img src="i/red_star.png" /><img src="i/red_star.png" /><img src="i/red_star.png" /><img src="i/red_star.png" /></li>
+							<li><input type="checkbox" /> <img src="i/red_star.png" /><img src="i/red_star.png" /><img src="i/red_star.png" /><img src="i/red_star.png" /></li>
+							<li><input type="checkbox" /> <img src="i/red_star.png" /><img src="i/red_star.png" /><img src="i/red_star.png" /></li>
+							<li><input type="checkbox" /> <img src="i/red_star.png" /><img src="i/red_star.png" /></li>
+							<li><input type="checkbox" /> <img src="i/red_star.png" /></li>
+							<!--<li class="all" ><a href="#" rel="facilities">All facilities</a></li>-->
+						</ul>
+					</div>
+					<div id="other-filters" class="filter-block" style="width:16%">
+						<label>Other filters</label>
+						<ul>
+							<li><input type="checkbox" /> Free wifi</li>
+							<li><input type="checkbox" /> Free breakfast</li>
+							<li><input type="checkbox" /> Free parking</li>
+							<li><input type="checkbox" /> Pool </li>
+							<li><input type="checkbox" /> Gym</li>
+							
+						</ul>
+
+					</div>
+					<div class="filter-block" style="width:30%">
+						<label style="text-align:right; color:transparent">See all filters</label>
+						<ul>
+							<li><label><input type="checkbox" /> City centre</label></li>
+							<li><label><input type="checkbox" /> San Francisco International Airport (SFO)‎</label></li>
+							<li><label><input type="checkbox" /> Fishermans wharf</label></li>
+							<li><label><input type="checkbox" /> Union Square</label></li>
+							<li><label><input type="checkbox" /> Downtown San Francisco‎</label></li>
+							
+						</ul>
+
+					</div>
+				</div>
+
+
+				
+			</div>
+			<div id="sort-bar-3" style="background-color:#F5F4F0">
+				<div style="overflow:hidden; max-width:1160px; margin:0 auto; border-top:solid 1px #ddd; background-color:">
+					<div id="sort" style="float:left;">
+						<ul>
+							<li style="font-weight:bold;">Sort by</li>
+							<li class="selected"><a href="">Price: Low to High</a></li>
+							<li><a href="#">Guest Rating</a></li>
+							<li><a href="#">Distance</a></li>
+							<li><a href="#">Hotel Class</a></li>
+							<li><a href="#">Our favourites</a></li>
+						</ul>
+						<!--<div id="select">
+							<label style="">Sort By</label>
+							<select style="">
+								<option>Price (low to high)</option>
+								<option>Price (high to low)</option>
+							</select>
+						</div>-->
+						
+					</div>
+					<div id="filter-button-1" class="filter-button" style="float:right; padding:16px 0 0; font-size:14px"><a href="#">Show All Filters</a></div>
+
+					<div id="filter-button-2" class="filter-button" style="float:right; padding:16px 0 0; font-size:14px"><a href="#">Show All Filters</a></div>
+				</div>
+					
+
+			</div>			
+
+			
+<div id="wrapper">
+			
+			<div id="results" style="margin-top:32px;">
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				
+			</div>
+
+		</div> 
+
+		<style type="text/css">
+			.arrow-down { position:absolute; right:0; top:12px; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 12px solid #2088DB; vertical-align:top; margin-top:4px;}
+			#filter-menu ul li {padding:16px 0px; border-bottom:solid 1px #eee; overflow:hidden; position:relative;}
+			#filter-menu ul li label {font-weight: bold; display:block;}
+			#filter-menu ul li div.options {margin-top:8px;}
+			#filter-menu ul li div.options ul li {padding:0; border:0; font-size:14px; float:left; width:50%; margin-bottom:4px;}
+		</style>
+
+		<div id="overlay" style="position:fixed; top:0; left:0; right:0; bottom:0; background-color:#000; opacity:0.6; display:none;"></div>
+
+		<div id="modal" style="position:fixed; width:40%; top:0; bottom:0; right:0; background-color:#fff; padding:16px; display:none;">
+			<div id="" style="position:absolute; top:16px; left:32px; right:32px; height:48px; border-bottom:solid 2px #eee;">
+				<div id="close-filters" style="float:right; display:block">Close</div>
+				<p style="font-size:18px; font-weight:bold; margin-top:6px">Narrow your search</p>
+
+			</div>
+			<div id="filter-menu" style="padding:0 32px; position:absolute; top:64px; left:0; right:0; bottom:0; overflow-y:scroll;">
+				<ul>
+					<li><label>Name Contains</label><div class="arrow-down"></div></li>
+					<li><label>Price range</label><div class="arrow-down"></div></li>
+					<li>
+						<label>Star Rating</label><div class="arrow-down"></div>
+					</li>
+					<li id="filter-neighbourhoods">
+						<label>Neighbourhood</label><div class="arrow-down"></div>
+						<div class="options" style="">
+							<ul>
+										<li><input type="checkbox" /> Union Square</li>
+										<li><input type="checkbox" /> Fishermans wharf</li>
+										<li><input type="checkbox" /> Financial District - Ferry building</li>
+										<li><input type="checkbox" /> South Market</li>
+										<li><input type="checkbox" /> Marina District</li>
+										<li><input type="checkbox" /> Civic Center</li>
+										<li><input type="checkbox" /> Chinatown</li>
+									</ul>
+						</div></li>
+					<li id="filter-landmarks">
+						<label>Landmarks</label><div class="arrow-down"></div>
+						<div class="options">
+							<ul>
+										<li><input type="checkbox" /> City centre</li>
+										<li><input type="checkbox" /> San Francisco International Airport (SFO)‎</li>
+										<li><input type="checkbox" /> Oakland, CA (OAK-Oakland Intl.)‎</li>
+										<li><input type="checkbox" /> AT&T Park‎</li>
+										<li><input type="checkbox" /> Moscone Convention Center‎</li>
+										<li><input type="checkbox" /> Downtown San Francisco‎</li>
+										<li><input type="checkbox" /> Pier 39‎</li>
+										<li><input type="checkbox" /> Fishermans Wharf Cable Car Turnaround‎</li>
+										<li><input type="checkbox" /> Lombard Street‎</li>
+										<li><input type="checkbox" /> Golden Gate Park‎</li>
+										<li><input type="checkbox" /> Golden Gate Bridge‎</li>
+										<li><input type="checkbox" /> Embarcadero‎</li>
+										<li><input type="checkbox" /> Mission District‎</li>
+										<li><input type="checkbox" /> San Francisco State University‎</li>
+										<li><input type="checkbox" /> Aquarium of the Bay‎</li>
+										<li><input type="checkbox" /> Alcatraz Island‎</li>
+										<li><input type="checkbox" /> Ocean Beach</li>
+										<li><input type="checkbox" /> San Francisco Zoo‎</li>
+										<li><input type="checkbox" /> Warfield Theater‎</li>
+										<li><input type="checkbox" /> San Francisco City Hall‎</li>
+									</ul>
+						</div>
+					</li>
+					<li id="filter-facilities"><label>Facilities</label><div class="arrow-down"></div>
+						<div class="options" style="">
+							<ul>
+										<li><input type="checkbox" /> Airport transfers</li>
+										<li><input type="checkbox" /> Bar</li>
+										<li><input type="checkbox" /> Bathtub in room</li>
+										<li><input type="checkbox" /> Business facilities</li>
+										<li><input type="checkbox" /> Child care</li>
+										<li><input type="checkbox" /> Connecting rooms available</li>
+										<li><input type="checkbox" /> Cribs available</li>
+										<li><input type="checkbox" /> Free breakfast</li>
+										<li><input type="checkbox" /> Free parking</li>
+										<li><input type="checkbox" /> Free Wi-fi</li>
+										<li><input type="checkbox" /> Gym</li>
+										<li><input type="checkbox" /> Internet access</li>
+										<li><input type="checkbox" /> Meeting facilities</li>
+										<li><input type="checkbox" /> Non-smoking</li>
+										<li><input type="checkbox" /> Parking available</li>
+										<li><input type="checkbox" /> Pet friendly</li>
+										<li><input type="checkbox" /> Pool</li>
+										<li><input type="checkbox" /> Restaurant</li>
+										<li><input type="checkbox" /> Smoking areas</li>
+										<li><input type="checkbox" /> Spa</li>
+									</ul>
+						</div>
+					</li>
+					<li><label>Hotels.com rewards</label><div class="arrow-down"></div></li>
+					<li><label>Accommodation type</label><div class="arrow-down"></div></li>
+					<li><label>Themes / types</label><div class="arrow-down"></div></li>
+					<li><label>Accessibility features</label><div class="arrow-down"></div></li>
+				</ul>
+
+			</div>
+			<div style="height:1000px;"></div>
+			
+		</div>
+
+
+
+	</body>
+</html>
