@@ -101,6 +101,7 @@ h3 {padding:0; margin:0; font-size:16px;}
 			initialize();
 			$("#hotels").slideDown();
 			$("li.field").slideDown("fast");
+			$('#recent ul').slideUp('fast');
 		});
 		
 		$('.filters').hover(function(){
@@ -112,6 +113,7 @@ h3 {padding:0; margin:0; font-size:16px;}
 		$("input#where").on("click", function(e){
 			e.preventDefault();
 			$(".autosuggest").show();
+
 		});
 		
 		$("input#where").on("blur", function(e){
@@ -197,7 +199,7 @@ h3 {padding:0; margin:0; font-size:16px;}
 	ul.fave_places li {display:inline-block; padding:4px; margin-right: 5px; background-color:#eee; margin-bottom:5px; font-size:13px; color:#999;}
 	ul.fave_places li:first-child {margin-left:0px;}
 	
-	div.autosuggest {background-color:#fff; border:solid 1px #ccc;position:absolute; left:15px; top:60px; width:300px;}
+	div.autosuggest {background-color:#f1f1f1; border:solid 1px #ccc;position:absolute; left:15px; top:60px; width:300px; z-index:1000;}
 	div.autosuggest li {display:block; padding:5px; border-bottom:1px dotted #ccc; margin-bottom:0; font-size:12px;}
 	div.autosuggest li:hover {background-color:#eee; cursor:pointer}
 	
@@ -253,57 +255,13 @@ h3 {padding:0; margin:0; font-size:16px;}
 
 <body onload="">
 	
-		<div style="position:absolute; top:0px; left:20px;width:300px; background-color:#fff; z-index:100;  -moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888;">
+		<div style="position:absolute; top:0px; left:0px;width:300px; bottom:0; background-color:#fff; z-index:100;  -moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888;">
 			<h1 style=" padding:15px; background-color:#900">Hotels.com</h1>
-			
-			<div id="recent" style="position:relative;  border-bottom:dotted 1px #eee;">
-				<h3 style="padding:15px;"><a href="#">View recent searches</a></h3>
-				<ul style="position:absolute; top:40px; left:0;  display:none;">
-
-					<li>
-						<h4>New York Office <span style="font-size:11px; color:#999;">(275 Madison Ave, New York)</span> </h4>
-						<div class="dates">17th July - 19 July <span style="font-size:11px; color:#999;">2 NIGHTS</span></div>
-						<div class="rooms">Rooms</div>
-
-						<div class="person">
-							<div class="rm">1</div>
-							<img src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_40_40/p/3/000/114/150/32b21eb.jpg" style="">
-						</div>
-						
-						<div class="person">
-							<div class="rm">2</div>
-							<img src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_40_40/p/2/000/114/3c8/3162fc0.jpg">
-						</div>
-						<div style="font-size:12px;"><a href="#" class="search">Search</a></div>
-					</li>
-					<li class="hongkong">
-						<h4>Hong Kong Office <span style="font-size:11px; color:#999;">(street, city, postcode)</span> </h4>
-						<div class="dates">Dates and number of night</div>
-						<div class="rooms">Rooms</div>
-						<div class="person">
-							<div class="rm">1</div>
-							<img src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_40_40/p/1/000/210/2b1/21a8412.jpg">
-						</div>
-						
-						<div class="person">
-							<div class="rm">2</div>
-							<img src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_40_40/p/4/000/167/224/2d85c42.jpg">
-							
-						</div>
-						
-						<div class="person">
-							<div class="rm">3</div>
-							<img src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_40_40/p/1/000/035/2fa/1e1694e.jpg">
-						</div>
-						<div style="font-size:12px;"><a href="#" class="search">Search</a></div>
-					</li>
-				</ul>
-			</div>
 			
 			<div id="search">
 						<ul class="canvas_search">
 						<li style="display:block; position:relative">
-							<label style="display:block; width:200px; margin-bottom:5px;">Where do you need to be</label> 
+							<label style="display:block; width:200px; margin:15px 0 5px;">New search</label> 
 							<input id="where" type="text" style="width:250px;">
 							<div class="autosuggest" style="display:none;">
 								<ul>
@@ -347,12 +305,55 @@ h3 {padding:0; margin:0; font-size:16px;}
 								 Wi-Fi
 							</div>
 							<div style="font-size:13px; padding:3px 0">
-								<a href="#">Add more requirements</a>
+								<a href="#">Edit requirements</a>
 							</div>	
 						</li>
 
 					</ul>
 			</div>
+
+			<div id="recent" style="position:relative;  border-bottom:dotted 1px #eee;">
+				<h3 style="padding:15px 15px 0;"><a href="#">Recent searches</a></h3>
+				<ul style="">
+
+					<li>
+						<h4>New York Office <span style="font-size:11px; color:#999;">(275 Madison Ave, New York)</span> </h4>
+						<div class="dates">17th July - 19 July <span style="font-size:11px; color:#999;">2 NIGHTS</span></div>
+						<div class="rooms">Rooms</div>
+
+						<div class="person">
+							<div class="rm">1</div>
+							<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/037/09d/316da7e.jpg" style="">
+						</div>
+						
+						<div class="person">
+							<div class="rm">2</div>
+							<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/5/005/03f/0a4/179129f.jpg">
+						</div>
+						<div style="font-size:12px;"><a href="#" class="search" style="display:inline-block; padding:6px; background-color:#3F51B5; color:#fff;">Continue Search &raquo</a></div>
+					</li>
+					<li class="hongkong">
+						<h4>Hong Kong Office <span style="font-size:11px; color:#999;">(street, city, postcode)</span> </h4>
+						<div class="dates">Dates and number of night</div>
+						<div class="rooms">Rooms</div>
+						<div class="person">
+							<div class="rm">1</div>
+							<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/000/092/3da/123171f.jpg">
+						</div>
+						
+						<div class="person">
+							<div class="rm">2</div>
+							<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAALAAAAAJGFkY2Y3OWM2LTJiMTEtNDE5Yy1hYTc4LTVkNGYzZTdlYTZmZQ.jpg">
+							
+						</div>
+						
+						
+						<div style="font-size:12px;"><a href="#" class="search" style="display:inline-block; padding:6px; background-color:#3F51B5; color:#fff;">Continue Search &raquo</a></div>
+					</li>
+				</ul>
+			</div>
+			
+			
 
 			
 			
@@ -377,11 +378,11 @@ h3 {padding:0; margin:0; font-size:16px;}
 							</div>
 						</div>
 						<div class="photo" id="scott" style="">
-							<img src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_60_60/p/1/000/1a4/291/03a30fa.jpg">
+							<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/000/092/3da/123171f.jpg">
 						</div>
 						<div class="details" style="">
-							Scott Booker <br />
-							<span style="font-size:11px;">President</span>
+							Adam Jay <br />
+							
 						</div>
 					</li>
 					<li>
@@ -395,11 +396,11 @@ h3 {padding:0; margin:0; font-size:16px;}
 							</div>
 						</div>
 						<div class="photo" style="">
-							<img src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_60_60/p/4/000/150/37d/3b9a223.jpg" style="height:40px">
+							<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAALAAAAAJGFkY2Y3OWM2LTJiMTEtNDE5Yy1hYTc4LTVkNGYzZTdlYTZmZQ.jpg" style="height:40px">
 						</div>
 						<div class="details" style="">
-							Clive McTavish <br />
-							<span style="font-size:11px;">CFO</span>
+							Jesse Gant <br />
+							
 						</div>
 					</li>
 					<li>
@@ -413,11 +414,11 @@ h3 {padding:0; margin:0; font-size:16px;}
 							</div>
 						</div>
 						<div class="photo">
-							<img src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_60_60/p/1/000/08f/090/022a9db.jpg">
+							<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/5/005/03f/0a4/179129f.jpg">
 						</div>
 						<div class="details" style="">
-							Nigel Pocklington<br />
-							<span style="font-size:11px;">Chief Marketing Officer</span>
+							Daniel Craig<br />
+							
 						</div>
 					</li>
 					<li>
@@ -431,11 +432,11 @@ h3 {padding:0; margin:0; font-size:16px;}
 							</div>
 						</div>
 						<div class="photo">
-							<img src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_60_60/p/2/000/219/395/2839f81.jpg">
+							<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/000/044/07a/124a712.jpg">
 						</div>
 						<div class="details" style="">
-							Matt Searfus<br />
-							<span style="font-size:11px;">Senior Director, Brand Marketing</span>
+							Josh Crossick<br />
+							
 						</div>
 					</li>	
 					<li>
@@ -449,11 +450,11 @@ h3 {padding:0; margin:0; font-size:16px;}
 							</div>
 						</div>
 							<div class="photo">
-								<img src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_60_60/p/2/000/092/3da/123171f.jpg">
+								<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/208/116/222be22.jpg">
 							</div>
 							<div class="details" style="">
-								Adam Jay<br />
-								<span style="font-size:11px;">VP, Global Product</span>
+								Marwan Badran<br />
+								<span style="font-size:11px;"></span>
 							</div>
 						</li>
 						
@@ -468,11 +469,11 @@ h3 {padding:0; margin:0; font-size:16px;}
 								</div>
 							</div>
 								<div class="photo">
-									<img src="http://media.licdn.com/mpr/mpr/shrink_40_40/p/3/000/104/2ec/0600e5e.jpg">
+									<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/037/09d/316da7e.jpg">
 								</div>
 								<div class="details" style="">
-									Matthew Fry<br />
-									<span style="font-size:11px;">VP, Global Analytics</span>
+									Ben Blake<br />
+									<span style="font-size:11px;"></span>
 								</div>
 							</li>	
 					
@@ -490,13 +491,13 @@ h3 {padding:0; margin:0; font-size:16px;}
 				<fieldset style="padding:10px 0; border-top:1px dotted #ddd; margin-top:10px;">
 					<label style="display:inline-block; width:120px; vertical-align:top; padding-top:5px;">Email to:</label>
 					<div class="person" style="background-color:#eee;">
-						<img src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_60_60/p/1/000/1a4/291/03a30fa.jpg">
-						<div style="display:inline-block; font-size:13px; vertical-align:top; padding-top:7px;">Scott Booker &nbsp;</div>
+						<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/000/092/03f/11601f6.jpg">
+						<div style="display:inline-block; font-size:13px; vertical-align:top; padding-top:7px;">Johan Svanstrom &nbsp;</div>
 					</div>
 					
 					<div class="person" style="background-color:#eee;">
-						<img src="http://m.c.lnkd.licdn.com/mpr/mpr/shrink_60_60/p/1/000/08f/090/022a9db.jpg">
-						<div style="display:inline-block; font-size:13px; vertical-align:top; padding-top:7px;">Nigel Pocklington &nbsp;</div>
+						<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/000/092/3da/123171f.jpg">
+						<div style="display:inline-block; font-size:13px; vertical-align:top; padding-top:7px;">Adam Jay &nbsp;</div>
 					</div>
 				</fieldset>
 				<fieldset style="padding:10px 0; border-top:1px dotted #ddd;">
