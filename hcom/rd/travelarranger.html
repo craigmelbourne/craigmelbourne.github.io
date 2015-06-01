@@ -179,6 +179,11 @@ h3 {padding:0; margin:0; font-size:16px;}
 			e.preventDefault();
 			$("div.workspace").hide();
 			$("div#sharehotels").hide();
+		});
+
+		$(".close-overlay").on("click", function(e){
+			e.preventDefault();
+			$("#overlay").hide();
 		})
 
 	  });
@@ -582,6 +587,34 @@ h3 {padding:0; margin:0; font-size:16px;}
 		</div>	
 		
     <div id="map_canvas" style="position:absolute; top: 0; bottom:0; display:none;"></div>
+
+<style type="text/css">
+	#overlay ul li {margin-bottom:30px; font-size:24px;}
+	#overlay ul li span {font-size:20px; color:#555;}
+</style>
+
+    <div id="overlay" style="position:fixed; top:0; left:0; right:0; bottom:0; background-color:#fff; z-index:10000">
+    	<div style="position:absolute; top:50px; left:150px; bottom:50px; right:150px;">
+    		<h1 style="color:#000; margin-bottom:30px; font-size:42px;">Travel arranger prototype</h1>
+    		<h2 style="font-size:30px;color:#000; margin-bottom:15px">Key features</h2>
+    		<ul>
+    			<li>Saved preferences<br />
+    			<span >Locations, filters etc...</span>
+    			</li>
+    			<li>Traveller profiles<br />
+    			<span>Aid room allocation, share bookings etc...</span></li>
+    			
+    			<li>Streamline repeat activities<br />
+    			<span>Repeat searches/bookings</span></li>
+    		</ul>
+
+    		<p>
+    			<a href="#" class="close-overlay" style="display:inline-block; padding:12px 12px; background-color:#D41200; color:#fff; font-size:20px">Show prototypes</a>
+    		</p>
+    	</div>
+    </div>
+
+
 </div>
 	
 
