@@ -188,8 +188,8 @@ function fetchResults(result){
     geocoder.geocode( { 'address': result}, function(pos, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             console.log(pos);
-            lon = pos[0].geometry.location.D;
-            lat = pos[0].geometry.location.k;
+            lon = pos[0].geometry.location.A;
+            lat = pos[0].geometry.location.f;
 
             //console.log("pos");
             //console.log(pos);

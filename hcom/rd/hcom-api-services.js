@@ -66,7 +66,7 @@ function buildSearchUrl(destination) {
 	  if (hostname == 'localhost') {    
     	url = 'http://localhost:8899/device/search.html?'+qStr;
     } else {
-    	url = '/api/search.html?'+qStr;
+    	url = '/api/uk/search.html?'+qStr;
   	}
 
   	return url;
@@ -86,7 +86,7 @@ function buildHotelDetailsUrl(id) {
       url = 'http://localhost:8899/device/hotelDetails.html?' + qStr;
     } else {
       //url = "/api/hotelDetails.html?hotelId=" + id + "&na=os%3DFacebook%7Ccv%3D1171%7Csv%3D2%7Cid%3DCFUUID9BC82AC4A123485586F5F6AFEF2084E0";
-      url = '/api/hotelDetails.html?' + qStr;
+      url = '/api/uk/hotelDetails.html?' + qStr;
     }
 
     return url;

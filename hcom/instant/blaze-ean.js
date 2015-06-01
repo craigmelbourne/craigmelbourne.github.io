@@ -394,11 +394,12 @@ function fetchResults(result){
     var lon;
     var lat;
 
+
     geocoder.geocode( { 'address': result}, function(pos, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             console.log(pos);
-            lon = pos[0].geometry.location.B;
-            lat = pos[0].geometry.location.k;
+            lon = pos[0].geometry.location.A;
+            lat = pos[0].geometry.location.F;
 
             //console.log("pos");
             //console.log(pos);
@@ -417,10 +418,11 @@ function fetchResults(result){
             apiKey: "xgdsee58vcvfhpr4hhvvhych",
             locale: "en_US",
             currencyCode: "GBP",
-            arrivalDate: "05/01/2015",
-            departureDate: "05/02/2015",
-            longitude: lon, //result[0].lon,
-            latitude: lat, //result[0].lat,
+            arrivalDate: "06/01/2015",
+            departureDate: "06/02/2015",
+            //longitude: lon, //result[0].lon,
+            //latitude: lat, //result[0].lat,
+            destinationString: result,
             searchRadius: 2,
             searchRadiusUnit: "MI",
             numberOfResults: 20
