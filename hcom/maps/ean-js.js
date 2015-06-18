@@ -25,7 +25,7 @@ function initializeMap(destination) {
 //var loc = new google.maps.LatLng(result[0].lat, result[0].lon);
     map = new google.maps.Map(document.getElementById('map_canvas'), {
         //center: loc,
-        zoom: 12,
+        zoom: 13,
         mapTypeId: 'roadmap',
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         panControl: false,

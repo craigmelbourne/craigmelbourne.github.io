@@ -19,7 +19,7 @@
 			#search-strip {background-color:#555; height:80px; background-color:#EAE8E0; box-sizing:border-box; padding:16px 0; -webkit-box-shadow: 0px 1px 3px 0px rgba(153,153,153,1);
 -moz-box-shadow: 0px 1px 3px 0px rgba(153,153,153,1);
 box-shadow: 0px 1px 3px 0px rgba(153,153,153,1); z-index:1000;}
-			#search-strip h1 {font-size: 28px; font-weight: bold;}
+			 h1 {font-size: 20px; font-weight: bold; margin-bottom:16px;}
 
 		</style>
 
@@ -60,44 +60,28 @@ box-shadow: 0px 1px 3px 0px rgba(153,153,153,1); z-index:1000;}
 	</head>
 
 	<body>
-		<div id="header">
-			<div style="max-width:1160px; margin:0 auto;">
-				<div style="height:40px; overflow:hidden;">
-					<img src="http://a2.cdn-hotels.com/da/assets/s/16.0/images/brands/hcom/modules/header/logos/hotels_com_logo_en_GB.png" style="height:80px;"/>
-				</div>
-			</div>
-		</div>
-		<div id="nav">
-			<ul>
-				<li>Home</li>
-				<li>Hotel deals</li>
-				<li>Packages &amp; Flights</li>
-				<li>Groups</li>
-				<li>Hotels.com Rewards</li>
-				<li>Gift CArds</li>
-			</ul>
-		</div>
+		
 
-		<div id="search-strip">
+		<!--<div id="search-strip">
 			<div style="max-width:1160px; margin:0 auto; padding:0 16px;">
-				<h1 id="destination"></h1>
+				
 				<p style="padding-top:4px;">Thu 4 - Fri 5 June 2015, <strong>1 night</strong>, 1 room, 2 adults</p>
 			</div>
-		</div>
+		</div>-->
 
-		<div id="map" style="position:absolute; top:166px; left:0; right:0; bottom:0;">
+		<div id="map" style="position:absolute; top:0; left:0; right:0; bottom:0;">
 			<div id="map_canvas" style="width:100%; height:100%;"></div>
-			<div style="position:absolute; top:16px; width:1160px; left:50%; margin-left:-580px; ">
-				
-				<a id="filter" style="display:inline-block; padding:8px; background-color:#2088DB; color:#fff; -webkit-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
+			<div style="position:absolute; top:-2px; left:50px; background-color:#fff; padding:16px; -webkit-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
+-moz-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
+box-shadow: 1px 1px 3px 0px rgba(153,153,153,1); border-radius:2px;">
+				<h1 id="destination"></h1>
+				<!--<a id="filter" style="display:inline-block; padding:8px; background-color:#2088DB; color:#fff; -webkit-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
 -moz-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
 box-shadow: 1px 1px 3px 0px rgba(153,153,153,1); padding:8px; border-radius:2px">
 					Filter results
-				</a>
+				</a>-->
 
-				<div style="display:inline-block; vertical-align:top; background-color:#fff; -webkit-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
--moz-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1); border-radius:2px; margin-left:4px;">
+				<div style="display:inline-block; vertical-align:top; background-color:#fff;  border-radius:2px; margin-left:4px;">
 					<input type="text" style="width:340px; height:26px; font-size:14px; padding:2px 8px; border: #2088DB solid 1px;" placeholder="Search map for location, landmark, station etc..."/><div style="display:inline-block; padding:8px; background-color:#2088DB; color:#fff; vertical-align:top">Go</div>
 				</div>
 
