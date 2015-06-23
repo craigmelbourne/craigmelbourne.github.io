@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>SRP</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<link rel="stylesheet" href="global.css"></link>
+
+		<style type="text/css">
+			/*********
+
+
+1: width:14.1304% 
+2: width:30.4348%;
+3: width:46.7391%;
+4: width:63.0435%;
+5: width:79.3479%;}
+6: width:95.6521%; margin-right:0;
+
+***********/
+body.modal-open {
+    overflow: hidden;
+}
+.block {position:relative; background-color:#eae8e0; height:100px;}
+.block p.label {padding:10px; color:#999; font-size:1.4em;}
+
+
+
+
+
+@media only screen and (min-width: 0px) {
+  /* 0 - 480 =================================================== */
+
+ 	#grid { margin:0 -2.1739% 0 2.1739%;}
+ 	.col {float:left; margin-right:2.1739% ;margin-bottom:12px;}
+
+ 	.search_details {width:95.6521%; margin-right:0; height:75px; background-color:#bbb;}
+ 	.filters {width:30.4348%; height:50px; background-color:#666;}
+ 	.filters .filter-link {display:block; font-size:1.4em; padding:2.1739%; color:#fff;}
+  	.filters .filter-tools {display:none; padding:20px; color:#000;}
+ 	.sort_order {width:63.0435%; height:50px; background-color:#ddd;}
+ 	.sort_order select {width:100%; font-size:14px;}
+ 	.sort_order div select option {}
+ 	.search_listing {width:95.6521%; margin-right:0; height:100px;}
+ 	.search_listing .block {margin-bottom:2.1739%; background-color:#eee; margin}
+
+ 	.search {padding-bottom:12px; margin-bottom:12px; border-bottom:solid 1px #ddd;}
+ 				.search .image {display:inline-block; width:40%; position:relative; overflow:hidden; margin-right:2%;}
+ 				.search .image img {min-width:100%;}
+ 				.search .image .star-rating {position:absolute; right:5px; top:0; height:20px; display:block; padding:0 5px; font-size:2.4em; background-color:#fff;}
+ 				.search .content {display:inline-block; vertical-align:top; width:49%;}
+ 				.search .content .name {font-size:1.3em; margin-bottom:5px;}
+ 				.search .content .location {font-size:1.3em; margin-bottom:5px;}
+ 				.search .content .address {display:none;}
+ 				.search .content .proximity {display:none;}
+ 				.search .content .guest-rating {font-size:1.3em; margin-bottom:5px;}
+ 				.search .content .price {font-size:2.4em;}
+ 				.search .content .price .total {color:#666; font-size:0.6em;}
+ 				.search .content .price .extra {display:none;}
+
+
+ }
+
+ 	@media only screen and (min-width: 520px) {
+		#filters-modal {width:75%;}
+
+		.search {position:relative;}
+ 				.search .image {display:inline-block; width:32%; position:relative; overflow:hidden; margin-right:2%;}
+ 				.search .image img {min-width:100%;}
+ 				.search .image .star-rating {position:absolute; right:5px; top:0px; height:25px; display:block; padding:0 5px; font-size:2.8em; background-color:#fff;}
+ 				.search .content {display:inline-block; vertical-align:top; width:65%;}
+ 				.search .content .name {font-size:1.6em; margin-bottom:8px; width:60%;}
+ 				.search .content .location {font-size:1.4em; margin-bottom:8px;}
+ 				.search .content .address {display:block; font-size:1.1em; margin-bottom:8px; width:60%; line-height:140%;}
+ 				.search .content .proximity {display:block; font-size:1.1em; margin-bottom:8px; width:60%; line-height:140%;}
+ 				.search .content .guest-rating {font-size:1.6em; margin-bottom: 10px; position:absolute; top:0px; right:0; text-align: right; color:#666;}
+ 				.search .content .price {position:absolute; top:30px; right:0; text-align: right;}
+ 				.search .content .price .total {font-size:0.5em; display:block; margin-top:4px;}
+ 				.search .content .price .extra {display:block;}
+	}
+
+ @media only screen and (min-width: 800px) {
+  /* 768 =================================================== */
+
+  	.filters {height:auto; margin-right:2.1739%; background-color:#eee;}
+  	.filters .filter-link {display:none;}
+  	.filters .filter-tools {display:block; font-size:1.4em;}
+  	.filters .filter-tools h2 {margin-bottom:20px; font-size:1.2rem;}
+  	.filters .filter-tools h3 {margin-bottom:10px;}
+  	.filters .filter-tools div {min-height:40px; border-bottom: solid 1px #bbb; margin-bottom:20px; padding-bottom:10px;}
+ 	.search_listing {width:63.0435%;}
+ 	.sort_order {text-align:right;}
+ 	.sort_order select {width:50%; font-size:14px;}
+ 	#filters-modal {display:none;}
+}
+		</style>
+		
+		<script src="jquery.js"></script>
+		<script src="base.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script>
+			
+
+			// functions *****************
+
+
+			// page load *****************
+
+			$(function() {
+				$(".filter-link").on("click", function(e){
+					e.preventDefault();
+					console.log("filters selected");
+					$("#overlay").show();
+					//$("#filters-modal").show();
+					$("#filters-modal").show("slide", { direction: "left" }, 400); 
+					$("body").addClass("modal-open")
+				}); 
+
+				
+
+				$("#filters-modal button").on("click", function(e){
+					e.preventDefault();
+					$("#overlay").hide();
+					$("#filters-modal").hide();
+				}); 
+
+				$( ".multi-select li a" ).on("click", function(e) {
+					e.preventDefault();
+  					$( this ).toggleClass( "highlight" );
+				});
+
+				$( "#overlay" ).on("click", function(e) {
+  					e.preventDefault();
+					$("#overlay").hide();
+					$("#filters-modal").hide();
+				});
+   			 });
+		
+		</script>
+
+	</head>
+	<body>
+		<div id="header">
+			<div class="logo" ></div>
+		</div>
+			<div id="grid">
+				<div class="search_details col block">
+					<p class="label">Search details (location/date/people)</p>
+				</div>
+				<div class="filters col block">
+					<div class="filter-link" style="padding:2.1739%; color:#fff;">
+						Filters
+					</div>
+					<div class="filter-tools" style="">
+						<h2>Narrow Results</h2>
+						<div>
+							<h3>Hotel name contains</h3>
+							<input type="text" style="width:96%; padding:2%; font-size:1.2em;">
+						</div>
+						<div>
+							<h3>Price</h3>
+							<input type="range" />
+						</div>
+						<div>
+							<h3>Star rating</h3>
+							<ul class="multi-select">
+								<li><a href="#">1*</a></li><li><a href="#">2*</a></li><li><a href="#">3*</a></li><li><a href="#">4*</a></li><li><a href="#" class="last">5*</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Guest rating</h3>
+							<ul class="multi-select">
+								<li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#" class="last">5</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Neighbourhood</h3>
+							<ul class="checklist">
+								<li><input type="checkbox" /> <label>Paddington</label></li>
+								<li><input type="checkbox" /> <label>Kensington - Earl's Court</label></li>
+								<li><input type="checkbox" /> <label>Victoria - Westminster</label></li>
+								<li class="more"> <a href="">See more</a></li>
+							</ul>
+							
+						</div>
+						<div>
+							<h3>Landmarks</h3>
+							<ul class="checklist">
+								<li><input type="checkbox" /> <label>City Centre</label></li>
+								<li><input type="checkbox" /> <label>Heathrow Airport</label></li>
+								<li><input type="checkbox" /> <label>Oxford Street</label></li>
+								<li class="more"> <a href="">See more</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Accomodation type</h3>
+							<ul class="checklist">
+								<li><input type="checkbox" /> <label>Hotel</label></li>
+								<li><input type="checkbox" /> <label>Bed &amp; Breakfast</label></li>
+								<li><input type="checkbox" /> <label>Hostel</label></li>
+								<li class="more"> <a href="">See more</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Facilities</h3>
+							<ul class="checklist">
+								<li><input type="checkbox" /> <label>Free Wi-Fi</label></li>
+								<li><input type="checkbox" /> <label>Restaurant</label></li>
+								<li><input type="checkbox" /> <label>Free Breakfast</label></li>
+								<li class="more"> <a href="">See more</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Themes / types</h3>
+							<ul class="checklist">
+								<li><input type="checkbox" /> <label>Boutique</label></li>
+								<li><input type="checkbox" /> <label>Family-Friendly</label></li>
+								<li><input type="checkbox" /> <label>Spa Hotel</label></li>
+								<li class="more"> <a href="">See more</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Accessibility Features </h3>
+							<ul class="checklist">
+								<li><input type="checkbox" /> <label>Handicapped Parking</label></li>
+								<li><input type="checkbox" /> <label>Wheelchair accessible rooms</label></li>
+								<li><input type="checkbox" /> <label>Roll in shower</label></li>
+								<li class="more"> <a href="">See more</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="sort_order col block">
+					<div class="" style="padding:2.1739%;">
+						<select>
+							<option>Sorted by Bestsellers</option>
+							<option>Price - High to Low</option>
+							<option>Price - Low to High</option>
+							<option>Star Rating - High to Low</option>
+							<option>Star Rating - Low to High</option>
+							<option>Guest rating</option>
+							<option>Family Friendly</option>
+							<option>Special Deals</option>
+							<option>Distance to city center - near to far</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="search_listing col">
+					<div class="search">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/3000000/2540000/2531100/2531003/2531003_57_e.jpg"/>
+							<span class="star-rating">***</span>
+						</div>
+						<div class="content">
+							<div class="name" ><a href="#">Kensington Court Hotel Notting Hill</a></div>
+							<div class="location">Paddington</div>
+							<div class="address">4 Princes Square Bayswater London, England, 56340 United Kingdom</div>
+							<div class="proximity">2.8mi to city center</div>
+							<div class="guest-rating">Fair 2.5</div>
+							<div class="price">&pound;109 
+								<span class="total">price for 1 night</span>
+								<div class="extra special_deal" style="background-color:#000; color:#fff; padding:5px; font-size:0.5em; margin-top:4px;">Special Deal</div>
+							</div>
+						</div>
+					</div>
+					<div class="search">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/6000000/5300000/5297200/5297150/5297150_37_e.jpg"/>
+							<span class="star-rating">****</span>
+						</div>
+						<div class="content">
+							<div class="name" ><a href="#">Go Native Hyde Park Apartments</a></div>
+							<div class="location">Paddington</div>
+							<div class="address">208 Sussex Gardens London, England, W2 3UA United Kingdom</div>
+							<div class="proximity">2.8mi to city center</div>
+							<div class="guest-rating">4.0 Excellent</div>
+							<div class="price">&pound;127 
+								<span class="total">price for 1 night</span>
+								<div class="extra rooms_left" style="color:#000; padding:5px 0; font-size:0.5em; margin-top:4px;">2 rooms left</div>
+							</div>
+						</div>
+					</div>
+					<div class="search">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/1000000/890000/888900/888830/888830_47_e.jpg"/>
+							<span class="star-rating">***</span>
+						</div>
+						<div class="content">
+							<div class="name" ><a href="#">London House Hotel</a></div>
+							<div class="location">Paddington</div>
+							<div class="address">81 Kensington Gardens Square Bayswater London, England, W2 4DJ United Kingdom</div>
+							<div class="proximity">2.7mi to city center</div>
+							<div class="guest-rating">4.2 Excellent</div>
+							<div class="price">&pound;138 <span class="total">price for 1 night</span>
+<div class="extra special_deal" style="background-color:#000; color:#fff; padding:5px; font-size:0.5em; margin-top:4px;">Special Deal</div>
+							</div>
+						</div>
+					</div>
+					<div class="search">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/4000000/3910000/3907800/3907784/3907784_108_e.jpg"/>
+							<span class="star-rating">*****</span>
+						</div>
+						<div class="content">
+							<div class="name" ><a href="#">St. Pancras Renaissance London Hotel</a></div>
+							<div class="location">Kings Cross - St Pancras</div>
+							<div class="address">Euston Road London, England, NW1 2AR United Kingdom</div>
+							<div class="proximity">1.5mi to city center</div>
+							<div class="guest-rating">4.5 Excellent</div>
+							<div class="price">&pound;284 
+								<span class="total">price for 1 night</span>
+								<div class="extra rooms_left" style="color:#000; padding:5px 0; font-size:0.5em; margin-top:4px;">Great rate</div>
+							</div>
+						</div>
+					</div>
+					<div class="search">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/1000000/30000/26200/26134/26134_108_e.jpg"/>
+							<span class="star-rating">****</span>
+						</div>
+						<div class="content">
+							<div class="name" ><a href="#">Hilton London Metropole</a></div>
+							<div class="location">Paddington</div>
+							<div class="address">225 Edgware Road London, England, W2 1JU United Kingdom</div>
+							<div class="proximity">2.0mi to city center</div>
+							<div class="guest-rating">4.0 Excellent</div>
+							<div class="price">&pound;190 <span class="total">total</span></div>
+						</div>
+					</div>
+
+					<div class="search">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/3000000/2550000/2543900/2543847/2543847_15_e.jpg"/>
+							<span class="star-rating">*****</span>
+						</div>
+						<div class="content">
+							<div class="name" ><a href="#">Sanctum Soho Hotel</a></div>
+							<div class="location">Soho</div>
+							<div class="address">20 Warwick Street Soho London, England, W1B 5NF United Kingdom</div>
+							<div class="proximity">0.5mi to city center</div>
+							<div class="guest-rating">4.1 Excellent</div>
+							<div class="price">&pound;240 
+								<span class="total">price for 1 night</span>
+								<div class="extra rooms_left" style="color:#000; padding:5px 0; font-size:0.5em; margin-top:4px;">FREE cancellation</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="search">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/2000000/1190000/1183300/1183289/1183289_131_e.jpg"/>
+							<span class="star-rating">*****</span>
+						</div>
+						<div class="content">
+							<div class="name" ><a href="#">London Marriott Hotel West India Quay</a></div>
+							<div class="location">Canary Wharf - Docklands</div>
+							<div class="address">22 Hertsmere Road, Canary Wharf London, England, E14 4ED United Kingdom</div>
+							<div class="proximity">4.6mi to city center</div>
+							<div class="guest-rating">4.5 Excellent</div>
+							<div class="price">&pound;179 
+								<span class="total">price for 1 night</span>
+								<div class="extra rooms_left" style="color:#000; padding:5px 0; font-size:0.5em; margin-top:4px;">FREE cancellation</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="search">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/1000000/910000/901200/901179/901179_5_e.jpg"/>
+							<span class="star-rating">****</span>
+						</div>
+						<div class="content">
+							<div class="name" ><a href="#">The Shaftesbury Premier London Paddington</a></div>
+							<div class="location">Canary Wharf - Docklands</div>
+							<div class="address">55 Westbourne Terrace Paddington London, England, W2 3UY United Kingdom</div>
+							<div class="proximity">2.2mi to city center</div>
+							<div class="guest-rating">3.6 Good</div>
+							<div class="price">&pound;127 
+								<span class="total">price for 1 night</span>
+								<div class="extra special_deal" style="background-color:#000; color:#fff; padding:5px; font-size:0.5em; margin-top:4px;">Special Deal</div>
+								<div class="extra rooms_left" style="color:#000; padding:5px 0; font-size:0.5em; margin-top:4px;">FREE cancellation</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="search">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/1000000/910000/901200/901179/901179_5_e.jpg"/>
+							<span class="star-rating">****</span>
+						</div>
+						<div class="content">
+							<div class="name" ><a href="#">Washington Mayfair Hotel</a></div>
+							<div class="location">Mayfair - Marleybone</div>
+							<div class="address">5 Curzon Street Mayfair London, England, W1J 5HE United Kingdom</div>
+							<div class="proximity">0.78mi to city center</div>
+							<div class="guest-rating">3.9 Good</div>
+							<div class="price">&pound;189 
+								<span class="total">price for 1 night</span>
+								<div class="extra rooms_left" style="color:#000; padding:5px 0; font-size:0.5em; margin-top:4px;">FREE cancellation</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="search">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/1000000/530000/525900/525818/525818_148_e.jpg"/>
+							<span class="star-rating">****</span>
+						</div>
+						<div class="content">
+							<div class="name" ><a href="#">Melia White House Hotel</a></div>
+							<div class="location">Mayfair - Marleybone</div>
+							<div class="address">Regents Park Albany Street London, England, NW1 3UP United Kingdom</div>
+							<div class="proximity">1.4mi to city center</div>
+							<div class="guest-rating">4.3 Excellent</div>
+							<div class="price">&pound;170 
+								<span class="total">price for 1 night</span>
+								<div class="extra rooms_left" style="color:#000; padding:5px 0; font-size:0.5em; margin-top:4px;">FREE cancellation</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="search">
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/4000000/3300000/3296200/3296165/3296165_33_e.jpg"/>
+							<span class="star-rating">****</span>
+						</div>
+						<div class="content">
+							<div class="name" ><a href="#">Pestana Chelsea Bridge Hotel &amp; Spa</a></div>
+							<div class="location">Chelsea</div>
+							<div class="address">354 Queenstown Road Battersea London, England, SW8 4AE United Kingdom</div>
+							<div class="proximity">2.0mi to city center</div>
+							<div class="guest-rating">4.4 Excellent</div>
+							<div class="price">&pound;199 
+								<span class="total">price for 1 night</span>
+								<div class="extra special_deal" style="background-color:#000; color:#fff; padding:5px; font-size:0.5em; margin-top:4px;">Special Deal</div>
+								<div class="extra rooms_left" style="color:#000; padding:5px 0; font-size:0.5em; margin-top:4px;">2 rooms left</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+				
+
+			</div>
+
+		
+			<div id="overlay" style="display:none; position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.7;"></div>
+		
+			<div id="filters-modal">
+				<div class="filter-tools" style="position:absolute; top:0; bottom:80px; left:0; right:0px; overflow-x:scroll;">
+						<h2>Narrow Results</h2>
+						<div>
+							<h3>Hotel name contains</h3>
+							<input type="text" style="width:96%; padding:2%; font-size:1.2em;">
+						</div>
+						<div>
+							<h3>Price</h3>
+							<input type="range" />
+						</div>
+						<div>
+							<h3>Star rating</h3>
+							<ul class="multi-select">
+								<li><a href="#">1*</a></li><li><a href="#">2*</a></li><li><a href="#">3*</a></li><li><a href="#">4*</a></li><li><a href="#" class="last">5*</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Guest rating</h3>
+							<ul class="multi-select">
+								<li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#" class="last">5</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Neighbourhood</h3>
+							<ul class="checklist">
+								<li><input type="checkbox" /> <label>Paddington</label></li>
+								<li><input type="checkbox" /> <label>Kensington - Earl's Court</label></li>
+								<li><input type="checkbox" /> <label>Victoria - Westminster</label></li>
+								<li class="more"> <a href="">See more</a></li>
+							</ul>
+							
+						</div>
+						<div>
+							<h3>Landmarks</h3>
+							<ul class="checklist">
+								<li><input type="checkbox" /> <label>City Centre</label></li>
+								<li><input type="checkbox" /> <label>Heathrow Airport</label></li>
+								<li><input type="checkbox" /> <label>Oxford Street</label></li>
+								<li class="more"> <a href="">See more</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Accomodation type</h3>
+							<ul class="checklist">
+								<li><input type="checkbox" /> <label>Hotel</label></li>
+								<li><input type="checkbox" /> <label>Bed &amp; Breakfast</label></li>
+								<li><input type="checkbox" /> <label>Hostel</label></li>
+								<li class="more"> <a href="">See more</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Facilities</h3>
+							<ul class="checklist">
+								<li><input type="checkbox" /> <label>Free Wi-Fi</label></li>
+								<li><input type="checkbox" /> <label>Restaurant</label></li>
+								<li><input type="checkbox" /> <label>Free Breakfast</label></li>
+								<li class="more"> <a href="">See more</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Themes / types</h3>
+							<ul class="checklist">
+								<li><input type="checkbox" /> <label>Boutique</label></li>
+								<li><input type="checkbox" /> <label>Family-Friendly</label></li>
+								<li><input type="checkbox" /> <label>Spa Hotel</label></li>
+								<li class="more"> <a href="">See more</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Accessibility Features </h3>
+							<ul class="checklist">
+								<li><input type="checkbox" /> <label>Handicapped Parking</label></li>
+								<li><input type="checkbox" /> <label>Wheelchair accessible rooms</label></li>
+								<li><input type="checkbox" /> <label>Roll in shower</label></li>
+								<li class="more"> <a href="">See more</a></li>
+							</ul>
+						</div>
+				</div>
+				<div style="height:70px; position:absolute; bottom:0; text-align:left; overflow:hidden; width:100%; background-color:#666; color:#fff; ">
+					<button style="font-size:1.2rem; padding:5px; width:120px; margin-top:20px; margin-left:20px; background-color:#00f; color:#fff;">
+						Apply
+					</button>
+					<button style="font-size:1.2rem; padding:5px; width:120px; margin-top:20px; margin-left:10px;">
+						Clear
+					</button>
+					
+				</div>
+			</div>
+
+
+
+	</body>
+</html>

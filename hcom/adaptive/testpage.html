@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Adaptive test page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
+
+		<style type="text/css">
+			body {margin:20px auto; font-family:arial;}
+			div {margin-bottom:15px;}
+			div span.label {display:inline-block; color:#999; width:45%; text-align: right; margin-right:10px;}
+			div span.answer {color:#000;}
+			
+			/* phones =================================================== */
+			
+				div#small {display:block;}
+  				div#medium {display:none;}
+  				div#large {display:none;}
+			
+			@media only screen and (min-width: 768px) {
+  				/* 768 =================================================== */
+  				div#small {display:none;}
+  				div#medium {display:block;}
+  				div#large {display:none;}
+			}
+			@media only screen and (min-width: 992px) {
+  				/* 992 =================================================== */
+  				div#small {display:none;}
+  				div#medium {display:none;}
+  				div#large {display:block;}
+
+  				body {
+    				max-width: 1200px;
+  				}
+
+			}
+
+
+		</style>
+
+		<script src="jquery.js"></script>
+		<script>
+			
+
+			// functions *****************
+
+			function hasTouchScreen() {
+    			return ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch;
+			}
+
+			function isHTML5() {
+				return ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+			}
+
+			function getViewportSize() {
+   				var v_width = document.documentElement.clientWidth;        //$(window).width();
+   				var v_height = document.documentElement.clientHeight;     //$(window).height();                   
+   				$('#viewport span.answer').text(v_width + " x " + v_height);
+			}
+
+
+			function getDeviceSize() {
+   				var d_width = window.screen.width;       
+   				var d_height = window.screen.height;                        
+   				$('#device span.answer').text(d_width + " x " + d_height);
+			}
+			
+			// window resize *****************
+
+			$(window).resize(function(e) {
+   				getViewportSize();
+			});
+
+
+			// page load *****************
+
+			$(function() {
+
+				getViewportSize();
+				getDeviceSize();
+
+     			if ( hasTouchScreen() ) {
+    				$("#hastouch span.answer").text("yes");
+				} else {
+    				$("#hastouch span.answer").text("no");
+				}
+
+				$("#html5 span.answer").text(isHTML5());
+     			
+     			
+
+   			 });
+		
+		</script>
+
+	</head>
+	<body>
+		<div style="margin:0 auto; width:90%;">
+			<div id="html5"><span class="label">HTML5:</span> <span class="answer"></span></div>
+			<div id="hastouch"><span class="label">Touch UI:</span> <span class="answer"></span></div>
+			<div id="viewport"><span class="label">Viewport:</span> <span class="answer"></span></div>
+			<div id="device"><span class="label">Device size:</span> <span class="answer"></span></div>
+			<div id="large"><span class="label">Media Query:</span> <span class="answer">large</span></div>
+			<div id="medium"><span class="label">Media Query:</span> <span class="answer">medium</span></div>
+			<div id="small"><span class="label">Media Query:</span> <span class="answer">small</span></div>
+
+					
+		</div>
+	</body>
+</html>

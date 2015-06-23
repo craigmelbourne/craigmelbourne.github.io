@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title></title>
+		<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+		<script>
+			$(function() {
+		        // run the currently selected effect
+		        $("div.month").click(function () {
+					$("#popularity").find("div.selected").removeClass("selected");
+					$("#popularity").find("span.arrow-up").remove();
+					$(this).addClass("selected");
+					$(this).append('<span class="arrow-up"></span>');
+				    $('.arrow_box .month-selected').text($(this).attr("title"));
+				});
+		    });
+		</script>
+		<link rel="stylesheet" href="hcom-grid.css">
+	</head>
+	<body>
+		<div id="header">
+			<div id="content">
+				<div id="logo"><img src="hcom-logo.png"/></div>
+				<div id="currency"><img src="header-picker.png" style="display:block; margin:0 auto;"/></div>
+				<div id="contact"><img src="header-contact.png"></div>
+			</div>
+		</div>
+		<div id="nav">
+			<div id="w">
+				<ul id="sNav">
+					<li>Home</li>
+					<li>Hotel Deals</li>
+					<li>Travel guides</li>
+					<li class="right">Accounts and Bookings</li>
+					<li class="right">Customer Service & Feedback</li>
+				</ul>
+			</div>
+		</div>
+		<div id="pagebg">
+			<div id="frame" >
+				<div id="hero" style="height:240px; background-color:#eae8e0;">
+				</div>
+				<div id="hero" style="height:80px; background-color:#dad8d0;">
+				</div>
+				<div id="grid" >
+					
+					<div class="grid-4 block"></div>
+					<div class="grid-4 block"></div>
+					<div class="grid-4 block"></div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>SRP</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<link rel="stylesheet" href="global.css"></link>
+
+		<style type="text/css">
+			/*********
+
+
+1: width:14.1304% 
+2: width:30.4348%;
+3: width:46.7391%;
+4: width:63.0435%;
+5: width:79.3479%;
+6: width:95.6521%; margin-right:0;
+
+
+
+***********/
+body.modal-open {
+    overflow: hidden;
+}
+body {color:#555;}
+#page {margin-top:20px;}
+.pagewidth {background-color:#000; color:#fff; padding:5px 0; text-align: center;}
+
+
+@media only screen and (min-width: 0px) {
+  /* 0 - 480 =================================================== */
+
+
+ 	#grid { margin:0 -2.1739% 0 2.1739%;}
+ 	.col {float:left; margin-right:2.1739% ;margin-bottom:12px;}
+
+ 	
+	
+ 	.filters {width:30.4348%; }
+
+ 	
+ 	.search_listing {width:95.6521%; margin-right:0;}
+ 
+ 	.search {padding-bottom:12px; margin-bottom:12px; background-color:#F5F4F0; padding:12px; overflow:hidden;}
+ 	.search .name {font-size:1.4em; margin-bottom:8px;}
+ 	.search .address {display:none;}
+ 	.search .image {float:left; width:49%; position:relative; overflow:hidden; margin-right:3%;}
+ 	.search .image img {min-width:100%;}
+ 	.search .image .star-rating {position:absolute; right:5px; top:0; height:20px; display:block; padding:0 5px; font-size:2.4em; background-color:#fff;}
+ 	.search .content {float:left; vertical-align:top; width:47%;}
+ 	.search .content .location {font-size:1.3em; margin:5px 0;}
+ 	.search .content .proximity {display:none;}
+ 	.search .content .guest-rating {margin-bottom:5px;}
+ 	.search .content .guest-rating .rating {padding:0; color:#000;}
+ 	.search .content .guest-rating .rating .qual-badge {font-size:1.3em; margin-bottom:6px;}
+ 	.search .content .guest-rating .rating .score {font-size:1.3em;}
+ 	.search .content .guest-rating .rating .outof {font-size:0.8em;}
+ 	.search .content .guest-rating .reviews {display:none;}
+	.search .content .wr {display:none;}
+
+ 	.search .book {width:47%; float:left; }
+ 	.search .book .urgency {display:none;}
+ 	.search .book .price {font-size:2.4em;}
+ 	.search .book .total {color:#666; font-size:0.6em; display:none;}
+ 	.search .book .extra {display:none;}
+ 	.search .book .select_button {display:none;}
+
+	.search_listing .drr {display:none;}
+
+
+ }
+ 
+
+
+@media only screen and (min-width: 600px) {
+	
+	
+
+	.filters {width:14.1304%;}
+	
+
+	.search {position:relative; background-color:#F5F4F0; padding:12px; }
+ 	.search .image {float:none; display:inline-block; width:25%; max-width:180px; position:relative; overflow:hidden; margin-right:2%;}
+ 	.search .image img {min-width:100%;}
+ 	.search .image .star-rating {position:absolute; right:5px; top:0px; height:25px; display:block; padding:0 5px; font-size:2.8em; background-color:#fff;}
+ 	.search .content {float:none; display:inline-block; vertical-align:top; width:50%; position:relative;}
+ 	.search .name {font-size:1.6em; margin-bottom:4px; width:70%;}
+ 	.search .address {display:block; font-size:1.1em; margin-bottom:8px; width:70%; line-height:130%;}
+ 	.search .content .neighbourhood {font-size:12px; margin:4px 0;}
+ 	.search .content .proximity {display:block; font-size:12px; margin-bottom:4px; line-height:140%;}
+ 				
+ 	.search .content .guest-rating { position:absolute; top:0; right:0; width:120px; text-align:center; }
+	.search .content .guest-rating .rating {background-color:#fff; padding:8px 0;  line-height:130%; color:#000; border:solid 1px #555; border-radius:4px;}
+ 	.search .content .guest-rating .rating .qual-badge {font-size:1.6em; display:block; margin-bottom:6px;}
+ 	.search .content .guest-rating .rating .score {font-size:1.6em;}
+ 	.search .content .guest-rating .rating .outof {font-size:1.0em;}
+ 	.search .content .guest-rating .reviews {display:block; margin-top:6px;}
+ 	.search .content .wr {display:block;}
+ 	
+ 	.search .book {float:none; position:absolute; bottom:12px; right:12px; text-align:right; width:20%; color:#666;}
+ 	.search .book .deal {display:inline-block; font-size:1.1em; margin-bottom:8px; padding:5px 12px 5px 6px; color:#fff; background-color:#900; margin-right:-10px;}
+ 	.search .book .price {font-size:2.4em; margin-bottom:8px; color:#000;}
+ 	.search .book .total {font-size:1.1em; display:block; margin-bottom:8px;}
+ 	.search .book .extra {display:block; font-size:1.2em; margin-bottom:8px;}
+ 	.search .book .select_button {display:inline-block; text-align:right; padding:1px 0 0 10px; font-size:13px;}
+ 	.search .book .rooms_left {background-color:#ff9;}
+ 	.search .book .select_button button {color:#fff; background-color:#00f;}
+ 	
+ 	
+ 	
+ 	
+ 	.search_listing .drr {display:block;}
+ 	#change_search {position:absolute; top:0; left:50%; bottom:auto; width:400px; margin-left:-200px; z-index:1000; background-color:#fff;}
+	#change_search ul.qm li.checkin, ul.qm li.checkout {display:inline-block;}
+
+	#footer {display:block; background-color:#fff;width:95.6521%; margin-left:2.1739%; position:relative; overflow:hidden;}
+
+	#footer .security_img {float:right;}
+	
+}
+
+ @media only screen and (min-width: 800px) and (orientation:landscape){
+  /* 768 =================================================== */
+
+	
+
+  	.filters {height:auto; margin-right:2.1739%;}
+  	#grid {margin: 0 10px; padding: 0 10px; padding-right:250px; background: #fff;}
+	.col {margin:0;}
+
+	
+	.search_listing  { margin: 0 -240px 0px auto; width: 100%; float:right; overflow: hidden;}
+	.filters {width: 220px;float: left;}
+}
+
+ @media only screen and (min-width:960px) {
+ 
+ 
+ }
+ 
+  @media only screen and (min-width:1160px) {
+ 	#page {max-width:1160px; margin:20px auto; }
+ 	.search .content .guest-rating { position:absolute; top:0; right:0; width:120px; text-align:center; }
+ 	.search .content .location {position:absolute; top:0; right:0;}
+ 	.search .content .location .neighbourhood {font-size:12px; width:140px;}
+ 	.search .content .location .proximity {display:block; font-size:12px; margin-bottom:4px; line-height:140%;}
+ 	.search .content .wr {position:absolute; top:80px;}
+ 
+ }
+ 
+ 
+
+
+		</style>
+		
+		<script src="jquery.js"></script>
+		<script src="base.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script>
+			
+
+			// functions *****************
+
+
+			// page load *****************
+
+			$(function() {
+				$(".width").text($(window).width() + "px");
+				
+				$(window).resize(function() {
+					$(".width").text($(window).width() + "px");
+				});
+
+				$( "#overlay" ).on("click", function(e) {
+  					e.preventDefault();
+					$("#overlay").hide();
+					$("#filters-modal").hide();
+					$(".modal").hide();
+				});
+				
+				
+
+   			 });
+		
+		</script>
+
+	</head>
+	<body>
+		
+		<div class="pagewidth">
+			<span class="width"></span>
+		</div>
+		
+		<div id="page">
+			
+			<div id="grid">
+				
+				<div class="filters col">
+
+					<div class="filter-tools">
+						
+						
+						
+						
+					</div>
+				</div>
+				
+
+				<div class="search_listing col">
+
+					<div class="search">
+						<div class="name" ><a href="#">The Shaftesbury Premier London Paddington</a></div>
+						<div class="address">20 Warwick Street Soho London, England, W1B 5NF United Kingdom</div>
+						<div class="image">
+							<img src="http://exp.cdn-hotels.com/hotels/1000000/910000/901200/901179/901179_5_e.jpg"/>
+						</div>
+						<div class="content">
+							<img src="i/stars-2.5.png" />
+							<div class="location">
+								<div class="neighbourhood">Paddington</div>
+								<div class="proximity" style="margin-right:130px">2.4mi to city center <br />12mi to Heathrow Arport</div>
+							</div>
+							<img class="wr" src="i/wr.png"/>
+							<div class="guest-rating">
+								<div class="rating">
+									<span class="qual-badge">Good</span>
+									<span class="score">3.6</span>
+									<span class="outof" style="font-size:0.8em;">/5</span>
+								</div>
+								<div class="reviews">512 customer reviews</div>
+							</div>
+						</div>
+						<div class="book">
+							<div class="deal">Special Deal</div>
+							<div class="price"><span class="strikethrough" style="font-size:16px; text-decoration:line-through; color:#999;">&pound;165</span> <span style="color:#9c0c1e; font-weight:bold;">&pound;127</div> 
+							<span class="total">Total<br /> including taxes and fees</span>
+							<div class="extra">
+								<div class="free-cancellation">FREE cancellation</div>
+							</div>
+							<div class="select_button rooms_left" style="">
+								<span style="">4 rooms left</span>
+								<button style="color:#fff; background-color:#00f;">Select</button>
+							</div>
+						</div>
+					</div>
+					<div class="drr" style="background-color:#eaf5fa; margin-top:-12px; margin-bottom:12px;">
+							<div class="message" style="padding:5px 12px; color:#009; font-size:12px; font-weight:bold;">Save up to 25% off your Airport Transfers when you book this hotel</div>
+						</div>
+					
+					
+					
+					
+				</div>
+
+				
+
+			</div>
+
+				
+			
+		
+			
+			
+		</div>
+
+		
+
+
+		
+
+		<div id="overlay" style="display:none; position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.7;"></div>
+
+	</body>
+</html>

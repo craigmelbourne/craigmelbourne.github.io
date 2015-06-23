@@ -1,0 +1,37 @@
+/*********
+
+
+1: width:14.1304% 
+2: width:30.4348%;
+3: width:46.7391%;
+4: width:63.0435%;
+5: width:79.3479%;}
+6: width:95.6521%; margin-right:0;
+
+***********/
+
+.block {position:relative; background-color:#eae8e0; height:100px;}
+.block p.label {padding:10px; color:#999; font-size:1.4em;}
+
+@media only screen and (min-width: 0px) {
+  /* 0 - 480 =================================================== */
+
+ 	#grid { margin:0 -2.1739% 0 2.1739%;}
+ 	.col {float:left; margin-right:2.1739% ;margin-bottom:12px;}
+
+ 	.search_details {width:95.6521%; margin-right:0; height:75px;}
+ 	.filters {width:46.7391%; height:50px;}
+ 	.sort_order {width:46.7391%; height:50px;}
+ 	.search_listing {width:95.6521%; margin-right:0; height:100px;}
+ 	.search_listing .block {margin-bottom:2.1739%;}
+
+
+ }
+
+ @media only screen and (min-width: 800px) {
+  /* 768 =================================================== */
+
+  	.filters {width:30.4348%; height:550px; margin-right:2.1739%;}
+  	.sort_order {width:63.0435%; height:50px;}
+ 	.search_listing {width:63.0435%;}
+}
