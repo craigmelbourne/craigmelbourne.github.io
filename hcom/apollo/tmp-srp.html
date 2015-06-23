@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="base.css">
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+      			$("#header-wrapper").load("components/header.html"); 
+			});
+
+		</script>
+
+		<style type="text/css">
+			@media only screen and (min-width:0px) {
+				#search-details-wrapper {height:60px; background-color: #EAE8E0;}
+			}
+			@media only screen and (min-width:600px) {}
+			@media only screen and (min-width:750px) {#search-details-wrapper {height:90px; background-color: #EAE8E0;}}
+			@media only screen and (min-width:850px) {}
+
+			@media only screen and (min-width:960px) {
+				#filters-button-wrapper {display:none};
+			}
+
+			@media only screen and (min-width:1160px) {}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="header-wrapper"></div>
+		<div id="search-details-wrapper"></div>
+		<div id="filters-wrapper"></div>
+		<div id="filters-button-wrapper"></div>
+		<div id="sort-wrapper"></div>
+		<div id="results-wrapper"></div>
+		
+	</body>
+</html>
