@@ -26,16 +26,27 @@
 		<style type="text/css">
 			@media only screen and (min-width:0px) {
 				#search-details-wrapper {height:60px; background-color: #EAE8E0;}
+				#filters-button-wrapper {float:left; width:80px; height:30px; background-color:#555; color:#fff;}
+				#page-wrapper {margin-top:16px;}
+				#page-wrapper #filters-wrapper {display:none;}
+				#page-wrapper #results-wrapper {height:500px; background-color:#ddd;}
+				#page-wrapper #sort-wrapper {height:30px; background-color:#eee; margin-bottom:16px; margin-left:100px;}
 			}
 			@media only screen and (min-width:600px) {}
 			@media only screen and (min-width:750px) {#search-details-wrapper {height:90px; background-color: #EAE8E0;}}
 			@media only screen and (min-width:850px) {}
 
 			@media only screen and (min-width:960px) {
-				#filters-button-wrapper {display:none};
+				#filters-button-wrapper {display:none}
+				#page-wrapper { margin:16px auto; padding:0 16px; box-sizing:border-box;}
+				#page-wrapper #filters-wrapper {display:block; float:left; width:300px; height:400px; background-color:#eee;}
+				#page-wrapper #results-wrapper {margin-left:316px;}
+				#page-wrapper #sort-wrapper {margin-left:316px; height:30px; background-color:#eee; margin-bottom:16px;}
 			}
 
-			@media only screen and (min-width:1160px) {}
+			@media only screen and (min-width:1160px) {
+				#page-wrapper {width:1160px;  margin:16px auto; padding:0;}
+			}
 		</style>
 
 	</head>
@@ -44,10 +55,20 @@
 
 		<div id="header-wrapper"></div>
 		<div id="search-details-wrapper"></div>
-		<div id="filters-wrapper"></div>
-		<div id="filters-button-wrapper"></div>
-		<div id="sort-wrapper"></div>
-		<div id="results-wrapper"></div>
+
+		<div id="page-wrapper">
+			<div id="filters-wrapper">
+				filter column
+			</div>
+			<div id="filters-button-wrapper">
+				Filters
+			</div>
+			<div id="sort-wrapper">
+				Sort bar
+			</div>
+			<div id="results-wrapper">content</div>
+		</div>
+		
 		
 	</body>
 </html>
