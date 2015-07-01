@@ -19,8 +19,8 @@ $(function(){
 
 
 
-	initializeMap("london")
-	fetchResults("london")
+	initializeMap("London, United Kingdom")
+	fetchResults("London, United Kingdom")
 
 	$("#list").on("click", ".listing", function(){
 		if (!pdpOpen) {
@@ -189,10 +189,10 @@ function fetchResults(result){
         if (status == google.maps.GeocoderStatus.OK) {
             console.log(pos);
             lon = pos[0].geometry.location.A;
-            lat = pos[0].geometry.location.f;
+            lat = pos[0].geometry.location.F;
 
             //console.log("pos");
-            //console.log(pos);
+            console.log(lon + " - " + lat);
              
         
     $.ajax({
@@ -210,8 +210,9 @@ function fetchResults(result){
             currencyCode: "GBP",
             arrivalDate: ciMonth+"/"+ciDay+"/"+ciYear,
             departureDate: coMonth+"/"+coDay+"/"+coYear,
-            longitude: lon, //result[0].lon,
-            latitude: lat, //result[0].lat,
+            //longitude: lon, //result[0].lon,
+            //latitude: lat, //result[0].lat,
+            destinationString: "London, UK",
             searchRadius: 2,
             searchRadiusUnit: "MI",
             numberOfResults: 20
