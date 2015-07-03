@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="base.css">
+
+		<style type="text/css">
+		body{margin:20px;}
+		a {text-decoration:none;}
+		</style>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="hcom-services.js"></script>
+
+		<script type="text/javascript">
+		var destination = "London, United Kingdom";
+
+		var displayList = function(data){
+			console.log(data);
+			var hotels = data.result.hotels;
+
+			$.each(hotels, function(i, hotel) {
+				
+				$("#hotelList").append(
+					'<div style="padding:8px 0"><a href="pdp-roomrates.html?hotelId='+hotel.hotelId + '">' + hotel.hotelName + '</a></div>'
+				)
+				
+			});
+			
+		}
+
+			// run things on page load
+			$(function(){
+      			//$("#header-wrapper").load("components/header.html"); 
+
+      			fetchHotelList(destination, displayList); 
+			});
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div id="header-wrapper"></div>
+
+		<div id="hotelList">
+			
+		</div>
+		
+	</body>
+</html>
