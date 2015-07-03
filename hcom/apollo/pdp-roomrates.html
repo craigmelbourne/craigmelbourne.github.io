@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="base.css">
+
+		<style type="text/css">
+			body {background-color: #e5e3db;}
+			a {text-decoration: none;}
+			.room {background-color:#fff; border-radius:4px; margin-bottom:8px;}
+			.room .room-detail .thumbnail {border:solid 4px #fff; border-top-left-radius:4px; border-top-right-radius:4px;}
+			.room .room-detail .thumbnail img {width:100%; border-top-left-radius:4px; border-top-right-radius:4px;}
+
+			ul.room-highlights {margin-top:16px;}
+			ul.room-highlights li {color:#458f00; font-size:13px; margin-bottom:8px;}
+		</style>
+
+		<!-- Scripts -->
+		<script src="hcom-services.js"></script>
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+		var hotelId = getParameterByName("hotelId") //"215012" 
+		var roomTypeId = [];
+		var numRooms;
+		var roomTypeOrder = [];
+
+		var displayDetails = function(data){
+
+			var rooms = data.result.roomRates.roomDetails
+
+			console.log(data.result)
+
+			$("h1").text(data.result.roomRates.hotelSummary.hotelName); 
+
+			$.each(rooms, function(i, room) {
+				if (roomTypeId.indexOf(room.roomTypeCode) == -1){
+					roomTypeId.push(room.roomTypeCode);
+				};
+			}); 
+
+			
+			numRooms = roomTypeId.length
+			
+
+			for( var i=0; i<numRooms; i++ ) {
+  				roomTypeOrder.push( [] );
+			}
+
+			$.each(rooms, function(i, room) {
+				
+				roomTypeOrder[roomTypeId.indexOf(room.roomTypeCode)].push(room);
+				
+			});
+
+			console.log(roomTypeOrder);
+
+			$.each(roomTypeOrder, function(i, obj ) {
+    			//console.log(obj)
+    			var roomHTML = "";
+    			
+    			// thumbnail
+    			var imgURL = obj[0].hotelDetailsPhoto;
+    			var newIMGURL = imgURL.replace("_t.jpg", "_l.jpg")
+
+    			// occupancy 
+    			var occupancyHTML = "";
+
+    			if (obj[0].occupancy.maxAdults <= 3){
+    				for (var i=0; i<obj[0].occupancy.maxAdults; i++){
+    					occupancyHTML += '<img src="i/adult_icon.png"/>'
+    				}
+    			} else {
+    				occupancyHTML = obj[0].occupancy.maxAdults + ' x <img src="i/adult_icon.png"/>';
+    			}
+
+    			// room highlights
+    			var roomHighlights = '<ul class="room-highlights"><li>32" flat screen TV</li><li>Free WiFi on some room rates</li></ul>'
+
+    			// room rates
+    			var showRoomRatesHTML = '<div style="background-color:#2989d7; color:#fff; padding:8px 16px">' + obj.length + ' more options from ' + obj[0].roomPrice.priceModule.priceNormal + '</div>'
+
+    			//_e.jpg
+    			$.each(obj, function( key, rate ) {
+    				console.log(rate); 
+    				roomHTML += '<div>' + rate.roomPrice.priceModule.priceNormal + '</div>'
+        			
+    			});
+
+    			$("#rooms-wrapper").append(
+    				'<div class="room">' 
+    				+ '<div class="room-detail">'
+    					+ '<div class="thumbnail"><img src="' + newIMGURL + '" /></div>'
+    					+ '<div style="padding:4px 16px 16px;">' 
+    						+ '<div style="font-size:16px; font-weight:bold;">' + obj[0].roomRateName + '</div>'
+    						+ '<div style="margin:8px  0 0; font-size:12px">' 
+    							+ '<div style="display:inline-block; vertical-align:top; margin-right:16px;"><img src="i/room_size.png" /></div>'
+    							+ '<div style="display:inline-block; vertical-align:top; padding-top:6px">' + occupancyHTML + '</div>'
+    						+ '<div style="font-size:13px; padding:8px 0; border-bottom:1px dotted #eee">' + obj[0].bedTypes[0] + '</div>'
+    						+ roomHighlights
+    						+ '<div><a href="#" style="font-size:13px">Room information</a>'
+
+    					+ '</div>'
+
+    				+ '</div>' 
+    				
+    				//+ '<div class="rates">' + roomHTML + '</div>'
+    				+ '</div>'
+    				+ showRoomRatesHTML
+    			);
+			});
+
+
+		}
+
+			// run things on page load
+			$(function(){
+				fetchHotelDetails(hotelId, displayDetails);
+			});
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div id="header-wrapper"></div>
+
+		<div id="rooms-wrapper" style="width:320px; margin:30px auto; padding:16px;">
+			<h1 style="font-size:24px;"></h1>
+
+		</div>
+
+		
+	</body>
+</html>
