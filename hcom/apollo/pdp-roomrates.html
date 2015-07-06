@@ -19,6 +19,10 @@
 
 			ul.room-highlights {margin-top:16px;}
 			ul.room-highlights li {color:#458f00; font-size:13px; margin-bottom:8px;}
+
+			.room-description {font-size:13px; margin-top:8px; line-height: 16px; display:none;}
+			.room-amenities {margin-top:8px;}
+			.room-amenities li {margin-bottom:4px; font-size:13px;}
 		</style>
 
 		<!-- Scripts -->
@@ -68,8 +72,13 @@
     			var roomHTML = "";
     			
     			// thumbnail
-    			var imgURL = obj[0].hotelDetailsPhoto;
-    			var newIMGURL = imgURL.replace("_t.jpg", "_l.jpg")
+    			var newIMGURLHTML = ""
+    			if (obj[0].hotelDetailsPhoto) {
+    				var imgURL = obj[0].hotelDetailsPhoto;
+    				var newIMGURL = imgURL.replace("_t.jpg", "_l.jpg");
+    				var newIMGURLHTML = '<div class="thumbnail"><img src="' + newIMGURL + '" /></div>'
+    			}
+    			
 
     			// occupancy 
     			var occupancyHTML = "";
@@ -85,10 +94,40 @@
     			// room highlights
     			var roomHighlights = '<ul class="room-highlights"><li>32" flat screen TV</li><li>Free WiFi on some room rates</li></ul>'
 
-    			// room rates
-    			var showRoomRatesHTML = '<div style="background-color:#2989d7; color:#fff; padding:8px 16px">' + obj.length + ' more options from ' + obj[0].roomPrice.priceModule.priceNormal + '</div>'
+    			//room description
+    			var roomDescription;
+    			var roomAmenities =  data.result.amenities.roomAmenities.values; 
+    			var roomAmenity;
 
-    			//_e.jpg
+    			console.log(roomAmenities.length)
+
+    			var roomAmenitiesHTML = '<ul class="room-amenities">'; 
+
+    			for (var i=0; i<roomAmenities.length; i++){
+    					roomAmenitiesHTML += "<li>" + roomAmenities[i] + "</li>";
+    			}
+
+    			roomAmenitiesHTML += "</ul>";
+
+    			roomDescription = '<div class="room-description">' + obj[0].roomTypeQualifier;
+    			roomDescription += roomAmenitiesHTML;
+    			roomDescription += '</div>';
+    			// room rates
+
+    			// price
+    			var fromPrice = "not set"; 
+
+    			if (!obj[0].roomPrice.priceModule.priceNormal){
+    				fromPrice = obj[0].roomPrice.priceModule.priceOrig;
+    			} else {
+    				fromPrice = obj[0].roomPrice.priceModule.priceNormal;
+    			}
+
+    			
+
+    			var showRoomRatesHTML = '<div style="background-color:#2989d7; color:#fff; padding:8px 16px">' + obj.length + ' more options from ' + fromPrice + '</div>'
+
+    			//
     			$.each(obj, function( key, rate ) {
     				console.log(rate); 
     				roomHTML += '<div>' + rate.roomPrice.priceModule.priceNormal + '</div>'
@@ -98,7 +137,7 @@
     			$("#rooms-wrapper").append(
     				'<div class="room">' 
     				+ '<div class="room-detail">'
-    					+ '<div class="thumbnail"><img src="' + newIMGURL + '" /></div>'
+    					+ newIMGURLHTML
     					+ '<div style="padding:4px 16px 16px;">' 
     						+ '<div style="font-size:16px; font-weight:bold;">' + obj[0].roomRateName + '</div>'
     						+ '<div style="margin:8px  0 0; font-size:12px">' 
@@ -106,7 +145,8 @@
     							+ '<div style="display:inline-block; vertical-align:top; padding-top:6px">' + occupancyHTML + '</div>'
     						+ '<div style="font-size:13px; padding:8px 0; border-bottom:1px dotted #eee">' + obj[0].bedTypes[0] + '</div>'
     						+ roomHighlights
-    						+ '<div><a href="#" style="font-size:13px">Room information</a>'
+    						+ '<div><a href="#" class="showmore" style="font-size:13px">Room information</a>'
+    						+ roomDescription
 
     					+ '</div>'
 
@@ -124,6 +164,10 @@
 			// run things on page load
 			$(function(){
 				fetchHotelDetails(hotelId, displayDetails);
+
+				$("#rooms-wrapper").on("click", ".showmore", function(e){
+					$(this).siblings(".room-description").show();
+				})
 			});
 
 		</script>
