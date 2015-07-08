@@ -145,6 +145,30 @@
     					if (rate.highlights[i].enabled){
     						rateHighlights +=  "<li>" + rate.highlights[i].description + "</li>" ;
     					}
+
+
+    					switch(rate.highlights[i].id) {
+    						case "2403":
+    							console.log(rate.highlights[i].description + ": " + rate.highlights[i].enabled);
+    							break;
+    						case "FREE_CANCELLATION":
+    							console.log(rate.highlights[i].description + ": " + rate.highlights[i].enabled);
+    							break;
+    						case "BREAKFAST_INCLUDED":
+    							console.log(rate.highlights[i].description + ": " + rate.highlights[i].enabled);
+    							break;
+    						case "PAY_AT_HOTEL":
+    							console.log(rate.highlights[i].description + ": " + rate.highlights[i].enabled);
+    							break;
+    						case "LOWEST_PRICE_GUARANTEED":
+    							console.log(rate.highlights[i].description + ": " + rate.highlights[i].enabled);
+    							break;
+    						case "LOWEST_PRICE_GUARANTEED":
+    							console.log(rate.highlights[i].description + ": " + rate.highlights[i].enabled);
+    							break;
+
+    					}
+
     					
     				}
 
@@ -152,7 +176,7 @@
 
 
     				var ratePrice = "";
-    				
+
     				if (!rate.roomPrice.priceModule.priceNormal){
     					ratePrice = rate.roomPrice.priceModule.priceOrig;
     				} else {

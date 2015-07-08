@@ -42,8 +42,8 @@ var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "June",
     var coYear = co.getFullYear();
 
 // set currency 
-var currency = "EUR";
-var pos = "fr";
+var currency = "GBP";
+var pos = "uk";
 
 function buildSearchUrl(destination) {
 
