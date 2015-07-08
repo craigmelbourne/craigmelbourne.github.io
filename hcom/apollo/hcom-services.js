@@ -33,17 +33,17 @@ var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "June",
     var co = new Date();
 
     var ciDay = ci.getDate();
-    var ciMonth = ci.getMonth() + 1;
+    var ciMonth = ci.getMonth() + 2;
     var ciYear = ci.getFullYear();
     
     co.setDate(ci.getDate() + 1)
     var coDay = co.getDate();
-    var coMonth = co.getMonth() + 1;
+    var coMonth = co.getMonth() + 2;
     var coYear = co.getFullYear();
 
 // set currency 
-var currency = "GBP";
-var pos = "de";
+var currency = "EUR";
+var pos = "fr";
 
 function buildSearchUrl(destination) {
 
@@ -63,7 +63,7 @@ function buildHotelDetailsUrl(id) {
   var qStr = 'hotelId='+ id + '&cur='+ currency + '&monthCheckIn=' + ciMonth + '&dayInMonthCheckIn=' + ciDay + '&monthCheckOut=' + coMonth + '&dayInMonthCheckOut=' + coDay + '&rooms[0].numberOfAdults=2&roomno=1&reviewOrder=date_newest_first&na=os%3DFacebook%7Ccv%3D1171%7Csv%3D2%7Cid%3DCFUUID9BC82AC4A123485586F5F6AFEF2084E0'
   
   // create API URL  
-  var url = '/api/uk/hotelDetails.html?' + qStr;
+  var url = '/api/'+ pos +'/hotelDetails.html?' + qStr;
 
   return url;
 }

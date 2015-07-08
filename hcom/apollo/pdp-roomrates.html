@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="base.css">
 
 		<style type="text/css">
-			body {background-color: #e5e3db;}
+			body {background-color: #e5e3db; margin:0; padding:0;}
 			a {text-decoration: none;}
 			.room {background-color:#fff; border-radius:4px; margin-bottom:8px;}
 			.room .room-detail .thumbnail {border:solid 4px #fff; border-top-left-radius:4px; border-top-right-radius:4px;}
@@ -23,6 +23,11 @@
 			.room-description {font-size:13px; margin-top:8px; line-height: 16px; display:none;}
 			.room-amenities {margin-top:8px;}
 			.room-amenities li {margin-bottom:4px; font-size:13px;}
+			ul.highlights li {font-size:12px;}
+			.price {font-size:18px; color:#d41200; text-align: right}
+
+.rate {padding:8px; border-bottom:solid 1px #eee;}
+
 		</style>
 
 		<!-- Scripts -->
@@ -41,9 +46,11 @@
 
 			var rooms = data.result.roomRates.roomDetails
 
-			console.log(data.result)
+			//console.log(data)
 
-			$("h1").text(data.result.roomRates.hotelSummary.hotelName); 
+			// hotel-details
+			$("h1").text(data.result.roomRates.hotelSummary.hotelName);
+			$("#address").text(data.result.roomRates.hotelSummary.address1); 
 
 			$.each(rooms, function(i, room) {
 				if (roomTypeId.indexOf(room.roomTypeCode) == -1){
@@ -125,12 +132,39 @@
 
     			
 
-    			var showRoomRatesHTML = '<div style="background-color:#2989d7; color:#fff; padding:8px 16px">' + obj.length + ' more options from ' + fromPrice + '</div>'
+    			var showRoomRatesHTML = '<div style="background-color:#2989d7; color:#fff; padding:8px 16px">' + obj.length + ' options from ' + fromPrice + '</div>'
 
-    			//
+    			// room rates
     			$.each(obj, function( key, rate ) {
-    				console.log(rate); 
-    				roomHTML += '<div>' + rate.roomPrice.priceModule.priceNormal + '</div>'
+    				console.log(rate.highlights); 
+
+    				var rateHighlights = "<div><ul class='highlights'>";
+
+    				for (var i=0; i<rate.highlights.length; i++){
+
+    					if (rate.highlights[i].enabled){
+    						rateHighlights +=  "<li>" + rate.highlights[i].description + "</li>" ;
+    					}
+    					
+    				}
+
+    				rateHighlights += "</ul></div>"
+
+
+    				var ratePrice = "";
+    				
+    				if (!rate.roomPrice.priceModule.priceNormal){
+    					ratePrice = rate.roomPrice.priceModule.priceOrig;
+    				} else {
+    					ratePrice = rate.roomPrice.priceModule.priceNormal;
+    				}
+
+    				console.log(rateHighlights);
+
+    				roomHTML += '<div class="rate">' 
+    							+ rateHighlights
+    							+ '<div class="price">' + ratePrice + '</div>'
+    							+ '</div>'
         			
     			});
 
@@ -155,6 +189,9 @@
     				//+ '<div class="rates">' + roomHTML + '</div>'
     				+ '</div>'
     				+ showRoomRatesHTML
+    				+ '<div id="rooms-rates">'
+    				+ roomHTML
+    				+ '</div>'
     			);
 			});
 
@@ -166,8 +203,11 @@
 				fetchHotelDetails(hotelId, displayDetails);
 
 				$("#rooms-wrapper").on("click", ".showmore", function(e){
+					e.preventDefault();
 					$(this).siblings(".room-description").show();
-				})
+				}); 
+
+				//$("#header-wrapper").load("components/header.html");
 			});
 
 		</script>
@@ -176,12 +216,47 @@
 
 	<body>
 
-		<div id="header-wrapper"></div>
+	<style type="text/css">
+		#pricing, #photos, #hotel-description, #map, #guest-reviews, #rewards {padding:8px; border-bottom:dotted 1px #ddd;}
+		#hotel-details  {padding:8px;}
+		#hotel-details h1 {font-size:16px; font-weight:bold; margin-bottom:4px;}
 
-		<div id="rooms-wrapper" style="width:320px; margin:30px auto; padding:16px;">
-			<h1 style="font-size:24px;"></h1>
+		#hotel-details #address {font-size:12px;}
+		
+	</style>
+
+		<div id="page-wrapper" style="width:320px; margin:0px auto; padding:0 16px;">
+			<div id="header-wrapper" style="background-color:#d41200; height:30px"></div>
+			<div id="hotel-details">
+				<h1></h1>
+				<span id="address"></span>
+			</div>
+			<div id="pricing">
+				Best price and book button
+			</div>
+			<div id="photos">
+				photos
+			</div>
+			<div id="hotel-description">
+				description
+			</div>
+			<div id="map">
+				map
+			</div>
+			<div id="guest-reviews">
+				guest reviews
+			</div>
+			<div id="rewards">
+				HCOM rewards
+			</div>
+			
+
+			<div id="rooms-wrapper" >
+			</div>
 
 		</div>
+
+		
 
 		
 	</body>
