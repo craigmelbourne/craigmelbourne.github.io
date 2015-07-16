@@ -23,10 +23,18 @@
 			.room-description {font-size:13px; margin-top:8px; line-height: 16px; display:none;}
 			.room-amenities {margin-top:8px;}
 			.room-amenities li {margin-bottom:4px; font-size:13px;}
-			ul.highlights li {font-size:12px;}
+			ul.highlights {margin-top:8px;}
+			ul.highlights li {font-size:13px; margin-bottom:4px;}
 			.price {font-size:18px; color:#d41200; text-align: right}
 
-.rate {padding:8px; border-bottom:solid 1px #eee;}
+			.cancellation {font-size:13px; margin-bottom:8px;}
+			.free {color:#458f00;}
+			.rewards ul li {font-size:13px; color:#906; margin-top:4px;}
+
+.rate {margin:8px 16px; border-top:solid 1px #eee; padding-top:8px;}
+#rooms-rates {display:none;}
+#show-room-rates {background-color:#2989d7; color:#fff; padding:8px 16px; margin-top:16px; text-align: right;}
+#show-room-rates:hover {cursor: pointer;}
 
 		</style>
 
@@ -37,20 +45,46 @@
 
 		<script type="text/javascript">
 
-		var hotelId = getParameterByName("hotelId") //"215012" 
+		 
 		var roomTypeId = [];
 		var numRooms;
 		var roomTypeOrder = [];
 
 		var displayDetails = function(data){
 
+			
 			var rooms = data.result.roomRates.roomDetails
+			var hotelSummary = data.result.roomRates.hotelSummary;
+			var photos = data.result.photos;
+			var staticMapUrl =  data.result.map.staticMapUrl
 
-			//console.log(data)
+
+			console.log(data.result)
+			console.log(photos[0].url)
 
 			// hotel-details
-			$("h1").text(data.result.roomRates.hotelSummary.hotelName);
-			$("#address").text(data.result.roomRates.hotelSummary.address1); 
+			$("h1").text(hotelSummary.hotelName);
+			$("#address").text(hotelSummary.address1 + ", " + hotelSummary.postalCode + ", " + hotelSummary.locality); 
+
+			$("#guest-reviews").append(
+				'<div class="score">' + hotelSummary.qualitativeBadgeText + " " + Math.round(hotelSummary.guestRatingValue * 10) / 10 + '</div>'
+				+ '<div><a href="#">See all ' + hotelSummary.reviewsTotalCount + ' Hotels.com reviews</a></div>'
+			);
+
+			
+
+			if (data.result.roomRates.promoLowPrice) {
+				$("#price").text(data.result.roomRates.promoLowPrice)
+			}
+
+			$("#priceInfo").text(data.result.roomRates.priceInfo)
+			$("#priceSummary").text(data.result.roomRates.priceSummary)
+
+			$("#photos").append('<img src="' + photos[0].url + '" />');
+
+			$("#map").append('<img src="' + staticMapUrl + '" />');
+
+			// rooms	
 
 			$.each(rooms, function(i, room) {
 				if (roomTypeId.indexOf(room.roomTypeCode) == -1){
@@ -99,14 +133,14 @@
     			}
 
     			// room highlights
-    			var roomHighlights = '<ul class="room-highlights"><li>32" flat screen TV</li><li>Free WiFi on some room rates</li></ul>'
+    			var roomHighlights = '<ul class="room-highlights"><li>Free WiFi on some room rates</li></ul>'
 
     			//room description
     			var roomDescription;
     			var roomAmenities =  data.result.amenities.roomAmenities.values; 
     			var roomAmenity;
 
-    			console.log(roomAmenities.length)
+    			//console.log(roomAmenities.length)
 
     			var roomAmenitiesHTML = '<ul class="room-amenities">'; 
 
@@ -132,39 +166,76 @@
 
     			
 
-    			var showRoomRatesHTML = '<div style="background-color:#2989d7; color:#fff; padding:8px 16px">' + obj.length + ' options from ' + fromPrice + '</div>'
+    			var showRoomRatesHTML = '<div id="show-room-rates">' + obj.length + ' options from ' + fromPrice + '</div>'
 
     			// room rates
     			$.each(obj, function( key, rate ) {
-    				console.log(rate.highlights); 
+    				//console.log(rate.highlights); 
 
+    				var wrHTML = '<div class="rewards"><img src="i/wr_logo.png" /><ul>'
+
+    				if (rate.welcomeRewardsFlags.welcomeRewardsCollect){
+    					wrHTML += "<li>Collect</li>"
+    				}
+
+    				if (rate.welcomeRewardsFlags.welcomeRewardsRedeem){
+    					wrHTML += "<li>Redeem</li>"
+    				}
+
+    				wrHTML += '</ul></div>'
     				var rateHighlights = "<div><ul class='highlights'>";
+
+    				var cancellation = "";
+    				var pay_at_hotel = ""
 
     				for (var i=0; i<rate.highlights.length; i++){
 
-    					if (rate.highlights[i].enabled){
-    						rateHighlights +=  "<li>" + rate.highlights[i].description + "</li>" ;
-    					}
+    					
 
 
     					switch(rate.highlights[i].id) {
-    						case "2403":
-    							console.log(rate.highlights[i].description + ": " + rate.highlights[i].enabled);
+    						case "2048":
+    							
+    							if (rate.highlights[i].enabled){
+    								rateHighlights +=  "<li>" + rate.highlights[i].description + "</li>" ;
+    							}
     							break;
     						case "FREE_CANCELLATION":
-    							console.log(rate.highlights[i].description + ": " + rate.highlights[i].enabled);
+    							
+    							if (rate.highlights[i].enabled){
+    					
+
+    								cancellation = '<div class="cancellation free">' 
+    												+ rate.highlights[i].description
+
+    								if(rate.freeCancellationPeriodEndText) {
+    									cancellation += "<div>" + rate.freeCancellationPeriodEndText + "</div>"
+    								}
+
+    								cancellation += "</div>"
+
+    							}
+    							break;
+    						case "RATE_NON_REFUNDABLE":
+    							if (rate.highlights[i].enabled){
+    								
+    								cancellation = '<div class="cancellation">' + rate.highlights[i].description + '</div>'
+    							}
+    							
     							break;
     						case "BREAKFAST_INCLUDED":
-    							console.log(rate.highlights[i].description + ": " + rate.highlights[i].enabled);
+    							if (rate.highlights[i].enabled){
+    								rateHighlights +=  "<li>" + rate.highlights[i].description + "</li>" ;
+    							}
     							break;
     						case "PAY_AT_HOTEL":
-    							console.log(rate.highlights[i].description + ": " + rate.highlights[i].enabled);
+    							
+    							if (rate.highlights[i].enabled){
+    								pay_at_hotel = '<div style="font-size:12px; margin-top:8px; color:#458f00;">' + rate.highlights[i].description + '</div>';
+    							}
     							break;
     						case "LOWEST_PRICE_GUARANTEED":
-    							console.log(rate.highlights[i].description + ": " + rate.highlights[i].enabled);
-    							break;
-    						case "LOWEST_PRICE_GUARANTEED":
-    							console.log(rate.highlights[i].description + ": " + rate.highlights[i].enabled);
+    							
     							break;
 
     					}
@@ -183,11 +254,14 @@
     					ratePrice = rate.roomPrice.priceModule.priceNormal;
     				}
 
-    				console.log(rateHighlights);
+    				//console.log(rateHighlights);
 
     				roomHTML += '<div class="rate">' 
+    							+ cancellation 
+    							+ wrHTML
     							+ rateHighlights
     							+ '<div class="price">' + ratePrice + '</div>'
+    							+ '<div class="book" style="text-align:right; margin:8px 0; border-top:dotted 1px #ccc; padding-top:8px;"><div style="font-size:12px; color:#999; padding-bottom:8px;">Price for 1 night including all taxes and fees</div><button style="background-color:#2989d7; color:#fff; border-radius:4px; border:0; font-size:14px; padding:4px 16px;">Book now</button>' + pay_at_hotel + '</div>'
     							+ '</div>'
         			
     			});
@@ -201,8 +275,9 @@
     						+ '<div style="margin:8px  0 0; font-size:12px">' 
     							+ '<div style="display:inline-block; vertical-align:top; margin-right:16px;"><img src="i/room_size.png" /></div>'
     							+ '<div style="display:inline-block; vertical-align:top; padding-top:6px">' + occupancyHTML + '</div>'
-    						+ '<div style="font-size:13px; padding:8px 0; border-bottom:1px dotted #eee">' + obj[0].bedTypes[0] + '</div>'
     						+ roomHighlights
+    						+ '<div style="font-size:13px; padding:8px 0;">' + obj[0].bedTypes[0] + '</div>'
+    						
     						+ '<div><a href="#" class="showmore" style="font-size:13px">Room information</a>'
     						+ roomDescription
 
@@ -212,10 +287,11 @@
     				
     				//+ '<div class="rates">' + roomHTML + '</div>'
     				+ '</div>'
-    				+ showRoomRatesHTML
     				+ '<div id="rooms-rates">'
     				+ roomHTML
     				+ '</div>'
+    				+ showRoomRatesHTML
+    				
     			);
 			});
 
@@ -224,12 +300,20 @@
 
 			// run things on page load
 			$(function(){
+
+				var hotelId = getParameterByName("hotelId") //"215012"
 				fetchHotelDetails(hotelId, displayDetails);
 
 				$("#rooms-wrapper").on("click", ".showmore", function(e){
 					e.preventDefault();
 					$(this).siblings(".room-description").show();
 				}); 
+				$("#rooms-wrapper").on("click", "#show-room-rates", function(e){
+					e.preventDefault();
+					$(this).siblings("#rooms-rates").toggle();
+					//alert("clicked")
+				});
+
 
 				//$("#header-wrapper").load("components/header.html");
 			});
@@ -241,11 +325,17 @@
 	<body>
 
 	<style type="text/css">
-		#pricing, #photos, #hotel-description, #map, #guest-reviews, #rewards {padding:8px; border-bottom:dotted 1px #ddd;}
+		#pricing, , #hotel-description, #map, #guest-reviews, #rewards {padding:8px; border-bottom:dotted 1px #ddd;}
 		#hotel-details  {padding:8px;}
-		#hotel-details h1 {font-size:16px; font-weight:bold; margin-bottom:4px;}
+		#hotel-details h1 {font-size:18px; font-weight:bold; margin-bottom:8px;}
 
 		#hotel-details #address {font-size:12px;}
+		#hotel-details #phonenumber {color:blue; font-size:12px; margin-top:4px}
+
+		#photos {overflow:hidden;}
+		#photos img {width: 100%}
+		#map {overflow:hidden; height:150px;}
+		#map img {}
 		
 	</style>
 
@@ -253,22 +343,30 @@
 			<div id="header-wrapper" style="background-color:#d41200; height:30px"></div>
 			<div id="hotel-details">
 				<h1></h1>
-				<span id="address"></span>
+				<div id="address"></div>
+				<div id="phonenumber">0203 564 4408‎</divn>
 			</div>
-			<div id="pricing">
-				Best price and book button
+			
+			<div id="price"></div>
+			<div id="priceInfo"></div>
+			<div id="priceSummary"></div>
+
+			<div style="overflow:hidden; margin:16px 0;">
+				<div style="width:50%; float:left;">Best price guarantee</div>
+				<div style="float:right; text-align:right;"><button>Book now</button></div>
 			</div>
+			
 			<div id="photos">
-				photos
+				
 			</div>
 			<div id="hotel-description">
 				description
 			</div>
 			<div id="map">
-				map
+				
 			</div>
 			<div id="guest-reviews">
-				guest reviews
+				
 			</div>
 			<div id="rewards">
 				HCOM rewards

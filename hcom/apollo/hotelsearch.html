@@ -21,7 +21,8 @@
 		<script src="hcom-services.js"></script>
 
 		<script type="text/javascript">
-		var destination = "London, United Kingdom";
+		var destination = getParameterByName("destination")
+		//var destination = "London";
 
 		var displayList = function(data){
 			console.log(data);
