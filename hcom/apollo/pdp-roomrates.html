@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="base.css">
 
 		<style type="text/css">
-			body {background-color: #e5e3db; margin:0; padding:0;}
+			body {background-color: #f5f4f0; margin:0; padding:0;}
 			a {text-decoration: none;}
 			.room {background-color:#fff; border-radius:4px; margin-bottom:8px;}
 			.room .room-detail .thumbnail {border:solid 4px #fff; border-top-left-radius:4px; border-top-right-radius:4px;}
@@ -302,7 +302,7 @@
 			$(function(){
 
 				var hotelId = getParameterByName("hotelId") //"215012"
-				fetchHotelDetails(hotelId, displayDetails);
+				//fetchHotelDetails(hotelId, displayDetails);
 
 				$("#rooms-wrapper").on("click", ".showmore", function(e){
 					e.preventDefault();
@@ -315,7 +315,7 @@
 				});
 
 
-				//$("#header-wrapper").load("components/header.html");
+				$("#header-wrapper").load("http://craigmelbourne.github.io/hcom/apollo/components/header.html");
 			});
 
 		</script>
@@ -325,8 +325,10 @@
 	<body>
 
 	<style type="text/css">
-		#pricing, , #hotel-description, #map, #guest-reviews, #rewards {padding:8px; border-bottom:dotted 1px #ddd;}
-		#hotel-details  {padding:8px;}
+		
+        #search-details {font-size:12px; padding:8px; background-color: #e5e3db;}
+        #search-details a {background-color:#000; color:#fff; display:inline-block; padding:8px; margin-top:8px; border-radius:4px;}
+        #hotel-details  {padding:8px;}
 		#hotel-details h1 {font-size:18px; font-weight:bold; margin-bottom:8px;}
 
 		#hotel-details #address {font-size:12px;}
@@ -338,40 +340,127 @@
 		#map img {}
 		
 	</style>
-
-		<div id="page-wrapper" style="width:320px; margin:0px auto; padding:0 16px;">
-			<div id="header-wrapper" style="background-color:#d41200; height:30px"></div>
+        <div id="header-wrapper"></div>
+		<div id="page-wrapper" style="max-width:360px; margin:0px auto; padding:0">
+            <div id="search-details">
+                <div class="dates">01/08/2015 - 02/08/2015 1 room, 1 adult, 1 child</div>
+                <a class="change-search">Change search</a>
+            </div>
+			
 			<div id="hotel-details">
 				<h1></h1>
 				<div id="address"></div>
-				<div id="phonenumber">0203 564 4408‎</divn>
+				<div id="phonenumber">0203 564 4408‎</div>
 			</div>
 			
 			<div id="price"></div>
 			<div id="priceInfo"></div>
 			<div id="priceSummary"></div>
 
-			<div style="overflow:hidden; margin:16px 0;">
-				<div style="width:50%; float:left;">Best price guarantee</div>
+            <style type="text/css">
+                button {  background: linear-gradient(to bottom,#95cffe 0%,#30a0fd 40%,#2989d7 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#FF95CFFE',EndColorStr='#FF2989D7')";
+  zoom: 1;
+  background-position: 50%;
+  border: 1px solid #bbe9ff;
+  border-bottom-color: #30a0fd;
+  border-left-color: #95cffe;
+  border-right-color: #95cffe;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px #30a0fd,1px 1px 0.5px 1px rgba(60,163,227,0.3);
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.5;
+  margin: 0 2px 4px;
+  overflow: hidden;
+  padding: 2px 10px;
+  position: relative;
+  vertical-align: middle;
+  width: auto;}
+            </style>
+
+			<div style="overflow:hidden; margin:16px 8px;">
+				<div style="width:50%; float:left; font-size:14px; color:#003789; font-weight:bold; padding-top:4px">Best price guarantee</div>
 				<div style="float:right; text-align:right;"><button>Book now</button></div>
 			</div>
 			
+
+             <style type="text/css">
+                #photos {background-color:#000; height:200px;}
+                
+            </style>
 			<div id="photos">
 				
 			</div>
+
+            <style type="text/css">
+                #hotel-description {padding:8px; margin:8px;  border-bottom:solid 1px #ccc;}
+                #hotel-description a {display:block; padding:4px 0; text-align: center; font-size:13px;}
+            </style>
 			<div id="hotel-description">
-				description
+				<a href="#">See more</a>
 			</div>
+
+            <style type="text/css">
+                #map {padding:8px; margin:8px; border-radius: 4px; border:solid 1px #ccc;}
+            </style>
 			<div id="map">
 				
 			</div>
+
+            <style type="text/css">
+                #guest-reviews {padding:8px; margin:8px; background-color:#fff; border-radius: 4px; border:solid 1px #ccc;}
+            </style>
 			<div id="guest-reviews">
 				
 			</div>
+
+            <style type="text/css">
+                ul.tools li {display:inline-block; margin-right:8px; color:#026dc5; font-size:14px; font-weight:bold;}
+            </style>
+            <div style="padding:8px;">
+                <ul class="tools">
+                    <li>Price Watch</li>
+                    <li>Email</li>
+                    <li>Share</li>
+                    <li>Save</li>
+                </ul>
+            </div>
+
+            <style type="text/css">
+                #rewards {border-top:solid 1px #ccc; border-bottom:solid 1px #ccc; padding:8px; font-size:14px; margin-top:8px;}
+                #rewards > div.brand {margin-bottom:8px; color:#906; font-weight:bold;}
+                #rewards > div.nights {margin-bottom:8px; color:#906; }
+                #rewards > div.remember { font-size:13px;}
+            </style>
 			<div id="rewards">
-				HCOM rewards
+				<div class="brand">Hotels.com&#8482; Rewards</div>
+                <div class="nights">You'll collect 1 night with this stay</div>
+                <div class="remember">Remember collect 10 nights, get 1 free</div>
 			</div>
 			
+            <style type="text/css">
+                #search-details-2 {font-size:12px; padding:8px; background-color: #fff; margin-top:16px;}
+                #search-details-2 a {  display:inline-block;  margin-top:8px; }
+            </style>
+            <div id="search-details-2">
+                <div class="dates">01/08/2015 - 02/08/2015 1 room, 1 adult, 1 child</div>
+                <a class="change-search">Change search</a>
+            </div>
+
+            <style type="text/css">
+                .book-now {background-color: #DAE9CC; margin-bottom: 200px; padding:16px 8px; margin-top:16px; font-size:14px;}
+                .book-now > div {font-weight:bold; margin-left:40px;}
+                .book-now > p {margin-top:8px; margin-left:40px;}
+            </style>
+
+            <div class="book-now">
+                <div >Book now to get this fantastic price.</div>
+                <p>If you book later, there’s a chance the price will go up or the hotel will be sold out.</p>
+            </div>
 
 			<div id="rooms-wrapper" >
 			</div>

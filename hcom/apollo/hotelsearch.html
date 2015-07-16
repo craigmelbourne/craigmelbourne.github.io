@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="base.css">
 
 		<style type="text/css">
-		body{margin:20px;}
+		body{margin:0}
 		a {text-decoration:none;}
 		</style>
 
@@ -40,9 +40,9 @@
 
 			// run things on page load
 			$(function(){
-      			//$("#header-wrapper").load("components/header.html"); 
+      			$("#header-wrapper").load("http://craigmelbourne.github.io/hcom/apollo/components/header.html");
 
-      			fetchHotelList(destination, displayList); 
+      			//fetchHotelList(destination, displayList); 
 			});
 
 		</script>
@@ -52,9 +52,20 @@
 	<body>
 
 		<div id="header-wrapper"></div>
+		<style type="text/css">
+			#search-details {font-size:12px; padding:8px; background-color: #e5e3db;}
+       		 #search-details a {background-color:#000; color:#fff; display:inline-block; padding:8px; margin-top:8px; border-radius:4px;}
+       	</style>
+       	
+		<div id="page-wrapper" style="max-width:360px; margin:0px auto; padding:0">
+            <div id="search-details">
+                <div class="dates">01/08/2015 - 02/08/2015 1 room, 1 adult, 1 child</div>
+                <a class="change-search">Change search</a>
+            </div>
 
-		<div id="hotelList">
+			<div id="hotelList">
 			
+			</div>
 		</div>
 		
 	</body>
