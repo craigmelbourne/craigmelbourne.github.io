@@ -11,8 +11,8 @@
 		<link rel="stylesheet" type="text/css" href="base.css">
 
 		<style type="text/css">
-			body {background-color: #f5f4f0; margin:0; padding:0;}
-			a {text-decoration: none;}
+			body {background-color: #f5f4f0; margin:0; padding:0; color:#555;}
+			a {text-decoration: none; color:#026dc5;}
 			.room {background-color:#fff; border-radius:4px; margin-bottom:8px;}
 			.room .room-detail .thumbnail {border:solid 4px #fff; border-top-left-radius:4px; border-top-right-radius:4px;}
 			.room .room-detail .thumbnail img {width:100%; border-top-left-radius:4px; border-top-right-radius:4px;}
@@ -35,6 +35,29 @@
 #rooms-rates {display:none;}
 #show-room-rates {background-color:#2989d7; color:#fff; padding:8px 16px; margin-top:16px; text-align: right;}
 #show-room-rates:hover {cursor: pointer;}
+
+ button {  background: linear-gradient(to bottom,#95cffe 0%,#30a0fd 40%,#2989d7 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#FF95CFFE',EndColorStr='#FF2989D7')";
+  zoom: 1;
+  background-position: 50%;
+  border: 1px solid #bbe9ff;
+  border-bottom-color: #30a0fd;
+  border-left-color: #95cffe;
+  border-right-color: #95cffe;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px #30a0fd,1px 1px 0.5px 1px rgba(60,163,227,0.3);
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.5;
+  margin: 0 2px 4px;
+  overflow: hidden;
+  padding: 2px 10px;
+  position: relative;
+  vertical-align: middle;
+  width: auto;}
 
 		</style>
 
@@ -66,10 +89,9 @@
 			$("h1").text(hotelSummary.hotelName);
 			$("#address").text(hotelSummary.address1 + ", " + hotelSummary.postalCode + ", " + hotelSummary.locality); 
 
-			$("#guest-reviews").append(
-				'<div class="score">' + hotelSummary.qualitativeBadgeText + " " + Math.round(hotelSummary.guestRatingValue * 10) / 10 + '</div>'
-				+ '<div><a href="#">See all ' + hotelSummary.reviewsTotalCount + ' Hotels.com reviews</a></div>'
-			);
+			$("#hotel-description").prepend("<div>" + data.result.description.overview + "</div>")
+
+			
 
 			
 
@@ -83,6 +105,11 @@
 			$("#photos").append('<img src="' + photos[0].url + '" />');
 
 			$("#map").append('<img src="' + staticMapUrl + '" />');
+
+			$("#guest-reviews").prepend(
+				'<div class="score">' + hotelSummary.qualitativeBadgeText + " " + Math.round(hotelSummary.guestRatingValue * 10) / 10 + '<span style="font-size:14px"> / 5</span></div>'
+				+ '<div class="review-count"><a href="#">See all ' + hotelSummary.reviewsTotalCount + ' Hotels.com reviews</a></div>'
+			);
 
 			// rooms	
 
@@ -302,7 +329,7 @@
 			$(function(){
 
 				var hotelId = getParameterByName("hotelId") //"215012"
-				//fetchHotelDetails(hotelId, displayDetails);
+				fetchHotelDetails(hotelId, displayDetails);
 
 				$("#rooms-wrapper").on("click", ".showmore", function(e){
 					e.preventDefault();
@@ -313,6 +340,11 @@
 					$(this).siblings("#rooms-rates").toggle();
 					//alert("clicked")
 				});
+
+				$("#hotel-description a").on("click", function(e){
+					e.preventDefault();
+					$("#hotel-description > div").toggleClass("open");
+				})
 
 
 				$("#header-wrapper").load("http://craigmelbourne.github.io/hcom/apollo/components/header.html");
@@ -328,8 +360,8 @@
 		
         #search-details {font-size:12px; padding:8px; background-color: #e5e3db;}
         #search-details a {background-color:#000; color:#fff; display:inline-block; padding:8px; margin-top:8px; border-radius:4px;}
-        #hotel-details  {padding:8px;}
-		#hotel-details h1 {font-size:18px; font-weight:bold; margin-bottom:8px;}
+        #hotel-details  {padding:16px 8px 8px 48px; background:url("i/wr_moon.png") no-repeat; background-size:30px; background-position:8px 14px;}
+		#hotel-details h1 {font-size:16px; font-weight:bold; margin-bottom:4px;}
 
 		#hotel-details #address {font-size:12px;}
 		#hotel-details #phonenumber {color:blue; font-size:12px; margin-top:4px}
@@ -338,6 +370,10 @@
 		#photos img {width: 100%}
 		#map {overflow:hidden; height:150px;}
 		#map img {}
+
+		#price {font-size:24px; font-weight:bold; padding:0 8px; color:#d41200;}
+		#priceInfo {padding:0 8px; font-size:14px; margin-top:4px;}
+		#priceSummary {padding:0 8px; font-size:14px; margin-top:4px;}
 		
 	</style>
         <div id="header-wrapper"></div>
@@ -358,28 +394,7 @@
 			<div id="priceSummary"></div>
 
             <style type="text/css">
-                button {  background: linear-gradient(to bottom,#95cffe 0%,#30a0fd 40%,#2989d7 100%);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#FF95CFFE',EndColorStr='#FF2989D7')";
-  zoom: 1;
-  background-position: 50%;
-  border: 1px solid #bbe9ff;
-  border-bottom-color: #30a0fd;
-  border-left-color: #95cffe;
-  border-right-color: #95cffe;
-  border-radius: 3px;
-  box-shadow: 0 0 0 1px #30a0fd,1px 1px 0.5px 1px rgba(60,163,227,0.3);
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 1.5;
-  margin: 0 2px 4px;
-  overflow: hidden;
-  padding: 2px 10px;
-  position: relative;
-  vertical-align: middle;
-  width: auto;}
+               
             </style>
 
 			<div style="overflow:hidden; margin:16px 8px;">
@@ -397,36 +412,46 @@
 			</div>
 
             <style type="text/css">
-                #hotel-description {padding:8px; margin:8px;  border-bottom:solid 1px #ccc;}
-                #hotel-description a {display:block; padding:4px 0; text-align: center; font-size:13px;}
+                #hotel-description {padding:8px; margin:8px;  border-bottom:solid 1px #ccc; }
+
+                #hotel-description > div {font-size:13px; line-height: 16px; height:120px; overflow:hidden;}
+                #hotel-description > div.open {height:auto;}
+                #hotel-description > div p {margin-bottom:8px;}
+                #hotel-description > div b {font-weight: bold;}
+                #hotel-description a {display:block; padding:8px 0 0px; text-align: center; font-size:13px;}
             </style>
 			<div id="hotel-description">
 				<a href="#">See more</a>
 			</div>
 
             <style type="text/css">
-                #map {padding:8px; margin:8px; border-radius: 4px; border:solid 1px #ccc;}
+                #map {margin:8px; border-radius: 4px; border:solid 1px #ccc;}
             </style>
 			<div id="map">
 				
 			</div>
 
             <style type="text/css">
-                #guest-reviews {padding:8px; margin:8px; background-color:#fff; border-radius: 4px; border:solid 1px #ccc;}
+                #guest-reviews {padding:16px; margin:8px; background-color:#fff; border-radius: 4px; border:solid 1px #ccc;}
+                .score {font-size:22px; font-weight: bold; margin-bottom:8px;}
+                .review-count {font-size: 13px}
             </style>
 			<div id="guest-reviews">
-				
+				<div style="margin-top:16px;">
+					<img src="i/tripadvisor_score.png" style="height:30px"/>
+					<div style="display:inline-block; vertical-align: top;"><div style="font-size:12px; padding-top:2px; margin-bottom:4px">From 1,068 reviews</div><div style="font-size:11px; color:#999">TripAdvisor Traveller Rating</div></div>
+				</div>
 			</div>
 
             <style type="text/css">
-                ul.tools li {display:inline-block; margin-right:8px; color:#026dc5; font-size:14px; font-weight:bold;}
+                ul.tools li {display:inline-block;  margin-right:8px; color:#026dc5; font-size:14px; font-weight:bold;}
             </style>
             <div style="padding:8px;">
                 <ul class="tools">
                     <li>Price Watch</li>
-                    <li>Email</li>
-                    <li>Share</li>
-                    <li>Save</li>
+                    <li>&#8226; &nbsp; Email</li>
+                    <li>&#8226; &nbsp; Share</li>
+                    <li>&#8226; &nbsp; Save</li>
                 </ul>
             </div>
 
@@ -452,9 +477,9 @@
             </div>
 
             <style type="text/css">
-                .book-now {background-color: #DAE9CC; margin-bottom: 200px; padding:16px 8px; margin-top:16px; font-size:14px;}
-                .book-now > div {font-weight:bold; margin-left:40px;}
-                .book-now > p {margin-top:8px; margin-left:40px;}
+                .book-now {background-color: #DAE9CC; padding:16px 8px; margin:16px 0; font-size:14px; background: url('i/icon_lock.png') no-repeat #DAE9CC; background-size: 35px; background-position: 10px}
+                .book-now > div {font-weight:bold; margin-left:50px;}
+                .book-now > p {margin-top:8px; margin-left:50px;}
             </style>
 
             <div class="book-now">
