@@ -329,7 +329,12 @@
 			$(function(){
 
 				var hotelId = getParameterByName("hotelId") //"215012"
-				fetchHotelDetails(hotelId, displayDetails);
+				//fetchHotelDetails(hotelId, displayDetails);
+
+				$.getJSON( "pdp.json", function( data ) {
+					console.log(data)
+					displayDetails(data)
+				});
 
 				$("#rooms-wrapper").on("click", ".showmore", function(e){
 					e.preventDefault();

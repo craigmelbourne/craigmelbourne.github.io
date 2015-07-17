@@ -21,11 +21,11 @@
 		<script src="hcom-services.js"></script>
 
 		<script type="text/javascript">
-		var destination = getParameterByName("destination")
+		
 		//var destination = "London";
 
 		var displayList = function(data){
-			console.log(data);
+			
 			var hotels = data.result.hotels;
 
 			$.each(hotels, function(i, hotel) {
@@ -41,8 +41,19 @@
 			// run things on page load
 			$(function(){
       			$("#header-wrapper").load("http://craigmelbourne.github.io/hcom/apollo/components/header.html");
+      			var destination = "London, United Kingdom"
 
-      			//fetchHotelList(destination, displayList); 
+      			if (getParameterByName("destination")){
+      				destination = getParameterByName("destination");
+      			} 
+
+      			//fetchHotelList(destination, displayList);
+
+      			$.getJSON( "srp.json", function( data ) {
+					console.log(data)
+					displayList(data)
+				});
+      			
 			});
 
 		</script>
