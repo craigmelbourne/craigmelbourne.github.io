@@ -137,7 +137,7 @@
 
 			// run things on page load
 			$(function(){
-      			$("#header-wrapper").load("http://craigmelbourne.github.io/hcom/apollo/components/header.html");
+      			$("#header-wrapper").load("components/header.html");
       			var destination = "London, United Kingdom"
 
       			if (getParameterByName("destination")){
@@ -146,22 +146,7 @@
 
       			$("#search-details .destination").text(destination)
 
-      			$("#tools #filters").on("click", function(){
-      				$("#modal-not-available").show().find("#message").text("Filters are not available on this prototype")
-      			}); 
-
-      			$("#tools #map").on("click", function(){
-      				$("#modal-not-available").show().find("#message").text("Map tool is not available on this prototype")
-      			});
-
-      			$("#tools select").on("click", function(e){
-      				e.preventDefault();
-      				$("#modal-not-available").show().find("#message").text("Sort tool is not available on this prototype")
-      			});
-
-      			$("#modal-not-available a").on("click", function(){
-      				$("#modal-not-available").hide();
-      			})
+      			
       			//fetchHotelList(destination, displayList);
 
       			$.getJSON( "srp.json", function( data ) { 
@@ -209,7 +194,23 @@
   				});
 
 
-				
+				// modal functiona not available states
+				$("#tools #filters").on("click", function(){
+      				$("#modal-not-available").show().find("#message").text("Filters are not available on this prototype")
+      			}); 
+
+      			$("#tools #map").on("click", function(){
+      				$("#modal-not-available").show().find("#message").text("Map tool is not available on this prototype")
+      			});
+
+      			$("#tools select").on("click", function(e){
+      				e.preventDefault();
+      				$("#modal-not-available").show().find("#message").text("Sort tool is not available on this prototype")
+      			});
+
+      			$("#modal-not-available a").on("click", function(){
+      				$("#modal-not-available").hide();
+      			})
 
 				
       			
