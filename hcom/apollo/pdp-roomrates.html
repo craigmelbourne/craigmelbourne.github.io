@@ -312,7 +312,7 @@
     			var roomAmenity;
 
     			//console.log(roomAmenities.length)
-
+    
     			
 
     			roomDescription = '<div class="room-description">';
@@ -321,6 +321,7 @@
                 }
                 //roomDescription += obj[0].roomTypeQualifier
                 roomDescription += roomDescriptionFake[i].description;
+                roomDescription += '<h3 style="font-size:14px; font-weight:bold; margin:8px 0">All features of this room</h3>';
     			roomDescription += roomAmenitiesHTML;
 
                 if (i < reviewTips.length){
