@@ -37,8 +37,10 @@
 
             .more-amenities {display:inline-block; margin-top:8px; font-weight:bold; font-size:13px;}
 
-			
-			.price {font-size:18px; color:#d41200; text-align: right}
+			.price {text-align: right}
+            .price .strikethrough {font-size: 14px; text-decoration: line-through;}
+			.price .total-price {font-size:18px; font-weight:bold; }
+            .price .red {color:#d41200;}
 
 			.cancellation {font-size:13px; margin-bottom:8px;}
 			.free {color:#458f00;}
@@ -334,10 +336,10 @@
     			// price
     			var fromPrice = "not set"; 
 
-    			if (!obj[0].roomPrice.priceModule.priceNormal){
+    			if (!obj[0].roomPrice.priceModule.pricePromo){
     				fromPrice = obj[0].roomPrice.priceModule.priceOrig;
     			} else {
-    				fromPrice = obj[0].roomPrice.priceModule.priceNormal;
+    				fromPrice = obj[0].roomPrice.priceModule.pricePromo;
     			}
 
     			
@@ -377,6 +379,10 @@
                                     wifiHTML = '<div class="highlight">Free WiFi on some room rates</div>';
     							}
     							break;
+
+                            
+
+
     						case "FREE_CANCELLATION":
     							
     							if (rate.highlights[i].enabled){
@@ -403,6 +409,14 @@
                                     breakfastHTML = '<div class="highlight">Free Breakfast on some rates</div>';
     							} 
     							break;
+
+                            case "1073742786": 
+                                if (rate.highlights[i].enabled){
+                                    rateHighlights +=  "<li>" + rate.highlights[i].description + "</li>" ;
+                                    breakfastHTML = '<div class="highlight">Free Breakfast on some rates</div>';
+                                } 
+                                break;
+
     						case "PAY_AT_HOTEL":
     							
     							if (rate.highlights[i].enabled){
@@ -424,9 +438,9 @@
     				var ratePrice = "";
 
     				if (!rate.roomPrice.priceModule.priceNormal){
-    					ratePrice = rate.roomPrice.priceModule.priceOrig;
+    					ratePrice = '<div class="strikethrough">' + rate.roomPrice.priceModule.priceOrig + '</div><div class="total-price red">' + rate.roomPrice.priceModule.pricePromo + '</div>';
     				} else {
-    					ratePrice = rate.roomPrice.priceModule.priceNormal;
+    					ratePrice = '<div class="total-price">' + rate.roomPrice.priceModule.priceNormal + '</div>';
     				}
 
     				//console.log(rateHighlights);
@@ -477,12 +491,13 @@
 			$(function(){
 
 				var hotelId = getParameterByName("hotelId") //"215012"
-				//fetchHotelDetails(hotelId, displayDetails);
+                console.log(hotelId)
+				fetchHotelDetails(hotelId, displayDetails);
 
-				$.getJSON( "pdp.json", function( data ) {
+				/*$.getJSON( "pdp.json", function( data ) {
 					console.log(data)
 					displayDetails(data)
-				});
+				});*/
 
 				$("#rooms-wrapper").on("click", ".showmore", function(e){
 					e.preventDefault();

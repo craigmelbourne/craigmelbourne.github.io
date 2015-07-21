@@ -7,7 +7,14 @@ var fetchHotelList = function (destination, cb){
 	$.ajax({
   		dataType: "json",
   		url: url,
-  		success: cb
+  		success: cb,
+      /*success: function (response) {
+        console.log(response)
+      }, */
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
 	});
 
 }
@@ -16,11 +23,16 @@ var fetchHotelDetails = function (id, cb){
 	var url = buildHotelDetailsUrl(id);
   //var url = "http://localhost:8899/device/hotelDetails.html?hotelId=" + id + "&na=os%3DFacebook%7Ccv%3D1171%7Csv%3D2%7Cid%3DCFUUID9BC82AC4A123485586F5F6AFEF2084E0"
 	console.log("fetch hotel details");
+  console.log(id);
 
 	$.ajax({
   		dataType: "json",
   		url: url,
-  		success: cb
+  		success: cb,
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
 	});
 }
 

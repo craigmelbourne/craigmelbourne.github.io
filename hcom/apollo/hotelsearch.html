@@ -91,7 +91,7 @@
       							<img src="{{imageUrl}}" />
       						</div>
       						<div class="hotels-details">
-        			 			<a href="#{{hotelId}}" class="name">{{hotelName}}</a>
+        			 			<a href="pdp-roomrates.html?hotelId={{hotelId}}" class="name">{{hotelName}}</a>
         			 			<img src="i/stars_srp_{{hotelStars}}.png" /> 
         			 			<span class="neighbourhood">{{neighbourhood}}</span>
         			 			<div class="guest">{{qualitativeBadgeText}} {{guestReviewRating}} / 5</div>
@@ -119,26 +119,21 @@
 		
 		var hotelListData;
 
-		//var destination = "London";
+		var destination = "London";
 
-		var displayList = function(data){
-			
-			var hotels = data.result.hotels;
 
-			$.each(hotels, function(i, hotel) {
-				
-				$("#hotelList").append(
-					'<div style="padding:8px 0"><a href="pdp-roomrates.html?hotelId='+hotel.hotelId + '">' + hotel.hotelName + '</a></div>'
-				)
-				
-			});
-			
-		}
+		var buildListTemplate = function(data) {
+      				hotelListData = data.result;
+      				console.log(hotelListData)
+      				var source = $("#hotelListTemplate").html();
+					var template = Handlebars.compile(source);
+					$("#hotelList").html(template(hotelListData));
+      	}
 
 			// run things on page load
 			$(function(){
       			$("#header-wrapper").load("components/header.html");
-      			var destination = "London, United Kingdom"
+      			var destination = "London"
 
       			if (getParameterByName("destination")){
       				destination = getParameterByName("destination");
@@ -147,19 +142,15 @@
       			$("#search-details .destination").text(destination)
 
       			
-      			//fetchHotelList(destination, displayList);
+      			fetchHotelList(destination, buildListTemplate);
 
-      			$.getJSON( "srp.json", function( data ) { 
-					hotelListData = data.result;
-					console.log(hotelListData.hotels)
-					buildListTemplate(hotelListData);
-				});
+      			//$.getJSON( "srp.json", function( data ) { 
+					//hotelListData = data.result;
+					//console.log(hotelListData.hotels)
+					//buildListTemplate(hotelListData);
+				//});
 
-      			var buildListTemplate = function(data) {
-      				var source = $("#hotelListTemplate").html();
-					var template = Handlebars.compile(source);
-					$("#hotelList").html(template(data));
-      			}
+
 
       			Handlebars.registerHelper('neighbourhood', function() {
   						var neighbourhood = this.location.split("/")
