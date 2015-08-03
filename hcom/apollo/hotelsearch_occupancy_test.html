@@ -94,7 +94,7 @@
       							<img src="{{imageUrl}}" />
       						</div>
       						<div class="hotels-details">
-        			 			<a href="pdp-roomrates.html?hotelId={{hotelId}}" class="name">{{hotelName}}</a>
+        			 			<a href="pdp-roomrates-occupancy.html?{{pdpLinkQueryString}}" class="name">{{hotelName}}</a>
         			 			<img src="i/stars_srp_{{hotelStars}}.png" /> 
         			 			<span class="neighbourhood">{{neighbourhood}}</span>
         			 			<div class="guest">{{qualitativeBadgeText}} {{guestReviewRating}} / 5</div>
@@ -121,94 +121,88 @@
 		<script type="text/javascript">
 		
 		var hotelListData;
+    
+    var buildListTemplate = function(data) {
+      hotelListData = data.result;
+      //console.log(hotelListData)
+      var source = $("#hotelListTemplate").html();
+      var template = Handlebars.compile(source);
+      $("#hotelList").html(template(hotelListData));
+    }
 
-		var destination = "London";
+    Handlebars.registerHelper('neighbourhood', function() {
+      var neighbourhood = this.location.split("/")
+      return neighbourhood[0]
+    });
 
+    Handlebars.registerHelper('hotelStars', function() {
+      var stars = Math.floor(this.starRating);
+      return stars;
+    });
 
-		var buildListTemplate = function(data) {
-      				hotelListData = data.result;
-      				console.log(hotelListData)
-      				var source = $("#hotelListTemplate").html();
-					var template = Handlebars.compile(source);
-					$("#hotelList").html(template(hotelListData));
-      	}
+    Handlebars.registerHelper('pdpLinkQueryString', function(){
+      var qStr = "hotelId=" + this.hotelId;
+      qStr += "&numAdults=" + numAdults;
+      qStr += "&numChildren=" + numChildren;
+      return qStr;
+    });
 
-			// run things on page load
-			$(function(){
+    
+    Handlebars.registerHelper('hotelPrice', function() {
+      
+      var result = '<div class="price">';
+      if (this.promoPrice) {
+        if (this.promoPriceDescription != ""){
+          result += '<div class="special-deal"><div class="badge">Special deal</div> <div class="label">' + this.promoPriceDescription + '</div></div>'
+        } else {
+          result += '<div class="great-deal">Great deal</div>'
+        }
+        result += '<span class="strikethrough">' + this.avgPrice + '</span> <span class="total-price red">' + this.promoPrice + '</span>' ;
+      } else {
+        result += '<span class="total-price">' + this.avgPrice + '</span> ';
+      }
+
+      result += ' <span class="avgPriceDescription">' + this.avgPriceDescription + ' including taxes & fees</span></div>'
+
+      return new Handlebars.SafeString(result);
+    });
+
+			
+
+    // run things on page load
+		$(function(){
       			//$("#header-wrapper").load("components/header.html");
-      			var destination = "London"
+      			
 
-      			if (getParameterByName("destination")){
-      				destination = getParameterByName("destination");
-      			} 
-
-      			$("#search-details .destination").text(destination)
+      $("#search-details .destination").text(destination)
 
       			
-      			fetchHotelList(destination, buildListTemplate);
-
-      			//$.getJSON( "srp.json", function( data ) { 
-					//hotelListData = data.result;
-					//console.log(hotelListData.hotels)
-					//buildListTemplate(hotelListData);
-				//});
+      fetchHotelList(destination, buildListTemplate);
+      
 
 
+      // modal functiona not available states
+		  
+      $("#tools #filters").on("click", function(){
+      	$("#modal-not-available").show().find("#message").text("Filters are not available on this prototype")
+      }); 
 
-      			Handlebars.registerHelper('neighbourhood', function() {
-  						var neighbourhood = this.location.split("/")
-  						return neighbourhood[0]
-  				});
+      $("#tools #map").on("click", function(){
+      	$("#modal-not-available").show().find("#message").text("Map tool is not available on this prototype")
+      });
 
-  				Handlebars.registerHelper('hotelStars', function() {
-  						var stars = Math.floor(this.starRating);
-  						return stars;
-  				});
+      $("#tools select").on("click", function(e){
+      	e.preventDefault();
+      	$("#modal-not-available").show().find("#message").text("Sort tool is not available on this prototype")
+      });
 
-  				
-
-  				Handlebars.registerHelper('hotelPrice', function() {
-  						
-  						var result = '<div class="price">';
-
-  						if (this.promoPrice) {
-  							if (this.promoPriceDescription != ""){
-  								result += '<div class="special-deal"><div class="badge">Special deal</div> <div class="label">' + this.promoPriceDescription + '</div></div>'
-  							} else {
-  								result += '<div class="great-deal">Great deal</div>'
-  							}
-  							result += '<span class="strikethrough">' + this.avgPrice + '</span> <span class="total-price red">' + this.promoPrice + '</span>' ;
-  						} else {
-  							result += '<span class="total-price">' + this.avgPrice + '</span> ';
-  						}
-
-  						result += ' <span class="avgPriceDescription">' + this.avgPriceDescription + ' including taxes & fees</span></div>'
-
-  						return new Handlebars.SafeString(result);
-  				});
-
-
-				// modal functiona not available states
-				$("#tools #filters").on("click", function(){
-      				$("#modal-not-available").show().find("#message").text("Filters are not available on this prototype")
-      			}); 
-
-      			$("#tools #map").on("click", function(){
-      				$("#modal-not-available").show().find("#message").text("Map tool is not available on this prototype")
-      			});
-
-      			$("#tools select").on("click", function(e){
-      				e.preventDefault();
-      				$("#modal-not-available").show().find("#message").text("Sort tool is not available on this prototype")
-      			});
-
-      			$("#modal-not-available a").on("click", function(){
-      				$("#modal-not-available").hide();
-      			})
+      $("#modal-not-available a").on("click", function(){
+      	$("#modal-not-available").hide();
+      })
 
 				
       			
-			});
+		});
 
 		</script>
 		
