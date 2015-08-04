@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../hades/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../hades/css/base.css">
+		<style type="text/css">
+			/* Site wide CSS */
+			body {font-size:14px; font-family: arial; color:#555;}
+
+/* Media Queries - HCOM breakpoints */
+		@media only screen and (min-width:0px) {
+			#header {background-color:#ccc; padding:12px; position:relative;}
+			#header h1 {text-align: center;}
+			#header #menu {position:absolute; top:0; left:0; padding:12px;}
+			#header #sign-in {position:absolute; top:0; right:0; padding:12px;}
+			#nav {display:none; background-color:#555; color:#fff; padding:12px;}
+
+		}
+
+		@media only screen and (min-width:600px) {
+		}
+
+		@media only screen and (min-width:750px) {
+			#header .w h1 {text-align: left;}
+			#header #secondary {display:block;}
+		}
+
+		@media only screen and (min-width:850px) {
+		}
+
+		@media only screen and (min-width:960px) {
+		}
+
+		@media only screen and (min-width:1260px) {
+
+			#header .w {max-width:1160px; margin:0 auto;}
+		}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="header">
+			<div>
+				<div id="menu">Menu</div>
+				<h1>Hotels.com</h1>
+				<div id="sign-in">Sign in</div>
+			</div>
+			
+		</div>
+		<div id="nav">
+				secondary
+		</div>
+
+		
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+      			
+			});
+
+		</script>
+	</body>
+</html>
