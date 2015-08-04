@@ -12,13 +12,19 @@
 		<style type="text/css">
 			/* Site wide CSS */
 			body {font-size:14px; font-family: arial; color:#555;}
+			a {text-decoration: none;}
+			.member, .bookings div, .help ul {display:none;}
 
 /* Media Queries - HCOM breakpoints */
 		@media only screen and (min-width:0px) {
 			#header {background-color:#ccc; padding:12px; position:relative;}
 			#header h1 {text-align: center;}
 			#header #menu {position:absolute; top:0; left:0; padding:12px;}
+			#header #menu ul {position:absolute; top:38px; left:4px; display:none;}
+			#header #menu ul li {background-color: #ccc; padding:8px; white-space: nowrap;}
 			#header #sign-in {position:absolute; top:0; right:0; padding:12px;}
+			#header #sign-in ul li {display:inline-block;}
+			#header #sign-in ul li:not(:first-child) {display:none;}
 			#nav {display:none; background-color:#555; color:#fff; padding:12px;}
 
 		}
@@ -27,8 +33,20 @@
 		}
 
 		@media only screen and (min-width:750px) {
-			#header .w h1 {text-align: left;}
-			#header #secondary {display:block;}
+			#header {padding:12px 12px;}
+			#header h1 {text-align: left; font-size:24px;}
+			#header #menu {display:none;}
+			#header #sign-in {padding:12px 12px;}
+			#header #sign-in ul li {padding:0 4px; position:relative;}
+			#header #sign-in ul li:not(:first-child) {display:inline-block;}
+
+			#header #sign-in .help ul {position:absolute; top:24px; left:-8px;}
+			#header #sign-in .help ul li {background-color: #ccc; padding:8px; white-space: nowrap; float:none; display:block;}
+
+			#nav {display:block;}
+			#nav ul {overflow:hidden;}
+			#nav ul li {float:left; padding-right:8px;}
+			#nav ul li.right {float:right;}
 		}
 
 		@media only screen and (min-width:850px) {
@@ -49,14 +67,50 @@
 
 		<div id="header">
 			<div>
-				<div id="menu">Menu</div>
+				<div id="menu">
+					<a href="#">Menu</a>
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Local deals for tonight</a></li>
+						<li><a href="#" class="anon">Sign in</a><a href="#" class="member">John Smith</a></li>
+						<li><a href="#">Your bookings <span class="member">(1)</span></a></li>
+						<li><a href="#">Rewards</a></li>
+						<li><a href="#">Help</a></li>
+					</ul>
+				</div>
 				<h1>Hotels.com</h1>
-				<div id="sign-in">Sign in</div>
+				<div id="sign-in">
+					<ul>
+						<li><a href="#" class="anon">Sign in</a><a href="#" class="member">John Smith</a></li>
+						<li><a href="#">Rewards</a></li>
+						<li class="help">
+							<a href="#">Help</a>
+							<ul>
+								<li><a href="#">Support</a></li>
+								<li><a href="#">Website feedback</a></li>
+								
+							</ul>
+						</li>
+						<li class="bookings">
+							<a href="#">Your bookings <span class="member">(1)</span></a>
+							<div>Show booking details</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 			
 		</div>
 		<div id="nav">
-				secondary
+				<ul>
+					<li>Home</li>
+					<li>Hotel deals</li>
+					<li>Packages and flights</li>
+					<li>Groups</li>
+					<li>Gift cards</li>
+					<li class="right">Phone</li>
+					<li class="right">Website feedback</li>
+					
+				</ul>
 		</div>
 
 		
@@ -70,7 +124,28 @@
 
 			// run things on page load
 			$(function(){
-      			
+      				
+      				$("#menu a").on("click", function(e){
+      					e.preventDefault();
+      					$("#menu ul").toggle();
+      				}); 
+
+      				$("a.anon").on("click", function(e){
+      					e.preventDefault();
+      					$("a.anon").hide();
+      					$(".member").show();
+      				});
+
+      				$("a.member").on("click", function(e){
+      					e.preventDefault();
+      					$("a.anon").show();
+      					$(".member").hide();
+      				});
+
+      				$(".help a").on("click", function(e){
+      					e.preventDefault();
+      					$(".help ul").toggle();
+      				});
 			});
 
 		</script>
