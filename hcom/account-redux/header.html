@@ -62,16 +62,21 @@
 						<li><a href="#">Home</a></li>
 						<li><a href="#">Local deals for tonight</a></li>
 						<li><a href="#" class="anon">Sign in</a><a href="#" class="member">John Smith</a></li>
-						<li><a href="#">Your bookings <span class="member">(1)</span></a></li>
-						<li><a href="#">Rewards</a></li>
+						<li><a href="your-bookings.html">Your bookings <span class="member">(1)</span></a></li>
+						<li><a href="rewards-activity.html">Rewards</a></li>
 						<li><a href="#">Help</a></li>
 					</ul>
 				</div>
 				<div class="logo">Hotels.com</div>
 				<div id="sign-in">
 					<ul>
-						<li><a href="#" class="anon">Sign in</a><a href="#" class="member">John Smith</a></li>
-						<li><a href="#">Rewards</a></li>
+						<li>
+							<a href="rewards-pillar.html" class="anon">Sign in</a>
+							<a href="#" class="member">John Smith</a>
+						</li>
+						<li>
+							<a href="rewards-activity.html">Rewards</a>
+						</li>
 						<li class="help">
 							<a href="#">Help</a>
 							<ul>
@@ -81,7 +86,7 @@
 							</ul>
 						</li>
 						<li class="bookings">
-							<a href="#">Your bookings <span class="member">(1)</span></a>
+							<a href="your-bookings.html">Your bookings <span class="member">(1)</span></a>
 							<div>Show booking details</div>
 						</li>
 					</ul>
@@ -107,12 +112,12 @@
 
       // HEADER EVENTS
       				
-      $("#insert-header").on("click", "#menu a", function(e){
-      	e.preventDefault();
+      				$("#insert-header").on("click", "#menu > a", function(e){
+      					e.preventDefault();
       					$("#menu ul").toggle();
       				}); 
 
-      				$(" #insert-header").on("click", "a.anon", function(e){
+      				/*$(" #insert-header").on("click", "a.anon", function(e){
       					e.preventDefault();
       					$("a.anon").hide();
       					$(".member").show();
@@ -122,16 +127,16 @@
       					e.preventDefault();
       					$("a.anon").show();
       					$(".member").hide();
-      				});
+      				});*/
 
       				$("#insert-header").on("click", ".help a", function(e){
       					e.preventDefault();
       					$(".help ul").toggle();
       				});
 
-      				$("#insert-header").on("click", ".bookings a", function(e){
+      				/*$("#insert-header").on("click", ".bookings a", function(e){
       					e.preventDefault();
       					$(".bookings div").toggle();
-      				});
+      				});*/
 });
 		</script>
