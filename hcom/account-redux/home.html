@@ -43,6 +43,8 @@
 			#header #sign-in .help ul {position:absolute; top:24px; left:-8px;}
 			#header #sign-in .help ul li {background-color: #ccc; padding:8px; white-space: nowrap; float:none; display:block;}
 
+			#header #sign-in .bookings div {position:absolute; top:24px; left:-8px; background-color: #ccc; padding:8px;}
+
 			#nav {display:block;}
 			#nav ul {overflow:hidden;}
 			#nav ul li {float:left; padding-right:8px;}
@@ -145,6 +147,11 @@
       				$(".help a").on("click", function(e){
       					e.preventDefault();
       					$(".help ul").toggle();
+      				});
+
+      				$(".bookings a").on("click", function(e){
+      					e.preventDefault();
+      					$(".bookings div").toggle();
       				});
 			});
 
