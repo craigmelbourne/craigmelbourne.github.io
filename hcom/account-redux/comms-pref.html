@@ -13,9 +13,20 @@
 		<style type="text/css">
 
 			@media only screen and (min-width:0px) {
-				h1 {font-size:24px; padding:8px;}
+				#page {padding:16px;}
+
+				h1 {font-size:24px; margin-bottom:4px;}
 				ul.tools {border-top:solid 1px #ccc;}
 				ul.tools li {padding:8px; border-bottom:solid 1px #ccc;}
+				p.strap {margin-bottom:16px; }
+				p {line-height: 18px; margin-bottom:8px;}
+
+				div.group {border-bottom:solid 1px #ccc; position:relative; padding:16px 0;}
+				div.group h2 {font-size:18px; margin-bottom:8px;}
+
+				.status-green {color:green; display:block; margin-bottom:8px;}
+
+				button.fw {width:100%; color:blue; margin-top:16px;}
 			}
 
 			/* landscape phones & portrait small tablets */
@@ -39,12 +50,49 @@
 
 		<div id="insert-header"></div>
 
-		<h1>Communication preferences</h1>
+		<div id="page">
+			<h1>Communication preferences</h1>
+			<p class="strap">Choose the emails you want to recieve</p>
+
+			<p>Whether you subscribe, unsubscribe or take a short break from our emails, we want you to be happy. Don't worry, you'll always get emails related to your bookings.</p>
+
+			<div class="group">
+				<h2>Hotels.com Rewards</h2>
+				<p>Want updates on your membership activity? Get statements, offers and more.</p>
+				<span class="status-green">Subscribed</span>
+				<button class="fw">Unsubscribe</button>
+			</div>
+
+			<div class="group">
+				<h2>Surveys and Reviews</h2>
+				<p>Your opinions count! Tell us about your booking experience and hotel stays.</p>
+				<span class="status-green">Subscribed</span>
+				<button class="fw">Unsubscribe</button>
+			</div>
+
+			<div class="group">
+				<h2>Deals and Offers</h2>
+				<p>Get discounts, Secret Prices and exclusive offers.</p>
+				<span class="status-green">Subscribed</span>
+				<button class="fw">Unsubscribe</button>
+			</div>
+		</div>
+
+		<div class="social" style="padding:16px; background-color:#eee; margin-bottom:16px">
+			<p>Emails aren't the only way to keep in touch with us.</p>
+			<p>Check out...</p>
+			<div style="padding:0 0 16px; color:#999;">Social network links</div>
+			<p>Download the app<p>
+			<div style="padding:0 0 16px; color:#999;">iOS and Android app links</div>
+		</div>
+		
 		
 		
 
 	
-		<div id="insert-olabs"></div>
+		<div id="insert-olabs">
+
+		</div>
 
 		
 

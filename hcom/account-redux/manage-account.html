@@ -13,9 +13,13 @@
 		<style type="text/css">
 
 			@media only screen and (min-width:0px) {
-				h1 {font-size:24px; padding:8px;}
+				h1 {font-size:24px; padding:16px;}
 				ul.tools {border-top:solid 1px #ccc;}
 				ul.tools li {padding:8px; border-bottom:solid 1px #ccc;}
+				div.group {padding:16px; border-bottom:solid 1px #ccc; position:relative;}
+				div.group h2 {font-size:18px; margin-bottom:8px;}
+				div.group > span {display:block; padding-bottom:4px; margin-left:16px;}
+				div.group a.edit {position:absolute; top:16px; right:16px;}
 			}
 
 			/* landscape phones & portrait small tablets */
@@ -40,6 +44,39 @@
 		<div id="insert-header"></div>
 
 		<h1>Manage Account</h1>
+
+		<div class="group">
+			<h2>Your details</h2>
+			<span>John Smith</span>
+			<span>1 Rodeo Drive, Beverly Hills, CA, 90210</span>
+			<span>123456789</span>
+			<a href="#" class="edit">Edit</a>
+		</div>
+
+		<div class="group">
+			<h2>Email address</h2>
+			<span>johnsmith@gmail.com</span>
+			<a href="#" class="edit">Edit</a>
+		</div>
+
+		<div class="group">
+			<h2>Password</h2>
+			<span>**********</span>
+			<a href="#" class="edit">Edit</a>
+		</div>
+
+		<div class="group">
+			<h2>Site preferences</h2>
+			<span>US Site</span>
+			<span>US Dollar</span>
+			<a href="#" class="edit">Edit</a>
+		</div>
+
+		<div class="group">
+			<h2>Facebook settings</h2>
+			<span>Connected</span>
+			<a href="#" class="edit">Edit</a>
+		</div>
 		
 		
 
