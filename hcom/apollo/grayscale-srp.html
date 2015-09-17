@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>V1</title>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="base.css">
+
+		<style type="text/css">
+		
+	
+		</style>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		
+
+		
+
+	</head>
+
+	<body>
+
+		<div id="header" style="padding:10px 0; text-align:center; border-bottom:solid 1px #ccc">
+      <h1><img src="http://www.swiss.com/CMSContent/web/PublishingImages/logos/logo-swiss-2x.png" style="height:30px" /></h1>
+    </div>
+		<style type="text/css">
+
+
+    /* core elements */
+    body{margin:0; color:#555;}
+    a {color:#026dc5; text-decoration: none;}
+    .cta-primary {background-color:#026dc5; color:#fff;}
+    
+    
+    /* Grayscale 
+    .container-dark {background-color: #fff;}
+    .brand-font {color: #555}
+    .brand-container {background-color: #555}
+    .stars {font-size:12px; color:#555;}
+    */
+
+    /* HCOM RED 
+    #header {background-color: #d41200; color:#fff;}
+    .container-dark {background-color: #e5e3db;}
+    .brand-font {color: #d41200}
+    .brand-container {background-color: #d41200}
+    .stars {font-size:12px; color:#d41200;}
+    */
+
+
+    /* Green */
+    #header {background-color: green; color:#fff;}
+    .container-dark {background-color: #fff;}
+    .brand-font {color: green}
+    .brand-container {background-color: green}
+    .stars {font-size:12px; color:green;}
+
+    
+
+    /* Blue 
+    #header {background-color: blue; color:#fff;}
+    .container-dark {background-color: #fff;}
+    .brand-font {color: blue}
+    .brand-container {background-color: blue}
+    .stars {font-size:12px; color:blue;}
+    */
+
+    /* Swiss 
+     body{margin:0; color:#6f6660;}
+    #header {background-color: #fff; color:#be1902;}
+    .container-dark {background-color: #f5f4f1; border-bottom:solid 1px #e1dfda;}
+    .brand-font {color: #be1902}
+    .brand-container {background-color: #be1902}
+    .cta-tool {background-color:#e1dfda; color:#555;}
+    .stars {font-size:12px; color:#be1902;}
+*/
+
+    
+    
+
+			#page-wrapper {max-width:360px; margin:0px auto;}
+			#search-details { padding:10px;}
+			#search-details .destination {font-size:14px; font-weight: bold; margin-bottom:4px;}
+			#search-details .dates {font-size:12px;  }
+      #search-details a {background-color:#000; color:#fff; display:inline-block; padding:8px; margin-top:8px; border-radius:4px; font-size:12px;}
+      #tools select {font-size: 18px; width:calc(100% - 134px);}
+
+      #tools {padding:10px; border-bottom: solid 1px #eee;}
+      #tools #filters, #tools #map  {display:inline-block; width:60px; padding:8px 0; text-align: center; border-radius: 4px; font-size: 13px}
+			
+			.hotel{padding:12px; border-bottom:solid 1px #eee;}
+			
+			.hotel .thumbnail {height:70px; width:70px; overflow:hidden; border-radius:4px; display:inline-block; vertical-align: top;}
+			.hotel .thumbnail img {  background-size: cover; height: 70px; width: 107px;}
+
+			.hotel .hotels-details {display:inline-block; vertical-align: top; width:calc(100% - 82px); box-sizing:border-box; padding-left:8px;}
+			.hotel .hotels-details .name {font-size:14px; display:block; margin-bottom:4px;}
+			.hotel .hotels-details .neighbourhood {font-size:12px;}
+			.hotel .hotels-details .guest {font-size:12px; font-weight:bold; margin-top:4px;}
+
+			.hotel .price {margin-top:10px;}
+			.hotel .price .special-deal {font-size:12px; margin-bottom: 4px; margin-left:-12px; }
+			.hotel .price .special-deal .badge {display:inline-block;  color:#fff; padding:4px 8px 4px 12px; vertical-align: top; font-weight: bold; border-top-right-radius: 4px; border-bottom-right-radius: 4px;}
+			.hotel .price .special-deal .label {display:inline-block; padding:4px; vertical-align: top; font-weight: bold}
+			.hotel .price .great-deal {margin-bottom:4px; font-size:12px;}
+			.hotel .price .total-price {font-size: 20px; font-weight: bold}
+			.hotel .price .red {}
+			.hotel .price .strikethrough {text-decoration: line-through; font-size:14px;}
+			.hotel .price .avgPriceDescription {font-size:11px; color:#999;}
+
+			#modal-not-available {position:fixed; top:0; left:0; right:0; bottom:0; background-color:#fff; opacity:0.9; text-align: center; padding:100px 20px 20px; display:none;}
+
+			#modal-not-available #message {font-size:20px; font-weight:bold; margin-bottom:40px;}
+			
+       	</style>
+       	
+		<div id="page-wrapper" style="">
+            <div id="search-details" class="container-dark">
+            	<div class="destination"></div>
+                <div class="dates">04/09/2015 - 08/09/2015 1 room, 2 adults</div>
+                <a class="change-search">Change search</a>
+            </div>
+
+            <div id="tools">
+            	<a id="filters" class="cta-tool" href="#">Filters</a>
+            	<a id="map" class="cta-tool" href="#">Map</a>
+            	<select disabled>
+            		<option>Sort by Our favourites</option>
+            		<option>Price</option>
+            	</select>
+            </div>
+
+			<div id="hotelList">
+			</div>
+
+			<script id="hotelListTemplate" type="text/x-handlebars">
+    			
+      				{{#each hotels}}
+      					<div class="hotel">
+      						<div class="thumbnail">
+      							<img src="{{imageUrl}}" />
+      						</div>
+      						<div class="hotels-details">
+        			 			<a href="pdp-roomrates.html?hotelId={{hotelId}}" class="name">{{hotelName}}</a>
+        			 			<div class="stars">&#9733;&#9733;&#9733;&#9733;</div>
+        			 			<span class="neighbourhood">{{neighbourhood}}</span>
+        			 			<div class="guest">{{qualitativeBadgeText}} {{guestReviewRating}} / 5</div>
+        			 		</div>
+        			 		<div>
+        			 			{{hotelPrice}}
+        			 		</div>
+        			 	</div>
+      				{{/each}}
+   				 
+  			</script>
+		</div>
+
+		<div id="modal-not-available">
+			<div id="message"></div>
+			<a href="#" style="display:block; padding:10px; background-color:#026dc5; color:#fff;">Close</a>
+		</div>
+
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="hcom-services.js"></script>
+		<script src="js/handlebars-v3.0.3.js"></script>
+
+		<script type="text/javascript">
+		
+		var hotelListData;
+
+		var destination = "London";
+
+
+		var buildListTemplate = function(data) {
+      				hotelListData = data.result;
+      				console.log(hotelListData)
+      				var source = $("#hotelListTemplate").html();
+					var template = Handlebars.compile(source);
+					$("#hotelList").html(template(hotelListData));
+      	}
+
+			// run things on page load
+			$(function(){
+      			//$("#header-wrapper").load("components/header.html");
+      			var destination = "London"
+
+      			if (getParameterByName("destination")){
+      				destination = getParameterByName("destination");
+      			} 
+
+      			$("#search-details .destination").text(destination)
+
+      			
+      			fetchHotelList(destination, buildListTemplate);
+
+      			//$.getJSON( "srp.json", function( data ) { 
+					//hotelListData = data.result;
+					//console.log(hotelListData.hotels)
+					//buildListTemplate(hotelListData);
+				//});
+
+
+
+      			Handlebars.registerHelper('neighbourhood', function() {
+  						var neighbourhood = this.location.split("/")
+  						return neighbourhood[0]
+  				});
+
+  				Handlebars.registerHelper('hotelStars', function() {
+  						//var stars = Math.floor(this.starRating);
+              var stars = ""
+  						return stars;
+  				});
+
+  				
+
+  				Handlebars.registerHelper('hotelPrice', function() {
+  						
+  						var result = '<div class="price">';
+
+  						if (this.promoPrice) {
+  							if (this.promoPriceDescription != ""){
+  								result += '<div class="special-deal"><div class="badge brand-container">Special deal</div> <div class="label">' + this.promoPriceDescription + '</div></div>'
+  							} else {
+  								result += '<div class="great-deal">Great deal</div>'
+  							}
+  							result += '<span class="strikethrough brand-font">' + this.avgPrice + '</span> <span class="total-price">' + this.promoPrice + '</span>' ;
+  						} else {
+  							result += '<span class="total-price">' + this.avgPrice + '</span> ';
+  						}
+
+  						result += ' <span class="avgPriceDescription">' + this.avgPriceDescription + ' including taxes & fees</span></div>'
+
+  						return new Handlebars.SafeString(result);
+  				});
+
+
+				// modal functiona not available states
+				$("#tools #filters").on("click", function(){
+      				$("#modal-not-available").show().find("#message").text("Filters are not available on this prototype")
+      			}); 
+
+      			$("#tools #map").on("click", function(){
+      				$("#modal-not-available").show().find("#message").text("Map tool is not available on this prototype")
+      			});
+
+      			$("#tools select").on("click", function(e){
+      				e.preventDefault();
+      				$("#modal-not-available").show().find("#message").text("Sort tool is not available on this prototype")
+      			});
+
+      			$("#modal-not-available a").on("click", function(){
+      				$("#modal-not-available").hide();
+      			})
+
+				
+      			
+			});
+
+		</script>
+		
+	</body>
+</html>
