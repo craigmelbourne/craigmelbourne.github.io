@@ -30,7 +30,9 @@
 			.search h2{margin:0; font-size:16px; margin-bottom:4px;}
 			.search span{margin:4px 0; font-size:12px;}
 
-			.hotel {background-color:#fff; position:relative; min-height:100px; padding:8px; margin-bottom:0px; border-bottom: solid 2px #999; box-sizing:border-box;}
+			.hotel-card {border-bottom: solid 2px #e5e3db; box-sizing:border-box; border-radius:4px; background-color:#fff; margin-bottom:8px;}
+
+			.hotel {position:relative; min-height:100px; padding:8px; margin-bottom:0px; }
 			.hotel .thumbnail {top:0px; left:0px; bottom:0px; width:25%; text-align: center; overflow: hidden; position:absolute;}
 			.hotel .thumbnail img { position: relative; left: 100%; margin-left: -200%; height:100%;}
 			.hotel .name {margin-left:25%; padding:0 16px 4px; font-size:14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
@@ -49,6 +51,8 @@
 			.hotel .price .red {color:#D41200; margin:0 0 4px;}
 			.hotel .price .nights {font-size:11px; color:#999; margin:4px 0 0;}
 
+			.hotel-tools {border-top:solid 1px #e5e3db;}
+
 			.more-hotels {text-align:right; padding:0 8px; border-bottom-left-radius:4px; font-size:12px;}
 
 			.tools-hotel {position:absolute; top:0px; right:0px;}
@@ -64,7 +68,7 @@
 			
 			#wrapper {}
 			.search {margin-bottom: 16px}
-			.hotel {padding:8px; margin-bottom:8px;}
+			.hotel {padding:8px;}
 			.hotel .thumbnail {left:16px; top:16px; bottom:16px;  width:25%;}
 			.tools-hotel .remove-hotel {padding: 8px; font-size:12px;}
 		}
@@ -75,6 +79,8 @@
 			#nav {display:block; height:30px;}
 			#wrapper {max-width:900px; margin:0 auto;}
 
+			.hotel-card {margin-bottom:16px;}
+
 			.hotel {padding:16px;}
 			.navigation {width:30%; float:left;}
 			.navigation ul {margin-top:8px;}
@@ -84,7 +90,9 @@
 			.navigation ul li.highlighted {background-color:#e5e3db;}
 			.list {width:70%; float:left;}
 
-
+			.hotel-tools ul {overflow: hidden; padding:8px 16px;}
+			.hotel-tools ul li {float:left; margin-right:16px; font-size:12px;}
+			.hotel-tools ul li:last-child {float:right; margin-right:0; }
 
 		}
 
@@ -104,7 +112,7 @@
 		<h1>Shortlist</h1>
 		
 		<div class="navigation">
-			<h2 style="font-weight:bold; border-bottom:solid 1px #ddd; margin-right:16px; padding-bottom:8px">My trips</h2>
+			<h2 style="font-weight:bold; border-bottom:solid 1px #ddd; margin-right:16px; padding-bottom:8px">My trips/searches</h2>
 
 			<ul>
 				<li class="highlighted">
@@ -118,40 +126,141 @@
 					<div class="people">1 room, 2 adults</div>
 				</li>
 			</ul>
+
+			<div style="padding:16px 16px 16px 0">
+				<select style="width:100%; font-size:16px">
+					<option>Archived trips/searches</option>
+					<option>London, United Kingdon: 23 Aug - 24 Aug 2015</option>
+					<option>List of searches that are out of date</option>
+				</select>
+			</div>
 		</div>
 
 		<div class="list">
-			<div class="search">
+			<div class="search" style="position:relative;">
 				<h2><a href="#">London, England, United Kingdom</a></h2>
 				<span>Wed 30 September - Thu 1 October 2015, 1 night, 1 room, 2 adults</span>
+				<a href="#" style="position:absolute; top:4px; right:0;"><img src="i/icon_share.png" style="width:30px"/></a>
 			</div>
-			<div class="hotel">
-				<div class="thumbnail">
-					<img src="https://exp.cdn-hotels.com/hotels/4000000/3850000/3849200/3849185/3849185_108_l.jpg" />
+			<div class="hotel-card">
+				
+			
+				<div class="hotel">
+					<div class="thumbnail">
+						<img src="https://exp.cdn-hotels.com/hotels/4000000/3850000/3849200/3849185/3849185_108_l.jpg" />
+					</div>
+					<h3 class="name"><a href="#">Corinthia Hotel London</a></h3>
+					<div class="stars">&#9733;&#9733;&#9733;&#9733;<span>&#9733;</span></div>
+					<div class="neighbourhood">West End</div>
+					<div class="qual"><span class="label">Good</span> <span class="number">3.6/5</span> (200 reviews)</div>
+				
+					<div class="price">
+					<!--<div class="badge great">Great rate</div>-->
+						<div class="total"> $859</div>
+						<div class="nights">price for 1 night including taxes and fees</div>
+				
+					</div>
+
+					
 				</div>
-				<h3 class="name"><a href="#">Corinthia Hotel London</a></h3>
+
+
+
+				<div class="hotel-tools">
+
+					<ul>
+						<li>Add a note</li>
+						<li>Share</li>
+						<li>Remove</li>
+
+					</ul>
+				<!--<div class="comment" style="padding:16px; background-color:#eee; ">
+					<input type="text"  style="width:100%; box-sizing:border-box; padding:4px; font-size:12px" placeholder="Add a comment"/>
+				</div>-->
+
+				</div>
+			</div>
+
+
+			<div class="hotel-card">
+				
+			
+				<div class="hotel">
+					<div class="thumbnail">
+					<img src="https://exp.cdn-hotels.com/hotels/1000000/10000/200/179/179_199_l.jpg" />
+				</div>
+				<h3 class="name"><a href="#">The Strand Palace</a></h3>
 				<div class="stars">&#9733;&#9733;&#9733;&#9733;<span>&#9733;</span></div>
 				<div class="neighbourhood">West End</div>
 				<div class="qual"><span class="label">Good</span> <span class="number">3.6/5</span> (200 reviews)</div>
 				
 				<div class="price">
-					<!--<div class="badge great">Great rate</div>-->
-					<div class="total"> $859</div>
+					
+					<div class="total red"><span class="strikethrough">$320</span> $205</div>
 					<div class="nights">price for 1 night including taxes and fees</div>
-				
+					
 				</div>
 
-				<div class="tools-hotel" style="">
-					<div class="remove-hotel" style=""><a href="#" title="Remove this hotel from your list">X</a></div>
+					
 				</div>
 
-				<div></div>
 
 
+				<div class="hotel-tools">
 
+					<ul>
+						<li>Add a note</li>
+						<li>Share</li>
+						<li>Remove</li>
+
+					</ul>
+				<!--<div class="comment" style="padding:16px; background-color:#eee; ">
+					<input type="text"  style="width:100%; box-sizing:border-box; padding:4px; font-size:12px" placeholder="Add a comment"/>
+				</div>-->
+
+				</div>
 			</div>
 
-			<div class="hotel">
+			<div class="hotel-card">
+				
+			
+				<div class="hotel">
+					<div class="thumbnail">
+					<img src="https://exp.cdn-hotels.com/hotels/1000000/30000/22500/22478/22478_77_l.jpg" />
+				</div>
+				<h3 class="name"><a href="#">The Regency Hotel</a></h3>
+				<div class="stars">&#9733;&#9733;&#9733;&#9733;<span>&#9733;</span></div>
+				<div class="neighbourhood">Kensington</div>
+				<div class="qual"><span class="label">Good</span> <span class="number">3.6/5</span> (200 reviews)</div>
+				
+				<div class="price">
+					
+					<div class="total red"><span class="strikethrough">$210</span> $179</div>
+					<div class="nights">price for 1 night including taxes and fees</div>
+					
+				</div>
+
+					
+				</div>
+
+
+
+				<div class="hotel-tools">
+
+					<ul>
+						<li>Add a note</li>
+						<li>Share</li>
+						<li>Remove</li>
+
+					</ul>
+				<!--<div class="comment" style="padding:16px; background-color:#eee; ">
+					<input type="text"  style="width:100%; box-sizing:border-box; padding:4px; font-size:12px" placeholder="Add a comment"/>
+				</div>-->
+
+				</div>
+			</div>
+
+			<!--<div class="hotel">
 				<div class="thumbnail">
 					<img src="https://exp.cdn-hotels.com/hotels/1000000/10000/200/179/179_199_l.jpg" />
 				</div>
@@ -161,7 +270,7 @@
 				<div class="qual"><span class="label">Good</span> <span class="number">3.6/5</span> (200 reviews)</div>
 				
 				<div class="price">
-					<!--<div class="badge great">Great rate</div>-->
+					<div class="badge great">Great rate</div>
 					<div class="total red"><span class="strikethrough">$320</span> $205</div>
 					<div class="nights">price for 1 night including taxes and fees</div>
 					
@@ -185,7 +294,7 @@
 				<div class="qual"><span class="label">Good</span> <span class="number">3.6/5</span> (200 reviews)</div>
 				
 				<div class="price">
-					<!--<div class="badge great">Great rate</div>-->
+					<div class="badge great">Great rate</div>
 					<div class="total red"><span class="strikethrough">$210</span> $179</div>
 					<div class="nights">price for 1 night including taxes and fees</div>
 					
@@ -197,7 +306,7 @@
 
 				
 				
-			</div>
+			</div>-->
 
 			<div class="more-hotels"><a href="#" style="font-size:12px">Find more hotels for your London trip</a></div>
 
