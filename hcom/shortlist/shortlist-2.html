@@ -23,14 +23,14 @@
 
 			#header {background-color:#EE3424; height:40px;}
 			#nav {background-color:#555; display:none;}
-			#wrapper {padding:8px}
-			.list {margin-top:16px; background-color:#e5e3db; border-radius: 4px; padding:16px;}
+			#wrapper {padding:0px}
+			.list {margin-top:16px; background-color:#e5e3db; border-radius: 0; padding:0px;}
 			
-			.search {margin-bottom:0px; display:block;}
+			.search {margin-bottom:0px; display:block; padding:8px;}
 			.search h2{margin:0; font-size:16px; margin-bottom:4px;}
 			.search span{margin:4px 0; font-size:12px;}
 
-			.hotel {background-color:#fff; position:relative; min-height:100px; padding:8px; margin-bottom:0px; border-bottom: solid 2px #999;}
+			.hotel {background-color:#fff; position:relative; min-height:100px; padding:8px; margin-bottom:8px; border-bottom: solid 2px #999;}
 			.hotel .thumbnail {top:0px; left:0px; bottom:0px; width:25%; text-align: center; overflow: hidden; position:absolute;}
 			.hotel .thumbnail img { position: relative; left: 100%; margin-left: -200%; height:100%;}
 			.hotel .name {margin-left:25%; padding:0 8px 4px; font-size:14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
@@ -61,11 +61,16 @@
 
 		@media only screen and (min-width: 600px) {
 			#header {background-color:red; height:50px;}
-			
 			#wrapper {max-width:600px; margin:0 auto;}
-			.search {margin-bottom: 16px}
-			.hotel {padding:8px; margin-bottom:16px;}
-			.hotel .thumbnail {left:0px; top:0; bottom:0;  width:25%;}
+			.search {margin-bottom: 16px; padding:0;}
+			.list {padding:16px;}
+			.hotel {padding:16px; margin-bottom:16px; border-radius: 4px}
+			.hotel .thumbnail {left:16px; top:16px; bottom:16px;  width:25%;}
+			.hotel .name {padding:0 16px 4px;}
+			.hotel .stars {padding:0 16px 4px;}
+			.hotel .neighbourhood {padding:0 16px 4px;}
+			.hotel .qual {padding:0 16px 4px;}
+			.hotel .price {padding:0 16px 4px;}
 			.tools-hotel .remove-hotel {padding: 8px; font-size:12px;}
 		}
 
@@ -75,10 +80,11 @@
 			#nav {display:block; height:30px;}
 			#wrapper {}
 
+
 			
 			.list {}
-
-
+			.hotel {padding:16px;}
+			
 		}
 
 		</style>
@@ -105,6 +111,7 @@
 				<div class="thumbnail">
 					<img src="https://exp.cdn-hotels.com/hotels/4000000/3850000/3849200/3849185/3849185_108_l.jpg" />
 				</div>
+
 				<h3 class="name"><a href="#">Corinthia Hotel London</a></h3>
 				<div class="stars">&#9733;&#9733;&#9733;&#9733;<span>&#9733;</span></div>
 				<div class="neighbourhood">West End</div>
