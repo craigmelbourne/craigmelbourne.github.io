@@ -11,16 +11,17 @@
 		<link rel="stylesheet" type="text/css" href="css/base.css">
 
 		<style type="text/css">
-			h4 {font-weight: bold; margin-top:8px;}
+			body {font-size: 18px; color:#555;}
+			h4 {font-weight: bold; margin-top:16px;}
 			article {padding:20px;}	
 			header {margin-bottom: 24px}
 			header h1 {font-size: 32px; font-weight: bold; line-height: 56px; }
 			section {display:block; margin-bottom:24px;}
 			section h2 {font-size:24px; font-weight: bold; line-height: 36px}
-			section h3 {font-size:20px; font-weight:bold; line-height: 36px}
+			section h3 {font-size:20px; font-weight:bold; margin:24px 0 12px; }
 
 			ul li {line-height: 20px; margin-left:20px; list-style-type: disc;}
-			p {line-height: 20px; margin-bottom: 8px}
+			p {line-height: 24px; margin-bottom: 8px}
 
 			#nav{position:fixed; top:0; bottom:0; left:0; width:200px; background-color:#000;}
 			#content {margin-left:240px;}
@@ -37,18 +38,21 @@
 
 		<article id="content">
 			<header>
-				<h1>Design language</h1>
-				<p class="i">A skeleton structure for design rules that apply across the account section (and the rest of the site eventually). Just a starting point, will fill out and amend as we go. </p>
-				<p>This should probably include html/css snippets for using in prototypes</p>
+				<h1>Design system</h1>
+				
 			</header>
 			
 			<section>
+
+				<h2>Breakpoints</h2>
+				<p>Existing breakpoints with typical viewport ranges. </p>
+				<img src="i/breakpoints.png" />
+
 				<h2>Layout</h2>
 				<p>We use a 12-column grid with percentage based columns and fixed width margins and gutters. This gives the flexibility to create many different layouts and page types.</p>
 
-				<h3>Breakpoints</h3>
-				<p>Existing breakpoints with typical viewport ranges. </p>
-				<img src="i/breakpoints.png" />
+
+				
 
 				<h3>Spacing</h3>
 				<h4>Smaller viewports</h4><p>Default margins and gutters set to 8px, use multipes of 4px if design requires something different.</p>
@@ -60,31 +64,7 @@
 
 			</section>
 
-			<section>
-				<h2>Typography</h2>
-				<ul>
-					<li>Fonts</li>
-					<li>Sizes / leading</li>
-					<li>Lists, paragraphs, links etc...</li>
-				</ul>
-			</section>
-
-			<section>
-				<h2>Colours (and usage)</h2>
-			</section>
-
-			<section>
-				<h2>Cross site elements / components / patterns</h2>
-				<ul>
-					<li>Modal windows</li>
-					<li>Messages (validation / errors / etc...)</li>
-					<li>Buttons</li>
-					<li>Form elements ???</li>
-					<li>Progressive disclosure</li>
-					<li>Transitions</li>
-				</ul>
-				<p>These last two are starting to move away from a visual language and moving into IxD patterns which I'd like to treat separately</p>
-			</section>
+			
 
 			
 
