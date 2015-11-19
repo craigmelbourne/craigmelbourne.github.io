@@ -11,19 +11,20 @@
 		<link rel="stylesheet" type="text/css" href="css/base.css">
 
 		<style type="text/css">
-			body {font-size: 18px; color:#555;}
+			body {font-size: 18px; color:#555; line-height: 24px}
+			strong {font-weight:bold;}
 			h4 {font-weight: bold; margin-top:16px;}
 			article {padding:20px;}	
 			header {margin-bottom: 24px}
 			header h1 {font-size: 32px; font-weight: bold; line-height: 56px; }
-			section {display:block; margin-bottom:24px;}
+			section {display:block; margin-bottom:24px; width:800px;}
 			section h2 {font-size:24px; font-weight: bold; line-height: 36px}
 			section h3 {font-size:20px; font-weight:bold; margin:24px 0 12px; }
 
-			ul li {line-height: 20px; margin-left:20px; list-style-type: disc;}
+			ul li {margin-bottom:8px; margin-left:20px; list-style-type: disc;}
 			p {line-height: 24px; margin-bottom: 8px}
 
-			#nav{position:fixed; top:0; bottom:0; left:0; width:200px; background-color:#000;}
+			#nav{position:fixed; top:0; bottom:0; left:0; width:200px; background-color:#fff;}
 			#content {margin-left:240px;}
 			
 		</style>
@@ -44,23 +45,78 @@
 			
 			<section>
 
-				<h2>Breakpoints</h2>
-				<p>Existing breakpoints with typical viewport ranges. </p>
-				<img src="i/breakpoints.png" />
+				<p style="font-size:20px; font-weight:bold; margin-bottom:16px">The design system should help us efficiently create a cohesive design that can easily adapt to a constantly evolving product. </p>
 
-				<h2>Layout</h2>
-				<p>We use a 12-column grid with percentage based columns and fixed width margins and gutters. This gives the flexibility to create many different layouts and page types.</p>
+				<p>Key benefits from this system should include:</p>
+
+				<ul style="margin-bottom:32px">
+					<li>a more efficient workflow for and between design and UI development</li>
+					<li>a scalable and maintainable design framework for HCOM and affiliates</li>
+					<li>performance gains across breakpoints</li>
+					<li>a more modern (less dated) ‘look and feel’ to the site</li>
+				</ul>
+
+				<p>This document will act as a set of guidelines for the building blocks that make up the features we design. It will not be a set of specificaton rules for each component on ths site</p>
+
+				<div style="margin-bottom:20px;">
+					<div style="display:inline-block"><h3>Think this...</h3></br>
+						<img src="i/rendered-bricks.jpg" style="width:300px"/>
+
+					</div>
+					<div style="display:inline-block; vertical-align:top; margin-left:40px"><h3>... not this</h3>
+						<img src="i/deathstar.jpeg" style="width:300px"/></div>
+				</div>
+
+				<p>This document will cover guidelines on the following</p>
+				<ul style="margin-bottom:32px">
+					<li><a href="#layout">Layout</a></li>
+					<li>Colour</li>
+					<li>Typography</li>
+					<li>Forms</li>
+					<li>Links and Buttons</li>
+					<li>Other global elements and interaction (e.g. show/hide, modal windows)</li>
+				</ul>
+
+
+
+
 
 
 				
 
-				<h3>Spacing</h3>
+				<h2 name="layout">Layout</h2>
+				<h3>Breakpoints</h3>
+				<p>Existing breakpoints with typical viewport ranges. Focus design efforts around these ranges as this is where our customers are. </p>
+				<img src="i/breakpoints.png" />
+
+
+				
+
+				<h3>Page layout</h3>
+				<p>When laying out components on the page use a 12-column grid with percentage based columns and fixed width margins and gutters. This provides flexibility to create many different layouts and page types.</p>
 				<h4>Smaller viewports</h4><p>Default margins and gutters set to 8px, use multipes of 4px if design requires something different.</p>
 				<h4>Medium to Large viewports</h4><p>Default margins and gutters set to 16px, use multipes of 8px if design requires something different.</p>
 
 				<img src="i/spacing.png" />
 
-				</ul>
+				<h3>Grid proportions</h3>
+				Use the grid when laying out components and use proportions that best suit the content and required heirarchy. 
+
+				<h4>Typical grid proportions on HCOM</h4>
+
+				<img src="i/grid-proportions.png" style="margin-top:16px"/>
+
+				<h4>Example layouts</h4>
+				<img src="i/grid-layout.png" style="margin-top:16px"/>
+
+				<h3>Content and element structure</h3>
+				<p>Content and functional elements that sit with in a component <strong>do not need to sit on a grid.</strong></p>
+
+				<p>Use <strong>mutiples of 4px</strong> for padding, margins etc when laying out content and fuctional elements inside components</p>
+				<p>Below is an example of how this might apply to an existing component. Spacing and positioning are used to help create visual relationships between information types. </p>
+				<p><i></i></p>
+				<img src="i/content-spacing.png" />
+
 
 			</section>
 
