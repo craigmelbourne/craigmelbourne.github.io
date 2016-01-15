@@ -24,7 +24,7 @@
 		#search-strip #destination {font-size:24px; font-weight:bold; margin-bottom:8px}
 		#search-strip #dates {}
 
-		#filters-strip { padding:8px 0; background-color:#F5F4F0; border-top:solid 1px #ddd;}
+		#filters-strip { padding:8px 0 16px; background-color:#F5F4F0; border-top:solid 1px #ddd;}
 
 		#wrapper {max-width:1160px; margin:0 auto; box-sizing:border-box; position:relative;}
 		#wrapper #results {margin-right:250px;}
@@ -34,6 +34,8 @@
 		.filter {display:inline-block; vertical-align: top; margin-right:8px;}
 		.filter input {padding:4px; font-size: 14px}
 		.filter .dd {padding:8px; background-color:#fff; font-size: 14px; position:relative; padding-right:28px; border:solid 1px #ccc; border-radius:4px; border-bottom:solid 2px #ccc; background: url("i/dd-arrow.png") no-repeat #fff; background-position:right center;}
+
+		.selected-filter {display:inline-block; margin-left:16px; font-size:14px;}
 
 		
 		
@@ -173,8 +175,18 @@
 			</div>	
 
 		</div>
-		<div id="filters-selected" style="background-color:#CCE0F4; padding:8px 0">
+		<!--<div id="filters-selected" style="background-color:#CCE0F4; padding:8px 0;">
 			<div><span style="font-weight:bold;">123 hotels</span>. Use the filters to narrow your search</div>
+		</div>-->
+
+		<div id="filters-selected" style="background-color:#F5F4F0; padding:8px 0;">
+			<div>
+				<span style="font-size:14px; font-weight:bold;">Selected filters: </span>
+				<div class="selected-filter"><input type="checkbox" checked=""> $150 - $250</div>
+				<div class="selected-filter"><input type="checkbox" checked=""> City center</div>
+				<div class="selected-filter"><input type="checkbox" checked=""> Gym</div>
+				<span class="selected-filter"><a href="#">clear all filters</a></span>
+			</div>
 		</div>
 			
 			
