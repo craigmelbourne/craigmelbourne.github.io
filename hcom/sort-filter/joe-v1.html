@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<style type="text/css">
+		body {font-family:arial; }
+		a {color:#2088DB; text-decoration: none}
+		.arrow-down { display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
+			border-top: 8px solid #2088DB; vertical-align:top; margin-top:4px;}
+		.arrow-down-grey {display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
+			border-top: 8px solid #555; vertical-align:top; margin-top:4px;}
+		.arrow-down-white {display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
+			border-top: 8px solid #fff; vertical-align:top; margin-top:4px;}
+		#head {background-color: #D41200; height:50px; color:#fff; }
+		#head > div, #nav > div, #search-strip > div, #filters-strip > div, #filters-selected > div   {max-width:1160px; margin:0 auto;}
+		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
+		#search-strip {background-color:#eae8e0; padding:16px 0;}
+		#search-strip #destination {font-size:24px; font-weight:bold; margin-bottom:8px}
+		#search-strip #dates {}
+
+		#filters-strip { padding:8px 0; background-color:#F5F4F0; border-top:solid 1px #ddd;}
+
+		#wrapper {max-width:1160px; margin:0 auto; box-sizing:border-box; position:relative;}
+		#wrapper #results {margin-right:250px;}
+		#wrapper #fixed-column {position:absolute; right:0; width:230px;}
+
+		#filters {margin-top:8px;}
+		.filter {display:inline-block; vertical-align: top; margin-right:8px;}
+		.filter input {padding:4px; font-size: 14px}
+		.filter .dd {padding:8px; background-color:#fff; font-size: 14px; position:relative; padding-right:28px; border:solid 1px #ccc; border-radius:4px; border-bottom:solid 2px #ccc; background: url("i/dd-arrow.png") no-repeat #fff; background-position:right center;}
+
+		
+		
+		
+		@media only screen and (min-width:600px) {
+			
+		}
+
+		@media only screen and (min-width:750px) {
+			
+
+		}
+
+		@media only screen and (min-width:850px) {
+			
+		}
+
+		@media only screen and (min-width:960px) {
+			
+		}
+
+		@media only screen and (min-width:1160px) {
+			
+
+		}
+		</style>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				
+
+    			var elementPosition = $('#sort-filter').offset();
+
+				$(window).scroll(function(){
+        			if($(window).scrollTop() > elementPosition.top){
+
+        			
+              			$('#sort-filter').css({
+              				"position": "fixed",
+              				"top": 0,
+              				"bottom" : 0,
+              				"height" : "auto",
+              				"width": 230,
+              				"overflow-y": "scroll"
+              			});
+        			} else {
+            			$('#sort-filter').css({
+              				"position": "absolute",
+              				"top": 0,
+              				"width": 230
+              			});
+        			}    
+				});
+
+				
+			});
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div id="head">
+			<div>
+				Head
+			</div>		
+		</div>
+		<div id="nav">
+			<div>
+				nav
+			</div>
+				
+		</div>
+
+		<div id="search-strip">
+			<div id="destination">San Francisco, California, United States of America</div>
+			<div id="dates">Wed 22 - Thu 23 April 2015, 1 night, 1 room, 2 adults</div>
+			
+		</div>
+		
+		<div id="filters-strip">
+			<div style="position:relative;">
+				
+				<div id="filters" style="margin-right:250px;">
+					<h2 style="font-size:14px; font-weight:bold; margin:0 0 8px 0; padding:0;">Filter results</h2>
+					<div class="filter">
+						<div style="border:inset 1px #ddd; border-radius:4px; background-color:#fff; position:relative">
+						<input type="text" style="border:0; padding:7px; border-radius:4px" placeholder="Hotel name"/>
+						<button style="display:inline-block; vertical-align:top; border:0; background-color:#026dc5; margin:1px; border-top-right-radius:4px; border-bottom-right-radius:4px; padding:8px 8px; font-weight:bold; color:#fff;">></button>
+						</div>
+					</div>
+					<div class="filter">
+						<div class="dd">
+							Price (total)
+						</div>
+					</div>
+					<div class="filter">
+						<div class="dd">
+							Star rating
+						</div>
+					</div>
+					<div class="filter">
+						<div class="dd">
+							Guest rating
+						</div>
+					</div>
+					<div class="filter">
+						<div class="dd">
+							Facilities
+						</div>
+					</div>
+
+					<div class="filter">
+						<div style="font-size:14px; padding:8px">
+							<a href="#">All filters</a>
+						</div>
+					</div>
+				</div>
+
+				<div id="sort" style="position:absolute; right:0; width:234px; top:0;">
+					<h2 style="font-size:14px; font-weight:bold; margin:0 0 8px 0; padding:0;">Sort results</h2>
+					<div class="filter" style="width:234px;">
+						<div class="dd">
+							Sort by: Our favourites
+						</div>
+					</div>
+				</div>
+
+			</div>	
+
+		</div>
+		<div id="filters-selected" style="background-color:#CCE0F4; padding:8px 0">
+			<div><span style="font-weight:bold;">123 hotels</span>. Use the filters to narrow your search</div>
+		</div>
+			
+			
+
+		<div id="wrapper">
+
+
+
+
+				<div id="fixed-column">
+					<div style="background-color:#eee; padding:8px; border-radius: 4px; height:150px;">
+						<h2>Why book with us<h2>
+					</div>
+					
+					
+					
+					
+				</div>
+				
+				
+
+			
+			<div id="results" style="margin-top:16px;">
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				<div style="padding:16px; border:solid 1px #eee; margin-bottom:16px; height:80px">A search result</div>
+				
+			</div>
+
+		</div> 
+
+
+
+	</body>
+</html>
