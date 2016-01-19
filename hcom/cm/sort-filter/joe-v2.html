@@ -18,13 +18,13 @@
 		.arrow-down-white {display:inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
 			border-top: 8px solid #fff; vertical-align:top; margin-top:4px;}
 		#head {background-color: #D41200; height:50px; color:#fff; }
-		#head > div, #nav > div, #search-strip > div, #filters-strip > div, #filters-selected > div, #no-filters-selected > div  {max-width:1160px; margin:0 auto;}
+		#head > div, #nav > div, #search-strip > div, #filters-strip > div, #filters-selected > div   {max-width:1160px; margin:0 auto;}
 		#nav {background-color: #333; padding:8px; font-size:14px; color:#fff;}
-		#search-strip {background-color:#eae8e0; padding:16px 0;}
+		#search-strip {background-color:#F5F4F0; padding:16px 0;}
 		#search-strip #destination {font-size:24px; font-weight:bold; margin-bottom:8px}
 		#search-strip #dates {}
 
-		#filters-strip { padding:8px 0 16px; background-color:#F5F4F0; border-top:solid 1px #ddd;}
+		#filters-strip { padding:8px 0; background-color:#F5F4F0; border-top:solid 1px #ddd;}
 
 		#wrapper {max-width:1160px; margin:0 auto; box-sizing:border-box; position:relative;}
 		#wrapper #results {margin-right:250px;}
@@ -34,8 +34,6 @@
 		.filter {display:inline-block; vertical-align: top; margin-right:8px;}
 		.filter input {padding:4px; font-size: 14px}
 		.filter .dd {padding:8px; background-color:#fff; font-size: 14px; position:relative; padding-right:28px; border:solid 1px #ccc; border-radius:4px; border-bottom:solid 2px #ccc; background: url("i/dd-arrow.png") no-repeat #fff; background-position:right center;}
-
-		.selected-filter {display:inline-block; margin-left:16px; font-size:14px;}
 
 		
 		
@@ -97,31 +95,6 @@
         			}    
 				});
 
-				$(".dd").on("click", function(e){
-					e.preventDefault();
-					$(".dd").css("background-color", "#ffffff");
-					$(".options").hide();
-					$(this).css("background-color", "#CCE0F4");
-					$(this).css("z-index", "1001");
-					$(this).next().show().css("z-index", "1001");
-					$(".overlay").show();
-
-				});
-
-				$(".options .close").on("click", function(){
-					$(this).closest(".options").hide();
-					$(".dd").css("background-color", "#ffffff");
-					$(".dd").css("z-index", "auto");
-					$(".overlay").hide();
-				})
-
-				$(".options a").on("click", function(){
-					$("#no-filters-selected").hide();
-					$("#filters-selected").show();
-					var option = $(this).attr("rel");
-					$("#filters-selected #"+option).show();
-				})
-
 				
 			});
 
@@ -153,80 +126,31 @@
 			<div style="position:relative;">
 				
 				<div id="filters" style="margin-right:250px;">
-					<h2 style="font-size:14px; font-weight:bold; margin:0 0 8px 0; padding:0;">Filter results</h2>
+					<!--<h2 style="font-size:14px; font-weight:bold; margin:0 0 8px 0; padding:0;">Filter results (123 hotels)</h2>-->
 					<div class="filter">
 						<div style="border:inset 1px #ddd; border-radius:4px; background-color:#fff; position:relative">
 						<input type="text" style="border:0; padding:7px; border-radius:4px" placeholder="Hotel name"/>
 						<button style="display:inline-block; vertical-align:top; border:0; background-color:#026dc5; margin:1px; border-top-right-radius:4px; border-bottom-right-radius:4px; padding:8px 8px; font-weight:bold; color:#fff;">></button>
 						</div>
 					</div>
-					<style type="text/css">
-						.filter {display:inline-block; vertical-align: top; margin-right:8px;}
-						.filter .dd:hover {background-color:#CCE0F4; cursor:pointer;}
-						.filter {position:relative;}
-						.filter .options {position:absolute; top:40px; width:200px;  background-color:#fff; z-index:1000; border-radius:4px; display:none;
-							-webkit-box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);
--moz-box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);
-box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);
-						}
-
-						.filter .options .close {padding:8px; text-align:right; background-color:#CCE0F4; font-size:14px;}
-						.filter .options .content {padding:8px; font-size:14px;}
-					</style>
 					<div class="filter">
 						<div class="dd">
 							Price (total)
-						</div>
-						<div class="options">
-							<div class="close">
-								<a href="#">close</a>
-							</div>
-							<div class="content">
-								<a href="#" rel="price">Add a price range</a>
-								<span style="display:block; margin-top:8px; font-size:12px;">(slider would normally go here)</span>
-							</div>
 						</div>
 					</div>
 					<div class="filter">
 						<div class="dd">
 							Star rating
 						</div>
-						<div class="options">
-							<div class="close">
-								<a href="#">close</a>
-							</div>
-							<div class="content">
-								<a href="#" rel="star">Add a star rating filter</a>
-								<span style="display:block; margin-top:8px; font-size:12px;">(checkboxes would normally go here)</span>
-							</div>
-						</div>
 					</div>
 					<div class="filter">
 						<div class="dd">
 							Guest rating
 						</div>
-						<div class="options">
-							<div class="close">
-								<a href="#">close</a>
-							</div>
-							<div class="content">
-								<a href="#" rel="guest">Add a guest rating filter</a>
-								<span style="display:block; margin-top:8px; font-size:12px;">(slider would normally go here)</span>
-							</div>
-						</div>
 					</div>
 					<div class="filter">
 						<div class="dd">
 							Facilities
-						</div>
-						<div class="options">
-							<div class="close">
-								<a href="#">close</a>
-							</div>
-							<div class="content">
-								<a href="#" rel="facility">Add wi-fi filter</a>
-								<span style="display:block; margin-top:8px; font-size:12px;">(all checkboxes would normally go here)</span>
-							</div>
 						</div>
 					</div>
 
@@ -238,7 +162,7 @@ box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);
 				</div>
 
 				<div id="sort" style="position:absolute; right:0; width:234px; top:0;">
-					<h2 style="font-size:14px; font-weight:bold; margin:0 0 8px 0; padding:0;">Sort results</h2>
+					<!--<h2 style="font-size:14px; font-weight:bold; margin:0 0 8px 0; padding:0;">Sort results</h2>-->
 					<div class="filter" style="width:234px;">
 						<div class="dd">
 							Sort by: Our favourites
@@ -249,21 +173,8 @@ box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);
 			</div>	
 
 		</div>
-		<div id="no-filters-selected" style="background-color:#F5F4F0; padding:8px 0;">
-			<div><span style="font-weight:bold;">123 hotels</span>. Use the filters to narrow your search</div>
-		</div>
-
-
-		<div id="filters-selected" style="background-color:#F5F4F0; padding:8px 0; display:none;">
-
-			<div>
-				<span style="font-size:14px; font-weight:bold;">Selected filters: </span>
-				<div id="price" class="selected-filter " style="display:none;"><input type="checkbox" checked=""> $150 - $250</div>
-				<div id="guest" class="selected-filter" style="display:none;"><input type="checkbox" checked="">4 - 5 guest rating</div>
-				<div id="star" class="selected-filter" style="display:none;"><input type="checkbox" checked=""> 4 - 5 stars</div>
-				<div id="facility" class="selected-filter" style="display:none;"><input type="checkbox" checked=""> Wi-fi</div>
-				<span style="display:inline-block; margin-left:16px; font-size:14px;"><a href="#">clear all filters</a></span>
-			</div>
+		<div id="filters-selected" style="background-color:#CCE0F4; padding:8px 0">
+			<div><span style="font-weight:bold;">123 hotels returned</span>. Use the filters to narrow your search</div>
 		</div>
 			
 			
@@ -308,7 +219,6 @@ box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);
 
 		</div> 
 
-		<div class="overlay" style="position:fixed; top:0; left:0; right:0; bottom:0; background-color:#000; opacity:0.7; z-index:1000; display:none;"></div>
 
 
 	</body>
