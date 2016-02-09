@@ -1,4 +1,5 @@
 var geocoder = new google.maps.Geocoder();
+
 var map;
 var neighbourhoodPolygon; 
 
@@ -28,6 +29,7 @@ var neighbourhoods = {
         center: {lat: 35.692248403859, lng: 139.69102634108}
     }
 }
+
 
 
 function initializeMap(destination) {
@@ -95,7 +97,7 @@ var randomMarkers = function(){
     var markers = [];
 
     // Create some markers
-    for (var i = 1; i < 50; i++) {
+    for (var i = 1; i < 100; i++) {
 
         var location = new google.maps.LatLng(southWest.lat() + latSpan * Math.random(), southWest.lng() + lngSpan * Math.random());
 
@@ -129,8 +131,30 @@ var addNeighbourhoodPin = function(){
 
         marker.addListener('click', function() {
             openNeighbourhood();
+
             addNeighbourhoodPolygon(location);
+
+            //addNeighbourhoodShape(location);
+
         });
+
+
+        
+
+
+}
+
+var addNeighbourhoodShape = function(location){
+    neighbourhoodCircle = new google.maps.Circle({
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+      map: map,
+      center: location,
+      radius: 2000
+    });
 }
 
 var addNeighbourhoodPins = function(){
