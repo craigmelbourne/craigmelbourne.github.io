@@ -36,18 +36,30 @@
 				$("#neighbourhoods .card .close").on("click", function(e){
 					e.preventDefault();
 					console.log("hit close")
-					$(this).closest(".card").slideUp();
-					neighbourhoodPolygon.setMap(null)
+					$("#neighbourhoods").slideUp();
+					neighbourhoodPolygon.setVisible(false);
 				}); 
 
-
+				$('select').on('change', function() {
+  					//console.log( $(this).find('option:selected').text()); // or $(this).val()
+  					openNeighbourhood($(this).find('option:selected').text())
+  					//$("#neighbourhoods .card").hide();
+					//$("#neighbourhoods #" + $(this).find('option:selected').text()).show();
+				});
 
 
 			});
 
 			var openNeighbourhood = function(nhood){
 				console.log("neighbourhood"); 
-				$("#neighbourhoods #" + nhood).slideDown();
+				$("#neighbourhoods .card").hide();
+				$("#neighbourhoods #" + nhood).show();
+				$("#neighbourhoods").slideDown();
+
+				$("select option").filter(function() {
+    				//may want to use $.trim in here
+    				return $(this).text() == nhood; 
+				}).prop('selected', true);
 
 			}
 
@@ -59,15 +71,16 @@
 
 		<style type="text/css">
 		body {font-family:arial; font-size: 14px;}
-		#neighbourhoods .card {position:absolute; bottom:12px; left:12px; right:12px;  background-color:#fff; display:none;
-		-webkit-box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);
--moz-box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);
-box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);}
-		#neighbourhoods .card  h2 {font-size:18px; font-weight:bold; padding:12px; position:relative;}
+		#neighbourhoods {position:absolute; bottom:0px; left:0px; right:0px;  background-color:#fff;
+		}
+		#neighbourhoods .card {display:none;}
+		#neighbourhoods .card  h2 {font-size:18px; font-weight:bold; padding:12px; position:relative; }
 		#neighbourhoods .card img {max-width: 100%}
 		#neighbourhoods .card p {line-height: 18px; padding:12px;}
 		#neighbourhoods .card .close {position:absolute; right:14px; top:6px;}
 		#neighbourhoods .card .close:hover {}
+
+		select {border:0; font-size:16px; padding:4px 0; -webkit-appearance: none; background-color:#fff; font-weight:bold; font-family:arial; font-size:18px; position:relative; background:url("arrow_down.png") no-repeat right center; background-size: 12px; border-bottom:solid 1px; border-radius:0;}
 		</style>
 
 		<div style="background-color:#d41200; height:50px;">
@@ -79,9 +92,20 @@ box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);}
 
 
 			<div id="neighbourhoods">
+				<div style="padding:12px;">
+					<h2 style="margin-bottom:8px; font-weight:bold;">Tokyo neighbourhoods</h2>
+					<select>
+						<optgroup label="Popular Neighbourhoods">
+							<option>Akasaka</option>
+							<option>Asakusa</option>
+							<option>Ginza</option>
+							<option>Nihonbashi</option>
+							<option>Shinjuku</option>
+						</optgroup>
+					</select>
+				</div>
 				<div id="Akasaka" class="card">
 				
-					<h2>Akasaka</h2>
 					<img src="https://a1.cdn-hotels.com/cos/production166/d148/22b478f0-05c0-11e4-b02d-d89d672bfba8.jpg" />
 					<p class="description">
 						It's one of the commercial centers of Tokyo, which explains why Akasaka boasts a lion's share of swanky, upmarket hotels – many of which count as attractions in their own right. Chill out in their...
@@ -92,7 +116,7 @@ box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);}
 
 				<div id="Asakusa" class="card">
 				
-					<h2>Asakusa</h2>
+					
 					<img src="https://a1.cdn-hotels.com/cos/production187/d78/23269bb0-05c0-11e4-b376-d89d672c79ac.jpg" />
 					<p class="description">
 						There's one major reason why Asakusa should be on your Tokyo to-do list: the ancient Buddhist temple Senso-Ji, which is the largest in the city and dates right back to 645 AD. Entering through the...
@@ -103,7 +127,7 @@ box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);}
 
 				<div id="Ginza" class="card">
 				
-					<h2>Ginza</h2>
+					
 					<img src="https://a1.cdn-hotels.com/cos/production20/d709/23822930-05c0-11e4-b376-d89d672c79ac.jpg" />
 					<p class="description">
 						Fashionistas flock to this part of Tokyo, and with good reason. It's the place to find high-end department stores as well as boutiques emblazoned with the names of the world's best-known fashion...
@@ -114,7 +138,7 @@ box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);}
 
 				<div id="Nihonbashi" class="card">
 				
-					<h2>Nihonbashi</h2>
+					
 					<img src="https://a1.cdn-hotels.com/cos/production110/d1096/23ede350-05c0-11e4-8314-d89d672bd508.jpg" />
 					<p class="description">
 						Taking its name from the Nihonbashi Bridge (stone now, but the original wooden one was built back in 1603), this is one of Tokyo's business hotspots. And you'll be able to tell that just from...
@@ -125,7 +149,7 @@ box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);}
 
 				<div id="Shinjuku" class="card">
 				
-					<h2>Shinjuki</h2>
+					
 					<img src="https://a1.cdn-hotels.com/cos/production41/d382/244f1620-05c0-11e4-8314-d89d672bd508.jpg" />
 					<p class="description">
 						Shinjuku train station is the busiest in the world, which gives you an idea of just how buzzing this district is. It's a place of contrasts – there are the alleys of Golden Gai, whose bars are a...
