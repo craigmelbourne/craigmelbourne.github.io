@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../reset.css">
+		
+
+		<!-- Roboto font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+		<!-- Scripts -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+		<script type="text/javascript"
+          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI&libraries=places">
+      	</script>
+
+      	<script src="../hcom-services.js"></script>
+      	<script src="map.js"></script>
+	
+
+		<script type="text/javascript">
+
+
+
+			$(function(){
+				initializeMap("Penzance");
+				
+				fetchHotelDetails("531971", call)
+
+				
+			});
+
+			var call = function(data){
+				console.log(data);
+				var hotelSummary = data.result.roomRates.hotelSummary;
+				console.log(hotelSummary.hotelName)
+				$("#name").text(hotelSummary.hotelName)
+
+			}
+
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div id="hotel">
+				<h1 id="name"></h1>
+			
+				<ul></ul>
+				
+			</div>
+
+		<style type="text/css">
+			body {font-family:arial; font-size: 14px;}
+			#list ul li {padding:8px; border-bottom:1px solid #ccc;}
+		
+		</style>
+
+		
+		<div id="map" style="position:absolute; top:50px; left:0; right:0; bottom:0;">
+
+		
+
+			
+			
+
+		<div>
+
+	</body>
+	</html>

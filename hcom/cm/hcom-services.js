@@ -58,16 +58,19 @@ var buildSearchUrl = function(destination) {
       var qStr = ""
     // build query string
       qStr += 'destination='+destination
+      qStr += '&pn=3'
       qStr += '&cur='+ currency 
       qStr += '&monthCheckIn='+ciMonth+'&dayInMonthCheckIn='+ciDay+'&monthCheckOut='+coMonth+'&dayInMonthCheckOut='+coDay;
       qStr +='&r=1' 
       qStr += '&roomInfoList[0].numberOfAdults=' + numAdults;
       qStr += '&roomInfoList[0].numberOfChildren=' + numChildren;
       //qStr += '&roomInfoList[0].childrenAges[0]=9';
-      qStr += '&na=os%3DFacebook%7Ccv%3D1171%7Csv%3D2%7Cid%3DCFUUID9BC82AC4A123485586F5F6AFEF2084E0'
+      qStr += '&na=os%3DFacebook%7Ccv%3D1171%7Csv%3D2%7Cid%3DCFUUID9BC82AC4A123485586F5F6AFEF2084E0';
+      
 
       // create API URL
       var url = '/api/' + pos + '/search.html?'+qStr;
+      console.log(url);
 
       return url;
     }
