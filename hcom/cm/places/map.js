@@ -1,4 +1,5 @@
 var geocoder = new google.maps.Geocoder();
+var distanceService = new google.maps.DistanceMatrixService;
 
 var map;
 //var service;
@@ -6,6 +7,24 @@ var infowindow;
 var placesList;
 var service;
 var loc = {lat: 50.117089, lng: -5.534462}; 
+var types = ["hospital", "pharmacy", "store", "grocery_or_supermarket", "convenience_store"]
+var placeTypes = {
+    "places": [
+        {type: "store", rank:"distance"},
+        {type: "bar", rank:"distance"},
+        {type: "grocery_or_supermarket", rank:"distance"},
+        {type: "pharmacy", rank:"prominence", radius: "2000"},
+        {type: "hospital", rank:"prominence", radius: "2000"}
+    ]
+}
+
+/* types
+ hospital
+ pharmacy
+ store
+ grocery_or_supermarket
+ convenience_store
+*/
 
 
 
@@ -35,8 +54,11 @@ function initializeMap(destination) {
 
     //infowindow = new google.maps.InfoWindow();
             
+
     service = new google.maps.places.PlacesService(map);
-            //fetchPOI("cafe", loc)
+    console.log(placeTypes.places[0].type)
+    fetchPOI(placeTypes.places[0].type, loc)
+    //fetchHospitalPlaces(loc);
 
 
    /* geocoder.geocode( { 'address': destination}, function(pos, status) {
@@ -51,8 +73,7 @@ function initializeMap(destination) {
 
 
     google.maps.event.addListenerOnce(map, 'idle', function(){
-    // do something only the first time the map is loaded
-        
+        // do something only the first time the map is loaded  
     });
 
 
@@ -74,12 +95,24 @@ function callback(results, status) {
 }
 
 function fetchPOI(type, location) {
-    console.log ("running")
+    //console.log ("running")
     service.nearbySearch({
         location: location,
         radius: 2000,
+        //rankBy: google.maps.places.RankBy.DISTANCE,
         type: [type]
+        
+        
     }, callback);
+}
+
+function fetchHospitalPlaces(location){
+    service.nearbySearch({
+        location: location,
+        radius: 2000,
+        //rankBy: google.maps.places.RankBy.DISTANCE,
+        type: ["hospital"]
+    }, displayHospital);
 }
 
 function createMarker(place) {
@@ -99,9 +132,29 @@ function createMarker(place) {
 function displayPlacesList(){
     $.each(placesList, function (index, place) {
         console.log(place);
-        $("#list ul").append("<li>" + place.name + "</li>")
+        displatNameDistance(loc, place);
     });
 }
+
+function displatNameDistance(hotelLoc, place, type) {
+    distanceService.getDistanceMatrix({
+        origins: [hotelLoc],
+        destinations: [place.geometry.location],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false
+    }, function(response, status) {
+        if (status !== google.maps.DistanceMatrixStatus.OK) {
+        alert('Error was: ' + status);
+        } else {
+            console.log(place.name + " - " + response.rows[0].elements[0].distance.text);
+            //return(response.rows[0].elements[0].distance.text);
+            $("#list").append("<li>" + place.name + " - " + response.rows[0].elements[0].distance.text + "</li>")
+        }
+    })
+}
+
 
 
 
