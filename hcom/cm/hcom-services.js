@@ -7,10 +7,10 @@ var fetchHotelList = function (destination, cb){
 	$.ajax({
   		dataType: "json",
   		url: url,
-  		/*success: cb,*/
-      success: function (response) {
+  		success: cb,
+      /*success: function (response) {
         console.log(response)
-      }, 
+      }, */
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
         alert(thrownError);
@@ -22,8 +22,8 @@ var fetchHotelList = function (destination, cb){
 var fetchHotelDetails = function (id, cb){
 	var url = buildHotelDetailsUrl(id);
   //var url = "http://localhost:8899/device/hotelDetails.html?hotelId=" + id + "&na=os%3DFacebook%7Ccv%3D1171%7Csv%3D2%7Cid%3DCFUUID9BC82AC4A123485586F5F6AFEF2084E0"
-	console.log("fetch hotel details");
-  console.log(id);
+	//console.log("fetch hotel details");
+  //console.log(id);
 
 	$.ajax({
   		dataType: "json",
@@ -70,7 +70,7 @@ var buildSearchUrl = function(destination) {
 
       // create API URL
       var url = '/api/' + pos + '/search.html?'+qStr;
-      console.log(url);
+      //console.log(url);
 
       return url;
     }
@@ -96,7 +96,7 @@ function buildHotelDetailsUrl(id) {
 
   // create API URL  
   var url = '/api/'+ pos +'/hotelDetails.html?' + qStr1;
-  console.log(url);
+  //console.log(url);
 
   return url;
 }

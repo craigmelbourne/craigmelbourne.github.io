@@ -10,11 +10,12 @@ var loc = {lat: 50.117089, lng: -5.534462};
 var types = ["hospital", "pharmacy", "store", "grocery_or_supermarket", "convenience_store"]
 var placeTypes = {
     "places": [
-        {type: "store", rank:"distance"},
-        {type: "bar", rank:"distance"},
-        {type: "grocery_or_supermarket", rank:"distance"},
-        {type: "pharmacy", rank:"prominence", radius: "2000"},
-        {type: "hospital", rank:"prominence", radius: "2000"}
+        {type: "grocery_or_supermarket", rank:"distance", title:"Supermarket / Store", num_results:"3"},
+        {type: "bar", rank:"prominence", radius: "2000", title:"Bars", num_results:"3"},
+        {type: "restaurant", rank:"prominence", radius: "2000", title:"Restaurants", num_results:"3"},
+        {type: "bakery", rank:"prominence", radius: "2000", title:"Bakery", num_results:"2"},
+        {type: "pharmacy", rank:"prominence", radius: "2000", title:"Pharmacy", num_results:"1"},
+        {type: "hospital", rank:"prominence", radius: "2000", title:"Hospital", num_results:"1"}
     ]
 }
 
@@ -57,7 +58,7 @@ function initializeMap(destination) {
 
     service = new google.maps.places.PlacesService(map);
     console.log(placeTypes.places[0].type)
-    fetchPOI(placeTypes.places[0].type, loc)
+    fetchPOI(loc);
     //fetchHospitalPlaces(loc);
 
 
@@ -81,6 +82,84 @@ function initializeMap(destination) {
     
 }
 
+function displayPlacesList(places, status, type, num_results){
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        
+
+        for (var i = 0; i < num_results; i++) {
+            //var place = results[i];
+            //createMarker(results[i]);
+            //console.log(place)
+            displayNameDistance(loc, places[i], type);
+        }
+
+        $.each(places, function (index, place) {
+            //console.log(place);
+            //displayNameDistance(loc, place, type);
+            
+        });
+        
+    }
+}
+
+function displayNameDistance(hotelLoc, place, type) {
+    distanceService.getDistanceMatrix({
+        origins: [hotelLoc],
+        destinations: [place.geometry.location],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false
+    }, function(response, status) {
+        if (status !== google.maps.DistanceMatrixStatus.OK) {
+        alert('Error was: ' + status);
+        } else {
+            //console.log(place.name + " - " + response.rows[0].elements[0].distance.text);
+            //return(response.rows[0].elements[0].distance.text);
+            $("#list ul#" + type + "list").append("<li>" + place.name + " - " + response.rows[0].elements[0].distance.text + "</li>")
+        }
+    })
+}
+
+function fetchPOI(location) {
+    //console.log ("running")
+
+
+    $.each(placeTypes.places, function (index, placeType) {
+            //console.log(placeType.title);
+            $("#list").append("<h3>" + placeType.title + "</h3>")
+    $("#list").append($( "<ul id='" + placeType.type + "list'/>" ));
+
+    if (placeType.rank == "prominence") {
+        service.nearbySearch({
+        location: location,
+        radius: placeType.radius,
+        //rankBy: google.maps.places.RankBy.DISTANCE,
+        type: [placeType.type]
+        
+        
+        }, function(results, status){displayPlacesList(results, status, placeType.type, placeType.num_results )} );
+    } else {
+        service.nearbySearch({
+        location: location,
+        //radius: 2000,
+        rankBy: google.maps.places.RankBy.DISTANCE,
+        types: [placeType.type]
+        
+        
+        }, function(results, status){displayPlacesList(results, status, placeType.type, placeType.num_results )} );
+    }
+    });
+
+
+    
+    
+
+    
+}
+
+
+
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     placesList = results;
@@ -92,27 +171,6 @@ function callback(results, status) {
       //console.log(place)
     }
   }
-}
-
-function fetchPOI(type, location) {
-    //console.log ("running")
-    service.nearbySearch({
-        location: location,
-        radius: 2000,
-        //rankBy: google.maps.places.RankBy.DISTANCE,
-        type: [type]
-        
-        
-    }, callback);
-}
-
-function fetchHospitalPlaces(location){
-    service.nearbySearch({
-        location: location,
-        radius: 2000,
-        //rankBy: google.maps.places.RankBy.DISTANCE,
-        type: ["hospital"]
-    }, displayHospital);
 }
 
 function createMarker(place) {
@@ -129,31 +187,9 @@ function createMarker(place) {
   });
 }
 
-function displayPlacesList(){
-    $.each(placesList, function (index, place) {
-        console.log(place);
-        displatNameDistance(loc, place);
-    });
-}
 
-function displatNameDistance(hotelLoc, place, type) {
-    distanceService.getDistanceMatrix({
-        origins: [hotelLoc],
-        destinations: [place.geometry.location],
-        travelMode: google.maps.TravelMode.DRIVING,
-        unitSystem: google.maps.UnitSystem.METRIC,
-        avoidHighways: false,
-        avoidTolls: false
-    }, function(response, status) {
-        if (status !== google.maps.DistanceMatrixStatus.OK) {
-        alert('Error was: ' + status);
-        } else {
-            console.log(place.name + " - " + response.rows[0].elements[0].distance.text);
-            //return(response.rows[0].elements[0].distance.text);
-            $("#list").append("<li>" + place.name + " - " + response.rows[0].elements[0].distance.text + "</li>")
-        }
-    })
-}
+
+
 
 
 

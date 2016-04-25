@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../reset.css">
+
+
+		<style type="text/css">
+		body {font-family:arial;}
+		a {text-decoration:none;}
+		h1 {font-size:24px; margin:24px;}
+		#hotels {position:fixed; top:50px; left:0; width:40%; bottom:0; overflow-y:scroll; padding-top:20px;}
+		#hotels li {background-color:#eee; margin:12px; padding:12px;}
+		#hotel {position:fixed; top:0; left:40%; right:0; bottom:0;}
+		</style>
+
+	</head>
+
+	<body>
+		<h1></h1>
+		<ul id="hotels">
+			
+		</ul>
+		<div id="hotel">
+			<iframe name="frame_hotel" src="" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
+		</div>
+		<!--pdp-demo.html?hotelid=531971 -->
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="../hcom-services.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+
+				if (getParameterByName("destination")){
+					var destination = getParameterByName("destination");
+					//console.log("success");
+				} else {
+					var destination = "Penzance"; 
+
+				}
+
+      			fetchHotelList(destination, displayHotels);
+      			$("h1").text("Hotels in " + destination)
+			});
+
+			var displayHotels = function(data){
+				var hotels = data.result.hotels;
+				console.log(hotels)
+				$.each(hotels, function (index, hotel) {
+            		$("#hotels").append("<li><a href='pdp-demo.html?hotelid=" + hotel.hotelId + "' target='frame_hotel'>" + hotel.hotelName + "</a></li>")
+        		});
+				
+			}
+
+		</script>
+	</body>
+</html>
