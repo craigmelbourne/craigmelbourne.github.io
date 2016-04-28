@@ -1,0 +1,12 @@
+/* CSS for common elements */
+
+body {font-size:14px; color:#555; margin:0; padding:0; font-family:arial;}
+
+/* Header */
+#header {height:60px; background-color:#d41200;}
+
+/* Global nav */
+#nav {height:30px; background-color:#333;}
+
+/* Footer */
+#footer {}

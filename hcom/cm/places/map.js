@@ -10,22 +10,35 @@ var loc = {lat: 50.117089, lng: -5.534462};
 var types = ["hospital", "pharmacy", "store", "grocery_or_supermarket", "convenience_store"]
 var placeTypes = {
     "places": [
+        
+        
+        {type: "cafe", rank:"distance", title:"Cafe", num_results:"3"},
+        {type: "restaurant", rank:"distance", radius: "2000", title:"Restaurants", num_results:"3"},
+
+        {type: "pharmacy", rank:"distance", radius: "2000", title:"Pharmacy", num_results:"1"},
+        {type: "hospital", rank:"prominence", radius: "10000", title:"Hospital", num_results:"1"},
+        //{type: "doctor", rank:"prominence", radius: "2000", title:"Doctor", num_results:"1"},
+        
+        {type: "bar", rank:"distance", radius: "2000", title:"Bars", num_results:"3"},
+        //{type: "night_club", rank:"distance", title:"Nightlife", num_results:"3"},
         {type: "grocery_or_supermarket", rank:"distance", title:"Supermarket / Store", num_results:"3"},
-        {type: "bar", rank:"prominence", radius: "2000", title:"Bars", num_results:"3"},
-        {type: "restaurant", rank:"prominence", radius: "2000", title:"Restaurants", num_results:"3"},
-        {type: "bakery", rank:"prominence", radius: "2000", title:"Bakery", num_results:"2"},
-        {type: "pharmacy", rank:"prominence", radius: "2000", title:"Pharmacy", num_results:"1"},
-        {type: "hospital", rank:"prominence", radius: "2000", title:"Hospital", num_results:"1"}
+        //{type: "convenience_store", rank:"prominence", radius: "2000", title:"Convenience Store", num_results:"3"},
+        {type: "department_store", rank:"distance", title:"Department Store", num_results:"3"},
+        //{type: "bakery", rank:"distance", title:"Bakery", num_results:"2"},
+        
+        {type: "atm", rank:"distance", radius: "2000", title:"ATM", num_results:"3"},
+
+        {type: "gas_station", rank:"distance", radius: "10000", title:"Petrol Station", num_results:"3"},
+        {type: "bus_station", rank:"distance", radius: "10000", title:"Bus Station", num_results:"3"}
+        
+        
+        
+        //{type: "hardware_store", rank:"prominence", radius: "2000", title:"Hardware Store", num_results:"2"},
+        //{type: "home_ware_store", rank:"prominence", radius: "2000", title:"Homeware Store", num_results:"2"}
     ]
 }
 
-/* types
- hospital
- pharmacy
- store
- grocery_or_supermarket
- convenience_store
-*/
+
 
 
 
@@ -35,7 +48,7 @@ function initializeMap(destination) {
    
     map = new google.maps.Map(document.getElementById('map_canvas'), {
         center: loc,
-        zoom: 16,
+        zoom: 14,
         mapTypeId: 'roadmap',
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         panControl: false,
@@ -62,15 +75,7 @@ function initializeMap(destination) {
     //fetchHospitalPlaces(loc);
 
 
-   /* geocoder.geocode( { 'address': destination}, function(pos, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            //console.log (pos[0].geometry.location.k + " " + pos[0].geometry.location.B)
-            map.setCenter(pos[0].geometry.location);
-
-            
-        }
-            
-    });*/
+   
 
 
     google.maps.event.addListenerOnce(map, 'idle', function(){
@@ -83,15 +88,24 @@ function initializeMap(destination) {
 }
 
 function displayPlacesList(places, status, type, num_results){
+    console.log(places);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         
+        if (places.length == 0) {
+            console.log ()
+            $("#list ul#" + type + "list").append("<li> non found </li>")
 
-        for (var i = 0; i < num_results; i++) {
-            //var place = results[i];
-            //createMarker(results[i]);
-            //console.log(place)
-            displayNameDistance(loc, places[i], type);
+        } else if (places.length < 3) {
+            for (var i = 0; i < places.length; i++) {
+                displayNameDistance(loc, places[i], type);
+            }
+        } else {
+            for (var i = 0; i < 3; i++) {
+                displayNameDistance(loc, places[i], type);
+            }
         }
+
+        
 
         $.each(places, function (index, place) {
             //console.log(place);
@@ -103,6 +117,18 @@ function displayPlacesList(places, status, type, num_results){
 }
 
 function displayNameDistance(hotelLoc, place, type) {
+    
+    function getRating(){
+        if (place.rating) {
+            var rating = place.rating
+            return " <span class='rating' style='color:#999; font-size:14px'>(rating:" + rating + "/5)</span>";
+        } else {
+            return "";
+        }
+    }
+
+    
+
     distanceService.getDistanceMatrix({
         origins: [hotelLoc],
         destinations: [place.geometry.location],
@@ -114,9 +140,13 @@ function displayNameDistance(hotelLoc, place, type) {
         if (status !== google.maps.DistanceMatrixStatus.OK) {
         alert('Error was: ' + status);
         } else {
+
+            var placeData = place.name + getRating();
+
+
             //console.log(place.name + " - " + response.rows[0].elements[0].distance.text);
             //return(response.rows[0].elements[0].distance.text);
-            $("#list ul#" + type + "list").append("<li>" + place.name + " - " + response.rows[0].elements[0].distance.text + "</li>")
+            $("#list ul#" + type + "list").append("<li>" + placeData + " - " + response.rows[0].elements[0].distance.text + "</li>")
         }
     })
 }
@@ -187,6 +217,16 @@ function createMarker(place) {
   });
 }
 
+
+// GeoCoder function
+/* geocoder.geocode( { 'address': destination}, function(pos, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            //console.log (pos[0].geometry.location.k + " " + pos[0].geometry.location.B)
+            map.setCenter(pos[0].geometry.location);
+
+            
+        }
+});*/
 
 
 

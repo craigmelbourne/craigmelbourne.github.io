@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="common.css">
+
+		<style type="text/css">
+		#wrapper-query {background-color:#eae8e0; min-height:80px;}
+		#wrapper-results {max-width:1160px; margin:0 auto; padding:0 16px 0; box-sizing:border-box;}
+		#wrapper-results #filters {width:225px; float:left; background-color:#f5f4f0; height:400px;}
+		#wrapper-results #list {width:calc(100% - 245px); float:right;  height:400px;}
+		#wrapper-results #sort {padding:16px 0; border-bottom:solid 1px #ccc;}
+
+		#wrapper-results #list #hotels .hotel {margin-bottom:16px;}
+
+		</style>
+
+	</head>
+
+	<body>
+
+	<!-- common elements -->
+		<div id="header"></div>
+		<div id="nav"></div>
+		
+		<div id="wrapper-query">
+			
+		</div>
+
+
+		<div id="wrapper-results">
+			<div id="filters"></div>
+			
+			<div id="list">
+				<div id="sort">Sort by</div>
+				<div id="hotels">
+					
+				<div id="loading-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">fetching hotels...</div>
+
+				</div>	
+			</div>
+		</div>
+		
+
+
+
+		<!-- Scripts -->
+
+		<script src="../hcom-services.js"></script>
+
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			// run things on page load
+			$(function(){
+      			
+				if (getParameterByName("destination")) {
+					//fetch hotels from mobile API
+					fetchHotelList(destination, displayHotels);
+					$("#loading-hotels").show();
+				} else {
+
+				}
+
+
+			});
+
+
+			var displayHotels = function (data) {
+				console.log(data); 
+				$("#loading-hotels").hide();
+				var hotels = data.result.hotels;
+				//<img src='" + hotel.thumbnailUrl + "'/>
+				$.each(hotels, function (index, hotel) {
+            		$("#hotels").append("<div class='hotel'><div class='content'><a href='pdp-demo.html?hotelid=" + hotel.hotelId + "' target='frame_hotel'>" + hotel.hotelName + "</a><div class='location'>" + hotel.location + "</div></div></div>");
+            		
+        		});
+			}
+
+		</script>
+	</body>
+</html>

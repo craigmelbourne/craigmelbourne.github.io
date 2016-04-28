@@ -11,21 +11,52 @@
 
 
 		<style type="text/css">
-		body {font-family:arial;}
+		body {font-family:arial; color:#555; background-color: #eee;}
 		a {text-decoration:none;}
 		h1 {font-size:24px; margin:24px;}
-		#hotels {position:fixed; top:50px; left:0; width:40%; bottom:0; overflow-y:scroll; padding-top:20px;}
-		#hotels li {background-color:#eee; margin:12px; padding:12px;}
-		#hotel {position:fixed; top:0; left:40%; right:0; bottom:0;}
+		#hotels {position:fixed; top:100px; left:0; width:400px; bottom:0; overflow-y:scroll; background-color:#eee;}
+		#hotels li {background-color:#fff; margin: 12px 24px; padding:0; border-radius:4px; padding:4px; -webkit-box-shadow: 1px 1px 1px 0px rgba(204,12,NaN,1);
+-moz-box-shadow: 1px 1px 1px 0px rgba(204,12,NaN,1);
+box-shadow: 1px 1px 1px 0px rgba(204,12,NaN,1);}
+		#hotels li img {display: inline-block; vertical-align: top; width:60px;}
+		#hotels li div.content {display: inline-block; vertical-align: top; padding: 6px 12px; box-sizing:border-box; width:calc(100% - 60px);}
+		#hotels li div.content div.location {font-size:12px; margin-top:4px;}
+		#hotel {position:fixed; top:50px; left:400px; right:0; bottom:0; background-color: #fff;}
+		select {font-size: 16px;}
 		</style>
 
 	</head>
 
 	<body>
-		<h1></h1>
-		<ul id="hotels">
+		<div id="destinations" style="margin:0 0; padding:12px 24px; background-color:#000; color:#fff; height:50px; box-sizing:border-box;">
+			<span>Pick a destination</span>
+			<select id="dd_destinations" >
+				<optgroup label="Small Towns">
+					<option value="Penzance, UK">Penzance, UK</option>
+					<option value="Keswick, UK">Keswick, UK</option>
+					<option value="Cirencester, UK">Cirencester, UK</option>
+					<option value="Cortona, Italy">Cortona, Italy</option>
+				</optgroup>
+				<optgroup label="Cities">
+					<option value="London, UK">London, UK</option>
+					<option value="Las Vegas, USA">Las Vegas, USA</option>
+					<option value="Tokyo, Japan">Tokyo, Japan</option>
+					<option value="Madrid, Spain">Madrid, Spain</option>
+				</optgroup>
+				<optgroup label="Regions">
+					<option value="Lake District, UK">Lake District, UK</option>
+					<option value="Andalucia, Spain">Andalucia, Spain</option>
+				</optgroup>
+
+			</select>
+		</div>
+		
+		<div style="position:fixed; top:50px; bottom:0; background-color:#eee">
+			<h1 id="town"></h1>
+			<ul id="hotels">
 			
-		</ul>
+			</ul>
+		</div>
 		<div id="hotel">
 			<iframe name="frame_hotel" src="" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
 		</div>
@@ -44,9 +75,11 @@
 
 				if (getParameterByName("destination")){
 					var destination = getParameterByName("destination");
+					$("#dd_destinations option[value='" + destination + "']").prop('selected', true);
 					//console.log("success");
 				} else {
-					var destination = "Penzance"; 
+					var destination = "Penzance, UK"; 
+					$("#dd_destinations option[value='" + destination + "']").prop('selected', true);
 
 				}
 
@@ -58,10 +91,23 @@
 				var hotels = data.result.hotels;
 				console.log(hotels)
 				$.each(hotels, function (index, hotel) {
-            		$("#hotels").append("<li><a href='pdp-demo.html?hotelid=" + hotel.hotelId + "' target='frame_hotel'>" + hotel.hotelName + "</a></li>")
+            		$("#hotels").append("<li><img src='" + hotel.thumbnailUrl + "'/><div class='content'><a href='pdp-demo.html?hotelid=" + hotel.hotelId + "' target='frame_hotel'>" + hotel.hotelName + "</a><div class='location'>" + hotel.location + "</div></div></li>");
+            		
         		});
 				
 			}
+
+			$('select').on('change', function() {
+  				console.log( this.value ); // or $(this).val()
+  				window.location = "srp-frame.html?destination=" + this.value
+			});
+
+			function redirectPage() {
+				var linkLocation = 
+     		    window.frames['yrame_hotel'].location=linkLocation
+        		
+    		}
+
 
 		</script>
 	</body>
