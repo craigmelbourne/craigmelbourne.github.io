@@ -1,6 +1,21 @@
 var geocoder = new google.maps.Geocoder();
 var map;
 
+var markerImage = new google.maps.MarkerImage('images/marker.png',
+
+            // This marker is 129 pixels wide by 42 pixels tall.
+
+            new google.maps.Size(129, 42),
+
+            // The origin for this image is 0,0.
+
+            new google.maps.Point(0,0),
+
+            // The anchor for this image is the base of the flagpole at 18,42.
+
+            new google.maps.Point(18, 42)
+        );
+
 var neighbourhoods = {
     akasaka : {
         name: "Akasaka",
@@ -33,8 +48,8 @@ function initializeMap(destination) {
     
    
     map = new google.maps.Map(document.getElementById('map_canvas'), {
-        center: {lat: 35.675, lng: 139.76},
-        zoom: 12,
+        center: {lat: 35.6794862140995, lng: 139.734433905381},
+        zoom: 13,
         mapTypeId: 'roadmap',
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         panControl: false,
@@ -51,7 +66,7 @@ function initializeMap(destination) {
     geocoder.geocode( { 'address': destination}, function(pos, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             //console.log (pos[0].geometry.location.k + " " + pos[0].geometry.location.B)
-            map.setCenter(pos[0].geometry.location);
+            //map.setCenter(pos[0].geometry.location);
             
         } 
     });
@@ -61,7 +76,7 @@ function initializeMap(destination) {
     // do something only the first time the map is loaded
         //randomMarkers();
         //addNeighbourhoodPin();
-        //addNeighbourhoodPins();
+        addNeighbourhoodPins();
     });
 
     neighbourhoodPolygon = new google.maps.Circle({
@@ -73,4 +88,46 @@ function initializeMap(destination) {
       map: map,
       radius: 2000
     });
+}
+
+
+var addNeighbourhoodPins = function(){
+    
+    var nmarkers = [];
+    //for (var nhoods in neighbourhoods) {
+    $.each(neighbourhoods, function(i, nhoods) {
+        
+
+        var markerLabel = new MarkerWithLabel({
+            position: nhoods.center,
+            draggable: false,
+            map: map,
+            icon: markerImage,
+            labelContent: nhoods.name,
+            labelAnchor: new google.maps.Point(40, 32),
+            labelClass: "labels", // the CSS class for the label
+            labelStyle: {opacity: 0.9}
+        });
+
+        //var marker = new google.maps.Marker({
+            //position: nhoods.center,
+           // map: map, 
+            //icon: "neighbourhood_icon.png"
+        //});
+
+        //console.log(nhoods)
+        nmarkers.push(markerLabel);
+
+        var name = nhoods.name;
+        var loc = nhoods.center;
+
+        google.maps.event.addListener(markerLabel, 'click', function() {
+            
+            //openNeighbourhood(name);
+            //addNeighbourhoodPolygon(loc);
+            console.log(name);
+        });
+
+    })
+        
 }
