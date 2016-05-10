@@ -1,6 +1,8 @@
 /* CSS for common elements */
 
 body {font-size:14px; color:#555; margin:0; padding:0; font-family:arial;}
+a {text-decoration: none;}
+
 
 /* Header */
 #header {height:60px; background-color:#d41200;}
@@ -8,5 +10,27 @@ body {font-size:14px; color:#555; margin:0; padding:0; font-family:arial;}
 /* Global nav */
 #nav {height:30px; background-color:#333;}
 
+
+/* SRP Structure */
+#wrapper-query {background-color:#eae8e0; min-height:80px;}
+#wrapper-results {max-width:1160px; margin:0 auto; padding:0 16px 0; box-sizing:border-box;}
+#wrapper-results #filters {width:225px; float:left; background-color:#f5f4f0; height:400px;}
+#wrapper-results #list {width:calc(100% - 245px); float:right;  height:400px;}
+#wrapper-results #sort-bar {padding:8px 0 8px 0; border-bottom:solid 1px #ccc;}
+#wrapper-results #sort-bar ul {margin:0; padding:0; display:flex;}
+#wrapper-results #sort-bar ul li  {font-size:12px; font-weight:bold; list-style-type: none; margin:0; padding:8px 0; flex-direction: row; flex-grow: 1; text-align: center;}
+#wrapper-results #sort-bar ul li:not(:first-child) {color:blue;}
+#wrapper-results #sort-bar ul li.selected {background-color: #95cffe; color:#000; font-weight:bold;}
+
+/* Hotel Card template */
+.hotel-card {margin-top:16px; border:solid 1px #eee; padding:8px; border-radius:4px;}
+.hotel-card .details {display: inline-block; vertical-align: top; margin-left:8px;}
+.hotel-card .address {font-size:12px; display: block; margin-top:4px;}
+.hotel-card .neighbourhood {font-size:12px; display: block; margin-top:4px;}
+.hotel-card .thumbnail {height:80px; width:120px; overflow:hidden; display:inline-block; vertical-align: top; position:relative;}
+.hotel-card .thumbnail img {width:100%; position:absolute; bottom:0;}
+
 /* Footer */
 #footer {}
+
+#overlay-fullpage {position: fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.7; display:none;}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../common.css">
+
+		<style type="text/css">
+			.tp-add{position:absolute; top:0; left:0; padding:4px 8px; font-size:20px; font-weight:bold; background-color:#e5e3db; color:#026dc5;}
+			.tp-add:hover {cursor:pointer;}
+			.tp-selected {background-color:#026dc5; color:#fff;}
+			#tp-bar{position:fixed; bottom:0; left:0; right:0; background-color:#BBDEFB; opacity:0.9;  height:60px;}
+		
+		</style>
+
+	</head>
+
+	<body>
+
+	<!-- common elements -->
+		<div id="header"></div>
+		<div id="nav"></div>
+		
+		<div id="wrapper-query"></div>
+
+
+		<div id="wrapper-results">
+			<div id="filters"></div>
+			
+			<div id="list">
+				<div id="sort-bar">
+					<ul class="sort-tools">
+						<li>Sort by</li>
+						<li class="selected">Our favourites</li>
+						<li>Star Rating</li>
+						<li>Distance</li>
+						<li>Guest rating</li>
+						<li>Price</li>
+					</ul>
+				</div>
+				<div id="hotels">
+					<div id="loading-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">fetching hotels...</div>
+				</div>	
+			</div>
+		</div>
+
+		<div id="overlay-fullpage">
+			
+		<div style="color:#fff; position:absolute; width:1140px; margin-left:-580px; left:50%; bottom:60px;">
+			<div style="width:300px; margin-left:270px;">
+				<p style="font-size:24px;">You've added a few hotels to your Trip Planner.</p>
+				<p style="font-size:18px;">You can access these hotels anywhere, anytime. Just remember to sign in</p>
+				<p style="margin-left:30px; font-size:60px;">&#8595;</p>
+			</div>
+
+		</div>
+
+		</div>
+		<div id="tp-bar">
+			<div style="color:#fff; position:absolute; width:1140px; margin-left:-580px; left:50%; top:0;">
+				<h2 style="display:inline-block; margin:0; vertical-align: top; padding:4px 8px; color:#fff; background-color:#026dc5; margin-left:262px; font-size:14px">Trip Planner (<span class="num"></span>)</h2>
+				<span class="message" style="display:block; color:#000; font-size:16px; font-weight:bold; padding:8px 0; margin-left:262px;"></span>
+			</div>
+		</div>
+		
+
+
+		<!-- Component Templates -->
+		<script id="hotel-card" type="text/x-handlebars-template">
+ 			{{#each hotels}}
+ 				<div class="hotel-card">
+ 					<div class="thumbnail">
+
+ 						<img src="{{imageUrl}}" />
+ 						<div class="tp-add" rel="{{hotelName}}"> + </div>
+ 					</div>
+ 					<div class="details">
+       	 				<a class="name" href="#">{{hotelName}}</a>
+       	 				<span class="address">{{address1}}, {{address2}}, {{locality}}, {{region}}</span>
+       	 				<span class="neighbourhood">{{location}}</span>
+       	 			</div>
+       	 		</div>
+		    {{/each}}
+    	</script>
+
+
+		<!-- Scripts -->
+
+		<script src="../hcom-services.js"></script>
+		<script src="../handlebars.js"></script>
+
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript">
+
+			//global variable
+			var tpCount = 0;
+
+			// run things on page load
+			$(function(){
+      			
+      			// get destinaiton and fetch hotel data
+				if (getParameterByName("destination")) {
+					//fetch hotels from mobile API
+					fetchHotelList(getParameterByName("destination"), displayHotels);
+					//display loading message
+					$("#loading-hotels").show();
+				} else { }
+
+				//hide trip planner bar
+				$("#tp-bar").hide();
+
+				$("#hotels").on("click", ".tp-add", function(e){
+					e.preventDefault();
+					tpCount++
+					$(".num").text(tpCount);
+					var hotelName = $(this).attr("rel");
+					$(".message").fadeOut("fast", function(){
+						$(".message").text("Added: " + hotelName).fadeIn("fast");
+					})
+					
+					console.log(tpCount);
+					$(this).addClass("tp-selected");
+					if (tpCount == 1){
+						$("#tp-bar").slideDown();
+					} else if (tpCount == 3) {
+						console.log("show modal");
+						$("#overlay-fullpage").show();
+					}
+				});
+
+				$("#overlay-fullpage").on("click", function(){
+					$(this).hide()
+				})
+
+			});
+
+			var displayHotels = function (data) {
+				// hide loading message
+				$("#loading-hotels").hide();
+			
+				var hotels = data.result;
+				console.log(hotels);
+				
+				// attach to handle bar template
+        		var source   = $("#hotel-card").html();
+  				var template = Handlebars.compile(source);
+  				$("#hotels").html(template(hotels));
+			}
+
+		</script>
+	</body>
+</html>

@@ -48,7 +48,10 @@ function initializeMap(destination) {
             style: google.maps.ZoomControlStyle.MEDIUM,
             position: google.maps.ControlPosition.RIGHT_TOP
         }
+
     });
+
+    map.panBy(-200, 0);
 
 
     /*geocoder.geocode( { 'address': destination}, function(pos, status) {
