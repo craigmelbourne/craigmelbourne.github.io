@@ -9,7 +9,11 @@
 		<!-- style sheets -->
 		<link rel="stylesheet" type="text/css" href="../common.css">
 
-		<style type="text/css"></style>
+		<style type="text/css">
+			label {display:block; font-size:12px; font-weight: bold; margin-bottom:4px;}
+			.field {display:inline-block; vertical-align: top; padding:8px 0; margin-right:16px;}
+			.field input {padding:4px; font-size:12px; border-radius:2px; border:solid 1px #ccc;}
+		</style>
 
 	</head>
 
@@ -19,7 +23,26 @@
 		<div id="header"></div>
 		<div id="nav"></div>
 		
-		<div id="wrapper-query"></div>
+		<div id="wrapper-query">
+			<div id="search">
+				<div class="field destination">
+					<label>Destination</label>
+					<input style="width:300px;" type="text" value="San Francisco, California, United States" />
+				</div>
+				<div class="field dates">
+					<label>Check in</label>
+					<input type="text" />
+				</div>
+				<div class="field dates">
+					<label>Checkout</label>
+					<input type="text" />
+				</div>
+				<div class="field rooms">
+					<label>Rooms</label>
+					<div>1 room, 2 Adults <a href="#">edit</div>
+				</div>
+			</div>
+		</div>
 
 
 		<div id="wrapper-results">
