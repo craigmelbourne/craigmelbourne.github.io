@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../common.css">
+
+		<style type="text/css">
+			label {display:block; font-size:12px; font-weight: bold; margin-bottom:4px;}
+			.field {display:inline-block; vertical-align: top; padding:16px 0; margin-right:16px;}
+			.field input {padding:4px 8px; font-size:14px; border-radius:2px; border:solid 1px #ccc;}
+			.dates input {background: url("cal.png") no-repeat right center; width:120px;}
+			#sort-bar {border-top:solid 1px #ccc; border:0; border-bottom:0; margin-top:8px; background-color:#eee;}
+		</style>
+
+	</head>
+
+	<body>
+
+	<!-- common elements -->
+		<div id="header"></div>
+		<div id="nav"></div>
+		
+		
+
+
+		<div id="wrapper-results">
+			<div id="filters">
+				<img src='https://a2.cdn-hotels.com/da/assets/s/39.0/images/themes/red/pages/sha/map.png' style="border:2px solid #fff; margin:8px 0 0 6px"/>
+			</div>
+			
+			<div id="list">
+				<div id="search">
+				<div class="field destination">
+					<label>Destination</label>
+					<input style="width:260px;" type="text" value="San Francisco, California, United States" />
+				</div>
+				<div class="field dates">
+					<label>Check in</label>
+					<input type="text" value="13/05/2016"/>
+				</div>
+				<div class="field dates">
+					<label>Checkout</label>
+					<input type="text" value="14/05/2016" />
+				</div>
+				<div class="field rooms">
+					<label>Rooms</label>
+					<div>1 room, 2 Adults <a href="#">edit</a></div>
+				</div>
+			</div>
+				<div id="sort-bar">
+					<ul class="sort-tools">
+						<li>Sort by</li>
+						<li class="selected">Our favourites</li>
+						<li>Star Rating</li>
+						<li>Distance</li>
+						<li>Guest rating</li>
+						<li>Price</li>
+					</ul>
+				</div>
+				<div id="hotels">
+					
+				<div id="loading-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">fetching hotels...</div>
+
+				</div>	
+			</div>
+		</div>
+		
+
+
+		<!-- Component Templates -->
+		<script id="hotel-card" type="text/x-handlebars-template">
+ 			{{#each hotels}}
+ 				<div class="hotel-card">
+ 					<div class="thumbnail">
+ 						<img src="{{imageUrl}}" />
+ 					</div>
+ 					<div class="details">
+       	 				<a class="name" href="#">{{hotelName}}</a>
+       	 				<span class="address">{{address1}}, {{address2}}, {{locality}}, {{region}}</span>
+       	 				<span class="neighbourhood">{{location}}</span>
+       	 			</div>
+       	 		</div>
+		    {{/each}}
+    	</script>
+
+
+		<!-- Scripts -->
+
+		<script src="../hcom-services.js"></script>
+		<script src="../handlebars.js"></script>
+
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			// run things on page load
+			$(function(){
+      			
+				if (getParameterByName("destination")) {
+					//fetch hotels from mobile API
+					//fetchHotelList(getParameterByName("destination"), displayHotels);
+					//display loading message
+					$("#loading-hotels").show();
+				} else {
+					
+				}
+
+
+			});
+
+			var displayHotels = function (data) {
+				// hide loading message
+				$("#loading-hotels").hide();
+			
+				var hotels = data.result;
+				console.log(hotels);
+				
+				// attach to handle bar template
+        		var source   = $("#hotel-card").html();
+  				var template = Handlebars.compile(source);
+  				$("#hotels").html(template(hotels));
+			}
+
+		</script>
+	</body>
+</html>
