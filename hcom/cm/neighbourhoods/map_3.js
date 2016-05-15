@@ -3,6 +3,21 @@ var geocoder = new google.maps.Geocoder();
 var map;
 var neighbourhoodPolygon; 
 
+var markerImage = new google.maps.MarkerImage('images/marker.png',
+
+            // This marker is 129 pixels wide by 42 pixels tall.
+
+            new google.maps.Size(129, 42),
+
+            // The origin for this image is 0,0.
+
+            new google.maps.Point(0,0),
+
+            // The anchor for this image is the base of the flagpole at 18,42.
+
+            new google.maps.Point(18, 42)
+        );
+
 var neighbourhoods = {
     akasaka : {
         name: "Akasaka",
@@ -166,22 +181,35 @@ var addNeighbourhoodPins = function(){
     var nmarkers = [];
     //for (var nhoods in neighbourhoods) {
     $.each(neighbourhoods, function(i, nhoods) {
-        var marker = new google.maps.Marker({
+        
+
+        var markerLabel = new MarkerWithLabel({
             position: nhoods.center,
-            map: map, 
-            icon: "neighbourhood_icon.png"
+            draggable: false,
+            map: map,
+            icon: markerImage,
+            labelContent: nhoods.name,
+            labelAnchor: new google.maps.Point(40, 32),
+            labelClass: "labels", // the CSS class for the label
+            labelStyle: {opacity: 0.9}
         });
 
-        console.log(nhoods)
-        nmarkers.push(marker);
+        //var marker = new google.maps.Marker({
+            //position: nhoods.center,
+           // map: map, 
+            //icon: "neighbourhood_icon.png"
+        //});
+
+        //console.log(nhoods)
+        nmarkers.push(markerLabel);
 
         var name = nhoods.name;
         var loc = nhoods.center;
 
-        google.maps.event.addListener(marker, 'click', function() {
+        google.maps.event.addListener(markerLabel, 'click', function() {
             
-            openNeighbourhood(name);
-            addNeighbourhoodPolygon(loc);
+            //openNeighbourhood(name);
+            //addNeighbourhoodPolygon(loc);
             console.log(name);
         });
 
