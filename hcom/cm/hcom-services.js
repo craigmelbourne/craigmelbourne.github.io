@@ -1,4 +1,8 @@
 
+
+
+
+
 var fetchHotelList = function (destination, cb){
 	var url = buildSearchUrl(destination);
 
@@ -16,6 +20,26 @@ var fetchHotelList = function (destination, cb){
         alert(thrownError);
       }
 	});
+
+}
+
+var fetchHotelListNeighbourhood = function (destination, nid, cb){
+  var url = buildSearchNeighbourhoodUrl(destination, nid);
+
+  console.log("fetch list")
+
+  $.ajax({
+      dataType: "json",
+      url: url,
+      success: cb,
+      /*success: function (response) {
+        console.log(response)
+      }, */
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+  });
 
 }
 
@@ -42,10 +66,10 @@ var currency = "GBP";
 var pos = "uk";
 
 // Check in check out dates
-ciMonth = "9";
-ciDay = "4";
-coMonth = "9";
-coDay = "8";
+ciMonth = "5";
+ciDay = "20";
+coMonth = "5";
+coDay = "21";
 
 var destination = (!getParameterByName("destination")) ? 'London' : getParameterByName("destination");
 var numAdults = (!getParameterByName("numAdults")) ? '2' : getParameterByName("numAdults");
@@ -54,16 +78,17 @@ var numChildren = (!getParameterByName("numChildren")) ? '0' : getParameterByNam
 
 
 var buildSearchUrl = function(destination) {
-
+     
       var qStr = ""
     // build query string
-      qStr += 'destination='+destination
-      qStr += '&pn=3'
+      qStr += 'destination='+ destination
       qStr += '&cur='+ currency 
+      qStr += '&pn=1';
       qStr += '&monthCheckIn='+ciMonth+'&dayInMonthCheckIn='+ciDay+'&monthCheckOut='+coMonth+'&dayInMonthCheckOut='+coDay;
       qStr +='&r=1' 
       qStr += '&roomInfoList[0].numberOfAdults=' + numAdults;
       qStr += '&roomInfoList[0].numberOfChildren=' + numChildren;
+      
       //qStr += '&roomInfoList[0].childrenAges[0]=9';
       qStr += '&na=os%3DFacebook%7Ccv%3D1171%7Csv%3D2%7Cid%3DCFUUID9BC82AC4A123485586F5F6AFEF2084E0';
       
@@ -74,6 +99,29 @@ var buildSearchUrl = function(destination) {
 
       return url;
     }
+
+
+buildSearchNeighbourhoodUrl = function(destination, nid) {
+      var qStr = ""
+      // build query string
+      qStr += 'destination='+ destination
+      qStr += '&cur='+ currency 
+      qStr += '&pn=1';
+      qStr += '&monthCheckIn='+ciMonth+'&dayInMonthCheckIn='+ciDay+'&monthCheckOut='+coMonth+'&dayInMonthCheckOut='+coDay;
+      qStr +='&r=1' 
+      qStr += '&roomInfoList[0].numberOfAdults=' + numAdults;
+      qStr += '&roomInfoList[0].numberOfChildren=' + numChildren;
+      qStr += '&nids=' + nid; 
+      //qStr += '&roomInfoList[0].childrenAges[0]=9';
+      qStr += '&na=os%3DFacebook%7Ccv%3D1171%7Csv%3D2%7Cid%3DCFUUID9BC82AC4A123485586F5F6AFEF2084E0';
+      
+
+      // create API URL
+      var url = '/api/' + pos + '/search.html?'+qStr;
+      //console.log(url);
+
+      return url;
+}
 
 function buildHotelDetailsUrl(id) {
 

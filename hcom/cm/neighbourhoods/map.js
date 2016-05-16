@@ -6,26 +6,31 @@ var neighbourhoodPolygon;
 var neighbourhoods = {
     akasaka : {
         name: "Akasaka",
+        nid: "1645687",
         center: {lat: 35.6794862140995, lng: 139.734433905381}
     }, 
 
     asakusa : {
         name: "Asakusa",
+        nid: "1645688",
         center: {lat: 35.7252128673964, lng: 139.799428428791}
     }, 
 
     ginza : {
         name: "Ginza",
+        nid: "1645689",
         center: {lat: 35.6712935174737, lng: 139.764315704409}
     },
 
     nihonbashi : {
         name: "Nihonbashi",
+        nid: "1645692",
         center: {lat: 35.6841591001463, lng: 139.776211321046}
     },
 
     shinjuku : {
         name: "Shinjuku",
+        nid: "1645686",
         center: {lat: 35.692248403859, lng: 139.69102634108}
     }
 }
@@ -191,6 +196,8 @@ var addNeighbourhoodPolygon = function(location){
     neighbourhoodPolygon.setCenter(location);
     
 }
+
+
 
 
 

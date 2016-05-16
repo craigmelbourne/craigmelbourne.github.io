@@ -1,5 +1,7 @@
 var geocoder = new google.maps.Geocoder();
 var map;
+var neighbourhoodPolygon;
+var nmarkers = [];
 
 var markerImage = new google.maps.MarkerImage('images/marker.png',
 
@@ -16,32 +18,41 @@ var markerImage = new google.maps.MarkerImage('images/marker.png',
             new google.maps.Point(18, 42)
         );
 
+
+
 var neighbourhoods = {
     akasaka : {
         name: "Akasaka",
+        nid: "1645687",
         center: {lat: 35.6794862140995, lng: 139.734433905381}
     }, 
 
     asakusa : {
         name: "Asakusa",
+        nid: "1645688",
         center: {lat: 35.7252128673964, lng: 139.799428428791}
     }, 
 
     ginza : {
         name: "Ginza",
+        nid: "1645689",
         center: {lat: 35.6712935174737, lng: 139.764315704409}
     },
 
     nihonbashi : {
         name: "Nihonbashi",
+        nid: "1645692",
         center: {lat: 35.6841591001463, lng: 139.776211321046}
     },
 
     shinjuku : {
         name: "Shinjuku",
+        nid: "1645686",
         center: {lat: 35.692248403859, lng: 139.69102634108}
     }
 }
+
+
 
 
 function initializeMap(destination) {
@@ -49,7 +60,7 @@ function initializeMap(destination) {
    
     map = new google.maps.Map(document.getElementById('map_canvas'), {
         center: {lat: 35.6794862140995, lng: 139.734433905381},
-        zoom: 13,
+        zoom: 12,
         mapTypeId: 'roadmap',
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         panControl: false,
@@ -77,27 +88,30 @@ function initializeMap(destination) {
         //randomMarkers();
         //addNeighbourhoodPin();
         addNeighbourhoodPins();
+        addNeighbourhoodPolygon(neighbourhoods["akasaka"].center);
+
+        //console.log()
     });
 
     neighbourhoodPolygon = new google.maps.Circle({
-      strokeColor: '#FF0000',
+      strokeColor: '#555555',
       strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: '#FF0000',
-      fillOpacity: 0.35,
+      strokeWeight: 1,
+      fillColor: '#aaa',
+      fillOpacity: 0.4,
       map: map,
-      radius: 2000
+      radius: 1500
     });
+    
 }
 
 
 var addNeighbourhoodPins = function(){
     
-    var nmarkers = [];
+    
     //for (var nhoods in neighbourhoods) {
     $.each(neighbourhoods, function(i, nhoods) {
         
-
         var markerLabel = new MarkerWithLabel({
             position: nhoods.center,
             draggable: false,
@@ -109,13 +123,6 @@ var addNeighbourhoodPins = function(){
             labelStyle: {opacity: 0.9}
         });
 
-        //var marker = new google.maps.Marker({
-            //position: nhoods.center,
-           // map: map, 
-            //icon: "neighbourhood_icon.png"
-        //});
-
-        //console.log(nhoods)
         nmarkers.push(markerLabel);
 
         var name = nhoods.name;
@@ -123,11 +130,35 @@ var addNeighbourhoodPins = function(){
 
         google.maps.event.addListener(markerLabel, 'click', function() {
             
-            //openNeighbourhood(name);
-            //addNeighbourhoodPolygon(loc);
+            openNeighbourhood(name);
+            addNeighbourhoodPolygon(loc);
             console.log(name);
         });
 
     })
         
+}
+
+var addNeighbourhoodPolygon = function(location){
+    //neighbourhoodPolygon.setMap(null);
+    //neighbourhoodPolygon.setVisible(true);
+    //neighbourhoodPolygon.setCenter(location);
+    map.panTo(location);
+    map.panBy(-100, 0)
+    
+}
+
+
+function setMapOnAll(map) {
+  for (var i = 0; i < nmarkers.length; i++) {
+    nmarkers[i].setMap(map);
+  }
+}
+
+function showMarkers() {
+  setMapOnAll(map);
+}
+
+function clearMarkers() {
+  setMapOnAll(null);
 }
