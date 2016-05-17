@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<style type="text/css">
+
+			/* #D41200 */
+			html,body {height:100%;}
+			body {font-family: arial; margin:0; padding:0; color:#555;}
+			a {text-decoration: none; color:#026dc5; font-size:14px;}
+
+			#header {background-color:#D41200; height:40px;}
+			#destination {margin-bottom:10px; background-color:#EAE8E0; height:70px;}
+
+
+			.hotel {
+				height:auto;
+				overflow:hidden; 
+				padding:6px 6px;
+				border-bottom:solid 1px #eee;
+				position: relative;
+			}
+
+			.thumb {
+    			width: 33%;
+    			text-align: center; /* ensures the image is always in the h-middle */
+    			overflow: hidden; /* hide the cropped portion */
+    			float:left; 
+    			height:100%;
+			}
+
+			.thumb img {
+    			position: relative; /* allows repositioning */
+    			left: 100%; /* move the whole width of the image to the right */
+    			margin-left: -200%; /* magic! */
+    			min-height: 100%
+			}
+
+			.info {
+				width:67%;
+				float:left; 
+				box-sizing: border-box;
+				padding:3px 6px 3px 12px;
+				
+			}
+
+			.info a {display:block; line-height:1.2em;}
+
+			.info .stars {font-size:11px; color:#D41200; line-height: 18px;}
+			.info .neighbourhood {font-size:11px;line-height: 18px;}
+			.info .qual {font-weight: bold; font-size:12px; line-height: 18px; display:block;}
+			.info .price {margin-top:6px; text-align: right;}
+			.info .price .special {background-color:#d41200; padding:2px 6px; font-size:12px; color:#fff;display:inline-block; margin-left:-84px; margin-top:3px; vertical-align: top;}
+			.info .price .total {font-size:24px; color:#d41200; font-weight: bold}
+			.info .price .strikethrough {text-decoration: line-through; font-size:14px;}
+			.info .price .explanation {color:#999; display:block; font-size:11px}
+
+			@media only screen and (min-width:600px) {
+				#page-wrapper{width:360px; margin:0 auto;}	
+			}
+
+		</style>
+
+	</head>
+	<body>
+		<div id="page-wrapper">
+			<div id="header"></div>
+			<div id="destination"></div>
+
+			<div class="hotel">
+				<div class="thumb">
+			  		<img src="http://exp.cdn-hotels.com/hotels/1000000/30000/23700/23677/23677_131_l.jpg" />
+				</div>
+				<div class="info">
+					<a href="#">Grand Hyatt New York</a>
+					<span class="stars">&#9733&#9733&#9733&#9733<span style="color:#ccc">&#9733</span></span> <span class="neighbourhood">Midtown East - Grand Central</span>
+					<span class="qual">Excellent 4.2/5</span>
+					<div class="price">
+						<!--<span class="deal special">Special deal</span>-->
+						<span class="strikethrough">$309</span>
+						<span class="total">$280</span>
+						
+						<span class="explanation">price for 1 night including taxes and fees</span>
+					</div>
+				</div>
+			</div>
+			<div class="hotel">
+				<div class="thumb">
+					<img src="http://exp.cdn-hotels.com/hotels/1000000/10000/4900/4818/4818_142_l.jpg" />
+				</div>
+				<div class="info">
+					<a href="#">The New York Palace</a>
+					<span class="stars">&#9733&#9733&#9733&#9733<span style="color:#ccc">&#9733</span></span> <span class="neighbourhood">Midtown East - Grand Central</span>
+					<span class="qual">Excellent 4.2/5</span>
+					<div class="price">
+						<!--<span class="deal special">Special deal</span>-->
+						<span class="total">$370</span>
+						<span class="strikethrough">$428</span>
+						<span class="explanation">price for 1 night including taxes and fees</span>
+					</div>
+				</div>
+
+			</div>
+			<div class="hotel">
+				<div class="thumb">
+					<img src="http://exp.cdn-hotels.com/hotels/1000000/50000/41900/41864/41864_172_l.jpg" />
+				</div>
+				<div class="info">
+					<a href="#">The Roosevelt Hotel, New York City</a>
+					<span class="stars">&#9733&#9733&#9733&#9733<span style="color:#ccc">&#9733</span></span> <span class="neighbourhood">Midtown East - Grand Central</span>
+					<span class="qual">Excellent 4.2/5</span>
+					<div class="price">
+						<!--<span class="deal special">Special deal</span>-->
+						<span class="total">$175</span>
+						<span class="strikethrough">$195</span>
+						<span class="explanation">price for 1 night including taxes and fees</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="hotel">
+				<div class="thumb">
+			  		<img src="http://exp.cdn-hotels.com/hotels/1000000/10000/5400/5358/5358_48_l.jpg" />
+				</div>
+				<div class="info">
+					<a href="#">Pod 51</a>
+					<span class="stars">&#9733&#9733&#9733&#9733<span style="color:#ccc">&#9733</span></span> <span class="neighbourhood">Midtown East - Grand Central</span>
+					<span class="qual">Excellent 4.2/5</span>
+					<div class="price">
+						<!--<span class="deal special">Special deal</span>-->
+						<span class="total">$98</span>
+						<span class="strikethrough">$134</span>
+						<span class="explanation">price for 1 night including taxes and fees</span>
+					</div>
+				</div>
+			</div>
+			<div class="hotel">
+				<div class="thumb">
+					<img src="http://exp.cdn-hotels.com/hotels/1000000/10000/2800/2714/2714_185_l.jpg" />
+				</div>
+				<div class="info">
+					<a href="#">Park Lane Hotel</a>
+					<span class="stars">&#9733&#9733&#9733&#9733<span style="color:#ccc">&#9733</span></span> <span class="neighbourhood">Central Park</span>
+					<span class="qual">Excellent 4.2/5</span>
+					<div class="price">
+						<!--<span class="deal special">Special deal</span>-->
+						<span class="total">$165</span>
+						<span class="strikethrough">$205</span>
+						<span class="explanation">price for 1 night including taxes and fees</span>
+					</div>
+				</div>
+
+			</div>
+			<div class="hotel">
+				<div class="thumb">
+					<img src="http://exp.cdn-hotels.com/hotels/1000000/110000/104200/104193/104193_50_l.jpg" />
+				</div>
+				<div class="info">
+					<a href="#">The Beldevere Hotel</a>
+					<span class="stars">&#9733&#9733&#9733&#9733<span style="color:#ccc">&#9733</span></span> <span class="neighbourhood">Broadway - Times Square</span>
+					<span class="qual">Excellent 4.2/5</span>
+					<div class="price">
+						<!--<span class="deal special">Special deal</span>-->
+						<span class="total">$175</span>
+						<span class="strikethrough">$195</span>
+						<span class="explanation">price for 1 night including taxes and fees</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+</body>
+</html>

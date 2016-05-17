@@ -66,7 +66,7 @@ function initializeMap(destination) {
         panControl: false,
         mapTypeControl: false,
         streetViewControl:false,
-        zoomControl: false,
+        zoomControl: true,
         zoomControlOptions: {
             style: google.maps.ZoomControlStyle.MEDIUM,
             position: google.maps.ControlPosition.RIGHT_TOP

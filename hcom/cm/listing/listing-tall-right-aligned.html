@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<!-- Meta tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="base.css">
+
+		<style type="text/css">
+			.hotel {border-bottom:solid 1px #eee; margin:8px; position:relative; padding:0 0 8px;}
+			.hotel .thumbnail {position:absolute; top:0; left:0; bottom:6px; width:33%; text-align: center; overflow: hidden;}
+			.hotel .thumbnail img { position: relative; left: 100%; margin-left: -200%; height:100%;}
+			.hotel .name {margin-left:33%; padding:0 8px 4px; font-size:12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+			.hotel .stars { margin-left:33%; font-size:12px; color: #D41200; padding:0 8px 4px; background-color: #fff;}
+			.hotel .stars span {color:#999;}
+			.hotel .neighbourhood {background:url('i/map_pin-1.png') no-repeat; background-size:16px; background-position:8px 3px; padding:0; vertical-align: top; font-size:12px; margin-left:33%; padding:4px 8px 4px 30px;}
+			.hotel .qual {padding:4px 8px 4px 30px; font-weight:bold; font-size:12px;  margin-left:33%; color:#555; background:url('i/icon_review.png') no-repeat; background-size:16px; background-position:6px 3px;}
+			.hotel .rewards {background:url('i/icon_wr.png') no-repeat; background-size:14px; background-position:6px 3px; margin-left:33%; font-size:12px; color:#906; padding:4px 8px 4px 30px;}
+			.hotel .price {text-align:right; margin-left:33%; padding:4px 0 0 8px}
+
+			.hotel .price .badge {position:absolute; top:4px; left:-4px; -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,1);
+-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,1);
+box-shadow: 0px 2px 4px 0px rgba(0,0,0,1);}
+			.hotel .price .great { padding:4px; color:#D41200; font-weight:bold; font-size:12px; background-color: #fff; border:1px solid #D41200;}
+			.hotel .price .special {padding:4px; background-color:#D41200; color:#fff; font-weight:bold; font-size:12px; margin-bottom:4px; border:1px solid #fff;}
+			.hotel .price .total {font-size:20px; font-weight:bold;}
+			.hotel .price .strikethrough {font-size:12px; color:#555; text-decoration: line-through;}
+			.hotel .price .red {color:#D41200; margin:0 0 4px;}
+			.hotel .price .nights {font-size:11px; color:#999; margin:4px 0 0;}
+		</style>
+
+		<!-- Script tags -->
+
+	</head>
+
+	<body>
+		<div id="h">
+			<h1>Hotels.com</h1>
+		</div>
+
+		<div id="w">
+			<div class="hotel">
+				<div class="thumbnail">
+					<img  src="http://exp.cdn-hotels.com/hotels/1000000/540000/533700/533644/533644_162_l.jpg"/>
+				</div>
+				<h3 class="name"><span style="color:#D41200; font-weight:bold;">4&#9733;</span> <a href="#">Hudson New York, Central Park</a></h3>
+				<!--<div class="stars">&#9733;&#9733;&#9733;&#9733;<span>&#9733;</span></div>-->
+				<div class="neighbourhood">Central Park</div>
+				<div class="qual"><span class="label">Good</span> <span class="number">3.6/5</span> <span style="font-weight:normal; font-size:11px;">(230 reviews)</span></div>
+				<div class="rewards">Collect nights</div>
+				<div class="price">
+					<div class="badge great">Great rate</div>
+					<div class="total red"><span class="strikethrough">$207</span> $113</div>
+					<div class="nights">price for 1 night</div>
+					<div class="nights">$132 including taxes and fees</div>
+				</div>
+			</div>
+
+			<div class="hotel">
+				<div class="thumbnail">
+					<img  src="http://exp.cdn-hotels.com/hotels/1000000/110000/104200/104193/104193_50_l.jpg"/>
+				</div>
+				<h3 class="name"><span style="color:#D41200; font-weight:bold;">3&#9733;</span> <a href="#">The Belvedere Hotel</a></h3>
+				<!--<div class="stars">&#9733;&#9733;&#9733;<span>&#9733;&#9733;</span></div>-->
+				<div class="neighbourhood">Broadway - Times Square</div>
+				<div class="qual">Excellent 4.2/5  <span style="font-weight:normal; font-size:11px;">(230 reviews)</span> </div>
+				<div class="rewards">Collect nights</div>
+
+				<div class="price">
+					<div class="badge great">Great rate</div>
+					<div class="total red">$137 <span class="strikethrough">$262</span></div>
+					<div class="nights">price for 1 night</div>
+					<div class="nights">$161 including taxes and fees</div>
+				</div>
+			</div>
+
+			<div class="hotel">
+				<div class="thumbnail">
+					<img  src="http://exp.cdn-hotels.com/hotels/1000000/70000/64700/64653/64653_89_l.jpg"/>
+				</div>
+				<h3 class="name"><span style="color:#D41200; font-weight:bold;">4&#9733;</span> <a href="#">The Manhattan Club</a></h3>
+				<!--<div class="stars">&#9733;&#9733;&#9733;&#9733;<span>&#9733;</span></div>-->
+				<div class="neighbourhood">Broadway - Times Square</div>
+				<div class="qual">Excellent 4.1/5 <span style="font-weight:bold;">(230 reviews)</span></div>
+				<div class="rewards">Collect nights</div>
+				<div class="price">
+					<div class="badge special">Save 39%</div>
+					<div class="total red"> <span class="strikethrough">$275</span> $150</div>
+					<div class="nights">price for 1 night</div>
+					<div class="nights">$175 including taxes and fees</div>
+				</div>
+			</div>
+
+			<div class="hotel">
+				<div class="thumbnail">
+					<img src="http://exp.cdn-hotels.com/hotels/1000000/10000/4200/4164/4164_173_l.jpg"/>
+				</div>
+				<h3 class="name"><span style="color:#D41200; font-weight:bold;">4&#9733;</span> <a href="#">Park Central New York</a></h3>
+				<!--<div class="stars">&#9733;&#9733;&#9733;&#9733;<span>&#9733;</span></div>-->
+				<div class="neighbourhood">Broadway - Times Square</div>
+				<div class="qual">Excellent 4.0/5 <span style="font-weight:bold;">(230 reviews)</span></div>
+				<div class="rewards">Collect nights</div>
+				
+				<div class="price">
+					<div class="badge special">Save 20%</div>
+					<div class="total red"> <span class="strikethrough">$199</span> $140</div>
+					<div class="nights">price for 1 night</div>
+					<div class="nights">$164 including taxes and fees</div>
+				</div>
+			</div>
+
+			<div class="hotel">
+				<div class="thumbnail">
+					<img src="http://exp.cdn-hotels.com/hotels/1000000/20000/19800/19707/19707_332_l.jpg"/>
+				</div>
+				<h3 class="name"><span style="color:#D41200; font-weight:bold;">3&#9733;</span> <a href="#">DoubleTree by Hilton Metropolitan - New York City</a></h3>
+				<!--<div class="stars">&#9733;&#9733;&#9733;&#9733;<span>&#9733;</span> </div>-->
+				<div class="neighbourhood">Midtown East - Grand Central</div>
+				<div class="qual">Excellent 4.0/5 <span style="font-weight:bold;">(230 reviews)</span></div>
+				<div class="rewards">Collect nights</div>
+				<div class="price">
+					<div class="badge great">Great rate</div>
+					<div class="total red"> <span class="strikethrough">$280</span> $107</div>
+					<div class="nights">price for 1 night</div>
+					<div class="nights">$126 including taxes and fees</div>
+				</div>
+			</div>
+		<div>
+
+		</div>
+		
+	</body>
+</html>
