@@ -15,13 +15,20 @@ a {text-decoration: none;}
 #wrapper-query {background-color:#eae8e0; min-height:80px;}
 #wrapper-query #search {max-width:1160px; margin:0 auto; padding:0 16px 0; box-sizing:border-box;}
 #wrapper-results {max-width:1160px; margin:0 auto; padding:0 16px 0; box-sizing:border-box;}
-#wrapper-results #filters {width:225px; float:left; background-color:#f5f4f0; height:400px;}
+#wrapper-results #filters {width:225px; float:left; background-color:#f5f4f0; min-height:400px;}
 #wrapper-results #list {width:calc(100% - 245px); float:right;  height:400px;}
 #wrapper-results #sort-bar {padding:8px 0 8px 0; border-bottom:solid 1px #ccc;}
 #wrapper-results #sort-bar ul {margin:0; padding:0; display:flex;}
 #wrapper-results #sort-bar ul li  {font-size:12px; font-weight:bold; list-style-type: none; margin:0; padding:8px 0; flex-direction: row; flex-grow: 1; text-align: center;}
 #wrapper-results #sort-bar ul li:not(:first-child) {color:blue;}
 #wrapper-results #sort-bar ul li.selected {background-color: #95cffe; color:#000; font-weight:bold;}
+
+
+/* Filter style - vertical*/
+#filters .container {padding:8px; border-bottom:solid 1px #ddd;}
+#filters .container h2 {padding:0; margin:0 0 4px 0; font-size:16px;}
+#filters .container h3 {padding:0; margin:0 0 4px 0; font-size:14px;}
+#filters .container p {padding:0; margin:0; font-size:12px; font-weight:bold;}
 
 /* Hotel Card template */
 .hotel-card {margin-top:16px; border:solid 1px #eee; padding:8px; border-radius:4px;}
