@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../common.css">
+
+		<style type="text/css">
+		a {color:#026dc5;}
+		ul {padding:0; margin:0;}
+		#map {width:100%; height:500px; position:relative;}
+		.labels {display:inline-block; background-color: #000; color:#fff; padding:4px 8px; font-size:12px; font-weight: bold;}
+		#neighbourhood-wrapper {border-left:1px solid #ccc; border-bottom:1px solid #ccc;}
+		
+
+   
+
+    	#hotel-card {position:absolute; bottom:10px; left:50%; margin-left:-300px; background-color:#fff; display:none; min-height:100px; width:600px; border-radius:4px;
+    	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
+    	#hotel-card .thumb {position:absolute; left:0; bottom:0; top:0; overflow:hidden; width:25%; border-top-left-radius: 4px; border-bottom-left-radius: 4px}
+    	#hotel-card .thumb img {max-width:100%; position:absolute; bottom:0;}
+    	#hotel-card .content {margin-left:25%; padding:8px; width:75%; box-sizing: border-box;}
+    	#hotel-card .content #hotelName {display: block; font-size:16px;}
+    	#hotel-card .content #stars {margin-bottom:4px; color:#d41200;}
+    	#hotel-card .content #qual {font-size: 12px;}
+    	#hotel-card .content #qual #badge {font-weight: bold;}
+    	#hotel-card .content #qual #number {font-weight: bold;}
+
+    	
+		
+		</style>
+
+	</head>
+
+	<body>
+
+	<!-- common elements -->
+		<div id="header"></div>
+		<div id="nav"></div>
+		
+		<div id="wrapper-query"></div>
+
+
+		<div id="wrapper-results">
+			<div style="padding:12px; padding-left:250px; box-sizing: border-box; background-color:#f5f4f0; border-bottom:solid 1px #ccc;">
+				Search map for <input type="text"></input>
+				<div style="display:inline-block; margin-left: 12px; padding-left: 12px; border-left:dotted 1px #ccc;">
+							<input id="showNHoods" type="checkbox" checked /> Show neighbourhood guides</div>
+			</div>
+			<div id="filters">
+				<div class="container">
+					<h2>Narrow results</h2>
+					<p>593 hotels</p>
+				</div>
+				<div class="container">
+					<h3>Name contains</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Price</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Star rating</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Guest rating</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Neighbourhood</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Landmarks</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Accommodation type</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Facilities</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Themes / types</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Accessibility Features</h3>
+					
+				</div>
+
+			</div>
+			
+			<div id="list">
+				
+				<div id="map">
+
+					<div id="map_canvas" style="width:100%; height:100%;"></div>
+
+					<div id="neighbourhood-wrapper" style="">
+							<h2>Popular neighbourhoods</h2>
+							<div id="neighbourhoods"></div>
+							
+							<div id="back" style="display:none;"><< Neighbourhoods</div>
+							<div id="neighbourhood-content" style="display:none;">
+								
+								<div class="image">
+									<img />
+									
+								</div>
+								<div class="content" style="padding:8px">
+									<div class="name"></div>
+									<h3>Great for</h3>
+ 									<ul class="tags"></ul>
+									<p class="description"></p>
+
+									<h3>Landmarks</h3>
+									<ul class="landmarks"></ul>
+
+									<h3>Transport</h3>
+									<ul class="transport"></ul>
+								</div>
+								
+								
+							</div>
+					</div>
+
+					<div id="hotel-card">
+							<div class="thumb"><img /></div>
+							<div class="content">
+								<a href="#" id="hotelName"></a>
+								<div id="stars">
+									<span id="star"></span>
+									<span id="locality"></span>
+								</div>
+								<div id="qual">
+									<span id="badge"></span> <span id="number"></span> / 5 
+									<a href="#" id="numReviews"></a>
+								</div>
+
+							</div>
+							
+						</div>
+
+				</div>	
+			</div>
+		</div>
+		
+		<style type="text/css">
+			#neighbourhood-wrapper {position:absolute; top:0; left:0; bottom:0; padding:0; background-color:#fff; width:270px}
+			#neighbourhood-wrapper h2 {margin:0; padding:8px; background-color:#000; color:#fff; font-size:14px;}
+			#neighbourhood-wrapper h3 {margin:0; padding:4px 0; color:#000;  font-size:14px;}
+			#neighbourhoods {overflow-y: scroll;position:absolute; top:40px; left:12px; right:12px; bottom:0;}
+			#neighbourhoods .hide{display:none;}
+			.neighbourhood-card {position:relative; padding-bottom:8px; margin-bottom: 8px; border-bottom:solid 1px #ccc;}
+			.neighbourhood-card:hover {cursor:pointer; }
+			.neighbourhood-card .image {position:relative;}
+			.neighbourhood-card .image img {width:100%;}
+			.neighbourhood-card .name {position:absolute; bottom:0; left:0; color:#000; padding:8px 8px 8px 0; font-weight: bold; font-size:18px; background-color:#fff;}
+			.neighbourhood-card .content {padding:0 8px 0 0;}
+			.tags {margin:0; padding:0;}
+			.tags li {display:inline-block; list-style-type: none; padding:0; margin:0; background-color:#eee; padding:4px 8px; margin-right:4px; border-radius:4px; font-size:12px; font-weight:bold;}
+			.neighbourhood-card .content .description {display:none;}
+
+			#back {background-color:#000; color:#fff; padding:8px 8px; font-size:14px; font-weight:bold;}
+			#back:hover {cursor: pointer}
+			#neighbourhood-content {overflow-y: scroll;position:absolute; top:30px; bottom:0;}
+			
+			#neighbourhood-content #back:hover {cursor:pointer;}
+			#neighbourhood-content .image {position:relative;}
+			#neighbourhood-content .image img {width:100%;}
+			#neighbourhood-content .name {color:#000; font-weight: bold; font-size:18px; margin-bottom:8px;}
+			#neighbourhood-content .description {font-size:12px; line-height:16px;}
+
+			.landmarks li, .transport li {list-style-type: none; margin-bottom:4px; font-size:12px;}
+		</style>
+
+		<script id="neighbourhood-card" type="text/x-handlebars-template">
+ 			{{#each this}}
+ 				<div class="neighbourhood-card {{hideNeighbourhood hasContent}}" rel="{{addCount}}">
+ 					
+ 					<div class="image">
+ 						<div class="name">{{name}}</div>
+ 						<img src="{{image}}" />
+ 					</div>
+
+ 					<div class="content">
+ 					Great for
+ 					<ul class="tags">
+ 					</ul>
+ 					<p class="description">{{description}}</p>
+ 					</div>
+
+ 					
+ 				</div>
+		    {{/each}}
+    	</script>
+
+
+		<!-- Scripts -->
+		<script type="text/javascript"
+          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI">
+      	</script>
+      	<script src="map-labels.js"></script>
+		<script src="../hcom-services.js"></script>
+		<script src="../handlebars.js"></script>
+		<script src="n-maps-2.js"></script>
+
+		
+
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="content.js"></script>
+		<script src="methods.js"></script>
+		<script type="text/javascript">
+			// run things on page load
+
+			var count = 0;
+
+			$(function(){
+				fetchHotels();
+
+				$("#neighbourhoods").on("click", ".neighbourhood-card", function(e){
+					var num = parseInt($(this).attr("rel")) - 1;
+					mapCenterNeighburhood(neighbourhoodContent[num].center);
+					
+					$.each(npolygons, function(i, np) {
+						np.setOptions({fillColor: '#555555', strokeColor: '#555555'});
+					});
+
+					npolygons[num].setOptions({fillColor: '#FF0000', strokeColor: '#FF0000'});
+
+					$(".neighbourhood-card").hide();
+					$("#neighbourhood-wrapper h2").hide();
+					$("#neighbourhood-content").show();
+					$("#back").show()
+					$("#neighbourhood-content .image img").attr("src", neighbourhoodContent[num].image);
+					$("#neighbourhood-content .name").text(neighbourhoodContent[num].name);
+					$("#neighbourhood-content .description").text(neighbourhoodContent[num].description);
+
+					var tags = neighbourhoodContent[num].tags.split(", ");
+					var tagsStr = ""
+
+					$.each(tags, function(i, tag) {
+						tagsStr += "<li>" + tag + "</li>"
+					});
+
+					$("#neighbourhood-content ul.tags").html(tagsStr)
+
+					var landmarks = neighbourhoodContent[num].landmarks.split(", ");
+					var lStr = "";
+
+					$.each(landmarks, function(i, lmark) {
+						lStr += "<li>" + lmark + "</li>"
+					});
+
+					$("#neighbourhood-content ul.landmarks").html(lStr)
+					//console.log(tags);
+
+					console.log(neighbourhoodContent[num].transport);
+
+					var tStr = "";
+					$.each(neighbourhoodContent[num].transport, function(i, tport) {
+						tStr += "<li>" + tport.name + "</li>"
+					});
+					$("#neighbourhood-content ul.transport").html(tStr)
+
+				}); 
+
+				$("#back").on("click", function(e){
+					$(".neighbourhood-card").show();
+					$("#neighbourhood-wrapper h2").show();
+					$("#neighbourhood-content").hide(); 
+					$(this).hide();
+				})
+			});
+
+			var displayNeighbourhoods = function (data) {
+				console.log("nhoods")
+				// hide loading message
+				//$("#loading-hotels").hide();
+			
+				var neighbourhood = data;
+				console.log(neighbourhood);
+				
+				// attach to handle bar template
+        		var source   = $("#neighbourhood-card").html();
+  				var template = Handlebars.compile(source);
+  				$("#neighbourhoods").html(template(neighbourhood));
+			}
+
+			Handlebars.registerHelper("addCount", function(){
+				count++
+				return count;
+			});
+
+			Handlebars.registerHelper("hideNeighbourhood", function(hasContent){
+				if (hasContent == false){
+					return "hide";
+				} else {
+					return "";
+				}
+				
+			});
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../common.css">
+
+		<style type="text/css"></style>
+
+	</head>
+
+	<body>
+
+	<!-- common elements -->
+		<div id="header"></div>
+		<div id="nav"></div>
+		
+		<div id="wrapper-query"></div>
+
+
+		<div id="wrapper-results">
+			<div id="filters"></div>
+			
+			<div id="list">
+				<div id="sort">Sort by</div>
+				<div id="hotels">
+					
+				<div id="loading-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">fetching hotels...</div>
+
+				</div>	
+			</div>
+		</div>
+		
+
+
+		<!-- Component Templates -->
+		<script id="hotel-card" type="text/x-handlebars-template">
+ 			{{#each hotels}}
+ 				<div class="hotel-card">
+ 					<div class="thumbnail">
+ 						<img src="{{imageUrl}}" />
+ 					</div>
+ 					<div class="details">
+       	 				<a class="name" href="#">{{hotelName}}</a>
+       	 				<span class="address">{{address1}}, {{address2}}, {{locality}}, {{region}}</span>
+       	 				<span class="neighbourhood">{{location}}</span>
+       	 			</div>
+       	 		</div>
+		    {{/each}}
+    	</script>
+
+
+		<!-- Scripts -->
+
+		<script src="../hcom-services.js"></script>
+		<script src="../handlebars.js"></script>
+
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			// run things on page load
+			$(function(){
+      			
+				if (getParameterByName("destination")) {
+					//fetch hotels from mobile API
+					//fetchHotelList(getParameterByName("destination"), displayHotels);
+					//display loading message
+					$("#loading-hotels").show();
+				} else {
+					
+				}
+
+
+			});
+
+			var displayHotels = function (data) {
+				// hide loading message
+				$("#loading-hotels").hide();
+			
+				var hotels = data.result;
+				console.log(hotels);
+				
+				// attach to handle bar template
+        		var source   = $("#hotel-card").html();
+  				var template = Handlebars.compile(source);
+  				$("#hotels").html(template(hotels));
+			}
+
+		</script>
+	</body>
+</html>

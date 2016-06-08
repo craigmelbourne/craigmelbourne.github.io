@@ -78,13 +78,14 @@ var numChildren = (!getParameterByName("numChildren")) ? '0' : getParameterByNam
 
 
 var buildSearchUrl = function(destination) {
-     
+     console.log(ciDates())
       var qStr = ""
     // build query string
       qStr += 'destination='+ destination
       qStr += '&cur='+ currency 
       qStr += '&pn=1';
-      qStr += '&monthCheckIn='+ciMonth+'&dayInMonthCheckIn='+ciDay+'&monthCheckOut='+coMonth+'&dayInMonthCheckOut='+coDay;
+      //qStr += '&monthCheckIn='+ciMonth+'&dayInMonthCheckIn='+ciDay+'&monthCheckOut='+coMonth+'&dayInMonthCheckOut='+coDay;
+      qStr += ciDates();
       qStr +='&r=1' 
       qStr += '&roomInfoList[0].numberOfAdults=' + numAdults;
       qStr += '&roomInfoList[0].numberOfChildren=' + numChildren;
@@ -107,7 +108,8 @@ buildSearchNeighbourhoodUrl = function(destination, nid) {
       qStr += 'destination='+ destination
       qStr += '&cur='+ currency 
       qStr += '&pn=1';
-      qStr += '&monthCheckIn='+ciMonth+'&dayInMonthCheckIn='+ciDay+'&monthCheckOut='+coMonth+'&dayInMonthCheckOut='+coDay;
+      //qStr += '&monthCheckIn='+ciMonth+'&dayInMonthCheckIn='+ciDay+'&monthCheckOut='+coMonth+'&dayInMonthCheckOut='+coDay;
+      qStr += ciDates();
       qStr +='&r=1' 
       qStr += '&roomInfoList[0].numberOfAdults=' + numAdults;
       qStr += '&roomInfoList[0].numberOfChildren=' + numChildren;
@@ -130,12 +132,11 @@ function buildHotelDetailsUrl(id) {
   
   var qStr1 = ""
 
+  
+
   qStr1 += 'hotelId='+ id;
   qStr1 += '&cur='+ currency;
-  qStr1 += '&monthCheckIn=' + ciMonth;
-  qStr1 += '&dayInMonthCheckIn=' + ciDay;
-  qStr1 += '&monthCheckOut=' + coMonth;
-  qStr1 += '&dayInMonthCheckOut=' + coDay;
+  qStr += ciDates();
   qStr1 += '&roomno=1';
   qStr1 += '&rooms[0].numberOfAdults=' + numAdults;
   qStr1 += '&children[0]=' + numChildren;
@@ -155,5 +156,15 @@ function getParameterByName(name) {
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
         results = regex.exec(location.search);
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+var ciDates = function(){
+  var today = new Date();
+  var cidd = today.getDate();
+  var cimm = today.getMonth()+2;
+  var codd = today.getDate()+1;
+  var comm = today.getMonth()+2;
+  
+  return "&dayInMonthCheckIn="+ cidd + "&monthCheckIn=" + cimm + "&dayInMonthCheckOut=" + codd + "&monthCheckOut=" + comm;
 }
 
