@@ -195,8 +195,9 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
  					</div>
 
  					<div class="content">
- 					Great for
+ 					<h3>Great for</h3>
  					<ul class="tags">
+ 						{{displayTags tags}}
  					</ul>
  					<p class="description">{{description}}</p>
  					</div>
@@ -311,6 +312,17 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 					return "";
 				}
 				
+			});
+
+			Handlebars.registerHelper("displayTags", function(tags){
+				var tStr = tags.split(", ");
+				var tagsStr = ""
+
+				$.each(tStr, function(i, tag) {
+					tagsStr += "<li>" + tag + "</li>"
+				});
+
+				return new Handlebars.SafeString(tagsStr);
 			});
 
 		</script>
