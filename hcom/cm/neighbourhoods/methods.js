@@ -41,12 +41,25 @@ var fetchHotels = function(){
             fetchHotelListNeighbourhood(destinationStr, nhoods.nid, displayHotels);
         });
 
-        initializeMap(destinationStr);
+        initializeMap(destinationStr, destinationObj[0].zoom);
                     //display loading message
         $("#loading-hotels").show();
     } else {
         initializeMap("Tokyo, Japan");
     }
+}
+
+var fetchContent = function(){
+    destinationStr = getParameterByName("destination");
+    destinationObj = getObjects(destination, 'str', destinationStr); 
+    neighbourhoodContent = content[destinationObj[0].val];
+
+    console.log(neighbourhoodContent);
+    displayNeighbourhoods(neighbourhoodContent);
+};
+
+var displayNeighbourhoodContent = function(num){
+
 }
 
 var displayHotels = function (data) {

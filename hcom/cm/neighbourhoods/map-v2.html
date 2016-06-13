@@ -115,8 +115,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 							<div id="neighbourhood-content" style="display:none;">
 								
 								<div class="image">
-									<img />
-									
+									<img / style="width:100%">
 								</div>
 								<div class="content" style="padding:8px">
 									<div class="name"></div>
@@ -178,7 +177,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 			
 			#neighbourhood-content #back:hover {cursor:pointer;}
 			#neighbourhood-content .image {position:relative;}
-			#neighbourhood-content .image img {width:100%;}
+			#neighbourhood-content .image img.thumb {width:100%;}
 			#neighbourhood-content .name {color:#000; font-weight: bold; font-size:18px; margin-bottom:8px;}
 			#neighbourhood-content .description {font-size:12px; line-height:16px;}
 
@@ -191,7 +190,8 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
  					
  					<div class="image">
  						<div class="name">{{name}}</div>
- 						<img src="{{image}}" />
+ 						<img class="thumb" src="{{image}}" />
+
  					</div>
 
  					<div class="content">
@@ -200,6 +200,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
  						{{displayTags tags}}
  					</ul>
  					<p class="description">{{description}}</p>
+ 					
  					</div>
 
  					
