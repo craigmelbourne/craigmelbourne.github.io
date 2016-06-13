@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+
+	</head>
+
+	<body>
+
+		
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+
+				var polygon = "12.557952 55.683346, 12.551766 55.687314, 12.543162 55.688291, 12.534579 55.695705, 12.520317 55.693793, 12.500537 55.687038, 12.491415 55.680293, 12.49251 55.674303, 12.493038 55.670823, 12.498018 55.668152, 12.514967 55.668169, 12.528458 55.666902, 12.542348 55.671789, 12.554822 55.673896, 12.557952 55.683346";
+
+
+
+				var polygonArr = polygon.split(", ");
+				console.log(polygonArr);
+				var str = ""
+
+				for (i = 0; i < polygonArr.length; i++) { 
+    				//console.log(polygonArr[i])
+    				var temp = polygonArr[i].split(" ");
+    				//console.log(temp[1] + "," + temp[0] + "|")
+    				str += temp[1] + "," + temp[0] + "|";
+
+
+				}
+				console.log(str)
+      			
+			});
+
+		</script>
+	</body>
+</html>
