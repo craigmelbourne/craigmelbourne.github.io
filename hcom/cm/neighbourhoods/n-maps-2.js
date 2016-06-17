@@ -56,12 +56,12 @@ var neighbourhoods = {
 
 
 
-function initializeMap(destination, zoomLevel) {
+function initializeMap(destination, destinationObj) {
     console.log(destination)
    
     map = new google.maps.Map(document.getElementById('map_canvas'), {
         //center: destination,
-        zoom: zoomLevel,
+        zoom: destinationObj.zoom,
         mapTypeId: 'roadmap',
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         panControl: false,
@@ -79,6 +79,7 @@ function initializeMap(destination, zoomLevel) {
         if (status == google.maps.GeocoderStatus.OK) {
             //console.log (pos[0].geometry.location.k + " " + pos[0].geometry.location.B)
             map.setCenter(pos[0].geometry.location);
+            map.panBy(destinationObj.panX, destinationObj.panY);
             
         } 
     });

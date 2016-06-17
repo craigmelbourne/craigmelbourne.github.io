@@ -16,12 +16,12 @@ $(function(){
         if($(this).is(":checked")) {
             showMarkers();
             showPolygons();
-            $("#neighbourhoods-wrapper").show();
+            $("#neighbourhood-wrapper").show();
             $("#hotel-card").hide();
         } else {
             clearMarkers();
             clearPolygons();
-            $("#neighbourhoods-wrapper").hide();
+            $("#neighbourhood-wrapper").hide();
         }       
     });
 })
@@ -41,7 +41,7 @@ var fetchHotels = function(){
             fetchHotelListNeighbourhood(destinationStr, nhoods.nid, displayHotels);
         });
 
-        initializeMap(destinationStr, destinationObj[0].zoom);
+        initializeMap(destinationStr, destinationObj[0]);
                     //display loading message
         $("#loading-hotels").show();
     } else {
@@ -84,7 +84,7 @@ var displayHotels = function (data) {
                             console.log(hotel);
                             //openNeighbourhood(name);
                             clearMarkers();
-                            $("#neighbourhoods").hide();
+                            $("#neighbourhood-wrapper").hide();
                             $("#hotel-card").show();
                             $("#hotel-card img").attr("src", hotel.imageUrl);
                             $("#hotel-card #hotelName").text(hotel.hotelName);

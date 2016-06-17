@@ -108,17 +108,20 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 					<div id="map_canvas" style="width:100%; height:100%;"></div>
 
 					<div id="neighbourhood-wrapper" style="">
-							<h2>Popular neighbourhoods</h2>
+							<h2 style="background-color:#026dc5; font-weight:normal;">Popular neighbourhoods</h2>
 							<div id="neighbourhoods"></div>
 							
-							<div id="back" style="display:none;"><< Neighbourhoods</div>
+							<div id="back" style="display:none; background-color:#026dc5">
+								<span style="font-weight:normal; font-size:12px"><< Popular Neighbourhoods</span>
+								<div class="n-name" style="font-size:18px;  margin-top:16px"></div>
+							</div>
 							<div id="neighbourhood-content" style="display:none;">
 								
 								<div class="image">
 									<img / style="width:100%">
 								</div>
 								<div class="content" style="padding:8px">
-									<div class="name"></div>
+									
 									<h3>Great for</h3>
  									<ul class="tags"></ul>
 									<p class="description"></p>
@@ -156,7 +159,8 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 		</div>
 		
 		<style type="text/css">
-			#neighbourhood-wrapper {position:absolute; top:0; left:0; bottom:0; padding:0; background-color:#fff; width:270px}
+			#neighbourhood-wrapper {position:absolute; top:0; left:0; bottom:0; padding:0; background-color:#fff; width:270px; -webkit-box-shadow: 4px 0 3px -1px #888;
+          box-shadow: 4px 0 3px -1px #888;}
 			#neighbourhood-wrapper h2 {margin:0; padding:8px; background-color:#000; color:#fff; font-size:14px;}
 			#neighbourhood-wrapper h3 {margin:0; padding:4px 0; color:#000;  font-size:14px;}
 			#neighbourhoods {overflow-y: scroll;position:absolute; top:40px; left:12px; right:12px; bottom:0;}
@@ -171,9 +175,9 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 			.tags li {display:inline-block; list-style-type: none; padding:0; margin:0; background-color:#eee; padding:4px 8px; margin-right:4px; border-radius:4px; font-size:12px; font-weight:bold;}
 			.neighbourhood-card .content .description {display:none;}
 
-			#back {background-color:#000; color:#fff; padding:8px 8px; font-size:14px; font-weight:bold;}
+			#back {color:#fff; padding:8px 8px;}
 			#back:hover {cursor: pointer}
-			#neighbourhood-content {overflow-y: scroll;position:absolute; top:30px; bottom:0;}
+			#neighbourhood-content {overflow-y: scroll;position:absolute; top:68px; bottom:0;}
 			
 			#neighbourhood-content #back:hover {cursor:pointer;}
 			#neighbourhood-content .image {position:relative;}
@@ -247,7 +251,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 					$("#neighbourhood-content").show();
 					$("#back").show()
 					$("#neighbourhood-content .image img").attr("src", neighbourhoodContent[num].image);
-					$("#neighbourhood-content .name").text(neighbourhoodContent[num].name);
+					$(".n-name").text(neighbourhoodContent[num].name);
 					$("#neighbourhood-content .description").text(neighbourhoodContent[num].description);
 
 					var tags = neighbourhoodContent[num].tags.split(", ");

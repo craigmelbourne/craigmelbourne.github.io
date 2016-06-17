@@ -13,8 +13,9 @@
 	</head>
 
 	<body>
-
-		
+	<textarea style="margin-top:50px; width:500px; height:200px" id="polygon"></textarea> <br />
+	<button>Convert string</button><br /><br />
+		<textarea id="string" style="margin-top:50px; width:500px; height:200px"></textarea>
 
 
 		<!-- Scripts -->
@@ -26,13 +27,29 @@
 			// run things on page load
 			$(function(){
 
-				var polygon = "12.557952 55.683346, 12.551766 55.687314, 12.543162 55.688291, 12.534579 55.695705, 12.520317 55.693793, 12.500537 55.687038, 12.491415 55.680293, 12.49251 55.674303, 12.493038 55.670823, 12.498018 55.668152, 12.514967 55.668169, 12.528458 55.666902, 12.542348 55.671789, 12.554822 55.673896, 12.557952 55.683346";
+				$("button").on("click", function(){
+					var polygon = $("#polygon").val();
+					var polygonArr = polygon.split(", ");
+					console.log(polygonArr);
+					var str = ""
+
+					for (i = 0; i < polygonArr.length; i++) { 
+    					//console.log(polygonArr[i])
+    					var temp = polygonArr[i].split(" ");
+    					//console.log(temp[1] + "," + temp[0] + "|")
+    					str += temp[1] + "," + temp[0] + "|";
+					}
+				
+					$("#string").text(str);
+				})
+
+				var polygon = "-6.422443 53.414374, -6.537227 53.305303, -6.504153 53.264595, -6.35566 53.258721, -6.3334 53.337463, -6.359105 53.339956, -6.381262 53.351957, -6.37438 53.362103, -6.382168 53.362202, -6.39158 53.360832, -6.404585 53.361427, -6.409803 53.36393, -6.413519 53.367912, -6.406424 53.379889, -6.403113 53.387856, -6.395125 53.398275, -6.374116 53.403723, -6.422443 53.414374";
 
 
 
 				var polygonArr = polygon.split(", ");
 				console.log(polygonArr);
-				var str = ""
+				//var str = 'staticMapU: "'
 
 				for (i = 0; i < polygonArr.length; i++) { 
     				//console.log(polygonArr[i])
@@ -42,7 +59,7 @@
 
 
 				}
-				console.log(str)
+				//$("#string").text(str);
       			
 			});
 
