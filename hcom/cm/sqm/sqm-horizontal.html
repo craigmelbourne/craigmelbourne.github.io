@@ -22,15 +22,15 @@
 		#header-content h1 {margin:0; padding:0; float:left;}
 		#header-content .phone {padding:8px 0; float:left;}
 		#header-content .link {font-size:13px;}
-		#tp-wrapper {background-color: #eae8e0; position:absolute; left:0; right:0; top:130px; z-index:-1; height:80px;}	
-		#tp-content {max-width:1100px; margin:50px auto;}	
-		#sqm {max-width:1132px; margin:0 auto; background-color:#fff; margin-top:84px; border-radius:4px; box-sizing: border-box; padding:16px; -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+		#tp-wrapper {background-color: #eae8e0; position:absolute; left:0; right:0; top:130px; z-index:-1; height:90px;}	
+		#tp-content {max-width:1100px; margin:60px auto;}	
+		#sqm {max-width:1132px; margin:0 auto; background-color:#fff; margin-top:94px; border-radius:4px; box-sizing: border-box; padding:16px; -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
 box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);}
 
-		#sqm .field {display:inline-block; margin-right:40px;}
-		#sqm .field label {display:block; margin-bottom:4px; font-size:14px;}
-		#sqm .field input {padding:4px; font-size:16px; width:100%;}
+		#sqm .field {display:inline-block; margin-right:30px;}
+		#sqm .field label.sqm {display:block; margin-bottom:8px; font-weight:bold; font-size:14px;}
+		#sqm .field input[type="text"] {padding:4px; font-size:16px; width:100%;}
 
 		ul.main-links li {display: inline-block; padding-top:16px; margin-left:20px;}
 
@@ -50,7 +50,7 @@ box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);}
 			</div>
 			
 			<div style="overflow:hidden;">
-				<h1>Hotels.com</h1>
+				<div style="height:100px; overflow:hidden; float:left;"><img src="https://a2.cdn-hotels.com/da/assets/s/41.0/images/brands/hcom/logos/logo_en_GB.png" style="height:100px"/></div>
 				<div style="float:right;">
 					<ul class="main-links">
 						<li>Customer Service</li>
@@ -70,24 +70,24 @@ box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);}
 
 	<div id="sqm">
 		<div class="field">
-			<label>Destination, hotel, landmark or address</label>
+			<label class="sqm">Destination, hotel, landmark or address</label>
 			<input type="text" />
 			<!--<input type="radio" />Business  <input type="radio" />Business-->
 		</div>
 		<div class="field">
-			<label>Check in</label>
+			<label class="sqm">Check in</label>
 			<input type="text" />
 		</div>
 		<div class="field">
-			<label>Check out</label>
+			<label class="sqm">Check out</label>
 			<input type="text" />
 		</div>
 		<div class="field">
-			<label>Rooms</label>
+			<label class="sqm">Rooms</label>
 			<input type="text" />
 		</div>
 		<div class="field">
-			<button style="background-color:#026dc5; color:#fff; font-size:16px; padding:4px 16px">Search</button>
+			<button style="background-color:#026dc5; color:#fff; font-size:16px; padding:8px 16px; border:0; border-radius:2px">Search</button>
 		</div>
 	</div>
 
