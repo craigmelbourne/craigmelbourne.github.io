@@ -38,7 +38,16 @@
 		ul.main-links li {display: inline-block; padding-top:16px; margin-left:20px;}
 
 		#page-wrapper {max-width:1100px; margin:30px auto 0; }
-		#page-wrapper #filters {width:250px; background-color: #fff; height:600px; border-radius: 4px; display:inline-block; vertical-align: top;}
+		#page-wrapper #filters {width:250px; height:600px; border-radius: 4px; display:inline-block; vertical-align: top;}
+		#page-wrapper #filters h2 {font-size:18px; padding:0; margin:0 0 0 0;}
+		#page-wrapper #filters p {font-size:14px; padding:0; margin:4px 0 8px 0;}
+		#page-wrapper #filters > div { padding: 8px 0;}
+		#page-wrapper #filters input[type="text"] {font-size:12px; width:calc(100% - 48px); border:0; font-family:arial; padding:8px; border-radius:4px; 
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.39)}
+		#page-wrapper #filters h3 {font-size:14px; padding:0; margin:0 0 8px 0;}
+		#page-wrapper #filters ul.stars li {color:#d41200; font-size:14px;}
+
+
 		#page-wrapper #content {width:calc(100% - 274px); display:inline-block; vertical-align: top; margin-left:16px;}
 		#page-wrapper #content .card {background-color: #fff; border-radius: 4px; height:100px; margin-bottom:16px;}
 
@@ -101,7 +110,35 @@
 	<!--<div id="tp-strip">Trip planner</div>-->
 
 	<div id="page-wrapper">
-		<div id="filters"></div>
+		<div id="filters">
+			<h2>Narrow results:</h2>
+			<p>1234 hotels</p>
+			<div>
+				<h3>Name contains</h3>
+				<input type="text">
+			</div>
+			<div>
+				<h3>Price</h3>
+				<img src="slider.png" />
+			</div>
+			<div>
+				<h3>Star rating</h3>
+				<ul class="stars">
+					<li><input type="checkbox" /> &#9733&#9733&#9733&#9733&#9733</li>
+					<li><input type="checkbox" /> &#9733&#9733&#9733&#9733</li>
+					<li><input type="checkbox" /> &#9733&#9733&#9733</li>
+					<li><input type="checkbox" /> &#9733&#9733</li>
+					<li><input type="checkbox" /> &#9733</li>
+				</ul>
+			</div>
+			<div>
+				<h3>Guest rating</h3>
+				<img src="slider.png" />
+			</div>
+			<div>
+				<h3>Neighbourhoods</h3>
+			</div>
+		</div>
 		<div id="content">
 			<div class="card"></div>
 			<div class="card"></div>
