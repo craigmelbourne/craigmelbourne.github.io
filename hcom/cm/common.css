@@ -12,7 +12,7 @@ a {text-decoration: none;}
 
 
 /* SRP Structure */
-#wrapper-query {background-color:#eae8e0; min-height:80px;}
+#wrapper-query {background-color:#eae8e0; min-height:20px;}
 #wrapper-query #search {max-width:1160px; margin:0 auto; padding:0 16px 0; box-sizing:border-box;}
 #wrapper-results {max-width:1160px; margin:0 auto; padding:0 16px 0; box-sizing:border-box;}
 #wrapper-results #filters {width:225px; float:left; background-color:#f5f4f0; min-height:400px;}
@@ -38,7 +38,111 @@ a {text-decoration: none;}
 .hotel-card .thumbnail {height:80px; width:120px; overflow:hidden; display:inline-block; vertical-align: top; position:relative;}
 .hotel-card .thumbnail img {width:100%; position:absolute; bottom:0;}
 
+.hotel-card .price {margin-top:12px;}
+			.hotel-card .price .specialDeal .total {color:#d41200; font-weight:bold; font-size:28px;}
+			.hotel-card .price .specialDeal .description {color:#d41200; font-size:12px; display:block; font-weight:bold; margin-bottom:4px;}
+			.hotel-card .price .specialDeal .strikethrough {color:#555; font-size:16px; text-decoration: line-through}
+			.hotel-card .price .standard {font-weight:bold; font-size:20px;}
+			.hotel-card .price .disclaimer {font-size:11px; color:#999;}
+
 /* Footer */
 #footer {}
 
 #overlay-fullpage {position: fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.7; display:none;}
+
+
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+    
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+    
+    /*required for proper track sizing in FF*/
+    width: calc(100% - 16px);
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #026dc5;
+    margin-top: -4px;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #026dc5;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 5px;
+    
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+
+    /*remove default tick marks*/
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+}
+input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 10px;
+}
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #026dc5;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #888;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+
+
+
+
+
+

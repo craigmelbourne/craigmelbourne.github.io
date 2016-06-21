@@ -97,7 +97,7 @@ var buildSearchUrl = function(destination) {
       // create API URL
       var url = '/api/' + pos + '/search.html?'+qStr;
       //console.log(url);
-
+      console.log(url);
       return url;
     }
 

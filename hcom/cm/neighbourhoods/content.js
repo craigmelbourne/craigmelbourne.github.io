@@ -183,7 +183,7 @@ var content = {
 
     barcelona: [
         {
-            name: "Exiample",
+            name: "Eixample",
             nid: "1649520",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production33/d96/09ad4e90-05c0-11e4-b02d-d89d672bfba8.jpg",
