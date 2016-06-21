@@ -51,6 +51,19 @@
 		#page-wrapper #content {width:calc(100% - 274px); display:inline-block; vertical-align: top; margin-left:16px;}
 		#page-wrapper #content .card {background-color: #fff; border-radius: 4px; height:100px; margin-bottom:16px;}
 
+		#filters #total-hotels {font-weight:bold; font-size:12px; padding:0; margin:0;}
+#filters > div {box-sizing: border-box; padding:8px; }
+    #filters ul {list-style-type: none;}
+    #filters .filter {border-top:solid 1px #ddd;}
+    #filters  h2 {font-size:16px; font-weight:bold; margin:0 0 8px 0; padding:0;}
+    #filters  h3 {font-size:14px; font-weight:bold; margin:0 0 12px 0; padding:0;}
+    #filters  ul li {overflow:hidden; margin-bottom:4px;}
+    #filters  ul li input[type="checkbox"] {float:left; width:16px; padding:0;}
+    #filters  ul li label {float:left; width:calc(100% - 30px); padding:2px 0 0 0; font-size: 12px}
+    #filters  ul.stars li {margin:0; padding:0;}
+    #filters  ul.stars li input[type="checkbox"] {float:left; width:16px; margin-top:6px;}
+    #filters  ul.stars li label {color:#d41200; font-size:16px; padding:0;}
+
 	</style>
 
 	<div id="header-wrapper">
@@ -135,9 +148,7 @@
 				<h3>Guest rating</h3>
 				<img src="slider.png" />
 			</div>
-			<div>
-				<h3>Neighbourhoods</h3>
-			</div>
+			<div id="f-neighbourhoods"></div>
 		</div>
 		<div id="content">
 			<div class="card"></div>
@@ -159,20 +170,64 @@
 	</div>
 
 
+<!-- TEMPLATES --> 
 
+<script id="filters-neighborhoods" type="text/x-handlebars-template">
+ 	<h3>Neighbourhoods</h3>
+ 	<ul>
+ 		{{#each this}}
+ 		<li>
+ 			<input type="checkbox">
+ 			<label>{{title}}</label>
+ 		</li>
+ 		{{/each}}
+ 	</ul>			
+</script>
+
+<script id="filters-landmarks" type="text/x-handlebars-template">
+ 	<h3>Landmarks</h3>
+ 	<ul>
+ 		{{#each this}}
+ 		<li>
+ 			<input type="checkbox">
+ 			<label>{{title}}</label>
+ 		</li>
+ 		{{/each}}
+ 	</ul>			
+</script>
 		
 
 
 		<!-- Scripts -->
 		<!-- JQuery Google CDN -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="../handlebars.js"></script>
 
 		<script type="text/javascript">
-
+		var hotelData
 			// run things on page load
 			$(function(){
+
+				$.getJSON( "../ny-json.js", function( data ) {
+					hotelData = data; 
+					console.log(hotelData); 
+					displayFiltersNeighbourhoods(data.result.neighborhoods);
+
+				});
       			
 			});
+
+			var displayFiltersNeighbourhoods = function (data){
+				var source   = $("#filters-neighborhoods").html();
+  				var template = Handlebars.compile(source);
+  				$("#f-neighbourhoods").html(template(data));
+			}
+
+			var displayFiltersLandmarks = function (data){
+				var source   = $("#filters-landmarks").html();
+  				var template = Handlebars.compile(source);
+  				$("#f-landmarks").html(template(data));
+			}
 
 		</script>
 	</body>

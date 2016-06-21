@@ -6,15 +6,16 @@
 var fetchHotelList = function (destination, cb){
 	var url = buildSearchUrl(destination);
 
-	console.log("fetch list")
+	console.log("getting list");
 
 	$.ajax({
   		dataType: "json",
   		url: url,
   		success: cb,
-      /*success: function (response) {
-        console.log(response)
-      }, */
+      //success: function (response) {
+        //console.log(response)
+        //displayFilters(response);
+      //},
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
         alert(thrownError);

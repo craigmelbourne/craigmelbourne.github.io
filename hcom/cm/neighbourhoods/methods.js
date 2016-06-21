@@ -58,10 +58,6 @@ var fetchContent = function(){
     displayNeighbourhoods(neighbourhoodContent);
 };
 
-var displayNeighbourhoodContent = function(num){
-
-}
-
 var displayHotels = function (data) {
                 // hide loading message
                 //$("#loading-hotels").hide();

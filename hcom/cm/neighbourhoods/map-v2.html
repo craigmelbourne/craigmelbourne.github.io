@@ -12,6 +12,8 @@
 		<style type="text/css">
 		a {color:#026dc5;}
 		ul {padding:0; margin:0;}
+
+		#query {max-width:1160px; margin:0 auto; padding: 16px; box-sizing:border-box;}
 		#map {width:100%; height:500px; position:relative;}
 		.labels {display:inline-block; background-color: #000; color:#fff; padding:4px 8px; font-size:12px; font-weight: bold;}
 		#neighbourhood-wrapper {border-left:1px solid #ccc; border-bottom:1px solid #ccc;}
@@ -44,7 +46,19 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 		<div id="header"></div>
 		<div id="nav"></div>
 		
-		<div id="wrapper-query"></div>
+		<div id="wrapper-query">
+			<div id="query">
+				
+				<img src="http://www.hotels.com/da/assets/s/41.0/images/themes/red/pages/sha/map.png" style="display:inline-block; border:3px solid #fff; vertical-align:top;"/>
+				<div style="display:inline-block; margin-left:20px; vertical-align:top;">
+					<h1 id="destination"></h1>
+					<div style="padding:4px 0 0 0; font-size:16px">Wed 22 - Thu 23 June 2016, 1 night, 1 room, 2 adults</div>
+						
+				</div>
+
+			</div>
+		</div>
+
 
 
 		<div id="wrapper-results">
@@ -54,50 +68,51 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 							<input id="showNHoods" type="checkbox" checked /> Show neighbourhood guides</div>
 			</div>
 			<div id="filters">
-				<div class="container">
-					<h2>Narrow results</h2>
-					<p>593 hotels</p>
+				<div>
+					<h2>Narrow results:</h2>
+					<div id="total-hotels"></div>
 				</div>
-				<div class="container">
+				<div id="f-name-contains" class="filter">
 					<h3>Name contains</h3>
-					
+					<input type="text" />
 				</div>
-				<div class="container">
+				<div id="f-price" class="filter">
 					<h3>Price</h3>
-					
+					<div style="text-align:center; font-weight:bold; margin-bottom:4px">£0 - £500+</div>
+					<img src="slider.png" />
 				</div>
-				<div class="container">
+				<div id="f-star-rating" class="filter">
 					<h3>Star rating</h3>
-					
+					<ul class="stars">
+						<li>
+ 							<input type="checkbox">
+ 							<label>&#9733;&#9733;&#9733;&#9733;&#9733;</label>
+ 						</li>
+ 						<li>
+ 							<input type="checkbox">
+ 							<label>&#9733;&#9733;&#9733;&#9733;</label>
+ 						</li>
+ 						<li>
+ 							<input type="checkbox">
+ 							<label>&#9733;&#9733;&#9733;</label>
+ 						</li>
+ 						<li>
+ 							<input type="checkbox">
+ 							<label>&#9733;&#9733;</label>
+ 						</li>
+ 						<li>
+ 							<input type="checkbox">
+ 							<label>&#9733;</label>
+ 						</li>
+					</ul>
 				</div>
-				<div class="container">
+				<div id="f-guest-rating" class="filter">
 					<h3>Guest rating</h3>
-					
+					<div style="text-align:center; font-weight:bold; margin-bottom:4px">0 - 5</div>
+					<img src="slider.png" />
 				</div>
-				<div class="container">
-					<h3>Neighbourhood</h3>
-					
-				</div>
-				<div class="container">
-					<h3>Landmarks</h3>
-					
-				</div>
-				<div class="container">
-					<h3>Accommodation type</h3>
-					
-				</div>
-				<div class="container">
-					<h3>Facilities</h3>
-					
-				</div>
-				<div class="container">
-					<h3>Themes / types</h3>
-					
-				</div>
-				<div class="container">
-					<h3>Accessibility Features</h3>
-					
-				</div>
+				<div id="f-neighbourhoods" class="filter"></div>
+				<div id="f-landmarks" class="filter"></div>
 
 			</div>
 			
@@ -169,11 +184,11 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 			.neighbourhood-card:hover {cursor:pointer; }
 			.neighbourhood-card .image {position:relative;}
 			.neighbourhood-card .image img {width:100%;}
-			.neighbourhood-card .name {position:absolute; bottom:0; left:0; color:#000; padding:8px 8px 8px 0; font-weight: bold; font-size:18px; background-color:#fff;}
+			.neighbourhood-card .name {position:absolute; bottom:0; left:0; color:#026dc5; padding:8px 8px 8px 0; font-weight: bold; font-size:18px; background-color:#fff;}
 			.neighbourhood-card .content {padding:0 8px 0 0;}
 			.tags {margin:0; padding:0;}
 			.tags li {display:inline-block; list-style-type: none; padding:0; margin:0; background-color:#eee; padding:4px 8px; margin-right:4px; border-radius:4px; font-size:12px; font-weight:bold;}
-			.neighbourhood-card .content .description {display:none;}
+			.neighbourhood-card .content .description {height:28px; overflow:hidden; font-size:12px; margin-bottom:4px;}
 
 			#back {color:#fff; padding:8px 8px;}
 			#back:hover {cursor: pointer}
@@ -204,6 +219,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
  						{{displayTags tags}}
  					</ul>
  					<p class="description">{{description}}</p>
+ 					<span style="color:#026dc5; font-size:12px">Read more...</span>
  					
  					</div>
 
@@ -211,6 +227,30 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
  				</div>
 		    {{/each}}
     	</script>
+
+    	<script id="filters-neighborhoods" type="text/x-handlebars-template">
+ 			<h3>Neighbourhoods</h3>
+ 			<ul>
+ 				{{#each this}}
+ 				<li>
+ 					<input type="checkbox">
+ 					<label>{{title}}</label>
+ 				</li>
+ 				{{/each}}
+ 			</ul>			
+		</script>
+
+		<script id="filters-landmarks" type="text/x-handlebars-template">
+ 			<h3>Landmarks</h3>
+ 			<ul>
+ 				{{#each this}}
+ 				<li>
+ 					<input type="checkbox">
+ 					<label>{{title}}</label>
+ 				</li>
+ 				{{/each}}
+ 			</ul>			
+		</script>
 
 
 		<!-- Scripts -->
@@ -233,8 +273,39 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 
 			var count = 0;
 
+			var displayFilters = function(data){
+				console.log("in here")
+				displayFiltersNeighbourhoods(data.result.neighborhoods);
+				displayFiltersLandmarks(data.result.landmarks);
+				$("#total-hotels").text(data.result.matchingHotels + " hotels")
+			}
+
+			var displayFiltersNeighbourhoods = function (data){
+				var source   = $("#filters-neighborhoods").html();
+  				var template = Handlebars.compile(source);
+  				$("#f-neighbourhoods").html(template(data));
+			}
+
+			var displayFiltersLandmarks = function (data){
+				var source   = $("#filters-landmarks").html();
+  				var template = Handlebars.compile(source);
+  				$("#f-landmarks").html(template(data));
+			}
+
 			$(function(){
+
+				$( "#header" ).load( "../components/c-header.html" );
+				$( "#nav" ).load( "../components/c-nav.html" );
+
 				fetchHotels();
+
+				fetchHotelList(getParameterByName("destination"), displayFilters);
+
+			
+
+			
+
+				$("#destination").text(getParameterByName("destination"));
 
 				$("#neighbourhoods").on("click", ".neighbourhood-card", function(e){
 					var num = parseInt($(this).attr("rel")) - 1;
