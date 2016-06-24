@@ -123,7 +123,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 					<div id="map_canvas" style="width:100%; height:100%;"></div>
 
 					<div id="neighbourhood-wrapper" style="">
-							<h2 style="background-color:#026dc5; font-weight:normal;">Popular neighbourhoods</h2>
+							<h2 class="neighbourhood-header" style="background-color:#026dc5; font-weight:normal;">Popular neighbourhoods</h2>
 							<div id="neighbourhoods"></div>
 							
 							<div id="back" style="display:none; background-color:#026dc5">
@@ -144,8 +144,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 									<h3>Landmarks</h3>
 									<ul class="landmarks"></ul>
 
-									<h3>Transport</h3>
-									<ul class="transport"></ul>
+									
 								</div>
 								
 								
@@ -177,7 +176,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 			#neighbourhood-wrapper {position:absolute; top:0; left:0; bottom:0; padding:0; background-color:#fff; width:270px; -webkit-box-shadow: 4px 0 3px -1px #888;
           box-shadow: 4px 0 3px -1px #888;}
 			#neighbourhood-wrapper h2 {margin:0; padding:8px; background-color:#000; color:#fff; font-size:14px;}
-			#neighbourhood-wrapper h3 {margin:0; padding:4px 0; color:#000;  font-size:14px;}
+			#neighbourhood-wrapper h3 {margin:0 0 4px 0; padding:4px 0; color:#000;  font-size:14px;}
 			#neighbourhoods {overflow-y: scroll;position:absolute; top:40px; left:12px; right:12px; bottom:0;}
 			#neighbourhoods .hide{display:none;}
 			.neighbourhood-card {position:relative; padding-bottom:8px; margin-bottom: 8px; border-bottom:solid 1px #ccc;}
@@ -187,7 +186,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 			.neighbourhood-card .name {position:absolute; bottom:0; left:0; color:#026dc5; padding:8px 8px 8px 0; font-weight: bold; font-size:18px; background-color:#fff;}
 			.neighbourhood-card .content {padding:0 8px 0 0;}
 			.tags {margin:0; padding:0;}
-			.tags li {display:inline-block; list-style-type: none; padding:0; margin:0; background-color:#eee; padding:4px 8px; margin-right:4px; border-radius:4px; font-size:12px; font-weight:bold;}
+			.tags li {display:inline-block; list-style-type: none; padding:0; margin:0; background-color:#eee; padding:4px 8px; margin-right:4px; border-radius:4px; font-size:12px; font-weight:bold; margin-bottom:4px;}
 			.neighbourhood-card .content .description {height:28px; overflow:hidden; font-size:12px; margin-bottom:4px;}
 
 			#back {color:#fff; padding:8px 8px;}
@@ -342,15 +341,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 					});
 
 					$("#neighbourhood-content ul.landmarks").html(lStr)
-					//console.log(tags);
-
-					console.log(neighbourhoodContent[num].transport);
-
-					var tStr = "";
-					$.each(neighbourhoodContent[num].transport, function(i, tport) {
-						tStr += "<li>" + tport.name + "</li>"
-					});
-					$("#neighbourhood-content ul.transport").html(tStr)
+					
 
 				}); 
 
@@ -396,6 +387,9 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 
 				$.each(tStr, function(i, tag) {
 					tagsStr += "<li>" + tag + "</li>"
+
+					if(i == 2) 
+        				return false; 
 				});
 
 				return new Handlebars.SafeString(tagsStr);

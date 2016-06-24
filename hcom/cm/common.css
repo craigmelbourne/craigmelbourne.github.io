@@ -43,7 +43,7 @@ a {text-decoration: none;}
 			.hotel-card .price .specialDeal .total {color:#d41200; font-weight:bold; font-size:28px;}
 			.hotel-card .price .specialDeal .description {color:#d41200; font-size:12px; display:block; font-weight:bold; margin-bottom:4px;}
 			.hotel-card .price .specialDeal .strikethrough {color:#555; font-size:16px; text-decoration: line-through}
-			.hotel-card .price .standard {font-weight:bold; font-size:20px;}
+			.hotel-card .price .standard {font-weight:bold; font-size:28px;}
 			.hotel-card .price .disclaimer {font-size:11px; color:#999;}
 
 #filters #total-hotels {font-weight:bold; font-size:12px; padding:0; margin:0;}

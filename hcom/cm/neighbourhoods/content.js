@@ -187,14 +187,14 @@ var content = {
             nid: "1649520",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production33/d96/09ad4e90-05c0-11e4-b02d-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Architecture, Historical, Food, Friendly people",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Its lavish avenue, Passeig de Gracia, is the place to check out Barcelona's chic fashion boutiques, but there's another reason Eixample is a must-see district: Gaudi. The trailblazing architect's uniquely organic-looking buildings – which look more grown than built – can be seen here, including Casa Mila and the cactus-like spires of Sagrada Familia, Gaudi's great church which is as much a symbol of Barcelona as the Eiffel Tower is of Paris.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Sagrada Familia, Passeig de Gracia, Plaça de Catalunya, Casa Batlló",
             center: {lat: 41.3917125306436, lng: 2.16478080087517}, 
             polygon: [
                 {lng: 2.15985, lat: 41.396445},
@@ -232,14 +232,14 @@ var content = {
             nid: "1649519",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production138/d597/0a136360-05c0-11e4-b02d-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Nightlife, Bars, Live music, Entertainment",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "With its bohemian, village-like vibe, Gracia is popular with artists, hipsters, and party animals alike. Chill out in the relaxing Placa Rius i Taulet by day, and head to the jumping Placa del Sol at night to mingle at the many bars and clubs. But the most famous attraction has to be Park Guell – a wonderland of flowing stone arches and columns resembling tree trunks, designed by visionary architect Gaudi.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Park Guëll, Placa del Sol",
             center: {lat: 41.4100383180624, lng: 2.15295973672355}, 
             polygon: [
                 {lng: 2.129748, lat: 41.420453},
@@ -273,14 +273,14 @@ var content = {
             nid: "1808316",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production90/d277/0a81dca0-05c0-11e4-b02d-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Relaxing, Cafes, Gardens, Shopping, Food",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Balancing the buzz of downtown Barcelona, Sarria-Sant Gervasi is an upscale oasis of calm. Think relaxing cafes and leafy sun-dappled gardens, while if you're feeling more energetic you can head up to Mount Tibidabo where there's a popular theme park as well as the neo-Gothic extravagance of Sagrat Cor church. For chic boutiques, enticing eateries, and Catalan charm, have a wander along Major de Sarria, the area's main boulevard.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Mount Tibidabo",
             center: {lat: 41.4055389456722, lng: 2.12858485951083}, 
             polygon: [
                 {lng: 2.15647, lat: 41.395512},
@@ -311,14 +311,14 @@ var content = {
             nid: "1649518",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production56/d1570/0af31500-05c0-11e4-b02d-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Beach, Walking, Shopping, Scenery, Football",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "For a taste of the great outdoors in Barcelona, take a cable car up Montjuic hill. Along with gasp-inducing views, you can also visit a museum dedicated to Joan Miro. Elsewhere in the sprawling Sants-Montjuic district you can wander Carrer de Sants, a buzzing shopping area. Camp Nou, home of Barcelona FC, is a place of pilgrimage for footie fans – the Barca Museum's one of the most popular in Spain.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Camp Nou, Montjuic hill",
             center: {lat: 41.3529539840538, lng: 2.14819198825082}, 
             polygon: [
                 {lng: 2.127778, lat: 41.370934},
@@ -353,14 +353,14 @@ var content = {
             nid: "1701329",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production17/d1829/c77b40f0-ac67-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Fine dining, Relaxing, Gardens, Walking, Nature, Luxury",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "This western district of Berlin is full of elegance and luxury. To get a sense of its regal history, visit the huge, turquoise-domed Charlottenburg Palace, which sits grandly overlooking a lake. Then head to Kurfürstendamm, Berlin’s luxurious shopping artery, which attracts well-heeled locals to its stretch of designer stores. For those looking for a rural retreat, Charlottenburg also offers easy access to Berlin’s Grunewald Forest, the perfect place for hiking.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Schloss Charlottenburg, Kurfürstendamm, Europa-Center",
             center: {lat: 52.5128298131606, lng: 13.2683378017187}, 
             polygon: [
                 {lng: 13.339509, lat: 52.499286},
@@ -417,14 +417,14 @@ var content = {
             nid: "1662712",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production90/d172/c77b40f1-ac67-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Food, Culture, Historical, Architecture, Cafes, Friendly people",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "A central Berlin district, just north of Mitte, Prenzlauer Berg has a relaxed atmosphere and beautiful historic buildings. Once downtrodden under East German rule, the Belle Epoque facades have been cleaned and brightened and an influx of the young middle class has caused a boom in independent cafés where you can sit on a sunny pavement and sip coffee. To understand the area’s heritage, visit the Rykestrasse Synagogue, Germany's largest.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Mauerpark, Kollwitzplatz, Synagoge Rykestraße, Kulturbrauerei",
             center: {lat: 52.5396389946329, lng: 13.4294736458981}, 
             polygon: [
                 {lng: 13.415305, lat: 52.554634},{lng: 13.413884, lat: 52.556041},{lng: 13.414277, lat: 52.557182},{lng: 13.397319, lat: 52.558015},{lng: 13.398903, lat: 52.550827},{lng: 13.402556, lat: 52.542132},{lng: 13.404726, lat: 52.540513},{lng: 13.39901, lat: 52.539133},{lng: 13.40118, lat: 52.536319},{lng: 13.405716, lat: 52.535008},{lng: 13.407389, lat: 52.53578},{lng: 13.40867, lat: 52.534523},{lng: 13.413697, lat: 52.532969},{lng: 13.410643, lat: 52.529072},{lng: 13.41577, lat: 52.527573},{lng: 13.430306, lat: 52.522983},{lng: 13.433356, lat: 52.523236},{lng: 13.4375, lat: 52.523379},{lng: 13.45065, lat: 52.527259},{lng: 13.456494, lat: 52.528314},{lng: 13.460730999999999, lat: 52.529571},{lng: 13.467734, lat: 52.53802},{lng: 13.448523, lat: 52.546961},{lng: 13.430092, lat: 52.55182},{lng: 13.429599, lat: 52.551281},{lng: 13.42743, lat: 52.552534},{lng: 13.421021, lat: 52.553374},{lng: 13.420827, lat: 52.554156},{lng: 13.415305, lat: 52.554634}
@@ -436,14 +436,14 @@ var content = {
             nid: "1701328",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production0/d1365/c77610d0-ac67-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Sightseeing, Cafes, Culture, Secluded, Fine dining, Relaxing",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Just south of Mitte, Kreuzberg is one of the most culturally rich and contrasting districts of Berlin. Much of Berlin’s turbulent history is concentrated here, with Checkpoint Charlie and the longest intact section of the Berlin wall to see, but the district is also forward-thinking, with modern architecture and science museums. To relax, head to the riverbank and take a leisurely canal cruise, or sit and picnic in the park.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Checkpoint Charlie, Deutsches Technikmuseum, Görlitzer Park",
             center: {lat: 52.4954180601255, lng: 13.4063850551749}, 
             polygon: [
                 {lng: 13.443586, lat: 52.502325},{lng: 13.433309, lat: 52.506932},{lng: 13.429489, lat: 52.508309},{lng: 13.426138, lat: 52.505399},{lng: 13.419702, lat: 52.505693},{lng: 13.417483, lat: 52.504504},{lng: 13.41511, lat: 52.505081},{lng: 13.414021, lat: 52.504419},{lng: 13.411817, lat: 52.505098},{lng: 13.410031, lat: 52.506905},{lng: 13.404596, lat: 52.508093},{lng: 13.400738, lat: 52.509419},{lng: 13.399257, lat: 52.508418},{lng: 13.379853, lat: 52.506926},{lng: 13.377898, lat: 52.507762},{lng: 13.375385, lat: 52.50393},{lng: 13.377121, lat: 52.501721},{lng: 13.373185, lat: 52.502909},{lng: 13.371733, lat: 52.502298},{lng: 13.37087, lat: 52.500044},{lng: 13.369756, lat: 52.498743},{lng: 13.36859, lat: 52.496772},{lng: 13.36872, lat: 52.492931},{lng: 13.372668, lat: 52.492357},{lng: 13.371499, lat: 52.485376},{lng: 13.389915, lat: 52.484584},{lng: 13.406496, lat: 52.482443},{lng: 13.407663, lat: 52.47844},{lng: 13.41095, lat: 52.477726},{lng: 13.413645, lat: 52.478092},{lng: 13.41352, lat: 52.478625},{lng: 13.418932, lat: 52.477969},{lng: 13.419626, lat: 52.479615},{lng: 13.421311, lat: 52.479991},{lng: 13.422023, lat: 52.486531},{lng: 13.424599, lat: 52.485909},{lng: 13.425662, lat: 52.487623},{lng: 13.424835, lat: 52.490093},{lng: 13.423337, lat: 52.491124},{lng: 13.422729, lat: 52.493217},{lng: 13.420977, lat: 52.495335},{lng: 13.42267, lat: 52.495106},{lng: 13.439988, lat: 52.489515},{lng: 13.446351, lat: 52.494443},{lng: 13.447831, lat: 52.494713},{lng: 13.455088, lat: 52.498692},{lng: 13.443586, lat: 52.502325}
@@ -455,14 +455,14 @@ var content = {
             nid: "1662709",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production158/d919/c75b35d0-ac67-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Culture, Nightlife, Urban, Budget, Markets, Live music",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "With the bouncing clubs, vibrant bars, and buzzing pubs of Boxhagener Platz and Simon-Dach Strasse, the bohemian district of Frederichshain is where Berlin's coolest citizens go to party, unwind, and revel into the wee hours. But there are also fascinating windows into East Berlin's beguiling past, the most evocative being the East Side Gallery, a stretch of the Berlin Wall covered in colorful, politically-charged murals.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "East Side Gallery, Karl-Marx-Allee, Frankfurter Tor, Simon-Dach-Straße",
             center: {lat: 52.5111988763599, lng: 13.4543032613299}, 
             polygon: [
                 {lng: 13.458623, lat: 52.526292},{lng: 13.456549, lat: 52.528331},{lng: 13.451687, lat: 52.527457},{lng: 13.437419, lat: 52.523284},{lng: 13.430169, lat: 52.523038},{lng: 13.427701, lat: 52.517219},{lng: 13.423242, lat: 52.512219},{lng: 13.429618, lat: 52.508244},{lng: 13.433284, lat: 52.506939},{lng: 13.443564, lat: 52.502332},{lng: 13.45448, lat: 52.498842},{lng: 13.472879, lat: 52.491909},{lng: 13.477815, lat: 52.489485},{lng: 13.482674, lat: 52.488416},{lng: 13.487689, lat: 52.489577},{lng: 13.47941, lat: 52.494816},{lng: 13.471527, lat: 52.49904},{lng: 13.468102, lat: 52.499761},{lng: 13.469536, lat: 52.504033},{lng: 13.470732, lat: 52.505198},{lng: 13.475354, lat: 52.510091},{lng: 13.47607, lat: 52.511594},{lng: 13.475356, lat: 52.513728},{lng: 13.476234, lat: 52.515084},{lng: 13.474163, lat: 52.518824},{lng: 13.470498, lat: 52.522263},{lng: 13.467868, lat: 52.523724},{lng: 13.461172, lat: 52.525077},{lng: 13.458623, lat: 52.526292}
@@ -474,14 +474,14 @@ var content = {
             nid: "1662710",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production167/d450/c7765ef0-ac67-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Sightseeing, Historical, Architecture, Walking, Culture, Family friendly",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Berlin's center, the Mitte district is decorated with some of Europe's greatest structures, from the Neo-Classical grandeur of Brandenburg Gate to the jewel-like dome of the Berliner Dom Cathedral, which stands amid the cluster of world-class museums on the aptly-named Museum Island. No visit to Berlin would be complete without a wander around Potsdamer Platz, the vast square which has survived the ravages of World War Two and division by the Berlin Wall.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Brandenburg Gate, Reichstag, Holocaust Memorial, Berliner Dom",
             center: {lat: 52.5319975820869, lng: 13.367916366914}, 
             polygon: [
                 {lng: 13.422902, lat: 52.512205},{lng: 13.427606, lat: 52.517594},{lng: 13.430136, lat: 52.523028},{lng: 13.410501, lat: 52.529028},{lng: 13.413342, lat: 52.53289},{lng: 13.408462, lat: 52.53454},{lng: 13.407016, lat: 52.535749},{lng: 13.405569, lat: 52.534977},{lng: 13.401048, lat: 52.536084},{lng: 13.39888, lat: 52.539055},{lng: 13.404668, lat: 52.540592},{lng: 13.402501, lat: 52.542026},{lng: 13.398345, lat: 52.551264},{lng: 13.396181, lat: 52.561605},{lng: 13.389127, lat: 52.566553},{lng: 13.384964, lat: 52.567769},{lng: 13.378993, lat: 52.56601},{lng: 13.377, lat: 52.560396},{lng: 13.371572, lat: 52.560508},{lng: 13.372114, lat: 52.5571},{lng: 13.365239, lat: 52.558302},{lng: 13.365541, lat: 52.562571},{lng: 13.354162, lat: 52.561857},{lng: 13.339902, lat: 52.566335},{lng: 13.331763, lat: 52.562042},{lng: 13.327058, lat: 52.561929},{lng: 13.322908, lat: 52.549829},{lng: 13.314947, lat: 52.551916},{lng: 13.311694, lat: 52.548614},{lng: 13.315675, lat: 52.548504},{lng: 13.327801, lat: 52.541251},{lng: 13.326359, lat: 52.537293},{lng: 13.317463, lat: 52.535892},{lng: 13.319853, lat: 52.524773},{lng: 13.324201, lat: 52.525408},{lng: 13.329264, lat: 52.522987},{lng: 13.322281, lat: 52.512649},{lng: 13.335239, lat: 52.508322},{lng: 13.346105, lat: 52.506338},{lng: 13.342465, lat: 52.504709},{lng: 13.341083, lat: 52.502366},{lng: 13.351174, lat: 52.500167},{lng: 13.352182, lat: 52.501632},{lng: 13.355591, lat: 52.501776},{lng: 13.362171, lat: 52.499679},{lng: 13.369737, lat: 52.49878},{lng: 13.370844, lat: 52.500061},{lng: 13.371683, lat: 52.502322},{lng: 13.373186, lat: 52.502964},{lng: 13.37702, lat: 52.501782},{lng: 13.37534, lat: 52.503924},{lng: 13.377882, lat: 52.507807},{lng: 13.37987, lat: 52.50696},{lng: 13.399221, lat: 52.508476},{lng: 13.400726, lat: 52.509473},{lng: 13.404634, lat: 52.508152},{lng: 13.410064, lat: 52.506932},{lng: 13.411869, lat: 52.505057},{lng: 13.414036, lat: 52.504395},{lng: 13.415122, lat: 52.505057},{lng: 13.417469, lat: 52.504508},{lng: 13.41964, lat: 52.50571},{lng: 13.426145, lat: 52.505385},{lng: 13.429403, lat: 52.508353},{lng: 13.422902, lat: 52.512205}
@@ -495,14 +495,14 @@ var content = {
             nid: "1705509",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production59/d266/d3f73500-ac67-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Sightseeing, Monuments, Cafes, Scenery",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "While in the City Center, you shouldn't miss Grand Place. This historic square is illuminated by fine silvery-grey and white Gothic architecture – the Town Hall and City Museum are particularly magnificent sights. Stop off in one of its cafés, nestled inside arches, and hear the satisfying crunch of your fork sinking into a warm traditional Belgian waffle glazed with caramelized sugar. After, giggle at the quirky Belgian statue Manneken Pis.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Manneken Pis Statue, Brussels Stock Exchange, St. Catherine's Square,  Brussels Park",
             center: {lat: 50.846724265067, lng: 4.352484320099}, 
             polygon: [
                 {lng: 4.368913, lat: 50.847326},{lng: 4.361538, lat: 50.851967},{lng: 4.356385, lat: 50.854074},{lng: 4.343963, lat: 50.856284},{lng: 4.337901, lat: 50.848672},{lng: 4.342249, lat: 50.840831},{lng: 4.343823, lat: 50.833669},{lng: 4.357488, lat: 50.837689},{lng: 4.364762, lat: 50.841025},{lng: 4.368913, lat: 50.847326}
@@ -515,14 +515,14 @@ var content = {
             nid: "1706926",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production139/d1546/d3f07e40-ac67-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Restaurants, Walking, Culture, Coffee",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Elsene – west of Ixelles’ Avenue Louise – is a bustling shopping quarter dotted with designer shops and jewelers. Behind illuminated storefronts, wanderers will find quaint bookshops, cool independent record stores, and tasty ethnic restaurants. Bright fabrics fluttering in the breeze, exotic grocers, and batik shops give this neighborhood an irresistible vibrancy – try a walking tour with a guide from the Kuumba cultural center.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Horta Museum,    Ixelles Ponds,   D'Ieteren Gallery,   Ixelles Museums of Fine Arts",
             center: {lat: 50.8245420140277, lng: 4.3623551317068}, 
             polygon: [
                 {lng: 4.36059, lat: 50.839045},{lng: 4.357577, lat: 50.837692},{lng: 4.343795, lat: 50.833611},{lng: 4.337994, lat: 50.830029},{lng: 4.362016, lat: 50.809306},{lng: 4.371422, lat: 50.814435},{lng: 4.367486, lat: 50.823041},{lng: 4.363084, lat: 50.825603},{lng: 4.35819, lat: 50.82869},{lng: 4.354167, lat: 50.830722},{lng: 4.351469, lat: 50.831241},{lng: 4.348718, lat: 50.832809},{lng: 4.35751, lat: 50.83732},{lng: 4.361252, lat: 50.834171},{lng: 4.360966, lat: 50.831733},{lng: 4.364922, lat: 50.827461},{lng: 4.371674, lat: 50.821228},{lng: 4.373619, lat: 50.814948},{lng: 4.377297, lat: 50.815197},{lng: 4.381195, lat: 50.819203},{lng: 4.383437, lat: 50.826153},{lng: 4.369168, lat: 50.835674},{lng: 4.362121, lat: 50.837487},{lng: 4.36059, lat: 50.839045}
@@ -534,14 +534,14 @@ var content = {
             nid: "1705511",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production36/d742/d3ee8270-ac67-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Food, Urban, Friendly people",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "The busy hub of Rogier Square is located in Saint-Josse-ten-Noode, which may be the smallest district in Brussels but it's also one of the busiest. An exciting cocktail of cultures, it's the very picture of a modern melting-pot. One minute you're among smart, sleek office blocks, the next you're mingling in the Turkish neighborhoods. Delicious restaurants reflecting the various nationalities abound, making it a foodie haven.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Brussels Rogier Square,  Saint-Josse-ten-Noode",
             center: {lat: 50.8618938216999, lng: 4.37200040013236}, 
             polygon: [
                 {lng: 4.344018, lat: 50.856315},{lng: 4.356351, lat: 50.854112},{lng: 4.361625, lat: 50.85195},{lng: 4.368956, lat: 50.847347},{lng: 4.385518, lat: 50.8482},{lng: 4.389513, lat: 50.85319},{lng: 4.395214, lat: 50.868845},{lng: 4.367287, lat: 50.878625},{lng: 4.359152, lat: 50.871946},{lng: 4.346217, lat: 50.859231},{lng: 4.344018, lat: 50.856315}
@@ -552,14 +552,14 @@ var content = {
             nid: "1642409",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production158/d919/c75b35d0-ac67-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Business, Parks, Museum, Art, Culture",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Mingle with the diplomats and European Union employees in the cafes and bars of the European Quarter – the most buzzing hotspot has to be Place du Luxembourg, which is close to to Espace Leopold, where the European Parliament convenes. To bask and relax, there's also the green oasis of Leopold Park, while Cinquantenaire Park boasts the Royal Military Museum as well as the Cinquantenaire Art Museum.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "European Commission Headquarters (Berlaymont Building),  European Union Parliament Building,  Place du Luxembourg",
             center: {lat: 50.8393230805852, lng: 4.38809550074323}, 
             polygon: [
                 {lng: 4.369147, lat: 50.847312},{lng: 4.364811, lat: 50.841001},{lng: 4.360633, lat: 50.839072},{lng: 4.362176, lat: 50.8376},{lng: 4.369348, lat: 50.835701},{lng: 4.377049, lat: 50.824298},{lng: 4.420069, lat: 50.840284},{lng: 4.389582, lat: 50.853053},{lng: 4.385591, lat: 50.848118},{lng: 4.369147, lat: 50.847312}
@@ -574,14 +574,14 @@ var content = {
             nid: "1648932",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production47/d396/3935aa20-74ad-11e4-8f3e-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Historical, Architecture, Churches, Cafes, Bars, Friendly people",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Christianshavn, set near central Copenhagen, is a relaxed, eclectic neighborhood steeped in history. Dominated by quaint canals, lined with pink, blue, and white buildings with flower-flecked balconies, Christianshavn is perfect for an enchanting amble. Spiraling Baroque church towers occupy the streets, where a blend of academics, businessmen, and artists enjoy the resplendent café culture, cool bars, and ritzy restaurants, all infused with an alternative, welcoming atmosphere.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Copenhagen Opera House,  Danish Architecture Centre,  Church of Our Saviour",
             center: {lat: 55.6766433245241, lng: 12.5996288251645}, 
             polygon: [
                 {lng: 12.578091, lat: 55.669047},{lng: 12.587393, lat: 55.665936},{lng: 12.597507, lat: 55.668764},{lng: 12.6003, lat: 55.669751},{lng: 12.609889, lat: 55.673927},{lng: 12.614044, lat: 55.679985},{lng: 12.613977, lat: 55.683172},{lng: 12.613125, lat: 55.685296},{lng: 12.606895, lat: 55.689787},{lng: 12.603157, lat: 55.688667},{lng: 12.596387, lat: 55.679053},{lng: 12.5881, lat: 55.674668},{lng: 12.578091, lat: 55.669047}
@@ -594,14 +594,14 @@ var content = {
             nid: "1742279",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production139/d1546/d3f07e40-ac67-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Gardens, Bars, Architecture, Cafes",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Amager is a large, energetic district of Copenhagen on an island to the east of the center, that blends an infinitely diverse range of entertainment and leisure activities. In the enthralling streets, framed by stately medieval and white Baroque buildings, a thriving café culture abounds, many of which transform into cool, cultured bars at night. To the west of Amager, luscious stretches of open parks and greenery offer natural beauty.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Bella Center,    Fields Shopping Centre,  Koncerthuset",
             center: {lat: 55.6487991147381, lng: 12.5908771957645}, 
             polygon: [
                 {lng: 12.565858, lat: 55.660666},{lng: 12.552847, lat: 55.642262},{lng: 12.524816, lat: 55.622315},{lng: 12.55991, lat: 55.621318},{lng: 12.644044, lat: 55.649929},{lng: 12.637163, lat: 55.669085},{lng: 12.624332, lat: 55.678602},{lng: 12.614408, lat: 55.676034},{lng: 12.610031, lat: 55.673739},{lng: 12.58689, lat: 55.666008},{lng: 12.578266, lat: 55.668968},{lng: 12.565858, lat: 55.660666}
@@ -613,14 +613,14 @@ var content = {
             nid: "1764449",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production44/d773/39302be0-74ad-11e4-a6db-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Nightlife, Nature, Urban, Culture",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Orestad is a booming city area with unique and futuristic urban beauty set in central Amager Island. Perfectly placed between the captivating alternative scene of nearby Christianshavn and the stretches of the island’s natural greenery, Orestad offers an eclectic taste of all that Copenhagen has to offer. It has a youthful, cultured atmosphere due to the nearby universities, and boasts contemporary bars and glitzy restaurants.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Orestad Station",
             center: {lat: 55.6296743459483, lng: 12.5731983780256}, 
             polygon: [
                 {lng: 12.577052, lat: 55.618517},{lng: 12.585003, lat: 55.640609},{lng: 12.569321, lat: 55.641231},{lng: 12.561568, lat: 55.618063},{lng: 12.577052, lat: 55.618517}
@@ -632,14 +632,14 @@ var content = {
             nid: "1742223",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production149/d222/392d93d0-74ad-11e4-8f3e-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Historical, Architecture, Monuments, Walking",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "The second you step into the centre of the Amalienborg courtyard, surrounded on all sides by the breathtaking Rococo palace buildings, and gaze upon Frederik's Church's ornate dome, you'll see exactly why the Danish royals call this beautiful harborside home. For an authentic slice of Old Denmark, take a leisurely stroll down the stunning Nyhavn harbor, where 17th Century townhouses rub shoulders with cutting-edge eateries, all alongside the soothing canal.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Nyhavn,  Kongens Nytorv,  Amalienborg Palace,  Royal Danish Theater",
             center: {lat: 55.6824418080129, lng: 12.5917197471526}, 
             polygon: [
                 {lng: 12.599243, lat: 55.688397},{lng: 12.5901, lat: 55.687194},{lng: 12.584846, lat: 55.68148},{lng: 12.587973, lat: 55.674968},{lng: 12.596292, lat: 55.680609},{lng: 12.599243, lat: 55.688397}
@@ -651,14 +651,14 @@ var content = {
             nid: "1638116",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production149/d222/392d93d0-74ad-11e4-8f3e-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Zoo, Shopping, Gardens, Bars",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "When you see the beautiful Baroque views of the Frederiksberg Palace, or stride down the main thoroughfare Gammel Kongevej, lined with designer stores and vibrant bars, you'll see exactly why Frederiksbergs one of the city's most exclusive boroughs. For a glorious change of pace, check out the charming residents of Copenhagen Zoo or stretch out across the grass in Frederiksberg Park, which features its own small waterfall.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Forum Copenhagen,    Copenhagen Zoo,  Frederiksberg Palace,    Frederiksberg Garden",
             center: {lat: 55.6800464588246, lng: 12.5237573788893}, 
             polygon: [
                 {lng: 12.557952, lat: 55.683346},{lng: 12.551766, lat: 55.687314},{lng: 12.543162, lat: 55.688291},{lng: 12.534579, lat: 55.695705},{lng: 12.520317, lat: 55.693793},{lng: 12.500537, lat: 55.687038},{lng: 12.491415, lat: 55.680293},{lng: 12.49251, lat: 55.674303},{lng: 12.493038, lat: 55.670823},{lng: 12.498018, lat: 55.668152},{lng: 12.514967, lat: 55.668169},{lng: 12.528458, lat: 55.666902},{lng: 12.542348, lat: 55.671789},{lng: 12.554822, lat: 55.673896},{lng: 12.557952, lat: 55.683346}
@@ -673,14 +673,14 @@ var content = {
             nid: "1670068",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production123/d876/e3c0f480-ac67-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Sightseeing, Urban, Gardens, Relaxing",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Gaelic Games and Rugby Union fans feel at home in Croke Park – home to Dublin’s famous sporting stadium. If you fancy a bird’s eye view, head to the Skyline walkway for incredible vistas across the city. Back on the ground, the stadium’s museum offers exhibits on the history of Ireland’s national sports. If you fancy peace away from urban life, nearby Griffith Park is a pleasing place for a stroll.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Casino at Marino,    Fairview Park,   Clontarf Golf Club,  Croke Park",
             center: {lat: 53.3643811233298, lng: -6.24096676127601}, 
             polygon: [
                 {lng: -6.274961, lat: 53.36782},{lng: -6.270503, lat: 53.359183},{lng: -6.261509, lat: 53.359893},{lng: -6.247092, lat: 53.354689},{lng: -6.237809, lat: 53.352411},{lng: -6.227492, lat: 53.359603},{lng: -6.216947, lat: 53.357994},{lng: -6.211099, lat: 53.368732},{lng: -6.212232, lat: 53.371597},{lng: -6.233657, lat: 53.374742},{lng: -6.254187, lat: 53.367003},{lng: -6.272594, lat: 53.371826},{lng: -6.274961, lat: 53.36782}
@@ -693,14 +693,14 @@ var content = {
             nid: "1637624",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production115/d1029/e3c7ab40-ac67-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Monuments, Historical, Bars, Nightlife, SHopping",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "The old and new vie for your attention in Dublin. History lovers have to see Dublin Castle, parts of which date back to the 13th Century, while the Book of Kells at Trinity College Library is one of Ireland's greatest treasures. Shopaholics will relish Grafton Street, while St Stephen's Green is a great chill-out spot. When it comes to eating, drinking and being merry, Temple Bar's nightspots can't be beaten.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Temple Bar,  3Arena,  Trinity College, O'Connell Street",
             center: {lat: 53.344906845144, lng: -6.26480224623071}, 
             polygon: [
                 {lng: -6.297552, lat: 53.352284},{lng: -6.287931, lat: 53.337074},{lng: -6.286744, lat: 53.330885},{lng: -6.264269, lat: 53.329386},{lng: -6.245614, lat: 53.334167},{lng: -6.24529, lat: 53.33388},{lng: -6.241588, lat: 53.333539},{lng: -6.24265, lat: 53.336008},{lng: -6.237914, lat: 53.339362},{lng: -6.230992, lat: 53.343337},{lng: -6.226559, lat: 53.349262},{lng: -6.247183, lat: 53.354613},{lng: -6.261774, lat: 53.359661},{lng: -6.278898, lat: 53.35835},{lng: -6.289803, lat: 53.357171},{lng: -6.297552, lat: 53.352284}
@@ -712,14 +712,14 @@ var content = {
             nid: "1729990",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production115/d1029/e3c7ab40-ac67-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Gardens, Nature, Beach, Walking",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "One of Dublin's leafiest and most idyllic areas, Ballsbridge is lovely to wander around on a sunny day. The pubs alongside the Grand Canal are the perfect places to while away the hours, and you can also go for an amble in Herbert Park. If you're in the mood for a longer stroll, head over to Sandymount Strand, a sandy beach famous for featuring in James Joyce's classic novel Ulysses.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Royal Dublin Society,    Herbert Park,    Aviva Stadium",
             center: {lat: 53.3301233516702, lng: -6.22942409639484}, 
             polygon: [
                 {lng: -6.245304, lat: 53.333836},{lng: -6.245614, lat: 53.33415},{lng: -6.261939, lat: 53.329936},{lng: -6.239579, lat: 53.323738},{lng: -6.204854, lat: 53.323092},{lng: -6.209188, lat: 53.334946},{lng: -6.237935, lat: 53.339242},{lng: -6.242635, lat: 53.335988},{lng: -6.241502, lat: 53.333498},{lng: -6.245304, lat: 53.333836}
@@ -731,14 +731,14 @@ var content = {
             nid: "1710582",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production14/d1954/e3bfbc00-ac67-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Monument, Historical, Cathedral",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "There's one major reason why Dublin City West's a place of pilgrimage for people the world over: it's where you can find the Guinness St James's Gate Brewery. Fans of the drink will love the Guinness Storehouse exhibition, while another tipple-related tour can be enjoyed at the Old Jameson Distillery. A further iconic landmark of the area is St Patrick's Cathedral, gothic resting place of Gulliver's Travels author Jonathan Swift.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Guiness Brewery, Liffey Valley Shopping Centre,  Citywest Convention Centre.  Citywest Business Park",
             center: {lat: 53.3193516641662, lng: -6.43073719728634}, 
             polygon: [
                 {lng: -6.422443, lat: 53.414374},{lng: -6.537227, lat: 53.305303},{lng: -6.504153, lat: 53.264595},{lng: -6.35566, lat: 53.258721},{lng: -6.3334, lat: 53.337463},{lng: -6.359105, lat: 53.339956},{lng: -6.381262, lat: 53.351957},{lng: -6.37438, lat: 53.362103},{lng: -6.382168, lat: 53.362202},{lng: -6.39158, lat: 53.360832},{lng: -6.404585, lat: 53.361427},{lng: -6.409803, lat: 53.36393},{lng: -6.413519, lat: 53.367912},{lng: -6.406424, lat: 53.379889},{lng: -6.403113, lat: 53.387856},{lng: -6.395125, lat: 53.398275},{lng: -6.374116, lat: 53.403723},{lng: -6.422443, lat: 53.414374}
@@ -754,14 +754,14 @@ var content = {
             nid: "1649984",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production182/d385/48fc22d0-ac67-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Historical, Bars, Restaurants, Entertainment, Theatre, Family friendly",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "A UNESCO World Heritage site, Edinburgh’s medieval Old Town is packed with imposing 17th century architecture, traditional whisky shops, and winding cobbled alleyways. Running downhill from the panoramic Edinburgh Castle to Holyrood Palace, via the lively bars and restaurants of the Royal Mile, the Old Town is bustling at any time of year, but truly comes to life in August when the world descends for the eclectic Edinburgh Fringe.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Edinburgh Castle,    Waverly Station,   Royal Mile,  National Museum of Scotland",
             center: {lat: 55.9484828588125, lng: -3.18665470310388}, 
             polygon: [
                 {lng: -3.204368, lat: 55.949969},{lng: -3.20527, lat: 55.94567},{lng: -3.199376, lat: 55.946137},{lng: -3.197175, lat: 55.942377},{lng: -3.196583, lat: 55.941841},{lng: -3.172736, lat: 55.945335},{lng: -3.170411, lat: 55.95069},{lng: -3.175429, lat: 55.955454},{lng: -3.204368, lat: 55.949969}
@@ -773,14 +773,14 @@ var content = {
             nid: "1649985",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production105/d1330/490571a0-ac67-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Bars, Fine dining, Nightlife",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "History lovers can get a glimpse of 18th century life on a visit to the idyllic Georgian House in New Town's Charlotte Square. Shopaholics can browse the fashionable high street stores on Princes Street, before sampling George Street's sophisticated boutiques. When it comes to the evening, capture the spirit of the locals in a buzzing bar or refined restaurant on Broughton Street.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Princes Street Edinburgh, Playhouse Theatre, George Street",
             center: {lat: 55.9564296056302, lng: -3.19812422145978}, 
             polygon: [
                 {lng: -3.209062, lat: 55.960197},{lng: -3.208229, lat: 55.958514},{lng: -3.213528, lat: 55.953603},{lng: -3.220113, lat: 55.953149},{lng: -3.221939, lat: 55.952732},{lng: -3.222003, lat: 55.95194},{lng: -3.215075, lat: 55.947159},{lng: -3.210924, lat: 55.948962},{lng: -3.205257, lat: 55.945653},{lng: -3.204345, lat: 55.950007},{lng: -3.175396, lat: 55.955495},{lng: -3.178061, lat: 55.959607},{lng: -3.18814, lat: 55.96477},{lng: -3.202173, lat: 55.964401},{lng: -3.202933, lat: 55.964145},{lng: -3.209062, lat: 55.960197}
@@ -793,14 +793,14 @@ var content = {
             nid: "1718266",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production14/d1954/e3bfbc00-ac67-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Monument, Art, Theatre, Architecture, Shopping",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Located in the west of Edinburgh, Haymarket is a perfect spot for shoppers looking for quirky boutiques nestled along the cobbled streets. Nearby the historic jewel of Edinburgh Castle, built on an extinct volcano, crests the skyline. The National Gallery of Scotland and the Royal Lyceum Theatre are close too, their architectural homages to the Scottish Enlightenment adding to the richness of this artistic quarter.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Edinburgh International Conference Centre (EICC),    Edinburgh Haymarket Station",
             center: {lat: 55.945961138545, lng: -3.22046119997045}, 
             polygon: [
                 {lng: -3.232153, lat: 55.948347},{lng: -3.231042, lat: 55.942371},{lng: -3.217335, lat: 55.942138},{lng: -3.211263, lat: 55.942821},{lng: -3.20532, lat: 55.945656},{lng: -3.210964, lat: 55.948955},{lng: -3.215092, lat: 55.947145},{lng: -3.221278, lat: 55.951414},{lng: -3.232153, lat: 55.948347}
@@ -814,14 +814,14 @@ var content = {
             nid: "1688925",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production14/d1766/48fbfbc0-ac67-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Golf, Zoo, Family friendly",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Located to the west of Edinburgh city center, Murrayfield is the perfect destination for sports fans. Home to Murrayfield Stadium and the Scottish Rugby Union the area also boasts a sprawling golf course, glistening ice skating rink, and bustling curling center. Within short walking distance of the wild animals of Edinburgh Zoo, Murrayfield is also well connected with the bustling Haymarket station nearby.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Edinburgh Zoo,   Spire Murrayfield Hospital  ",
             center: {lat: 55.9466946735001, lng: -3.25243687209098}, 
             polygon: [
                 {lng: -3.233772, lat: 55.957254},{lng: -3.25089, lat: 55.957062},{lng: -3.250277, lat: 55.951731},{lng: -3.276347, lat: 55.94958},{lng: -3.272571, lat: 55.93662},{lng: -3.231209, lat: 55.942494},{lng: -3.233772, lat: 55.957254}
@@ -834,14 +834,14 @@ var content = {
             nid: "1654017",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production155/d1521/48fbada0-ac67-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Food, Nightlife, Art, Culture",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Leith merges the traditional rotund battlements and sandy hued architecture of historic Edinburgh with the colors and tastes of a number of cultures, from spicy and succulent curries to punchy aromatic Thai fish cakes. Bars, cafes, and bistros line the waterfront ensuring a friendly and buzzing nightlife. Also a hotspot for art, Leith has numerous independent galleries and hosts vibrant cultural events, such as the Edinburgh Mela.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Newhaven,   Easter Road Stadium, Ocean Terminal Shopping Centre,  Royal Yacht Britannia",
             center: {lat: 55.9749083228979, lng: -3.17637747332556}, 
             polygon: [
                 {lng: -3.207353, lat: 55.989499},{lng: -3.205261, lat: 55.974582},{lng: -3.203571, lat: 55.970767},{lng: -3.188087, lat: 55.964828},{lng: -3.177981, lat: 55.959596},{lng: -3.175347, lat: 55.955485},{lng: -3.135514, lat: 55.969869},{lng: -3.178297, lat: 55.991398},{lng: -3.207353, lat: 55.989499}
@@ -858,14 +858,14 @@ var content = {
             nid: "1663681",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production47/d1230/e7f687e0-ac67-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Gardens, Shopping, Markets, Churches, Architeture",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Santa Maria Novella's right next to the city’s main train station, and there are several palaces and gardens to explore, as well as stylish shopping streets. At the busy central market you can pick up some of Tuscany’s delicacies, from fragrant white truffles to salty pecorino cheese. The Santa Maria Novella church is well worth a visit too, with its intricately patterned facade and painted frescos.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Piazza di Santa Maria Novella,   Fortezza da Basso,   Santa Maria Novella Basilica and Museum, Palazzo dei Congressi",
             center: {lat: 43.7785246932213, lng: 11.241084282561}, 
             polygon: [
                 {lng: 11.235947, lat: 43.786645},{lng: 11.227868, lat: 43.777196},{lng: 11.234086, lat: 43.775389},{lng: 11.247487, lat: 43.770577},{lng: 11.249282, lat: 43.772606},{lng: 11.249654, lat: 43.773169},{lng: 11.250354, lat: 43.773006},{lng: 11.250769, lat: 43.773316},{lng: 11.2505, lat: 43.77473},{lng: 11.251645, lat: 43.775536},{lng: 11.253189, lat: 43.775553},{lng: 11.252305, lat: 43.77682},{lng: 11.251325, lat: 43.777578},{lng: 11.250786, lat: 43.780973},{lng: 11.244669, lat: 43.783415},{lng: 11.235947, lat: 43.786645}
@@ -877,14 +877,14 @@ var content = {
             nid: "1719672",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production144/d1296/e8066660-ac67-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Museums, Art, Culture, Markets",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "San Lorenzo's namesake church is one of Florence’s largest and oldest and is home to some of the works of Michelangelo himself. The Galleria dell'Accademia and the San Marco Museum are a stroll away. In the central market, packed full of fresh local produce, pull up a chair and try a traditional tripe sandwich along with the locals, before wandering through the outdoor stalls to pick up some souvenirs.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "University of Florence,  San Marco Convent and Museum,    Central Market",
             center: {lat: 43.7815603179864, lng: 11.2565434615399}, 
             polygon: [
                 {lng: 11.250796, lat: 43.781052},{lng: 11.251307, lat: 43.777599},{lng: 11.252394, lat: 43.776728},{lng: 11.253188, lat: 43.775563},{lng: 11.257414, lat: 43.775454},{lng: 11.258078, lat: 43.776339},{lng: 11.262945, lat: 43.782206},{lng: 11.262381, lat: 43.78323},{lng: 11.262829, lat: 43.784176},{lng: 11.262964, lat: 43.786167},{lng: 11.260521, lat: 43.787246},{lng: 11.250707, lat: 43.784829},{lng: 11.250796, lat: 43.781052}
@@ -897,14 +897,14 @@ var content = {
             nid: "1663683",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production115/d877/e8066660-ac67-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "River, Relaxing, Walking, Shopping, Bars, Restaurants",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "The Oltrarno neighborhood sits on the opposite side of the river to the historical center and it was, and mostly still is, a proud working class area. Its peaceful streets are home to many artisan workshops and antique stores and it’s a great place to wander, stopping at some of its small bars and restaurants to refuel. For art head to the Palazzo Pitti, a stately old palace turned gallery.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Ponte Vecchio,   Boboli Gardens,  Piazzale Michelangelo,   Santo Spirito Basilica",
             center: {lat: 43.7581453013744, lng: 11.2509261308338}, 
             polygon: [
                 {lng: 11.233812, lat: 43.775232},{lng: 11.223845, lat: 43.772456},{lng: 11.228686, lat: 43.744565},{lng: 11.243488, lat: 43.743752},{lng: 11.266808, lat: 43.74811},{lng: 11.290345, lat: 43.755575},{lng: 11.281744, lat: 43.764748},{lng: 11.275432, lat: 43.764133},{lng: 11.255936, lat: 43.76707},{lng: 11.233812, lat: 43.775232}
@@ -918,14 +918,14 @@ var content = {
             nid: "1663684",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production185/d1683/e7fd3ea0-ac67-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Historical, Monuments, Friendly people, Scenery, Nightlife",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Right bang in the middle of one of Italy’s most beautiful cities, Duomo's named after the mighty dome of the Santa Maria del Fiore Church that rises up like a beacon at the heart of the city. It’s a grand sight from afar, but close up its colorful patterned facade is even more impressive. Throngs of people gather in the large central square and the whole area buzzes with activity.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Piazza del Duomo,    Cathedral of Saint Mary of the Flower,   Piazza della Signoria,   Via de' Tornabuoni ",
             center: {lat: 43.7720435137436, lng: 11.2552516703872}, 
             polygon: [
                 {lng: 11.247487, lat: 43.770577},{lng: 11.250248, lat: 43.769263},{lng: 11.256095, lat: 43.767302},{lng: 11.260364, lat: 43.771421},{lng: 11.262835, lat: 43.77154},{lng: 11.26205, lat: 43.774098},{lng: 11.259615, lat: 43.775546},{lng: 11.25805, lat: 43.776267},{lng: 11.257443, lat: 43.775464},{lng: 11.253197, lat: 43.77555},{lng: 11.251663, lat: 43.77556},{lng: 11.250507, lat: 43.77473},{lng: 11.250764, lat: 43.773316},{lng: 11.250353, lat: 43.772995},{lng: 11.249654, lat: 43.773169},{lng: 11.249277, lat: 43.772599},{lng: 11.247487, lat: 43.770577}
@@ -938,14 +938,14 @@ var content = {
             nid: "1719676",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production37/d1358/e80702a0-ac67-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Cafes, Bars, Shopping, Monuments, Secluded, Family friendly",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Santa Croce's church sits on a monumental piazza lined with tall elegant buildings painted in warm yellow hues. The district's many cafés have mostly outdoor seating, and smartly dressed waiters weave through the tables carrying trays of espressos and sparkling wine. The narrow streets are packed with leather workers and shops, and the sweet scent of leather bags and belts fills the air.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Piazza Santa Croce,  Teatro Verdi,    Basilica of Santa Croce, Art Gallery Studio Iguarnieri",
             center: {lat: 43.7685313403796, lng: 11.2677251896501}, 
             polygon: [
                 {lng: 11.260351, lat: 43.7714},{lng: 11.256093, lat: 43.767316},{lng: 11.275578, lat: 43.764393},{lng: 11.276397, lat: 43.770649},{lng: 11.271795, lat: 43.772316},{lng: 11.27122, lat: 43.771325},{lng: 11.267083, lat: 43.771776},{lng: 11.260351, lat: 43.7714}
@@ -962,14 +962,14 @@ var content = {
             nid: "1645212",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production116/d1664/f9bf7ab0-74ac-11e4-ab9c-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Nightlife, Urban, Bars, Food, Restaurants, Trendy",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "The sheer spectacle of Central Hong Kong makes it exhilarating. Surging skyscrapers like the Bank of China Tower dazzle by day, while Lan Kwai Fong's warren of club-crammed streets makes it a hotspot for Hong Kong's party animals when the sun goes down. And if it's good grub you're after, Soho's glitzy restaurants and traditional, almost hidden, steam-filled canteens will be sure to tempt you.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Lan Kwai Fong,   Hong Kong Central Station,   Soho,    Hong Kong - Macau Ferry Terminal",
             center: {lat: 22.2819755272924, lng: 114.157228511916}, 
             polygon: [
                 {lng: 114.14896, lat: 22.29148},{lng: 114.14806, lat: 22.2885},{lng: 114.14628, lat: 22.28745},{lng: 114.1461, lat: 22.28546},{lng: 114.1452, lat: 22.28415},{lng: 114.14537, lat: 22.28191},{lng: 114.14988, lat: 22.27516},{lng: 114.15366, lat: 22.27182},{lng: 114.16271, lat: 22.27166},{lng: 114.16718, lat: 22.27381},{lng: 114.16645, lat: 22.27635},{lng: 114.16718, lat: 22.27794},{lng: 114.16709, lat: 22.28115},{lng: 114.16743, lat: 22.29069},{lng: 114.14896, lat: 22.29148}
@@ -981,14 +981,14 @@ var content = {
             nid: "851",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production8/d1183/f9c239d0-74ac-11e4-8f3e-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Markets, Nightlife",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "A bustling, sensory-explosion of a place, Causeway Bay is a shopper's paradise. Mega malls and epic department stores line the streets – you can't miss the towering 13-storey SOGO center . With its own Times Square (a retail and office complex), this compact shopping district has it all, with many stores staying open past midnight. Listen out for the daily firing of the Noonday Gun, a tradition dating back to 1860.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Times Square Shopping Mall,  Causeway Bay Shopping Plaza, Happy Valley Race Course.    Hong Kong Causeway Bay Station",
             center: {lat: 22.2800597153607, lng: 114.188455394615}, 
             polygon: [
                 {lng: 114.17915, lat: 22.28463},{lng: 114.18044, lat: 22.28155},{lng: 114.18121, lat: 22.27933},{lng: 114.180501, lat: 22.277024},{lng: 114.18005, lat: 22.27532},{lng: 114.18074, lat: 22.27428},{lng: 114.18404, lat: 22.27532},{lng: 114.18859, lat: 22.27055},{lng: 114.19179, lat: 22.27325},{lng: 114.19644, lat: 22.27373},{lng: 114.1979, lat: 22.27933},{lng: 114.19426, lat: 22.2829},{lng: 114.19413, lat: 22.28552},{lng: 114.18899, lat: 22.28939},{lng: 114.17915, lat: 22.28463}
@@ -1001,14 +1001,14 @@ var content = {
             nid: "1645215",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production190/d1601/f9c239d1-74ac-11e4-8f3e-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Food, Restaurants, Bars, Art, Business",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "A bustling mix of the old and the new, Wan Chai is home to a thriving restaurant and bar scene, with traditional open-air restaurants, quaint tea shops, and fast-food eateries. Take a stroll around Bauhinia Square and see the enormous, golden bauhinia statue which stands outside the Convention and Exhibition Center. Or experience the city’s art scene, at the Performing Arts Academy on the shimmering waterfront.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Hong Kong Convention and Exhibition Centre,  Central Plaza,   Hong Kong Wan Chai Station,  Golden Bauhinia Square",
             center: {lat: 22.2787723382243, lng: 114.173527530201}, 
             polygon: [
                 {lng: 114.16752, lat: 22.28918},{lng: 114.16709, lat: 22.28115},{lng: 114.16718, lat: 22.27794},{lng: 114.16645, lat: 22.27635},{lng: 114.16718, lat: 22.27381},{lng: 114.17121, lat: 22.26992},{lng: 114.175844, lat: 22.27059},{lng: 114.18065, lat: 22.27051},{lng: 114.17949, lat: 22.27373},{lng: 114.18074, lat: 22.27428},{lng: 114.18005, lat: 22.275317},{lng: 114.180586, lat: 22.276885},{lng: 114.18121, lat: 22.27933},{lng: 114.18044, lat: 22.28155},{lng: 114.17915, lat: 22.28463},{lng: 114.16752, lat: 22.28918}
@@ -1022,14 +1022,14 @@ var content = {
             nid: "1645225",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production97/d1340/fab4d730-74ac-11e4-8f3e-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Budget, Theatre, Markets, Food, Relaxing",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Quieter than some of its neighbors, North Point is a mostly residential area perfect for the budget traveler. A diverse district, there are many delicious types of cuisine on offer in North Point, from tasty Cantonese dishes to Indonesian delicacies. Head to the iconic Sunbeam Theater on King’s Road to see some traditional Chinese opera, or enjoy the bustling food markets on Chun Yeung street.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Quarry Bay,  Hong Kong Fortress Hill Station, Hong Kong Shue Yan University,   North Point Ferry Pier",
             center: {lat: 22.289335791022, lng: 114.201049484764}, 
             polygon: [
                 {lng: 114.18899, lat: 22.28939},{lng: 114.19413, lat: 22.28552},{lng: 114.19426, lat: 22.2829},{lng: 114.1979, lat: 22.27933},{lng: 114.208202, lat: 22.284133},{lng: 114.212537, lat: 22.297554},{lng: 114.20459, lat: 22.29613},{lng: 114.19398, lat: 22.29561},{lng: 114.18899, lat: 22.28939}
@@ -1042,14 +1042,14 @@ var content = {
             nid: "1645230",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production130/d800/fabe4d10-74ac-11e4-a6db-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Trendy, Bars, Market, Nightlife, Shopping, Scenery",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Experience a taste of traditional Hong Kong is the colorful market-filled streets of the Western District. Head to the bustling Chinese Central Market to haggle over food, and explore the surrounding winding alleyways, crammed with tea shops, herbal pharmacies, and all kinds of knick-knack stores. Home to the world’s longest outdoor escalator, make sure to take the trip to the top and visit some of the surrounding trendy bars.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "University of Hong Kong (HKU),   Tsan Yuk Hospital,   University Museum and Art Gallery   ",
             center: {lat: 22.2866925556968, lng: 114.130499347514}, 
             polygon: [
                 {lng: 114.10855, lat: 22.29013},{lng: 114.11688, lat: 22.28052},{lng: 114.134, lat: 22.2746},{lng: 114.14553, lat: 22.27967},{lng: 114.14537, lat: 22.28191},{lng: 114.1452, lat: 22.28415},{lng: 114.1461, lat: 22.28546},{lng: 114.14628, lat: 22.28745},{lng: 114.14806, lat: 22.2885},{lng: 114.14896, lat: 22.29148},{lng: 114.13447, lat: 22.29831},{lng: 114.10855, lat: 22.29013}
@@ -1171,14 +1171,14 @@ var content = {
             nid: "1778397",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production75/d229/ffe64ed0-ac67-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Architecture, Monuments, Nighlife, Sightseeing",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Madrid’s main thoroughfare, Gran Via attracts locals to its many shops, ranging from luxurious designer boutiques to high street brands, while tourists come to ogle its impressive buildings. The opulent, domed Metropolis Building is at the eastern end, while the more modern, imposing Edificio de España is at the other. Visit at night, when the buildings are lovingly illuminated, and when the vibrant cinema district kicks into buzzing action.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Lope de Vega Theatre,    Gran Via Station,    Plaza de Callao Fuencarral Market",
             center: {lat: 40.4207292704618, lng: -3.70406571837089}, 
             polygon: [
                 {lng: -3.707147, lat: 40.417979},{lng: -3.706913, lat: 40.417983},{lng: -3.699329, lat: 40.417272},{lng: -3.695727, lat: 40.417692},{lng: -3.695848, lat: 40.418969},{lng: -3.701064, lat: 40.420988},{lng: -3.700692, lat: 40.424031},{lng: -3.707373, lat: 40.42611},{lng: -3.708209, lat: 40.425065},{lng: -3.706111, lat: 40.424393},{lng: -3.709182, lat: 40.422552},{lng: -3.71077, lat: 40.423436},{lng: -3.711004, lat: 40.423272},{lng: -3.70866, lat: 40.42179},{lng: -3.710663, lat: 40.418426},{lng: -3.708656, lat: 40.417064},{lng: -3.707147, lat: 40.417979}
@@ -1190,14 +1190,14 @@ var content = {
             nid: "1695228",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production149/d1658/ffe7fc80-ac67-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Historical, Architecture, Sightseeing, Shopping, Food",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Puerta del Sol's a vibrant plaza in the heart of historic Madrid. Wide, pedestrian-friendly streets radiate from it, full of shops, restaurants, and grand hotels. Fountains and the charming bear statue draw locals and tourists together in the main square, particularly in the evening. Visit the nearby Plaza Mayor, surrounded on all sides by beautifully-decorated, 4-storey buildings, punctuated with towers. Visit a traditional tapas restaurant for freshly sliced Iberian ham.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Sol Station, Teatro Caser Calderon de Madrid, El Oso y el Madrono",
             center: {lat: 40.4120674293253, lng: -3.70243894117329}, 
             polygon: [
                 {lng: -3.705559, lat: 40.415905},{lng: -3.70571, lat: 40.413061},{lng: -3.707089, lat: 40.413177},{lng: -3.707026, lat: 40.40821},{lng: -3.695458, lat: 40.408787},{lng: -3.695481, lat: 40.410521},{lng: -3.699917, lat: 40.412823},{lng: -3.701628, lat: 40.413393},{lng: -3.700839, lat: 40.417379},{lng: -3.706199, lat: 40.417866},{lng: -3.705559, lat: 40.415905}
@@ -1210,14 +1210,14 @@ var content = {
             nid: "1736870",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production145/d259/ffd537d0-ac67-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Luxury, Trendy, Cafes, Museums",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Salamanca is Madrid’s most affluent district, with wide, tree-lined streets and peaceful squares aplenty. It has a collection of little museums, ranging in subject from archaeology to abstract sculpture. Calle Serrano is the high point of Madrid’s shopping scene, laden with ultra-expensive designer shops. Once you’ve window-shopped, stop at one of the many cafés to enjoy coffee and pastries and listen to the chit chat of locals.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "U.S. Embassy,    Sports Palace Madrid,    National Archaeological Museum of Spain National Library,   Museum of Public Art",
             center: {lat: 40.428112336445538, lng: -3.67818108521239}, 
             polygon: [
                 {lng: -3.692375, lat: 40.419611},{lng: -3.688595, lat: 40.420568},{lng: -3.68308, lat: 40.421155},{lng: -3.679434, lat: 40.421821},{lng: -3.659243, lat: 40.421934},{lng: -3.66054, lat: 40.428235},{lng: -3.668416, lat: 40.428153},{lng: -3.677703, lat: 40.437592},{lng: -3.687333, lat: 40.438063},{lng: -3.689153, lat: 40.437377},{lng: -3.690229, lat: 40.42455},{lng: -3.692375, lat: 40.419611}
@@ -1231,14 +1231,14 @@ var content = {
             nid: "1649700",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production184/d1880/00ad6f60-ac68-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Monuments, Gardens, Walking, Relaxing, Family friendly",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Adjacent to the Plaza de Espana, the Moncloa-Arguelles district contains several monuments, including the grandiose and controversial Arco de la Victoria, a stone arch built by Franco to celebrate his victory. It also encompasses the extensive Parque del Oeste, a green oasis in the city. Walk through the fragrant and romantic rose garden and explore the extraordinary Temple of Debod, a piece of ancient Egypt relocated to this Spanish park.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Principe Pio,   San Antonio de la Florida Hermitage,     Plaza del Dos de Mayo,   Hospital Moncloa",
             center: {lat: 40.4285349363548, lng: -3.72054580900964}, 
             polygon: [
                 {lng: -3.735942, lat: 40.433733},{lng: -3.722136, lat: 40.419168},{lng: -3.71642, lat: 40.421913},{lng: -3.714197, lat: 40.428101},{lng: -3.707374, lat: 40.426148},{lng: -3.700725, lat: 40.42413},{lng: -3.696767, lat: 40.42428},{lng: -3.697023, lat: 40.425892},{lng: -3.697711, lat: 40.426227},{lng: -3.698984, lat: 40.427207},{lng: -3.702184, lat: 40.427149},{lng: -3.716552, lat: 40.43054},{lng: -3.721426, lat: 40.437022},{lng: -3.735942, lat: 40.433733}
@@ -1251,14 +1251,14 @@ var content = {
             nid: "1659515",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production104/d1718/ffe7d570-ac67-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Gardens, Theatre, Art, Culture, Relaxing",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Madrid's palatial Atocha Station is the beating heart of a bustling neighborhood. Take the weight off your feet and stretch out across the exquisite parkland of the Madrid Botanical Gardens, or take in an extravagant show at the Calderon Theater. Art buffs flock to the CaixaForum gallery, with its stunning vertical garden and the Queen Sofia Arts Center, bursting with modern, cutting edge Spanish art.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Museo Nacional Centro de Arte Reina Sofia,   Gate of Toledo,  Madrid Railway Museum",
             center: {lat: 40.3996720079084, lng: -3.69716551310342}, 
             polygon: [
                 {lng: -3.712515, lat: 40.407853},{lng: -3.717811, lat: 40.397799},{lng: -3.705743, lat: 40.39295},{lng: -3.699366, lat: 40.387609},{lng: -3.680137, lat: 40.395501},{lng: -3.674284, lat: 40.401576},{lng: -3.687345, lat: 40.406375},{lng: -3.691415, lat: 40.408704},{lng: -3.695598, lat: 40.408721},{lng: -3.712515, lat: 40.407853}
@@ -1276,14 +1276,14 @@ var content = {
             nid: "1663700",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production153/d964/57ce5570-05bf-11e4-b376-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Cafes, Bars, Architecture, Urban, Friendly people, University",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "As you might expect from the name, Citta Studi has a bustling student population – and that means plenty of lively cafes and bars to choose from. There's also history to be had here as well – the arches and pillars of the 15th Century Ca' Granda make it one of the most distinctive buildings in the district, and nearby is the Basilica of Sant'Ambrogio, which is almost a thousand years old.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Carlo Besta Neurological Institute,  Politecnico di Milano,   Orto Botanico di Cascina Rosa  ",
             center: {lat: 45.4785329057188, lng: 9.22841001200823}, 
             polygon: [
                 {lng: 9.209916, lat: 45.474781},{lng: 9.216609, lat: 45.471937},{lng: 9.216658, lat: 45.469478},{lng: 9.21826, lat: 45.469484},{lng: 9.223832, lat: 45.46888},{lng: 9.224153, lat: 45.466295},{lng: 9.237976, lat: 45.466479},{lng: 9.241219, lat: 45.493605},{lng: 9.236744, lat: 45.491515},{lng: 9.232457, lat: 45.48962},{lng: 9.222021, lat: 45.488606},{lng: 9.216648, lat: 45.486242},{lng: 9.217278, lat: 45.485897},{lng: 9.217621, lat: 45.479122},{lng: 9.209916, lat: 45.474781}
@@ -1295,14 +1295,14 @@ var content = {
             nid: "1663697",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production194/d1418/58357bb0-05bf-11e4-b376-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Monuments, Cathedral, Shopping, Historical",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Mere words can't really express the majesty of Milan's Duomo. One of the world's largest cathedrals, it's a lavish palace of worship bedecked with hundreds of spires and statues – a Gothic glory which took six centuries to complete. It sits in the Piazza del Duomo, a short walk from the legendary Quadrilatero shopping district, where the most exclusive fashion houses have boutiques lining streets like Via Sant'Andrea and Via Verri.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Cathedral of Milan,  Piazza del Duomo,    Leonardo da Vinci Museum of Science and Technology,  Galleria Vittorio Emanuele II",
             center: {lat: 45.46515333796, lng: 9.18834910309862}, 
             polygon: [
                 {lng: 9.166676, lat: 45.472029},{lng: 9.165601, lat: 45.469966},{lng: 9.163996, lat: 45.461176},{lng: 9.163809, lat: 45.46009},{lng: 9.165309, lat: 45.460052},{lng: 9.177458, lat: 45.452276},{lng: 9.202129, lat: 45.451996},{lng: 9.203182, lat: 45.453977},{lng: 9.207938, lat: 45.460913},{lng: 9.209196, lat: 45.469338},{lng: 9.216707, lat: 45.469543},{lng: 9.216609, lat: 45.471937},{lng: 9.2099, lat: 45.474771},{lng: 9.208178, lat: 45.475533},{lng: 9.205151, lat: 45.474474},{lng: 9.200201, lat: 45.477455},{lng: 9.197129, lat: 45.478562},{lng: 9.193477, lat: 45.478063},{lng: 9.183898, lat: 45.475533},{lng: 9.179829, lat: 45.47558},{lng: 9.175082, lat: 45.477554},{lng: 9.166676, lat: 45.472029}
@@ -1315,14 +1315,14 @@ var content = {
             nid: "1637553",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production26/d338/594e65c0-05bf-11e4-b376-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Soccer, Entertainment, Business, Tours",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Fashion shows, modernist furniture displays, and other major events are put on at Fiera Milano City, one of Europe's most prestigious exhibition spots. It may be big, but local bus services make it a breeze to explore. Meanwhile, soccer fans will want to make a pilgrimage to San Siro stadium – the shared home of Inter Milan and AC Milan, it's also hosted superstars like David Bowie and U2.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Milan Convention Centre (MIC),  Fiera Milano City, San Siro Stadium",
             center: {lat: 45.4763411809471, lng: 9.12517343851838}, 
             polygon: [
                 {lng: 9.163797, lat: 45.460124},{lng: 9.165608, lat: 45.469959},{lng: 9.166647, lat: 45.472022},{lng: 9.175185, lat: 45.47765},{lng: 9.178123, lat: 45.479901},{lng: 9.165138, lat: 45.491747},{lng: 9.141704, lat: 45.504923},{lng: 9.127008, lat: 45.493349},{lng: 9.073132, lat: 45.484364},{lng: 9.07996, lat: 45.457071},{lng: 9.135875, lat: 45.456634},{lng: 9.135784, lat: 45.460028},{lng: 9.163797, lat: 45.460124}
@@ -1336,14 +1336,14 @@ var content = {
             nid: "1719940",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production142/d798/59abef10-05bf-11e4-b376-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Trendy, Luxury, Architecture, Monuments",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Head to Northern Milan for a reminder there's more to the city than urban glamor and high fashion. Parco Sempione is a vast rolling island of greenery boasting landmarks including the Arco della Pace, a Neo-Classical triumphal arch covered in intricate carvings depicting battles and ancient gods. More history awaits you at Sforza Castle, a 15th Century citadel featuring art by Titian and Leonardo da Vinci.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Sforza Castle, Arco della Pace, Parco Sempione",
             center: {lat: 45.5821933082653, lng: 9.19350798917113}, 
             polygon: [
                 {lng: 9.171316, lat: 45.529904},{lng: 9.228419, lat: 45.523723},{lng: 9.262637, lat: 45.550876},{lng: 9.243891, lat: 45.563666},{lng: 9.241701, lat: 45.623601},{lng: 9.158005, lat: 45.627098},{lng: 9.097841, lat: 45.613144},{lng: 9.173683, lat: 45.562734},{lng: 9.177241, lat: 45.548008},{lng: 9.171316, lat: 45.529904}
@@ -1356,14 +1356,14 @@ var content = {
             nid: "1637831",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production104/d1718/ffe7d570-ac67-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Cafes, Architecture, Luxury",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Any sightseeing trip around Milan should include the Porta Venezia, a handsome city gate which is close to the Quadrilatero – the shopping district which makes Milan one of the fashion capitals of the world. Speaking of shopping, if you're after high street names rather than super-chic boutiques, then you also have to check out Corso Buenos Aires, the busy high street in which hundreds of stores jostle amid Neo-Classical grandeur.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Porta Venezia, Quadrilatero, Spazio Oberdan Casa-Museo, Boschi Di Stefano",
             center: {lat: 45.4802601982405, lng: 9.21183677835495}, 
             polygon: [
                 {lng: 9.213919, lat: 45.487277},{lng: 9.203317, lat: 45.475601},{lng: 9.205173, lat: 45.474501},{lng: 9.20818, lat: 45.475536},{lng: 9.209889, lat: 45.474788},{lng: 9.217619, lat: 45.479142},{lng: 9.217268, lat: 45.485952},{lng: 9.213919, lat: 45.487277}
@@ -1381,14 +1381,14 @@ var content = {
             nid: "1707357",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production173/d963/10ef9330-ac68-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Gardens, Zoo, Family friendly, Natural parks",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "At the heart of Manhattan lies Central Park – a district in its own right and nearly as famous as the city it serves - this green, or autumnal orange, swathe of forest, lawns, gardens, fountains, statues, and lake is a recreational oasis in the heart of New York’s never-sleeping metropolis. Clamber aboard a horse-drawn carriage and trot past the likes of Central Park Zoo and 19th Century Belvedere Castle.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Columbus Circle White Plains, American Museum of Natural History,  Metropolitan Museum of Art (The Met),    Morristown, Central Park Zoo",
             center: {lat: 40.78247996663, lng: -73.9657516646959}, 
             polygon: [
                 {lng: -73.946688, lat: 40.797505},{lng: -73.958607, lat: 40.802403},{lng: -73.984923, lat: 40.768282},{lng: -73.971857, lat: 40.762859},{lng: -73.96334, lat: 40.77458},{lng: -73.955833, lat: 40.785088},{lng: -73.951462, lat: 40.791071},{lng: -73.946688, lat: 40.797505}
@@ -1400,14 +1400,14 @@ var content = {
             nid: "1662303",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production132/d1390/119289f0-ac68-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Food, Trendy, Urban",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Once New York’s industrial heartland, these lively Manhattan neighborhoods have undergone radical changes over the years. Now home to the super rich and famous, Tribeca’s once abandoned warehouses became squatting artists’ studios and gritty clubs before the luxurious six-figure apartments took hold, while SoHo’s elegantly preserved industrial buildings now house exclusive designer boutiques. Head off Broadway to find tenement-lined cobble stone streets dotted with old-school style local bakeries.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Holland Tunnel,  New York City Fire Museum",
             center: {lat: 40.7219590673274, lng: -74.0069763854816}, 
             polygon: [
                 {lng: -74.014717, lat: 40.729268},{lng: -74.016793, lat: 40.718487},{lng: -74.006746, lat: 40.713538},{lng: -74.005086, lat: 40.712268},{lng: -74.00346, lat: 40.714225},{lng: -74.002094, lat: 40.71568},{lng: -73.998515, lat: 40.719959},{lng: -73.997648, lat: 40.72154},{lng: -73.995531, lat: 40.724778},{lng: -74.001364, lat: 40.728278},{lng: -74.014717, lat: 40.729268}
@@ -1420,7 +1420,7 @@ var content = {
             nid: "1421960",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production26/d338/594e65c0-05bf-11e4-b376-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Luxury, Museums, Fine dining, Art",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
@@ -1441,14 +1441,14 @@ var content = {
             nid: "1705326",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production165/d1304/11b6dad0-ac68-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Food, Cafes, Bars",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Once synonymous with student grunge hang-outs, artsy cafés, and eclectic clothes stores, East Village and Lower East Side have plaid host to typical New York gentrification over the years with super expensive apartments and exclusive designer boutiques now scattering these neighborhoods. If you fancy some serious bargain hunting head to eclectic Orchard Street, while foodies will enjoy the area’s cool mix of trendy bistros, old-town delis, and diverse restaurants.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Bowery,  Little Italy,   Grand St. Station (Chrystie St.),    Manhattan Bridge,   Lower East Side Tenement Museum ",
             center: {lat: 40.718564877237, lng: -73.987148172463}, 
             polygon: [
                 {lng: -73.98995, lat: 40.733312},{lng: -73.990422, lat: 40.730904},{lng: -73.995483, lat: 40.724771},{lng: -73.997122, lat: 40.722302},{lng: -73.997607, lat: 40.721437},{lng: -73.99844, lat: 40.719938},{lng: -74.002374, lat: 40.715311},{lng: -74.003426, lat: 40.714215},{lng: -74.0051, lat: 40.712237},{lng: -73.998058, lat: 40.706664},{lng: -73.97575, lat: 40.710311},{lng: -73.971317, lat: 40.725696},{lng: -73.98995, lat: 40.733312}
@@ -1461,14 +1461,14 @@ var content = {
             nid: "1662301",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production179/d925/11c336e0-ac68-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Monuments, Theatre, Culture, Family friendly",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Known as the 'Crossroads of the World', Times Square is a dazzling intersection famed for its lavish neon signs, grand theaters, and pulsating crowds. Whether you're on your way to a Broadway show, a buzzing bar or one of the family-friendly restaurant that line the streets, look out for iconic structures like the Paramount Building and One Times Square – site of the celebrated New Year's Eve ball drop.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Times Square,    Rockefeller Center,  Museum of Modern Art (MOMA), Broadway,    Theatre District,    5th Avenue",
             center: {lat: 40.7590562537867, lng: -73.984508248797}, 
             polygon: [
                 {lng: -73.985265, lat: 40.768532},{lng: -73.995544, lat: 40.754642},{lng: -73.983701, lat: 40.749557},{lng: -73.973503, lat: 40.763546},{lng: -73.985265, lat: 40.768532}
@@ -1482,14 +1482,14 @@ var content = {
             nid: "1707375",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production128/d1669/10fb2bf0-ac68-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Architecture, Monuments, Sightseeing, Shopping",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Think 'New York City' and the sights of Midtown East will spring to mind . There's the towering Art Deco splendor of the Chrysler Building, the gleaming edges of the Empire State Building, and the opulence of Grand Central – arguably the world's most famous train station. For top flight shopping, make your way to Saks Fifth Avenue, and you can even walk the corridors of power at the UN Headquarters.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Grand Central Terminal,  United Nations Headquarters, St. Patrick's Cathedral, Murray Hill, Chrysler Building,   Tiffany & Co.",
             center: {lat: 40.751425343466, lng: -73.9728319043845}, 
             polygon: [
                 {lng: -73.958333, lat: 40.758495},{lng: -73.971154, lat: 40.763839},{lng: -73.971864, lat: 40.762859},{lng: -73.97351, lat: 40.763542},{lng: -73.982287, lat: 40.751507},{lng: -73.982464, lat: 40.751586},{lng: -73.98646, lat: 40.745931},{lng: -73.986371, lat: 40.745886},{lng: -73.987327, lat: 40.744575},{lng: -73.97267, lat: 40.738486},{lng: -73.958333, lat: 40.758495}
@@ -1503,14 +1503,14 @@ var content = {
             nid: "1662024",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production78/d326/10f4ea60-ac68-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Theatre, Art, Museum, Restaurants",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Anyone visiting the Big Apple will want to explore Midtown West – this is where the razzle dazzle of Times Square is, after all. Take in a show on Broadway or, if you fancy giving your mind a workout, take a tour of the celebrated Museum of Modern Art (or MoMA). And when your tummy starts rumbling, check out the French brasseries, sushi bars and Russian eateries on Restaurant Row.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Manhattan Cruise Terminal, Intrepid Sea Air and Space Museum  ",
             center: {lat: 40.7632680302231, lng: -73.9955586265658}, 
             polygon: [
                 {lng: -73.994335, lat: 40.773217},{lng: -74.007299, lat: 40.754619},{lng: -74.00387, lat: 40.753184},{lng: -74.00107, lat: 40.757183},{lng: -73.995257, lat: 40.754783},{lng: -73.994076, lat: 40.756466},{lng: -73.984759, lat: 40.769211},{lng: -73.994335, lat: 40.773217}
@@ -1524,14 +1524,14 @@ var content = {
             nid: "1497254",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production24/d1906/10fbef40-ac68-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Entertainment, Nightlife, Relaxing, Museums, River",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Sandwiched between the winding Hudson River and lush Central Park, Manhattan's Upper West Side is home to New York's most exclusive high-rise apartments, as well as Columbia University. The American Museum of Natural History makes it a history-buff's dream, while the Lincoln Center showcases everything from opera to jazz. A stroll around Riverside Park in full bloom is a fine way to spend a sunny day.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Columbia University, Lincoln Center for the Performing Arts,  Beacon Theater,  Metropolitan Opera House",
             center: {lat: 40.7918357210547, lng: -73.9745897404072}, 
             polygon: [
                 {lng: -73.994335, lat: 40.773217},{lng: -73.984363, lat: 40.769058},{lng: -73.982525999999993, lat: 40.771445},{lng: -73.954502, lat: 40.80828},{lng: -73.967616, lat: 40.813406},{lng: -73.994335, lat: 40.773217}
@@ -1545,14 +1545,14 @@ var content = {
             nid: "1635517",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production95/d425/11c09ed0-ac68-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Natural parks, Gardens, Relaxing, Shopping, Markets",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Once a shouting spot of political unrest, Union Square’s leafy recreational plaza is now known for its colorful summertime Greenmarket. Away from the square, Gramercy Flatiron district abounds with restaurants, bars, and shops among iconic Manhattan skyscrapers, including the wedge-like Flatiron Building. If you fancy some peace, wander down to leafy Gramercy Park – park-side residents hold New York’s most sought-after key, allowing them access to the small, but perfectly-formed gardens.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Gramercy Park,   Madison Square Park, Union Square",
             center: {lat: 40.7355870084321, lng: -73.9812694057496}, 
             polygon: [
                 {lng: -73.987314, lat: 40.744585},{lng: -73.99357, lat: 40.735911},{lng: -73.989766, lat: 40.73436},{lng: -73.98995, lat: 40.733325},{lng: -73.971242, lat: 40.725754},{lng: -73.972643, lat: 40.738472},{lng: -73.987314, lat: 40.744585}
@@ -1570,14 +1570,14 @@ prague: [
             nid: "1699126",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production166/d1799/20152370-ac68-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Historical, Architecture, Culture, Friendly people",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Located in the center of Prague, sandwiched between the Old Town and the river Josefov is Josefov, the old Jewish Quarter, dating back to medieval times. It has 6 distinct synagogues in different styles, ranging from the simple, austere Old-New Synagogue to the flamboyant and decorative Spanish Synagogue. The Jewish Cemetery is well worth a visit – the centuries-old gravestones are packed so tightly together that they lean in all directions.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "lCharles University, Old Jewish Cemetery, Rudolfinum,  St. Agnes Convent",
             center: {lat: 50.0903417035908, lng: 14.4190186443565}, 
             polygon: [
                 {lng: 14.416694, lat: 50.09257},{lng: 14.413591, lat: 50.090166},{lng: 14.412789, lat: 50.086166},{lng: 14.414698, lat: 50.086747},{lng: 14.415328, lat: 50.088434},{lng: 14.424825, lat: 50.088786},{lng: 14.423799, lat: 50.089988},{lng: 14.424989, lat: 50.090749},{lng: 14.424099, lat: 50.093236},{lng: 14.416694, lat: 50.09257}
@@ -1589,14 +1589,14 @@ prague: [
             nid: "1646018",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production171/d676/200bfbb0-ac68-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Architecture, Gardens, Natural parks, Monuments, Relaxing",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "A treasure trove of Baroque architecture on the left bank of the Vltava, Mala Strana is a highlight of any Prague city break. Wallenstein Palace, with its arches, sculptures, and idyllic Italian garden, is a huge draw, although you'll enjoy simply walking the winding lanes of this quaint quarter just as much. Charles Bridge, with its array of statues, is a symbol of Prague and leads to the Old Town.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Charles Bridge,  Prague Castle,   Lesser Town Square",
             center: {lat: 50.086133748991, lng: 14.4011153739354}, 
             polygon: [
                 {lng: 14.41266, lat: 50.089541},{lng: 14.410214, lat: 50.091965},{lng: 14.38959, lat: 50.091719},{lng: 14.384961, lat: 50.089404},{lng: 14.400672, lat: 50.078165},{lng: 14.411149, lat: 50.079633},{lng: 14.41266, lat: 50.089541}
@@ -1609,14 +1609,14 @@ prague: [
             nid: "1646017",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production40/d894/20091580-ac68-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Museums, Nightlife, Bars, Architecture, Entertainment",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "It may be 'New Town' but the Nove Mesto district was actually founded in the 14th Century. Its vibrant hub is Wenceslas Square, site of historic events, demonstrations, revolutionary fervor, and demonstrations, as well as home to the National Museum. This is also the center of Prague's nightlife, with jumping venues from jazz clubs to cabarets all around. Don't forget to check out the bending, surreal Dancing House, a modern architectural masterpiece.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Wenceslas Square,   Czech National Museum,   Prague Dancing House,   Czech Technical University",
             center: {lat: 50.078758339939, lng: 14.4262345489025}, 
             polygon: [
                 {lng: 14.412949, lat: 50.081382},{lng: 14.414375, lat: 50.068111},{lng: 14.433231, lat: 50.068186},{lng: 14.434739, lat: 50.070109},{lng: 14.434911, lat: 50.069921},{lng: 14.437044, lat: 50.070457},{lng: 14.431259, lat: 50.07894},{lng: 14.437628, lat: 50.086583},{lng: 14.437714, lat: 50.09508},{lng: 14.429698, lat: 50.094428},{lng: 14.429388, lat: 50.086949},{lng: 14.424489, lat: 50.084107},{lng: 14.421511, lat: 50.083267},{lng: 14.419894, lat: 50.082468},{lng: 14.416436, lat: 50.081802},{lng: 14.412949, lat: 50.081382}
@@ -1630,14 +1630,14 @@ prague: [
             nid: "1646021",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production120/d1795/2014ae40-ac68-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Natural parks, Relaxing, Entertainment, Walking",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Close to the more famous Mala Strana district, Smichov has plenty of its own charms, including loads of lovely little parks dotted here – great for relaxing in after an amble along Smichov's streets. Music lovers may also be interested in checking out Bertramka, the historic estate which is now forever linked with the name of Mozart as the great composer stayed there to finish his masterpiece, Don Giovanni.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Staropramen Brewery, Andel Station,  Novy Smichov Shopping Centre    ",
             center: {lat: 50.0705850883383, lng: 14.4035328610567}, 
             polygon: [
                 {lng: 14.41293, lat: 50.06208},{lng: 14.411279, lat: 50.079654},{lng: 14.391635, lat: 50.076833},{lng: 14.397783, lat: 50.062128},{lng: 14.41293, lat: 50.06208}
@@ -1650,14 +1650,14 @@ prague: [
             nid: "1646023",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production80/d1821/20154a80-ac68-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Monumnets, Theatre, Nightlife, Sightseeing, Gardens",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Once covered in vineyards, Vinohrady is now one of Prague's most elegant residential neighborhoods, boasting Art Nouveau and Neo-Renaissance architecture. The vibe here is serene and understated, and you can chill out on the grass in Peace Square and admire landmarks like the Vinohrady Theater. That said, the area is also known for its nightlife, with clubs to suit all tastes.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Prague State Opera,  Namesti Miru Station,    Jiriho z Podebrad",
             center: {lat: 50.0777965474997, lng: 14.4609897318995}, 
             polygon: [
                 {lng: 14.437644, lat: 50.086108},{lng: 14.431406, lat: 50.079019},{lng: 14.437118, lat: 50.070454},{lng: 14.434905, lat: 50.0699},{lng: 14.434748, lat: 50.070054},{lng: 14.433335, lat: 50.068203},{lng: 14.43643, lat: 50.068217},{lng: 14.438672, lat: 50.068148},{lng: 14.447698, lat: 50.072428},{lng: 14.495564, lat: 50.075177},{lng: 14.489874, lat: 50.084954},{lng: 14.451475, lat: 50.080303},{lng: 14.437644, lat: 50.086108}
@@ -1674,14 +1674,14 @@ prague: [
             nid: "1663690",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production118/d1358/2910ca60-ac68-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Sightseeing, Monuments, Historical, Romantic",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Rome’s most celebrated square is a constant hubbub of activity. Tourists are drawn magnetically to the Fountain of the Four Rivers, with its classical statues, while a parade of performers, hawkers, and locals play out daily scenes against the backdrop of the beautiful baroque Sant Agnese Church. You can’t leave Rome without visiting the nearby Pantheon, one of the best-preserved Roman buildings in the world, with a magnificent, light-filled dome.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Piazza Navona,   Pantheon,   Campo de Fiori",
             center: {lat: 41.8973868957701, lng: 12.4735871982869}, 
             polygon: [
                 {lng: 12.463176, lat: 41.899761},{lng: 12.466068, lat: 41.895919},{lng: 12.472241, lat: 41.891439},{lng: 12.477438, lat: 41.891442},{lng: 12.478891, lat: 41.890636},{lng: 12.483201, lat: 41.895759},{lng: 12.482141, lat: 41.897145},{lng: 12.48111, lat: 41.89929},{lng: 12.47989, lat: 41.899198},{lng: 12.477697, lat: 41.902644},{lng: 12.474319, lat: 41.904034},{lng: 12.471387, lat: 41.902548},{lng: 12.465047, lat: 41.901687},{lng: 12.463407, lat: 41.900673},{lng: 12.463176, lat: 41.899761}
@@ -1693,14 +1693,14 @@ prague: [
             nid: "1808834",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production160/d670/2904e380-ac68-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Historical, Sightseeing, Shopping, Fine dining",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Less than 2 kilometers from Piazza Navona, the Vatican is the world’s smallest country. Enter its hallowed streets under the watch of the flamboyantly-dressed Swiss Guard. St. Peter’s Basilica and the frescoes of the Sistine Chapel are surreally familiar from countless pictures and films, but seeing them for real is thrilling. Prati, the Italian district just outside the Vatican, offers classy boulevards, upmarket restaurants, and some of Rome’s best shopping.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Sistine Chapel, St Peter's Basilica,  St Peter's Square",
             center: {lat: 41.90828610202, lng: 12.4542003220552}, 
             polygon: [
                 {lng: 12.474311, lat: 41.904034},{lng: 12.474488, lat: 41.906776},{lng: 12.472327, lat: 41.909723},{lng: 12.471153, lat: 41.912937},{lng: 12.470633, lat: 41.914487},{lng: 12.470774, lat: 41.918742},{lng: 12.468698, lat: 41.921758},{lng: 12.462825, lat: 41.923349},{lng: 12.460289, lat: 41.925009},{lng: 12.45498, lat: 41.923032},{lng: 12.445717, lat: 41.916557},{lng: 12.43267, lat: 41.91141},{lng: 12.434444, lat: 41.904314},{lng: 12.435393, lat: 41.899976},{lng: 12.449451, lat: 41.893273},{lng: 12.458861, lat: 41.893696},{lng: 12.460055, lat: 41.896073},{lng: 12.464916, lat: 41.897408},{lng: 12.46313, lat: 41.899724},{lng: 12.463407, lat: 41.900666},{lng: 12.465036, lat: 41.901698},{lng: 12.471394, lat: 41.902541},{lng: 12.474311, lat: 41.904034}
@@ -1713,14 +1713,14 @@ prague: [
             nid: "709950",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production24/d1887/2904e380-ac68-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Monuments, Historical, Cafes, Culture",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Dating back to 80 AD, the Colosseum is an enduring symbol both of Imperial Rome and the modern Italian capital. This grand amphitheater, once the setting of brutal gladiatorial games, is an impressive monument to an incredible history. Not forgetting the nearby Roman Forum, where the ruins of the Temple of Saturn and other majestic monuments of the Ancient Era still inspire awe today.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Colosseum, Roman Forum",
             center: {lat: 41.890219854748, lng: 12.4919428800416}, 
             polygon: [
                 {lng: 12.498806, lat: 41.895349},{lng: 12.498602, lat: 41.896647},{lng: 12.499194, lat: 41.897128},{lng: 12.496909, lat: 41.898122},{lng: 12.495762, lat: 41.899092},{lng: 12.493501, lat: 41.896858},{lng: 12.488892, lat: 41.89637},{lng: 12.484412, lat: 41.896555},{lng: 12.482857, lat: 41.896199},{lng: 12.483216, lat: 41.895752},{lng: 12.478931, lat: 41.890681},{lng: 12.479751, lat: 41.888659},{lng: 12.493729, lat: 41.881385},{lng: 12.504262, lat: 41.887293},{lng: 12.500048, lat: 41.894881},{lng: 12.498806, lat: 41.895349}
@@ -1734,14 +1734,14 @@ prague: [
             nid: "1737636",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production79/d1783/29105530-ac68-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Sightseeing, Culture, Relaxing",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "A stone fantasia of winged horses and mythical figures, the Trevi Fountain is to water features what the Colosseum is to theaters. When visiting this landmark, forever linked with classic film La Dolce Vita, be sure to toss in a coin to ensure you'll return to Rome. Almost as iconic are the Spanish Steps: climb this vast stairway to reach the twin-domed Renaissance splendor of the Trinita dei Monti church.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Trevi Fountain",
             center: {lat: 41.9071495473849, lng: 12.478321344854}, 
             polygon: [
                 {lng: 12.48693, lat: 41.904781},{lng: 12.484378, lat: 41.90651},{lng: 12.484596, lat: 41.906735},{lng: 12.477663, lat: 41.910953},{lng: 12.475879, lat: 41.913811},{lng: 12.471234, lat: 41.912913},{lng: 12.471191, lat: 41.912913},{lng: 12.472349, lat: 41.909774},{lng: 12.474558, lat: 41.906824},{lng: 12.47436, lat: 41.904074},{lng: 12.477692, lat: 41.902695},{lng: 12.478528, lat: 41.901346},{lng: 12.484927, lat: 41.903251},{lng: 12.48693, lat: 41.904781}
@@ -1754,14 +1754,14 @@ prague: [
             nid: "1696478",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production49/d358/29097760-ac68-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Nightlife, Bars, Entertainment",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "For your very own taste of La Dolce Vita, Via Veneto is the place to be. Immortalised by that classic film, the whole area oozes style and glamour – the street is lined with the intricate facades of grand hotels, uber-chic bars serving perfectly mixed cocktails, and elegant cafes. There are few better places to recline with an espresso and watch Rome's beautiful people go by.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Rome Historic Centre,    Piazza Fiume,   Monumental Cemetery of the Capuchin Brothers           ",
             center: {lat: 41.9088427733687, lng: 12.4937745297425}, 
             polygon: [
                 {lng: 12.484373, lat: 41.90652},{lng: 12.490734, lat: 41.902196},{lng: 12.498965, lat: 41.907585},{lng: 12.498859, lat: 41.908053},{lng: 12.501173, lat: 41.909604},{lng: 12.502215, lat: 41.909713},{lng: 12.503909, lat: 41.911034},{lng: 12.497843, lat: 41.914808},{lng: 12.491135, lat: 41.912551},{lng: 12.484373, lat: 41.90652}
@@ -1778,14 +1778,14 @@ prague: [
             nid: "1645325",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production49/d122/336a2c90-ac68-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Monuments, Gardens, Entertainment, Urban",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Home to flashy Singapore development projects, Marina Bay is a gleaming world of high-rises – many offer sweeping roof-top city views – futuristic gardens, and tourist appeal. At night the area sparkles as twinkly skyline lights reflect on the calm marina shores, lasers span out from the Singapore Flyer, a giant observation wheel modeled on the London Eye, and glowing artificial trees shine out from the Gardens by the Bay.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Marina Bay Sands, Casino Gardens by the Bay,  Suntec Singapore,    Suntec City Singapore Flyer",
             center: {lat: 1.28034152745788, lng: 103.861203595264}, 
             polygon: [
                 {lng: 103.85684, lat: 1.29589},{lng: 103.8542, lat: 1.29199},{lng: 103.85386, lat: 1.28694},{lng: 103.85331, lat: 1.2853},{lng: 103.85269, lat: 1.28353},{lng: 103.85203, lat: 1.28217},{lng: 103.851072, lat: 1.280659},{lng: 103.850217, lat: 1.281216},{lng: 103.847262, lat: 1.276693},{lng: 103.85234, lat: 1.27384},{lng: 103.85947, lat: 1.26418},{lng: 103.87651, lat: 1.27714},{lng: 103.86655, lat: 1.286923},{lng: 103.8653, lat: 1.29426},{lng: 103.86198, lat: 1.29542},{lng: 103.85906, lat: 1.2984},{lng: 103.85684, lat: 1.29589}
@@ -1797,14 +1797,14 @@ prague: [
             nid: "1771966",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production184/d51/34393c60-ac68-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Nightlife, Restaurants, Food",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "A vibrant downtown district of Singapore, Clarke Quay is an explosion of color. Old riverfront warehouses have been transformed into a strip of shops, restaurants and clubs, with each building painted a different, eye-popping shade. At night, the whole place is lit up with neon lights which reflect magically in the water. Be sure to dine at a floating boat restaurant and try the fiery chili crab – a Singapore specialty.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "",
             center: {lat: 1.28997957429355, lng: 103.845243477856}, 
             polygon: [
                 {lng: 103.846288, lat: 1.286789},{lng: 103.848844, lat: 1.289949},{lng: 103.84394, lat: 1.293214},{lng: 103.841797, lat: 1.289921},{lng: 103.846288, lat: 1.286789}
@@ -1817,14 +1817,14 @@ prague: [
             nid: "1716539",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production136/d857/336f83c0-ac68-11e4-99a1-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Food, Markets, Friendly people",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Immerse yourself in Singapore’s bustling and quirky shopping scene in Bugis Village, home to the island’s busiest and largest shopping street. With over 800 shops crammed in beneath swathes of colorful bunting, you can find everything, from the latest south Asian fashion, to cutting-edge technology gadgets. When you need to refuel, head to Tamei, Bugis Village’s fast food joint, where you can munch on seaweed-flavor tofu fries and chicken tempura.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Bugis Street Shopping District,  Bugis Junction Shopping Center, Batam Batu Besar (BTH-Hang Nadim),   Haji Lane",
             center: {lat: 1.30069668743654, lng: 103.855761606712}, 
             polygon: [
                 {lng: 103.85445, lat: 1.30329},{lng: 103.85186, lat: 1.30029},{lng: 103.85603, lat: 1.29693},{lng: 103.85954, lat: 1.30117},{lng: 103.85637, lat: 1.30412},{lng: 103.85445, lat: 1.30329}
@@ -1838,14 +1838,14 @@ prague: [
             nid: "1645323",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production122/d1710/33796ed0-ac68-11e4-be0e-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Food, Budget, Urban, Shopping",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Geylang is Singapore for the adventurous. The streets here are not the sparkling type you’ll find elsewhere in the city: here they’re dirty and rammed with people. A dizzying array of goods, from textiles to spices, spill from shops. This is the city’s red light district, but stick to the odd-numbered lorongs, or alleys, and you’ll discover Singapore’s best food, including Frogs’ Legs Porridge, for those with suitably hardened stomachs.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Singapore National Stadium",
             center: {lat: 1.31186428181015, lng: 103.888283248626}, 
             polygon: [
                 {lng: 103.86917, lat: 1.31537},{lng: 103.86887, lat: 1.31275},{lng: 103.86994, lat: 1.31065},{lng: 103.86818, lat: 1.30503},{lng: 103.87114, lat: 1.30027},{lng: 103.87728, lat: 1.29902},{lng: 103.88015, lat: 1.30112},{lng: 103.888775, lat: 1.30082},{lng: 103.89079, lat: 1.30009},{lng: 103.89706, lat: 1.30203},{lng: 103.90019, lat: 1.30301},{lng: 103.90848, lat: 1.30829},{lng: 103.905, lat: 1.31777},{lng: 103.90577, lat: 1.32614},{lng: 103.88496, lat: 1.32219},{lng: 103.87243, lat: 1.3191},{lng: 103.87209, lat: 1.31734},{lng: 103.86917, lat: 1.31537}
@@ -1858,14 +1858,14 @@ prague: [
             nid: "1692382",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production70/d778/33796ed0-ac68-11e4-955a-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Historical, Sightseeing, Architecture, Dining, Family friendly",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "At the center of downtown Singapore, Beach Road offers the grand buildings of the colonial era. Start at the City Hall and Supreme Court building, reminiscent of London’s classical architecture. In the evening, retire to the magnificent Raffles Hotel. Resplendent in white and fringed with exuberant, peacock-like palms, it is a true throwback to colonial splendor. Be sure to order the signature cocktail, a Singapore Sling, in the wood-paneled bar.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Singapore City Hall, National Museum of Singapore,    Bugis Junction Shopping Center,  Raffles City,    Peninsula Plaza",
             center: {lat: 1.2963811876242, lng: 103.851281458227}, 
             polygon: [
                 {lng: 103.8444, lat: 1.30361},{lng: 103.84644, lat: 1.30016},{lng: 103.84833, lat: 1.29954},{lng: 103.84869, lat: 1.29861},{lng: 103.84715, lat: 1.29673},{lng: 103.84695, lat: 1.29272},{lng: 103.84879, lat: 1.29113},{lng: 103.84792, lat: 1.28979},{lng: 103.84923, lat: 1.28912},{lng: 103.85049, lat: 1.28669},{lng: 103.85198, lat: 1.28639},{lng: 103.85362, lat: 1.28829},{lng: 103.8542, lat: 1.29199},{lng: 103.85684, lat: 1.29589},{lng: 103.859006, lat: 1.298437},{lng: 103.861046, lat: 1.30047},{lng: 103.860546, lat: 1.301086},{lng: 103.857227, lat: 1.298091},{lng: 103.855292, lat: 1.29997},{lng: 103.85127, lat: 1.30315},{lng: 103.84956, lat: 1.30306},{lng: 103.84528, lat: 1.30578},{lng: 103.8444, lat: 1.30361}
@@ -1882,14 +1882,14 @@ prague: [
             nid: "1649484",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production64/d1105/5da67fd0-05c0-11e4-b376-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Historical, Architecture, Food, Restaurants",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "With the Baroque splendor of the Royal Palace and medieval churches rubbing shoulders with Renaissance townhouses, every corner of Gamla Stan transports you to the past. Check out the famed facades of Riddarholmen Church and Stockholm Cathedral, wander the cobbled streets, and dine al fresco in Stortorget square. But for an authentic flavor of old Sweden, bathe in the Storkyrkobadet spa, where you'll sauna in a centuries-old wine cellar.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Central Stockholm,   Stortorget,  Stockholm Royal Palace (Stockholms Slott),   Gamla stan T-Bana,   Stockholm Stock Exchange Building (Borshuset),   Swedish Parliament (Sveriges riksdag)",
             center: {lat: 59.3249450443048, lng: 18.0694536356057}, 
             polygon: [
                 {lng: 18.05731, lat: 59.32749},{lng: 18.060279, lat: 59.323214},{lng: 18.078623, lat: 59.320538},{lng: 18.077746, lat: 59.32838},{lng: 18.05731, lat: 59.32749}
@@ -1901,14 +1901,14 @@ prague: [
             nid: "1649483",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production51/d59/5e0e4250-05c0-11e4-8314-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shops, Bars, Adventure, Culture, Entertainment",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "The heart of Stockholm, Norrmalm is where buzzing shops and equally lively bars meet to create a haven for adventurous visitors. Splash-out on designer wares at the famous Nordiska Kompaniet and PUB department stores and feast upon piquant gravlax in the restaurants. The Royal Swedish Opera's heart-wrenching performances will bring a tear to your eye, while a traditional sauna at Sturebadet should leave you floating on air.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Royal Swedish Opera (Kungliga Operan),   Hotorget Square King's Garden,  Stockholm Waterfront Congress Centre",
             center: {lat: 59.3358027265138, lng: 18.0584323906075}, 
             polygon: [
                 {lng: 18.05694, lat: 59.327562},{lng: 18.08074, lat: 59.328362},{lng: 18.060041, lat: 59.345421},{lng: 18.031027, lat: 59.338324},{lng: 18.047605, lat: 59.335387},{lng: 18.05694, lat: 59.327562}
@@ -1921,14 +1921,14 @@ prague: [
             nid: "1649482",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production111/d1171/5e728260-05c0-11e4-b376-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Shopping, Culture, Museums, Historical",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "A haven of whitewashed townhouses and Stockholm Harbour's vast swathes of blue, Ostermalm is the favourite hangout of Sweden's rich and famous. Indulge in high-end shopping along Biblioteksgatan, where stellar designer names light up the streets. For a spot of culture, immerse yourself in the Museum of National Antiquities and the Natural History Museum for an informative and fascinating insight into ancient and modern Swedish history.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Stureplan,   Karlaplan T-Bana,    Tekniska hogskolan T-Bana,  Humlegarden Park",
             center: {lat: 59.3382359544868, lng: 18.082259004012}, 
             polygon: [
                 {lng: 18.060132, lat: 59.345457},{lng: 18.07768, lat: 59.33094},{lng: 18.097908, lat: 59.331039},{lng: 18.103746, lat: 59.338198},{lng: 18.067392, lat: 59.347289},{lng: 18.060132, lat: 59.345457}
@@ -1942,14 +1942,14 @@ prague: [
             nid: "1649481",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production55/d114/5ee08670-05c0-11e4-b02d-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Art, Museums, Bars, Live music, Nightlife, Friendly people",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "A thriving bohemian district with a vibrant arts scene, Sodermalm's the go-to quarter for Stockholm's trendiest. Venture down Hornsgatan and experience the sensory bombardment of its galleries, with contemporary paintings and sculptures in every window. Or quench your thirst for local music and local beer at any of the inviting live music venues along Slussen, before strolling down towards Medborgarplatsen square to revel through until the small hours.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Maria Square, Medborgarplatsen",
             center: {lat: 59.3136404351256, lng: 18.0674242824757}, 
             polygon: [
                 {lng: 18.023793, lat: 59.315986},{lng: 18.061747, lat: 59.304477},{lng: 18.075155, lat: 59.30307},{lng: 18.098444, lat: 59.3074},{lng: 18.109558, lat: 59.316231},{lng: 18.06276, lat: 59.322768},{lng: 18.024157, lat: 59.319414},{lng: 18.023793, lat: 59.315986}
@@ -1962,14 +1962,14 @@ prague: [
             nid: "1649480",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production61/d371/5f4cb5c0-05c0-11e4-b376-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Theatre, Trendy, Culture, Sightseeing",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Striding through the bustling Odenplan square and past its thriving theater district, it's easy to see why Vasastaden is one of Stockholm's trendiest quarters. Skip down Rörstrandsgatan and sup a perfectly-poured beer or some of the famous local vodka in one of its many welcoming pubs and bars. Or explore the wonders of the universe at the Stockholm Observatory and leaf through literary masterworks at the striking red-bricked Public Library.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Karlberg Castle Park, Gustav Vasa Church, Bellevue Park",
             center: {lat: 59.34657242855, lng: 18.0433817981191}, 
             polygon: [
                 {lng: 18.021398, lat: 59.339837},{lng: 18.030998, lat: 59.338395},{lng: 18.068299, lat: 59.34752},{lng: 18.046516, lat: 59.356133},{lng: 18.039744, lat: 59.353545},{lng: 18.0378, lat: 59.348443},{lng: 18.021765, lat: 59.343996},{lng: 18.021398, lat: 59.339837}
@@ -1986,14 +1986,14 @@ prague: [
             nid: "1663691",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production14/d814/82f5d980-05bf-11e4-b376-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Sightseeing, Architecture, Culture, Scenery, Romantic",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "The best way to travel in Cannaregio is to navigate the beautiful still waters of the picturesque Royal Canal in a gondola, taking in the gorgeous sights of the Ca d'Oro Palace and the baroque Palazzo Labia. There's plenty to see on dry land too – the area encompasses the old Venetian Ghetto, still a hub of Jewish culture, and there's a plethora of churches to admire, such as Santa Maria dei Miracoli.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Venetian Ghetto Casino of Venice,    Ca' d'Oro,   Guglie Bridge,  Ca' D'Oro Waterbus,  Riva de Biasio Waterbus",
             center: {lat: 45.4442451822996, lng: 12.3300747872874}, 
             polygon: [
                 {lng: 12.316327, lat: 45.44535},{lng: 12.322276, lat: 45.441143},{lng: 12.327557, lat: 45.442355},{lng: 12.331433, lat: 45.441699},{lng: 12.332748, lat: 45.441061},{lng: 12.336146, lat: 45.438865},{lng: 12.336077, lat: 45.438213},{lng: 12.33792, lat: 45.43797},{lng: 12.338526, lat: 45.43894},{lng: 12.340583, lat: 45.438469},{lng: 12.343201, lat: 45.442345},{lng: 12.33844, lat: 45.445818},{lng: 12.327383, lat: 45.449434},{lng: 12.3197, lat: 45.448338},{lng: 12.31646, lat: 45.445476},{lng: 12.316327, lat: 45.44535}
@@ -2005,14 +2005,14 @@ prague: [
             nid: "1663692",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production33/d647/83662780-05bf-11e4-b376-d89d672c79ac.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Monuments, Shopping, Seafood, Restaurants, Natural park",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "The Venetian Arsenal, the shipyard complex where Galileo once walked, known for its iconic marble lion statues, dominates the quarter of Castello. Indulge in retail therapy down the bustling Via Garibaldi or Riva Degli Schiavoni, lined with high-end boutiques and buzzing eateries serving the freshest local seafood and finest Italian wines. You can even kick-back and relax in the Giardini park, one of the most stunning green spaces in Venice.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Venetian Arsenal,    Giardini della Biennale, Basilica di San Giovanni e Paolo,   Church of San Zaccaria,  San Pietro di Castello",
             center: {lat: 45.4343084042112, lng: 12.3554603166307}, 
             polygon: [
                 {lng: 12.343199, lat: 45.442345},{lng: 12.340586, lat: 45.438462},{lng: 12.338535, lat: 45.438933},{lng: 12.337922, lat: 45.43797},{lng: 12.337693, lat: 45.438001},{lng: 12.337568, lat: 45.436754},{lng: 12.34026, lat: 45.435918},{lng: 12.341833, lat: 45.434548},{lng: 12.34173, lat: 45.433103},{lng: 12.347182, lat: 45.432967},{lng: 12.355916, lat: 45.428165},{lng: 12.360744, lat: 45.423668},{lng: 12.369632, lat: 45.424665},{lng: 12.36346, lat: 45.441108},{lng: 12.343199, lat: 45.442345}
@@ -2025,14 +2025,14 @@ prague: [
             nid: "1663693",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production185/d146/83d7ae00-05bf-11e4-b02d-d89d672bfba8.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Romantic, Food, Markets, Churches, Relaxing",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "Standing at the center of the buzzing Piazza San Marco, flanked by the breathtaking Byzantine domes of St Mark's Basilica, the imposing Clock Tower and the ancient Lion of Venice, a sculpture dating back thousands of years, you'll see why San Marco is Venice's visitor hub. Tour the museum within Doge's Palace – a masterpiece of the Venetian Gothic style - or enjoy pizza in one of the plush pavement cafes.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "St. Mark's Square,   Rialto Bridge,   St. Mark's Basilica, Bridge of Sighs, Doge's Palace",
             center: {lat: 45.4340855872463, lng: 12.334644304416}, 
             polygon: [
                 {lng: 12.327118, lat: 45.434774},{lng: 12.327618, lat: 45.432557},{lng: 12.329944, lat: 45.43129},{lng: 12.337358, lat: 45.431065},{lng: 12.341727, lat: 45.433117},{lng: 12.341825, lat: 45.434565},{lng: 12.340589, lat: 45.435624},{lng: 12.340274, lat: 45.435897},{lng: 12.33757, lat: 45.436754},{lng: 12.337703, lat: 45.438001},{lng: 12.33607, lat: 45.438209},{lng: 12.334067, lat: 45.437103},{lng: 12.328647, lat: 45.435241},{lng: 12.327118, lat: 45.434774}
@@ -2053,7 +2053,7 @@ prague: [
                 {name: "transport3", type: "type3"}
             ],
             description: "This hustling, bustling central neighborhood is a haven for romantics and foodies alike. There are few things more peaceful than an alfresco dinner for two along the Grand Canal, by the gorgeous stone Rialto Bridge. Head down to Campo San Giacomo and delight in fresh fruits, vegetables, and local seafood, or explore San Polo's history at the ancient San Giacomo di Rialto church, with its huge 15th Century clock.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Campo San Polo,  Palazzo Barbarigo,   St. Mary of the Friars,  Palazzo Tiepolo",
             center: {lat: 45.4376622815706, lng: 12.3296202276995}, 
             polygon: [
                 {lng: 12.322675, lat: 45.43616},{lng: 12.324327, lat: 45.4356},{lng: 12.32497, lat: 45.436239},{lng: 12.328153, lat: 45.435129},{lng: 12.334044, lat: 45.437089},{lng: 12.336079, lat: 45.438206},{lng: 12.336144, lat: 45.438872},{lng: 12.332791, lat: 45.441023},{lng: 12.331119, lat: 45.439008},{lng: 12.323511, lat: 45.438223},{lng: 12.322675, lat: 45.43616}
@@ -2066,14 +2066,14 @@ prague: [
             nid: "1663695",
             hasContent : true,
             image: "https://a1.cdn-hotels.com/cos/production79/d55/849ad6f0-05bf-11e4-8314-d89d672bd508.jpg",
-            tags: "tag1, tag2, tag3",
+            tags: "Cafes, Churches, Bars, Museums, Family friendly",
             transport: [
                 {name: "transport1", type: "type1"},
                 {name: "transport2", type: "type2"},
                 {name: "transport3", type: "type3"}
             ],
             description: "This chilled-out district is a tonic after the buzz of downtown Venice. The clothes exhibits at the Mocenigo Palace museum will delight fashionistas and history-buffs alike, while the Campo San Giacomo dell’Orio square, with its picturesque church and numerous Italian cafes would delight even the most discerning traveler. A stroll to the Piazzale Roma square, with its high-end designer stores and wine bars is also a must.",
-            landmarks: "landmark1, landmark2, landmark3",
+            landmarks: "Piazzale Roma,   Papadopoli Gardens, San Stae",
             center: {lat: 45.4389015720612, lng: 12.3230108900258}, 
             polygon: [
                 {lng: 12.320018, lat: 45.439032},{lng: 12.317327, lat: 45.440135},{lng: 12.31463, lat: 45.437673},{lng: 12.316824, lat: 45.433804},{lng: 12.320552, lat: 45.43686},{lng: 12.322663, lat: 45.436157},{lng: 12.323519, lat: 45.438219},{lng: 12.331138, lat: 45.439008},{lng: 12.332773, lat: 45.441037},{lng: 12.331433, lat: 45.441689},{lng: 12.32752, lat: 45.442345},{lng: 12.322953, lat: 45.441255},{lng: 12.320018, lat: 45.439032}

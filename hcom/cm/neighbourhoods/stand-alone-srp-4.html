@@ -13,6 +13,8 @@
 		body {font-size: 14px}
 		ul {margin:0; padding:0;}
 		a {color:#026dc5;}
+
+		body.modal-open {overflow: hidden;}
 		#wrapper-query {background-color:#eae8e0;}
 		#query {max-width:1160px; margin:0 auto; padding: 16px; box-sizing:border-box;}
 		#wrapper-results {max-width:1160px; margin:0 auto; padding:0 16px 0; box-sizing:border-box;}
@@ -35,8 +37,14 @@
     	#price {background-color:  #eae8e0; padding:8px 24px 16px ;}
     	.container h3 {font-size:14px; margin:8px 0;}
     	.container ul.tags {margin:0; padding:0;}
-    	.container ul.tags li {list-style-type: none; display:inline-block; margin:0; padding:4px 8px; background-color:#eee; border-radius:4px; font-size:12px; text-transform: uppercase;}
+    	.container ul.tags li {list-style-type: none; display:inline-block; margin:0; padding:4px 8px; background-color:#eee; border-radius:4px; font-size:14px; text-transform: uppercase;}
     	h1 {margin:0; padding:0; font-size: 20px}
+
+    	#guide:hover {cursor:pointer;}
+
+    	.fs {display:inline-block; padding:4px 8px; background-color:#ddd;}
+    	.hotel-card {min-height: 90px}
+    	.hotel-card button {background-color:#026dc5; color:#fff; font-size:14px; padding:4px 8px; border-radius: 4px; border:0; border-bottom:solid #000 2px; margin:8px 0;}
 
 
 
@@ -144,7 +152,9 @@
        	 			{{else}}
        	 				<div class="standard">{{avgPrice}}</div>
        	 			{{/if}}
+       	 			<button>Choose room</button>
        	 				</div>
+
        	 			</div>
 		      	{{/each}}
     		</script>
@@ -152,24 +162,58 @@
 
 			<div id="list-1"></div>
 			
+			<style type="text/css">
+				#sort ul {list-style-type: none; display: flex; flex-direction: row;}
+				#sort ul li {flex-grow: 1; padding:4px 0;}
+				#sort ul li:not(:first-child) {color:#026dc5; text-align: center;}
+				#sort ul li.selected {background-color:#026dc5; color:#fff; border-radius:4px;}
+			</style>
+
 			<div id="list">
-				<div id="sort">Sort by</div>
+				<div id="sort">
+					<ul>
+						<li>Sort by:</li>
+						<li class="selected">Our favourites</li>
+						<li>Star rating</li>
+						<li>Distance</li>
+						<li>Guest rating</li>
+						<li>Price</li>
+					</ul>
+				</div>
 
-				<div id="guide" style="padding:8px; background-color:#026dc5; margin-top:8px; color:#fff;">Not sure which part of <span class="dest"></span> is right for you? <a href="#" style="color:#fff; font-weight:bold">Explore our guide to <span class="dest"></span> neighbourhoods</a></div>
+				<a href="#guide-open" id="guide-open" style="display:block; padding:8px; background-color:#026dc5; margin-top:8px; color:#fff; background:url('nhood-promo.png') no-repeat; height:106px; padding:32px 20px 0 200px; box-sizing:border-box; outline:0">
+						<span style="display:block; font-size:18px; margin-bottom:4px;">Not sure where to stay in <span class="dest"></span>?</span>
+						<span style="display:block; font-size:16px">Try our neighbourhood guide &raquo;</span>
+				</a>
+			
+				<div id="loading-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">
+					<div style="margin-bottom:4px">fetching hotels</div>
+					<img src="red_spinner.gif" />
+				</div>
+				<div id="loading-nhood-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">			<div style="margin-bottom:4px">fetching hotels</div>
+					<img src="red_spinner.gif" />
+				</div>
 
+				<div id="selected-filters" style="margin-top:8px"></div>
 
 				<div id="hotels">
 					
-				<div id="loading-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">fetching hotels...</div>
+					
+
+					
 
 				</div>	
 			</div>
 		</div>
 		
-<div id="overlay" style="position:fixed; top:0; left:0; right:0; bottom:0; background-color:#000; opacity:0.7; display:none;"></div>
+<div id="overlay" style=""></div>
 
-<div id="guides" style="position:fixed; top:0px; width:650px; bottom:0; right:0px; background-color:#fff; display:none;">
-	<h2 style="position:absolute; top:0;margin:0; padding:0; left:0; right:0; color:#fff; background-color:#d41200; padding:28px 16px 8px">Popular neighbourhoods</h2>
+<div id="guides">
+	<h2 style="position:absolute; top:0;margin:0; padding:0; left:0; right:0; color:#fff; background-color:#d41200; padding:16px 16px 16px; position:relative;">
+		Popular <span class="dest"></span> neighbourhoods
+
+		<a id="close-guide" href="#" style="position:absolute; right:8px; top:8px; color:#fff; font-weight:normal; font-size:18px; padding:8px; ">X</a>
+	</h2>
 	
 	<div style="position:absolute; top:70px; left:16px; bottom:0; right:0; padding-right:16px;">
 
@@ -182,36 +226,28 @@
 </div>
 
 <style type="text/css">
+#overlay {position:fixed; top:0; left:0; right:0; bottom:0; background-color:#000; opacity:0.8; display:none;}
+	#guides {position:fixed; top:0px; width:670px; bottom:0; left:0; background-color:#fff; display:none;}
 	#neighbourhoods {overflow-y: scroll;}
 	.neighbourhood-card h2 {margin:0; padding:8px; background-color:#000; color:#fff; font-size:14px;}
-	.neighbourhood-card h3 {margin:0; padding:4px 0; color:#000;  font-size:14px;}
+	.neighbourhood-card h3 {margin:0 0 4px; padding:4px 0; color:#000;  font-size:14px;}
 	.neighbourhood-card {margin-bottom:8px; padding:8px 0; border-bottom:solid 1px #eee;}
 
 			.neighbourhood-card .image {position:relative; display:inline-block; vertical-align:top;}
 			.neighbourhood-card .image img.thumb {}
 			.neighbourhood-card .image img.map {display:inline-block; vertical-align: top}
 			.neighbourhood-card .name {color:#000; font-weight: bold; font-size:18px; position:absolute; top:12px; left:0px; padding:8px;  max-width:200px;}
-			.neighbourhood-card .content {box-sizing: border-box; padding-left:8px;}
+			.neighbourhood-card .content {box-sizing: border-box; padding-left:8px; width:600px;}
 			.tags {margin:0; padding:0;}
-			.tags li {list-style-type: none; display:inline-block; padding:0; margin:0; background-color:#eee; padding:4px 8px; margin-right:4px; border-radius:4px; font-size:12px; font-weight:bold; margin-bottom:4px;}
+			.tags li {list-style-type: none; display:inline-block; padding:0; margin:0; background-color:#eee; padding:4px 8px; margin-right:4px; border-radius:4px; font-size:14px; font-weight:bold; margin-bottom:8px;}
 	.neighbourhood-card p.description {line-height: 20px; padding-right:16px;}
 			.landmarks li {list-style-type: none; margin-bottom:4px;}
 			.prices li {list-style-type: none; margin-bottom:4px;}
 
-	.neighbourhood-card button {background-color:#026dc5; color:#fff; font-size:16px; padding:8px 16px; border-radius: 4px; border:0; margin-bottom:8px;}
+	.neighbourhood-card button {background-color:#026dc5; color:#fff; font-size:16px; padding:8px 16px; border-radius: 4px; border:0; border-bottom:solid #000 2px; margin-bottom:8px;}
+	.neighbourhood-card button:hover {cursor:pointer;}
 
-	#filters #total-hotels {font-weight:bold; font-size:12px; padding:0; margin:0;}
-#filters > div {box-sizing: border-box; padding:8px; }
-    #filters ul {list-style-type: none;}
-    #filters .filter {border-top:solid 1px #ddd;}
-    #filters  h2 {font-size:16px; font-weight:bold; margin:0 0 8px 0; padding:0;}
-    #filters .filter h3 {font-size:14px; font-weight:bold; margin:0 0 12px 0; padding:0;}
-    #filters .filter ul li {overflow:hidden; margin-bottom:4px;}
-    #filters .filter ul li input[type="checkbox"] {float:left; width:16px; padding:0;}
-    #filters .filter ul li label {float:left; width:calc(100% - 30px); padding:2px 0 0 0; font-size: 12px}
-    #filters .filter ul.stars li {margin:0; padding:0;}
-    #filters .filter ul.stars li input[type="checkbox"] {float:left; width:16px; margin-top:6px;}
-    #filters .filter ul.stars li label {color:#d41200; font-size:16px; padding:0;}
+
 
 	
 
@@ -222,7 +258,7 @@
  	<ul>
  		{{#each this}}
  		<li>
- 			<input type="checkbox">
+ 			<input type="checkbox" name="{{id}}">
  			<label>{{title}}</label>
  		</li>
  		{{/each}}
@@ -234,7 +270,7 @@
  	<ul>
  		{{#each this}}
  		<li>
- 			<input type="checkbox">
+ 			<input type="checkbox" name="{{id}}">
  			<label>{{title}}</label>
  		</li>
  		{{/each}}
@@ -258,23 +294,16 @@
  					<div class="content">
  					
  					<div style="overflow:hidden; margin-top:12px;">
- 						<div style="float:left; width:33%">
- 							<h3>Average prices</h3>
- 							<ul class="prices">
- 								<li>3 Star from £123</li>	
- 								<li>4 Star from £123</li>	
- 								<li>5 Star from £123</li>	
- 							</ul>
- 						</div>
+ 						
 
- 						<div style="float:left; width:33%; box-sizing:border-box; padding-right:12px">
+ 						<div style="float:left; width:49%; box-sizing:border-box; padding-right:12px">
  							<h3>Great for</h3>
  							<ul class="tags">
  								{{displayTags tags}}
  							</ul>
 
  						</div>
- 						<div style="float:left; width:33%">
+ 						<div style="float:left; width:49%">
  						<h3>Landmarks</h3>
  						<ul class="landmarks">
  							{{displayTags landmarks}}	
@@ -285,7 +314,7 @@
  					</div>
  					<p class="description">{{description}}</p>
 
- 					<button>Search for hotels in {{name}}</button>
+ 					<button rel="{{nid}}">Search for hotels in <span class="n-name">{{name}}</span></button>
  					
  					
  					
@@ -339,20 +368,60 @@
 					}
 				}
 
-      			
+      			$(window).on('hashchange', function() {
+  					var hash = window.location.hash;
+  					console.log(hash)
+  					if (hash == "guide-close"){
+  						//$("#overlay").hide();
+						//$("#guides").hide();
+						//$("body").removeClass("modal-open");
+  					}
+ 				});
 				
 
 				// neighbourhood guides
 
-				$("#guide a").on("click", function(e){
+				$("#guide-open").on("click", function(e){
+					e.preventDefault()
 					$("#overlay").show();
 					$("#guides").show();
+					$("body").addClass("modal-open");
+					//window.location.hash = "guide-open";
 				});
 
 				$("#overlay").on("click", function(e){
 					$("#overlay").hide();
 					$("#guides").hide();
+					$("body").removeClass("modal-open");
+					//window.location.href.split('#')[0];
+					//window.location.hash = "guide-close";
 				});
+
+				$(".neighbourhood-card button").on("click", function(){
+					var hoodName = $(this).find("span").text();
+					var hoodId = $(this).attr("rel");
+
+					$("#overlay").hide();
+					$("#guides").hide();
+					$(".hotel-card").remove();
+					$("#loading-nhood-hotels").show().find("div").text("Finding available hotels in " + hoodName);
+					fetchHotelListNeighbourhood(destinationStr, $(this).attr("rel"), displayHotels);
+					$("body").removeClass("modal-open");
+
+					$("#selected-filters").hide().html("Selected filters: <span class='fs'>" + hoodName + "</span>");
+					$( "#f-neighbourhoods input[type=checkbox]" ).prop( "checked", false );
+					$( "input[name=" + hoodId + "]" ).prop( "checked", true );
+
+					//window.location.hash = "guide-close";
+				})
+
+				$("#close-guide").on("click", function(e){
+					e.preventDefault();
+					$("#overlay").hide();
+					$("#guides").hide();
+					$("body").removeClass("modal-open");
+					//window.location.hash = "guide-close";
+				})
 
 				
 
@@ -383,6 +452,8 @@
 			var displayHotels = function (data) {
 
 				$("#loading-hotels").hide();
+				$("#loading-nhood-hotels").hide();
+				$("#selected-filters").show();
 				
 				// get hotel data
 				var hotels = data.result;
@@ -440,17 +511,6 @@
 				smURL += "&size=300x220"
 				smURL += "&sensor=false"
 				smURL += "&path=color:red|weight:1|fillcolor:red|" + staticMapUrl
-
-				console.log(smURL);
-
-				//http://maps.googleapis.com/maps/api/staticmap?
-				//center=35.6712935174737,139.764315704409
-				//&zoom=11
-				//&size=250x125
-				//&sensor=false
-				//&path=color:red|weight:1|fillcolor:red|35.666941,139.722226|35.668363,139.730487|35.669198,139.73818|35.670999,139.742897|35.689,139.752|35.689,139.722|35.666941,139.722226
-
-
 
 				return smURL;
 			})
