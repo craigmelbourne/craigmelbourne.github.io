@@ -16,7 +16,7 @@ var destination = {
         {str: "Las Vegas, USA", val: "lasvegas", map:"Las Vegas, USA", zoom:10, staticMapZoom:11, panX:0, panY:0},
         {str: "Madrid, Spain", val: "madrid", map:"Madrid,Spain", zoom:13, staticMapZoom:11, panX:-100, panY:0},
         {str: "Milan, Italy", val: "milan", map:"Milan,Italy", zoom:11, staticMapZoom:11, panX:-100, panY:-150},
-        {str: "New York, USA", val: "newyork", map:"New York,USA", zoom:12, staticMapZoom:11, panX:0, panY:-150},
+        {str: "New York, USA", val: "newyork", map:"New York,USA", zoom:13, staticMapZoom:11, panX:0, panY:-150},
         {str: "Prague, Czech Republic", val: "prague", map:"Prague, Czech Republic", zoom:13, staticMapZoom:11, panX:-150, panY:0},
         {str: "Rome, Italy", val: "rome", map:"Rome,Italy", zoom:13, staticMapZoom:11, panX:-250, panY:0},
         {str: "Singapore", val: "singapore", map:"Singapore", zoom:13, staticMapZoom:11, panX:200, panY:300},
