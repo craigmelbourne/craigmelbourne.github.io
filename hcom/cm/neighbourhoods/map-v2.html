@@ -21,18 +21,26 @@
 
    
 
-    	#hotel-card {position:absolute; bottom:10px; left:50%; margin-left:-300px; background-color:#fff; display:none; min-height:100px; width:600px; border-radius:4px;
-    	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
-    	#hotel-card .thumb {position:absolute; left:0; bottom:0; top:0; overflow:hidden; width:25%; border-top-left-radius: 4px; border-bottom-left-radius: 4px}
-    	#hotel-card .thumb img {max-width:100%; position:absolute; bottom:0;}
-    	#hotel-card .content {margin-left:25%; padding:8px; width:75%; box-sizing: border-box;}
+    	#hotel-card {position:absolute; top:50px; left:12px; background-color:#fff; display:none; min-height:100px; width:238px; -webkit-box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);
+-moz-box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);
+box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);}
+    	#hotel-card .thumb {max-height:200px;}
+    	#hotel-card .thumb img {max-width:100%;}
+    	#hotel-card .content { padding:8px; box-sizing: border-box;}
     	#hotel-card .content #hotelName {display: block; font-size:16px;}
     	#hotel-card .content #stars {margin-bottom:4px; color:#d41200;}
+    	#hotel-card .content #location {font-size:12px; margin-bottom:4px;}
     	#hotel-card .content #qual {font-size: 12px;}
     	#hotel-card .content #qual #badge {font-weight: bold;}
     	#hotel-card .content #qual #number {font-weight: bold;}
+
+    	#hotel-card .price {padding:8px; text-align:right;}
+    	#hotel-card .price .total {color:#d41200; font-weight:bold; font-size:24px; margin-bottom:4px;}
+    	#hotel-card .price .price-description {font-size:13px; margin-bottom:4px;}
+    	#hotel-card .price button {background-color:#026dc5; color:#fff; font-size:14px; padding:4px 8px; border-radius: 4px; border:0; border-bottom:solid #000 2px; margin:8px 0;}
+
+    	#hotel-card .close:hover {}
+
 
     	
 		
@@ -64,7 +72,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 		<div id="wrapper-results">
 			<div style="padding:12px; padding-left:250px; box-sizing: border-box; background-color:#f5f4f0; border-bottom:solid 1px #ccc;">
 				Search map for <input type="text"></input>
-				<div style="display:inline-block; margin-left: 12px; padding-left: 12px; border-left:dotted 1px #ccc;">
+				<div style="display:inline-block; margin-left: 12px; padding-left: 12px; border-left:dotted 1px #ccc; display:none;">
 							<input id="showNHoods" type="checkbox" checked /> Show neighbourhood guides</div>
 			</div>
 			<div id="filters">
@@ -122,13 +130,24 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 
 					<div id="map_canvas" style="width:100%; height:100%;"></div>
 
-					<div id="neighbourhood-wrapper" style="">
-							<h2 class="neighbourhood-header" style="background-color:#026dc5; font-weight:normal;">Popular neighbourhoods</h2>
+					<div id="show-neighbourhoods" style="position:absolute; top:0; left:12px; width:238px">
+						<h2 class="" style="background-color:#026dc5; font-weight:normal; color:#fff; margin:0; padding:8px; font-size:14px;">
+								<i class="fa fa-chevron-down" aria-hidd en="true"></i>
+								Show popular neighbourhoods
+							</h2>
+					</div>
+					<div id="neighbourhood-wrapper">
+							<h2 class="neighbourhood-header" style="background-color:#026dc5; font-weight:normal; color:#fff; margin:0; padding:8px; font-size:14px;">
+								<i class="fa fa-chevron-down" aria-hidden="true"></i>
+								Popular neighbourhoods
+							</h2>
 							<div id="neighbourhoods"></div>
 							
 							<div id="back" style="display:none; background-color:#026dc5">
-								<span style="font-weight:normal; font-size:12px"><< Popular Neighbourhoods</span>
-								<div class="n-name" style="font-size:18px;  margin-top:16px"></div>
+								<span style="font-weight:normal; font-size:14px">
+									<i class="fa fa-chevron-left" aria-hidden="true"></i> 
+									Popular Neighbourhoods</span>
+								<div class="n-name" style="font-size:18px;   padding-top:16px"></div>
 							</div>
 							<div id="neighbourhood-content" style="display:none;">
 								
@@ -139,10 +158,13 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 									
 									<h3>Great for</h3>
  									<ul class="tags"></ul>
+
+ 									<h3 style="margin-top:12px;">Landmarks</h3>
+									<ul class="landmarks"></ul>
+
 									<p class="description"></p>
 
-									<h3>Landmarks</h3>
-									<ul class="landmarks"></ul>
+									
 
 									
 								</div>
@@ -152,18 +174,28 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 					</div>
 
 					<div id="hotel-card">
+							<a href="#" class="close" style="position:absolute; right:0; top:0; padding:8px; background-color:#fff;">
+								X
+							</a>
 							<div class="thumb"><img /></div>
 							<div class="content">
 								<a href="#" id="hotelName"></a>
 								<div id="stars">
 									<span id="star"></span>
-									<span id="locality"></span>
+									
 								</div>
+								<div id="location"></div>
 								<div id="qual">
 									<span id="badge"></span> <span id="number"></span> / 5 
 									<a href="#" id="numReviews"></a>
 								</div>
 
+							</div>
+
+							<div class="price">
+								<div class="total"></div>
+								<div class="price-description"></div>
+								<button>Choose room</button>
 							</div>
 							
 						</div>
@@ -175,10 +207,15 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 		<style type="text/css">
 			#neighbourhood-wrapper {position:absolute; top:0; left:0; bottom:0; padding:0; background-color:#fff; width:270px; -webkit-box-shadow: 4px 0 3px -1px #888;
           box-shadow: 4px 0 3px -1px #888;}
-			#neighbourhood-wrapper h2 {margin:0; padding:8px; background-color:#000; color:#fff; font-size:14px;}
+			#neighbourhood-wrapper h2, {margin:0; padding:8px; background-color:#000; color:#fff; font-size:14px;}
 			#neighbourhood-wrapper h3 {margin:0 0 4px 0; padding:4px 0; color:#000;  font-size:14px;}
 			#neighbourhoods {overflow-y: scroll;position:absolute; top:40px; left:12px; right:12px; bottom:0;}
 			#neighbourhoods .hide{display:none;}
+			
+
+			.neighbourhood-header:hover {cursor:pointer;}
+			#show-neighbourhoods:hover {cursor:pointer;}
+
 			.neighbourhood-card {position:relative; padding-bottom:8px; margin-bottom: 8px; border-bottom:solid 1px #ccc;}
 			.neighbourhood-card:hover {cursor:pointer; }
 			.neighbourhood-card .image {position:relative;}
@@ -257,6 +294,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
           src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI">
       	</script>
       	<script src="map-labels.js"></script>
+      	<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
 		<script src="../hcom-services.js"></script>
 		<script src="../handlebars.js"></script>
 		<script src="n-maps-2.js"></script>
@@ -350,6 +388,30 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
 					$("#neighbourhood-wrapper h2").show();
 					$("#neighbourhood-content").hide(); 
 					$(this).hide();
+				}); 
+
+				$(".neighbourhood-header").on("click", function(e){
+					e.preventDefault();
+					$("#neighbourhood-wrapper").hide();
+					$("#show-neighbourhoods").show();
+					clearMarkers();
+            		clearPolygons();
+
+				}); 
+
+				$("#show-neighbourhoods").on("click", function(e){
+					console.log("clicked show nhoods")
+					showMarkers();
+            		showPolygons();
+            		$("#neighbourhood-wrapper").show();
+            		$("#hotel-card").hide();
+				});
+
+				$("#hotel-card .close").on("click", function(e){
+					event.preventDefault();
+					$("#hotel-card").hide();
+					clearMarkers();
+            		clearPolygons();
 				})
 			});
 
