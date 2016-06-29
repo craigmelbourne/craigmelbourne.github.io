@@ -20,7 +20,7 @@ $(function(){
             $("#hotel-card").hide();
         } else {
             clearMarkers();
-            clearPolygons();
+            //clearPolygons();
             $("#neighbourhood-wrapper").hide();
         }       
     });
@@ -79,8 +79,8 @@ var displayHotels = function (data) {
                             //this.setTitle('I am clicked');
                             console.log(hotel);
                             //openNeighbourhood(name);
-                            clearMarkers();
-                            clearPolygons();
+                            //clearMarkers();
+                            //clearPolygons();
                             $("#neighbourhood-wrapper").hide();
                             $("#hotel-card").show();
                             $("#hotel-card img").attr("src", hotel.imageUrl);

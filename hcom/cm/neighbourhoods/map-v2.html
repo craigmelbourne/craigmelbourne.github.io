@@ -119,8 +119,16 @@ box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);}
 					<div style="text-align:center; font-weight:bold; margin-bottom:4px">0 - 5</div>
 					<img src="slider.png" />
 				</div>
-				<div id="f-neighbourhoods" class="filter"></div>
-				<div id="f-landmarks" class="filter"></div>
+				<div class="filter">
+					<h3><i class="fa fa-angle-down" aria-hidden="true"></i> Neighbourhoods</h3>
+					<div id="f-neighbourhoods" class="collapsed"></div>
+				</div>
+				
+				<div class="filter">
+					<h3><i class="fa fa-angle-down" aria-hidden="true"></i> Landmarks</h3>
+					<div id="f-landmarks" class="collapsed"></div>
+				</div>
+				
 
 			</div>
 			
@@ -209,7 +217,7 @@ box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);}
           box-shadow: 4px 0 3px -1px #888;}
 			#neighbourhood-wrapper h2, {margin:0; padding:8px; background-color:#000; color:#fff; font-size:14px;}
 			#neighbourhood-wrapper h3 {margin:0 0 4px 0; padding:4px 0; color:#000;  font-size:14px;}
-			#neighbourhoods {overflow-y: scroll;position:absolute; top:40px; left:12px; right:12px; bottom:0;}
+			#neighbourhoods {overflow-y: scroll;position:absolute; top:40px; left:12px; right:0px; bottom:0; padding-right:16px;}
 			#neighbourhoods .hide{display:none;}
 			
 
@@ -237,6 +245,8 @@ box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);}
 			#neighbourhood-content .description {font-size:12px; line-height:16px;}
 
 			.landmarks li, .transport li {list-style-type: none; margin-bottom:4px; font-size:12px;}
+
+			.filters .collapsed {}
 		</style>
 
 		<script id="neighbourhood-card" type="text/x-handlebars-template">
@@ -265,7 +275,7 @@ box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);}
     	</script>
 
     	<script id="filters-neighborhoods" type="text/x-handlebars-template">
- 			<h3>Neighbourhoods</h3>
+ 			
  			<ul>
  				{{#each this}}
  				<li>
@@ -277,7 +287,7 @@ box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);}
 		</script>
 
 		<script id="filters-landmarks" type="text/x-handlebars-template">
- 			<h3>Landmarks</h3>
+ 			
  			<ul>
  				{{#each this}}
  				<li>
@@ -320,13 +330,14 @@ box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);}
 			var displayFiltersNeighbourhoods = function (data){
 				var source   = $("#filters-neighborhoods").html();
   				var template = Handlebars.compile(source);
-  				$("#f-neighbourhoods").html(template(data));
+  				$("#f-neighbourhoods").html(template(data)).hide();
+
 			}
 
 			var displayFiltersLandmarks = function (data){
 				var source   = $("#filters-landmarks").html();
   				var template = Handlebars.compile(source);
-  				$("#f-landmarks").html(template(data));
+  				$("#f-landmarks").html(template(data)).hide();
 			}
 
 			$(function(){
@@ -339,7 +350,7 @@ box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);}
 				fetchHotelList(getParameterByName("destination"), displayFilters);
 
 			
-
+				//$(".filters .collapsed").hide();
 			
 
 				$("#destination").text(getParameterByName("destination"));
@@ -383,19 +394,28 @@ box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);}
 
 				}); 
 
+				$("#neighbourhoods").on("mouseOver", ".neighbourhood-card", function(e){
+					console.log("hover")
+					var num = parseInt($(this).attr("rel")) - 1;
+					npolygons[num].setOptions({fillColor: '#FF0000', strokeColor: '#FF0000'});
+				})
+
 				$("#back").on("click", function(e){
 					$(".neighbourhood-card").show();
 					$("#neighbourhood-wrapper h2").show();
 					$("#neighbourhood-content").hide(); 
 					$(this).hide();
+					$.each(npolygons, function(i, np) {
+						np.setOptions({fillColor: '#555555', strokeColor: '#555555'});
+					});
 				}); 
 
 				$(".neighbourhood-header").on("click", function(e){
 					e.preventDefault();
 					$("#neighbourhood-wrapper").hide();
 					$("#show-neighbourhoods").show();
-					clearMarkers();
-            		clearPolygons();
+					//clearMarkers();
+            		//clearPolygons();
 
 				}); 
 
@@ -410,8 +430,14 @@ box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);}
 				$("#hotel-card .close").on("click", function(e){
 					event.preventDefault();
 					$("#hotel-card").hide();
-					clearMarkers();
-            		clearPolygons();
+					//clearMarkers();
+            		//clearPolygons();
+				}); 
+
+				$(".filter h3").on("click", function(e){
+					e.preventDefault();
+					console.log("click")
+					$(this).find(".collapsed").show();
 				})
 			});
 
