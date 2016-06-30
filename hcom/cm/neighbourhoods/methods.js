@@ -58,6 +58,16 @@ var fetchContent = function(){
     displayNeighbourhoods(neighbourhoodContent);
 };
 
+var buildMapAndContent = function(){
+    destinationStr = getParameterByName("destination");
+    destinationObj = getObjects(destination, 'str', destinationStr); 
+    neighbourhoodContent = content[destinationObj[0].val];
+
+    console.log(neighbourhoodContent);
+    displayNeighbourhoods(neighbourhoodContent);
+    initializeMap(destinationStr, destinationObj[0]);
+};
+
 var displayHotels = function (data) {
                 // hide loading message
                 //$("#loading-hotels").hide();
