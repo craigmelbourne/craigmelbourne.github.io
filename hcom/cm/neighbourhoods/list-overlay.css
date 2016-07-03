@@ -43,22 +43,35 @@ a {color:#026dc5;}
 
 .labels {background-color:#026dc5; color:#fff; font-weight:bold; font-size:12px; padding:2px 4px; border-radius:2px;}
 
-#neighbourhoods {overflow-y: scroll;}
+#neighbourhoods {overflow-y: scroll; position:absolute; right:0; top:0; bottom:0; width:400px; box-sizing:border-box; background-color:#f5f4f0; 
+    -webkit-box-shadow: -2px 0px 3px 0px rgba(204,204,204,1);
+-moz-box-shadow: -2px 0px 3px 0px rgba(204,204,204,1);
+box-shadow: -2px 0px 3px 0px rgba(204,204,204,1);}
+#neighbourhood-header, #neighbourhood-content-header {position:absolute; top:0; left:0; right:0; min-height:64px; background-color: #026dc5; color:#fff; box-sizing:border-box; padding:8px 8px 0;}
+#neighbourhood-content-header {display:none;}
+#neighbourhood-list {box-sizing:border-box; position:absolute; top:100px; bottom:0; left:0; right:0; overflow-y:scroll; padding:8px;}
 
-.neighbourhood-card {overflow:hidden; padding:12px 0;}
+.neighbourhood-card {overflow:hidden; padding:0 12px; border:solid 1px #ddd; background-color:#fff; margin-bottom:8px;}
 .neighbourhood-card .image {width:30%; overflow:hidden; height:80px; float:left; box-sizing: border-box; display:none;}
 .neighbourhood-card .image img {height:100%;}
 .neighbourhood-card .content { box-sizing: border-box; padding:8px;}
-.neighbourhood-card h3 {margin:0 0 4px; padding:0; font-size:14px;}
+.neighbourhood-card h3 {margin:8px 0 4px; padding:0; font-size:12px; }
 .neighbourhood-card .content ul {list-style-type: none; margin:0; padding:0;}
-.neighbourhood-card .content ul li {font-size:14px; margin-bottom:4px;}
+.neighbourhood-card .content ul li {font-size:12px; margin-bottom:4px;}
+.neighbourhood-card .content ul.tags li {font-size:12px; font-weight:normal;}
 
-.neighbourhood-card  .name {margin-bottom:0; background-color:#eee; color:#026dc5; padding:4px 8px; font-weight:bold;}
-.neighbourhood-card  .name .number { font-size:14px; display:inline-block; vertical-align:top;  padding:0; margin-right:8px; border-radius:4px;}
-.neighbourhood-card  .name .title { font-size:14px; display:inline-block; vertical-align:top; }
+.neighbourhood-card  .name {margin-bottom:0; color:#026dc5; padding:0; font-weight:bold;}
+.neighbourhood-card  .name .number { font-size:14px; display:inline-block; vertical-align:top; background-color:#026dc5; color:#fff; padding:8px 8px 4px; margin-right:8px;}
+.neighbourhood-card  .name .title { font-size:14px; display:inline-block; vertical-align:top; padding:8px 0 0 0;}
 
 .tags {margin:0; padding:0;}
-.tags li {display:inline-block; list-style-type: none; padding:0; margin:0; padding:0; margin-right:4px; border-radius:4px; font-size:12px; font-weight:bold; margin-bottom:4px;}
+.tags li {display:inline-block; list-style-type: none; padding:0; margin:0; padding:0; margin-right:16px; border-radius:4px; font-size:13px; font-weight:bold; margin-bottom:4px;}
+
+#neighbourhood-content {box-sizing:border-box; background-color:#fff; position:absolute; top:100px; bottom:0; left:0; right:0; overflow-y:scroll;}
+
+#landmark-list {box-sizing:border-box; position:absolute; top:100px; bottom:0; left:0; right:0; overflow-y:scroll; padding:8px;}
+.landmark-card {overflow:hidden; padding:0 12px; border:solid 1px #ddd; background-color:#fff; margin-bottom:8px;}
+
 /*.neighbourhood-card h2 {margin:0; padding:8px; background-color:#000; color:#fff; font-size:14px;}
 .neighbourhood-card h3 {margin:0 0 4px; padding:4px 0; color:#000;  font-size:14px;}
 .neighbourhood-card {margin-bottom:8px; padding:8px 0; border-bottom:solid 1px #eee;}

@@ -1,6 +1,8 @@
 var destinationStr
 var destinationObj 
 var neighbourhoodContent 
+var landmarkStr;
+var landmarkList;
 
 
 //page load stuff 
@@ -53,8 +55,9 @@ var fetchContent = function(){
     destinationStr = getParameterByName("destination");
     destinationObj = getObjects(destination, 'str', destinationStr); 
     neighbourhoodContent = content[destinationObj[0].val];
+    
 
-    console.log(neighbourhoodContent);
+    //console.log(neighbourhoodContent);
     displayNeighbourhoods(neighbourhoodContent);
 };
 
@@ -63,8 +66,10 @@ var buildMapAndContent = function(){
     destinationObj = getObjects(destination, 'str', destinationStr); 
     neighbourhoodContent = content[destinationObj[0].val];
 
-    console.log(neighbourhoodContent);
+    landmarkList = landmarks[destinationObj[0].val];
+    console.log(landmarkList)
     displayNeighbourhoods(neighbourhoodContent);
+    displayLandmarkContent(landmarkList);
     initializeMap(destinationStr, destinationObj[0]);
 };
 

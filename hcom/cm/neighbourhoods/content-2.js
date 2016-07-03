@@ -11,7 +11,7 @@ var destination = {
         {str: "Copenhagen, Denmark", val: "copenhagen", map:"Copenhagen,Denmark", zoom:11, staticMapZoom:9, panX:0, panY:0},
         {str: "Dublin, Ireland", val: "dublin", map:"Dublin, Ireland", zoom:11, staticMapZoom:11, panX:-150, panY:0},
         {str: "Edinburgh, Scotland", val: "edinburgh", map:"Edinburgh,Scotland", zoom:12, staticMapZoom:11, panX:-120, panY:0},
-        {str: "Florence, Italy", val: "florence", map:"Florence, Italy", zoom:13, staticMapZoom:11, panX:-100, panY:0},
+        {str: "Florence, Italy", val: "florence", map:"Florence, Italy", zoom:14, staticMapZoom:11, panX:-100, panY:0},
         {str: "Hong Kong", val: "hongkong", map:"Hong Kong", zoom:13, staticMapZoom:10, panX:180, panY:700},
         {str: "Las Vegas, USA", val: "lasvegas", map:"Las Vegas, USA", zoom:10, staticMapZoom:11, panX:0, panY:0},
         {str: "Madrid, Spain", val: "madrid", map:"Madrid,Spain", zoom:13, staticMapZoom:11, panX:-100, panY:0},
@@ -22,6 +22,21 @@ var destination = {
         {str: "Singapore", val: "singapore", map:"Singapore", zoom:13, staticMapZoom:11, panX:200, panY:300},
         {str: "Stockholm, Sweden", val: "stockholm", map:"Stockholm,Sweden", zoom:12, staticMapZoom:11, panX:-100, panY:0},
         {str: "Venice, Italy", val: "venice", map:"Venice,Italy", zoom:14, staticMapZoom:11, panX:150, panY:100}
+    ]
+}
+
+var landmarks = {
+    newyork : [
+        {name: "Times Square", type: "sigh", lat: 40.758896, lng: -73.985130, primary: "true", neighbourhood: "Broadway - Times Square"},
+        {name: "Rockefeller Center", type: "historic", lat: 40.7587, lng: -73.9787, primary: "true", neighbourhood: "Broadway - Times Square"},
+        {name: "Museum of Modern Art (MOMA)", type: "museum", lat: 40.76106, lng: -73.97741, primary: "true", neighbourhood: "Broadway - Times Square"},
+        {name: "Broadway", type: "theater", lat: 40.75799, lng: -73.98556, primary: "true", neighbourhood: "Broadway - Times Square"},
+        {name: "New York Public Library", type: "civic" , lat: 40.7526, lng: -73.9827, primary: "true", neighbourhood: "Broadway - Times Square"},
+        {name: "American Museum of Natural History", type: "museum", lat: 40.7805, lng: -73.97286, primary: "true", neighbourhood: "Central Parl"},
+        {name: "Metropolitan Museum of Art (The Met)", type: "museum", lat: 40.77896, lng: -73.96235, primary: "true", neighbourhood: "Central Park"},
+        {name: "Central Park Zoo", type: "icecream", lat: 40.76881, lng: -73.97204, primary: "true", neighbourhood: "Central Park"},
+        {name: "United Nations Headquarters", type: "", lat: "", lng: "", primary: "true", neighbourhood: "Midtown East - Grand Central"},
+        {name: "Tiffany & Co.", type: "", lat: "", lng: "", primary: "true", neighbourhood: "Midtown East - Grand Central"},
     ]
 }
 
@@ -761,7 +776,48 @@ var content = {
                 {name: "transport3", type: "type3"}
             ],
             description: "A UNESCO World Heritage site, Edinburgh’s medieval Old Town is packed with imposing 17th century architecture, traditional whisky shops, and winding cobbled alleyways. Running downhill from the panoramic Edinburgh Castle to Holyrood Palace, via the lively bars and restaurants of the Royal Mile, the Old Town is bustling at any time of year, but truly comes to life in August when the world descends for the eclectic Edinburgh Fringe.",
-            landmarks: "Edinburgh Castle,    Waverly Station,   Royal Mile,  National Museum of Scotland",
+            
+            landmarks: [
+                {name: "Brass Rubbing Centre", type: "museums", lat: 55.95052, lng: -3.18566, primary: "true"},
+                {name: "Camera Obscura and World of Illusions", type: "monument", lat: 55.94901, lng: -3.19579, primary: "true"},
+                {name: "City Art Centre ", type: "museums", lat: 55.95126, lng: -3.18948, primary: "true"},
+                {name: "City Chambers", type: "civic", lat: 55.94998, lng: -3.19001, primary: "true"},
+                {name: "Edinburgh Castle", type: "historic", lat: 55.94879, lng: -3.19826, primary: "true"},
+                {name: "Edinburgh Dungeon", type: "historic", lat: 55.95105, lng: -3.19087, primary: "true"},
+                {name: "Festival Theatre", type: "theater", lat: 55.94696, lng: -3.18585, primary: "true"},
+                {name: "Fruitmarket Gallery", type: "museums", lat: 55.951139, lng: -3.189423, primary: "true"},
+                {name: "Geoffrey Kiltmakers and Weavers", type: "shopping", lat: 55.94896, lng: -3.19578, primary: "true"},
+                {name: "George Square", type: "sign", lat: 55.9437, lng: -3.1874, primary: "true"},
+                {name: "Gladstone's Land", type: "historic", lat: 55.94957, lng: -3.19295, primary: "true"},
+                {name: "Greyfriar's Bobby", type: "monument", lat: 55.94707, lng: -3.191504, primary: "true"},
+                {name: "Greyfriars Kirk", type: "monument", lat: 55.95126, lng: -3.19142, primary: "true"},
+                {name: "John Knox House", type: "historic", lat: 55.95068, lng: -3.18495, primary: "true"},
+                {name: "Museum of Childhood", type: "museums", lat: 55.95059, lng: -3.18551, primary: "true"},
+                {name: "Museum on the Mound", type: "museums", lat: 55.950029, lng: -3.193537, primary: "true"},
+                {name: "National Gallery of Scotland", type: "museums", lat: 55.95037, lng: -3.1959, primary: "true"},
+                {name: "National Museum of Scotland", type: "museums", lat: 55.9473, lng: -3.19093, primary: "true"},
+                {name: "National War Museum", type: "museums", lat: 55.948795, lng: -3.1992, primary: "true"},
+                {name: "Our Dynamic Earth", type: "icecream", lat: 55.95093, lng: -3.17625, primary: "true"},
+                {name: "Palace of Holyroodhouse", type: "monument", lat: 55.95294, lng: -3.17364, primary: "true"},
+                {name: "Parliament House ", type: "civic", lat: 55.94944, lng: -3.19016, primary: "true"},
+                {name: "People's Story Museum", type: "civic", lat: 55.951442, lng: -3.179801, primary: "true"},
+                {name: "Potterrow Student Centre", type: "museums", lat: 55.946019, lng: -3.187451, primary: "true"},
+                {name: "Princes Street Gardens", type: "historic", lat: 55.95141, lng: -3.19649, primary: "true"},
+                {name: "Real Mary King's Close", type: "tree", lat: 55.9499, lng: -3.19067, primary: "true"},
+                {name: "Royal Lyceum Theatre", type: "theater", lat: 55.94697, lng: -3.20483, primary: "true"},
+                {name: "Royal Scots Regimental Museum", type: "museums", lat: 55.949005, lng: -3.2014, primary: "true"},
+                {name: "Scotch Whisky Experience", type: "museums", lat: 55.94894, lng: -3.19664, primary: "true"},
+                {name: "Scottish Parliament", type: "civic", lat: 55.9521, lng: -3.17371, primary: "true"},
+                {name: "St. Giles' Cathedral", type: "monument", lat: 55.94987, lng: -3.19081, primary: "true"},
+                {name: "Surgeon's Hall", type: "museums", lat: 55.946556, lng: -3.183446, primary: "true"},
+                {name: "Talbot Rice Gallery", type: "museums", lat: 55.9477, lng: -3.1873, primary: "true"},
+                {name: "Tartan Weaving Mill", type: "museums", lat: 55.94905, lng: -3.19562, primary: "true"},
+                {name: "The Hub", type: "civic", lat: 55.94894, lng: -3.194569, primary: "true"},
+                {name: "University of Edinburgh", type: "school", lat: 55.94438, lng: -3.18889, primary: "true"},
+                {name: "Witchery Tours", type: "museums", lat: 55.94851, lng: -3.19457, primary: "true"},
+                {name: "Writers' Museum", type: "museums", lat: 55.94955, lng: -3.19314, primary: "false"}
+            ],
+
             center: {lat: 55.9484828588125, lng: -3.18665470310388}, 
             polygon: [
                 {lng: -3.204368, lat: 55.949969},{lng: -3.20527, lat: 55.94567},{lng: -3.199376, lat: 55.946137},{lng: -3.197175, lat: 55.942377},{lng: -3.196583, lat: 55.941841},{lng: -3.172736, lat: 55.945335},{lng: -3.170411, lat: 55.95069},{lng: -3.175429, lat: 55.955454},{lng: -3.204368, lat: 55.949969}
@@ -780,7 +836,26 @@ var content = {
                 {name: "transport3", type: "type3"}
             ],
             description: "History lovers can get a glimpse of 18th century life on a visit to the idyllic Georgian House in New Town's Charlotte Square. Shopaholics can browse the fashionable high street stores on Princes Street, before sampling George Street's sophisticated boutiques. When it comes to the evening, capture the spirit of the locals in a buzzing bar or refined restaurant on Broughton Street.",
-            landmarks: "Princes Street Edinburgh, Playhouse Theatre, George Street",
+            
+            landmarks: [
+                {name: "Assembly Rooms", type: "civic", lat: 55.953177, lng: -3.198789, primary: "true"},
+                {name: "Calton Hill", type: "tree", lat: 55.95525, lng: -3.18234, primary: "true"},
+                {name: "Charlotte Square", type: "sign", lat: 55.95209, lng: -3.2066499999999998, primary: "true"},
+                {name: "Edinburgh Playhouse Theatre", type: "theater", lat: 55.95681, lng: -3.18629, primary: "true"},
+                {name: "Georgian House", type: "historic", lat: 55.95248, lng: -3.20789, primary: "true"},
+                {name: "Hanover Fine Arts Gallery", type: "museums", lat: 55.957053, lng: -3.199364, primary: "true"},
+                {name: "HMV Picture House", type: "theater", lat: 55.948186, lng: -3.206338, primary: "true"},
+                {name: "Nelson Monument", type: "monument", lat: 55.95525, lng: -3.18243, primary: "true"},
+                {name: "Omni Centre Edinburgh", type: "icecream", lat: 55.95661, lng: -3.18642, primary: "true"},
+                {name: "Princes Mall", type: "shopping", lat: 55.95281, lng: -3.19217, primary: "true"},
+                {name: "Royal Scottish Academy Art Gallery", type: "school", lat: 55.951801, lng: -3.196405, primary: "true"},
+                {name: "Scott Monument", type: "monument", lat: 55.95256, lng: -3.19425, primary: "true"},
+                {name: "St. Andrew Square", type: "sign", lat: 55.95458, lng: -3.19219, primary: "true"},
+                {name: "St. Mary's Episcopal Cathederal", type: "monument", lat: 55.948994, lng: -3.216323, primary: "true"},
+                {name: "Usher Hall", type: "theater", lat: 55.947204, lng: -3.205681, primary: "true"},
+                {name: "Waterloo Place", type: "museums", lat: 55.953652, lng: -3.187207, primary: "false"}
+            ],
+
             center: {lat: 55.9564296056302, lng: -3.19812422145978}, 
             polygon: [
                 {lng: -3.209062, lat: 55.960197},{lng: -3.208229, lat: 55.958514},{lng: -3.213528, lat: 55.953603},{lng: -3.220113, lat: 55.953149},{lng: -3.221939, lat: 55.952732},{lng: -3.222003, lat: 55.95194},{lng: -3.215075, lat: 55.947159},{lng: -3.210924, lat: 55.948962},{lng: -3.205257, lat: 55.945653},{lng: -3.204345, lat: 55.950007},{lng: -3.175396, lat: 55.955495},{lng: -3.178061, lat: 55.959607},{lng: -3.18814, lat: 55.96477},{lng: -3.202173, lat: 55.964401},{lng: -3.202933, lat: 55.964145},{lng: -3.209062, lat: 55.960197}
@@ -800,7 +875,10 @@ var content = {
                 {name: "transport3", type: "type3"}
             ],
             description: "Located in the west of Edinburgh, Haymarket is a perfect spot for shoppers looking for quirky boutiques nestled along the cobbled streets. Nearby the historic jewel of Edinburgh Castle, built on an extinct volcano, crests the skyline. The National Gallery of Scotland and the Royal Lyceum Theatre are close too, their architectural homages to the Scottish Enlightenment adding to the richness of this artistic quarter.",
-            landmarks: "Edinburgh International Conference Centre (EICC),    Edinburgh Haymarket Station",
+            landmarks: [
+                {name: "Edinburgh International Conference Centre (EICC)", type: "civic", lat: 55.94588, lng: -3.20892, primary: "true"}
+            ],
+
             center: {lat: 55.945961138545, lng: -3.22046119997045}, 
             polygon: [
                 {lng: -3.232153, lat: 55.948347},{lng: -3.231042, lat: 55.942371},{lng: -3.217335, lat: 55.942138},{lng: -3.211263, lat: 55.942821},{lng: -3.20532, lat: 55.945656},{lng: -3.210964, lat: 55.948955},{lng: -3.215092, lat: 55.947145},{lng: -3.221278, lat: 55.951414},{lng: -3.232153, lat: 55.948347}
@@ -821,7 +899,11 @@ var content = {
                 {name: "transport3", type: "type3"}
             ],
             description: "Located to the west of Edinburgh city center, Murrayfield is the perfect destination for sports fans. Home to Murrayfield Stadium and the Scottish Rugby Union the area also boasts a sprawling golf course, glistening ice skating rink, and bustling curling center. Within short walking distance of the wild animals of Edinburgh Zoo, Murrayfield is also well connected with the bustling Haymarket station nearby.",
-            landmarks: "Edinburgh Zoo,   Spire Murrayfield Hospital  ",
+            
+            landmarks: [
+                {name: "Edinburgh Zoo", type: "icecream", lat: 55.9421, lng: -3.26939, primary: "true"}
+            ],
+
             center: {lat: 55.9466946735001, lng: -3.25243687209098}, 
             polygon: [
                 {lng: -3.233772, lat: 55.957254},{lng: -3.25089, lat: 55.957062},{lng: -3.250277, lat: 55.951731},{lng: -3.276347, lat: 55.94958},{lng: -3.272571, lat: 55.93662},{lng: -3.231209, lat: 55.942494},{lng: -3.233772, lat: 55.957254}
@@ -841,7 +923,14 @@ var content = {
                 {name: "transport3", type: "type3"}
             ],
             description: "Leith merges the traditional rotund battlements and sandy hued architecture of historic Edinburgh with the colors and tastes of a number of cultures, from spicy and succulent curries to punchy aromatic Thai fish cakes. Bars, cafes, and bistros line the waterfront ensuring a friendly and buzzing nightlife. Also a hotspot for art, Leith has numerous independent galleries and hosts vibrant cultural events, such as the Edinburgh Mela.",
-            landmarks: "Newhaven,   Easter Road Stadium, Ocean Terminal Shopping Centre,  Royal Yacht Britannia",
+            
+            landmarks: [
+                {name: "Easter Road Stadium", type: "stadium", lat: 55.96197, lng: -3.16781, primary: "true"},
+                {name: "Newhaven Heritage Museum", type: "museums", lat: 55.981611, lng: -3.195017, primary: "true"},
+                {name: "Ocean Terminal Shopping Centre", type: "shopping", lat: 55.981212, lng: -3.176122, primary: "true"},
+                {name: "Royal Yacht Britannia", type: "museums", lat: 55.98128, lng: -3.1757, primary: "true"}
+            ],
+
             center: {lat: 55.9749083228979, lng: -3.17637747332556}, 
             polygon: [
                 {lng: -3.207353, lat: 55.989499},{lng: -3.205261, lat: 55.974582},{lng: -3.203571, lat: 55.970767},{lng: -3.188087, lat: 55.964828},{lng: -3.177981, lat: 55.959596},{lng: -3.175347, lat: 55.955485},{lng: -3.135514, lat: 55.969869},{lng: -3.178297, lat: 55.991398},{lng: -3.207353, lat: 55.989499}
@@ -865,7 +954,20 @@ var content = {
                 {name: "transport3", type: "type3"}
             ],
             description: "Santa Maria Novella's right next to the city’s main train station, and there are several palaces and gardens to explore, as well as stylish shopping streets. At the busy central market you can pick up some of Tuscany’s delicacies, from fragrant white truffles to salty pecorino cheese. The Santa Maria Novella church is well worth a visit too, with its intricately patterned facade and painted frescos.",
-            landmarks: "Piazza di Santa Maria Novella,   Fortezza da Basso,   Santa Maria Novella Basilica and Museum, Palazzo dei Congressi",
+            
+            landmarks: [
+                {name: "Chiesa di Ognissanti", type: "monument", lat: 43.772352, lng: 11.245762, primary: "true"},
+                {name: "Fortezza da Basso", type: "civic", lat: 43.780587, lng: 11.249383, primary: "true"},
+                {name: "Leopolda Station Exhibition Center", type: "civic", lat: 43.77702, lng: 11.237217, primary: "true"},
+                {name: "National Alinari Museum of Photography", type: "museums", lat: 43.773021, lng: 11.249146, primary: "true"},
+                {name: "Palazzo degli Affari", type: "civic" , lat: 43.777899, lng: 11.249445, primary: "true"},
+                {name: "Palazzo dei Congressi", type: "civic" , lat: 43.7784, lng: 11.24881, primary: "true"},
+                {name: "Piazza di Santa Maria Novella", type: "sign" , lat: 43.773618, lng: 11.249418, primary: "true"},
+                {name: "Porta al Prato Station", type: "train" , lat: 43.777899, lng: 11.238303, primary: "true"},
+                {name: "Santa Maria Novella Basilica and Museum monument", type: "museum" , lat: 43.774151, lng: 11.249361, primary: "true"},
+                {name: "Teatro Comunale Florence", type: "theater", lat: 43.774872, lng: 11.238633, primary: "false"}
+            ],
+
             center: {lat: 43.7785246932213, lng: 11.241084282561}, 
             polygon: [
                 {lng: 11.235947, lat: 43.786645},{lng: 11.227868, lat: 43.777196},{lng: 11.234086, lat: 43.775389},{lng: 11.247487, lat: 43.770577},{lng: 11.249282, lat: 43.772606},{lng: 11.249654, lat: 43.773169},{lng: 11.250354, lat: 43.773006},{lng: 11.250769, lat: 43.773316},{lng: 11.2505, lat: 43.77473},{lng: 11.251645, lat: 43.775536},{lng: 11.253189, lat: 43.775553},{lng: 11.252305, lat: 43.77682},{lng: 11.251325, lat: 43.777578},{lng: 11.250786, lat: 43.780973},{lng: 11.244669, lat: 43.783415},{lng: 11.235947, lat: 43.786645}
@@ -884,7 +986,14 @@ var content = {
                 {name: "transport3", type: "type3"}
             ],
             description: "San Lorenzo's namesake church is one of Florence’s largest and oldest and is home to some of the works of Michelangelo himself. The Galleria dell'Accademia and the San Marco Museum are a stroll away. In the central market, packed full of fresh local produce, pull up a chair and try a traditional tripe sandwich along with the locals, before wandering through the outdoor stalls to pick up some souvenirs.",
-            landmarks: "University of Florence,  San Marco Convent and Museum,    Central Market",
+            
+            landmarks: [
+                {name: "Central Market", type: "shopping", lat: 43.77693, lng: 11.25357, primary: "true"},
+                {name: "Saint Apollonia Last Supper monument", type: "civic", lat: 43.778694, lng: 11.256715, primary: "true"},
+                {name: "San Marco Convent and Museum", type: "monument", lat: 43.77815, lng: 11.25893, primary: "true"},
+                {name: "University of Florence", type: "school", lat: 43.77827, lng: 11.25967, primary: "false"}
+            ],
+
             center: {lat: 43.7815603179864, lng: 11.2565434615399}, 
             polygon: [
                 {lng: 11.250796, lat: 43.781052},{lng: 11.251307, lat: 43.777599},{lng: 11.252394, lat: 43.776728},{lng: 11.253188, lat: 43.775563},{lng: 11.257414, lat: 43.775454},{lng: 11.258078, lat: 43.776339},{lng: 11.262945, lat: 43.782206},{lng: 11.262381, lat: 43.78323},{lng: 11.262829, lat: 43.784176},{lng: 11.262964, lat: 43.786167},{lng: 11.260521, lat: 43.787246},{lng: 11.250707, lat: 43.784829},{lng: 11.250796, lat: 43.781052}
@@ -904,7 +1013,32 @@ var content = {
                 {name: "transport3", type: "type3"}
             ],
             description: "The Oltrarno neighborhood sits on the opposite side of the river to the historical center and it was, and mostly still is, a proud working class area. Its peaceful streets are home to many artisan workshops and antique stores and it’s a great place to wander, stopping at some of its small bars and restaurants to refuel. For art head to the Palazzo Pitti, a stately old palace turned gallery.",
-            landmarks: "Ponte Vecchio,   Boboli Gardens,  Piazzale Michelangelo,   Santo Spirito Basilica",
+            landmarks: [
+                {name: "Accademia Italiana", type: "school", lat: 43.765907, lng: 11.249734, primary: "true"},
+                {name: "Arcetri Observatory", type: "icecream", lat: 43.74996, lng: 11.254157, primary: "true"},
+                {name: "Boboli Gardens", type: "tree", lat: 43.7601, lng: 11.24235, primary: "true"},
+                {name: "Brancacci Chapel", type: "monument", lat: 43.768252, lng: 11.244198, primary: "true"},
+                {name: "Church of Santa Felicita", type: "monument", lat: 43.767041, lng: 11.252389, primary: "true"},
+                {name: "Galleria d'Arte Moderna", type: "museums", lat: 43.765677, lng: 11.249536, primary: "true"},
+                {name: "Gallery of Modern Art", type: "museums", lat: 43.765182, lng: 11.24961, primary: "true"},
+                {name: "Palatine Gallery", type: "museums", lat: 43.765297, lng: 11.24986, primary: "true"},
+                {name: "Museum of Zoology and Natural History", type: "museums", lat: 43.764533, lng: 11.247059, primary: "true"},
+                {name: "Piazza del Carmine", type: "sign", lat: 43.768741, lng: 11.243737, primary: "true"},
+                {name: "Piazza Santo Spirito", type: "sign", lat: 43.766521, lng: 11.247304, primary: "true"},
+                {name: "Piazzale Michelangelo", type: "sign", lat: 43.76261, lng: 11.26479, primary: "true"},
+                {name: "Pitti Palace", type: "historic", lat: 43.7656, lng: 11.25012, primary: "true"},
+                {name: "Pitti Vintage", type: "shopping", lat: 43.76645, lng: 11.24904, primary: "true"},
+                {name: "Ponte Vecchio", type: "monument", lat: 43.76803, lng: 11.25316, primary: "true"},
+                {name: "Porta Romana", type: "monument", lat: 43.760591, lng: 11.241781, primary: "true"},
+                {name: "San Miniato al Monte", type: "monument", lat: 43.759944, lng: 11.264231, primary: "true"},
+                {name: "Santa Maria della Carmine", type: "monument", lat: 43.768334, lng: 11.244003, primary: "true"},
+                {name: "Santo Spirito Basilica", type: "monument", lat: 43.766889, lng: 11.247983, primary: "true"},
+                {name: "Silver Museum", type: "museums", lat: 43.765637, lng: 11.250648, primary: "true"},
+                {name: "St Mark's English Church", type: "monument", lat: 43.767464, lng: 11.249365, primary: "true"},
+                {name: "Stefano Bardini Museum", type: "museums", lat: 43.765099, lng: 11.258237, primary: "true"},
+                {name: "Villa del Poggio Imperiale", type: "historic", lat: 43.750157, lng: 11.247135, primary: "false"}
+            ],
+
             center: {lat: 43.7581453013744, lng: 11.2509261308338}, 
             polygon: [
                 {lng: 11.233812, lat: 43.775232},{lng: 11.223845, lat: 43.772456},{lng: 11.228686, lat: 43.744565},{lng: 11.243488, lat: 43.743752},{lng: 11.266808, lat: 43.74811},{lng: 11.290345, lat: 43.755575},{lng: 11.281744, lat: 43.764748},{lng: 11.275432, lat: 43.764133},{lng: 11.255936, lat: 43.76707},{lng: 11.233812, lat: 43.775232}
@@ -925,7 +1059,45 @@ var content = {
                 {name: "transport3", type: "type3"}
             ],
             description: "Right bang in the middle of one of Italy’s most beautiful cities, Duomo's named after the mighty dome of the Santa Maria del Fiore Church that rises up like a beacon at the heart of the city. It’s a grand sight from afar, but close up its colorful patterned facade is even more impressive. Throngs of people gather in the large central square and the whole area buzzes with activity.",
-            landmarks: "Piazza del Duomo,    Cathedral of Saint Mary of the Flower,   Piazza della Signoria,   Via de' Tornabuoni ",
+            
+            landmarks: [
+                {name: "Badia Fiorentina", type: "historic", lat: 43.77052, lng: 11.25779, primary: "true"},
+                {name: "Bargello", type: "museums", lat: 43.770451, lng: 11.257822, primary: "true"},
+                {name: "Cathedral of Saint Mary of the Flower ", type: "monument", lat: 43.77317, lng: 11.256538, primary: "true"},
+                {name: "Church of Santa Maria Maggiore", type: "monument", lat: 43.773277, lng: 11.252773, primary: "true"},
+                {name: "Dante’s House Museum", type: "historic", lat: 43.770923, lng: 11.256988, primary: "true"},
+                {name: "Duomo Museum", type: "museums", lat: 43.772698, lng: 11.255992, primary: "true"},
+                {name: "Florence Baptistery", type: "historic", lat: 43.77316, lng: 11.25447, primary: "true"},
+                {name: "Florence Design Academy", type: "school", lat: 43.773537, lng: 11.255338, primary: "true"},
+                {name: "Fountain of Neptune", type: "monument", lat: 43.769583, lng: 11.255995, primary: "true"},
+                {name: "Galileo Museum - Institute and Museum of the History of Science ", type: "museums", lat: 43.767651, lng: 11.256113, primary: "true"},
+                {name: "Giotto's Campanile", type: "monument", lat: 43.77275, lng: 11.25564, primary: "true"},
+                {name: "Gucci Museum", type: "museums", lat: 43.769668, lng: 11.256597, primary: "true"},
+                {name: "Laurentian Library", type: "civic", lat: 43.774792, lng: 11.254835, primary: "true"},
+                {name: "Loggia dei Lanzi", type: "civic", lat: 43.769289, lng: 11.255519, primary: "true"},
+                {name: "Loggia del Mercato Nuovo", type: "historic", lat: 43.770002, lng: 11.254222, primary: "true"},
+                {name: "Medici Chapels", type: "monument", lat: 43.775, lng: 11.25281, primary: "true"},
+                {name: "Museo dell'Opera del Duomo", type: "museums", lat: 43.77304, lng: 11.25775, primary: "true"},
+                {name: "Museo Marino Marini", type: "museums", lat: 43.77207, lng: 11.24979, primary: "true"},
+                {name: "Orsanmichele", type: "monument", lat: 43.77074, lng: 11.25526, primary: "true"},
+                {name: "Palazzo Davanzati Museum", type: "museums", lat: 43.770244, lng: 11.252794, primary: "true"},
+                {name: "Palazzo Medici Riccardi", type: "historic", lat: 43.77494, lng: 11.25593, primary: "true"},
+                {name: "Palazzo Rucellai", type: "historic", lat: 43.771186, lng: 11.249551, primary: "true"},
+                {name: "Palazzo Vecchio", type: "civic", lat: 43.769329, lng: 11.255928, primary: "true"},
+                {name: "Piazza del Duomo", type: "sign", lat: 43.77331, lng: 11.25761, primary: "true"},
+                {name: "Piazza della Repubblica", type: "sign", lat: 43.77156, lng: 11.25401, primary: "true"},
+                {name: "Piazza della Signoria", type: "sign", lat: 43.77291, lng: 11.25557, primary: "true"},
+                {name: "Piazza di San Giovanni", type: "sign", lat: 43.771186, lng: 11.25491, primary: "true"},
+                {name: "Piazza San Firenze", type: "sign", lat: 43.77001, lng: 11.25767, primary: "true"},
+                {name: "Salvatore Ferragamo Museum", type: "museums", lat: 43.770073, lng: 11.251234, primary: "true"},
+                {name: "San Lorenzo Church ", type: "monument", lat: 43.774813, lng: 11.254688, primary: "true"},
+                {name: "Santa Trinita Church", type: "monument", lat: 43.77019, lng: 11.25114, primary: "true"},
+                {name: "Strozzi Palace", type: "historic", lat: 43.771496, lng: 11.251783, primary: "true"},
+                {name: "Teatro della Pergola", type: "theater", lat: 43.773268, lng: 11.261075, primary: "true"},
+                {name: "Uffizi Gallery", type: "museums", lat: 43.76888, lng: 11.25574, primary: "true"},
+                {name: "Vasari Corridor", type: "historic", lat: 43.768523, lng: 11.253532, primary: "false"}
+            ],
+
             center: {lat: 43.7720435137436, lng: 11.2552516703872}, 
             polygon: [
                 {lng: 11.247487, lat: 43.770577},{lng: 11.250248, lat: 43.769263},{lng: 11.256095, lat: 43.767302},{lng: 11.260364, lat: 43.771421},{lng: 11.262835, lat: 43.77154},{lng: 11.26205, lat: 43.774098},{lng: 11.259615, lat: 43.775546},{lng: 11.25805, lat: 43.776267},{lng: 11.257443, lat: 43.775464},{lng: 11.253197, lat: 43.77555},{lng: 11.251663, lat: 43.77556},{lng: 11.250507, lat: 43.77473},{lng: 11.250764, lat: 43.773316},{lng: 11.250353, lat: 43.772995},{lng: 11.249654, lat: 43.773169},{lng: 11.249277, lat: 43.772599},{lng: 11.247487, lat: 43.770577}
@@ -946,6 +1118,18 @@ var content = {
             ],
             description: "Santa Croce's church sits on a monumental piazza lined with tall elegant buildings painted in warm yellow hues. The district's many cafés have mostly outdoor seating, and smartly dressed waiters weave through the tables carrying trays of espressos and sparkling wine. The narrow streets are packed with leather workers and shops, and the sweet scent of leather bags and belts fills the air.",
             landmarks: "Piazza Santa Croce,  Teatro Verdi,    Basilica of Santa Croce, Art Gallery Studio Iguarnieri",
+           
+           landmarks: [
+                {name: "Art Gallery Studio Iguarnieri", type: "museums", lat: 43.768849, lng: 11.259186, primary: "true"},
+                {name: "Basilica of Santa Croce", type: "monument", lat: 43.76872, lng: 11.262, primary: "true"},
+                {name: "Casa Buonarroti", type: "museums", lat: 43.769849, lng: 11.263403, primary: "true"},
+                {name: "Church of Sant'Ambrogio", type: "museums", lat: 43.771518, lng: 11.266363, primary: "true"},
+                {name: "Museo dell'Opera di Santa Croce", type: "museums", lat: 43.76872, lng: 11.262, primary: "true"},
+                {name: "Museo Horne", type: "museums", lat: 43.767582, lng: 11.259402, primary: "true"},
+                {name: "Piazza Santa Croce", type: "monument", lat: 43.768514, lng: 11.261791, primary: "true"},
+                {name: "Teatro Verdi", type: "theater", lat: 43.770257, lng: 11.261109, primary: "false"}
+            ],
+
             center: {lat: 43.7685313403796, lng: 11.2677251896501}, 
             polygon: [
                 {lng: 11.260351, lat: 43.7714},{lng: 11.256093, lat: 43.767316},{lng: 11.275578, lat: 43.764393},{lng: 11.276397, lat: 43.770649},{lng: 11.271795, lat: 43.772316},{lng: 11.27122, lat: 43.771325},{lng: 11.267083, lat: 43.771776},{lng: 11.260351, lat: 43.7714}
@@ -1375,7 +1559,54 @@ var content = {
     ], 
 
     newyork: [
+        {
+            name: "Broadway - Times Square",
+            nid: "1662301",
+            hasContent : true,
+            image: "https://a1.cdn-hotels.com/cos/production179/d925/11c336e0-ac68-11e4-99a1-d89d672bd508.jpg",
+            tags: "Monuments, Theatre, Culture, Family friendly",
+            transport: [
+                {name: "transport1", type: "type1"},
+                {name: "transport2", type: "type2"},
+                {name: "transport3", type: "type3"}
+            ],
+            description: "Known as the 'Crossroads of the World', Times Square is a dazzling intersection famed for its lavish neon signs, grand theaters, and pulsating crowds. Whether you're on your way to a Broadway show, a buzzing bar or one of the family-friendly restaurant that line the streets, look out for iconic structures like the Paramount Building and One Times Square – site of the celebrated New Year's Eve ball drop.",
+            
+            landmarks: [
+                {name: "American Folk Art Museum", type: "museums", lat: 40.76102, lng: -73.97727, primary: "false", id: "73425"}, 
+                {name: "August Wilson Theater", type: "theater", lat: 40.763156, lng: -73.984361, primary: "false", id: "118938"}, 
+                {name: "Broadway", type: "theater", lat: 40.75799, lng: -73.98556, primary: "true", id: "129374"},  
+                {name: "Bryant Park", type: "tree", lat: 40.75332, lng: -73.98438, primary: "false", id: "127999"},
+                {name: "Carnegie Hall", type: "theater", lat: 40.7653, lng: -73.98022, primary: "true", id: "128085"},
+                {name: "Circle in the Square Theater", type: "theater", lat: 40.76151, lng: -73.98401, primary: "false", id: "89994"},
+                {name: "Ed Sullivan Theater", type: "theater", lat: 40.76365, lng: -73.9827, primary: "false", id: "113614"},
+                {name: "Gershwin Theater", type: "theater", lat: 40.76224, lng: -73.98391, primary: "false", id: "127243"},
+                {name: "International Center of Photography", type: "museums", lat: 40.7559, lng: -73.98343, primary: "false", id: "45345"},
+                {name: "Madame Tussauds Wax Museum", type: "museums", lat: 40.75653, lng: -73.98814, primary: "true", id: "122651"},
+                {name: "Minskoff Theater ", type: "theater", lat: 40.75819, lng: -73.98607, primary: "false", id: "124608"},
+                {name: "Museum of Modern Art (MOMA)", type: "museum", lat: 40.76106, lng: -73.97741, primary: "true", id: "129424"},
+                {name: "Museum of Television and Radio", type: "museum", lat: 40.76024, lng: -73.97736, primary: "true", id: "99249"},
+                {name: "NBC Studios", type: "icecream", lat: 40.758478, lng: -73.978906, primary: "true", id: "117576"},
+                {name: "New Amsterdam Theater", type: "theater", lat: 40.75631, lng: -73.98773, primary: "false", id: "121845"},
+                {name: "New York Public Library", type: "civic" , lat: 40.7526, lng: -73.9827, primary: "true", id: "120349"},
+                {name: "Port Authority Bus Terminal", type: "civic" , lat: 40.756811, lng: -73.990117, primary: "false", id: "129422"},
+                {name: "Radio City Music Hall", type: "theater" , lat: 40.76024, lng: -73.98014, primary: "true", id: "128990"},
+                {name: "Rockefeller Center", type: "historic", lat: 40.7587, lng: -73.9787, primary: "true", id: "129423"},
+                {name: "Roseland Ballroom ", type: "theater", lat: 40.763127, lng: -73.984215, primary: "false", id: "37471"},
+                {name: "The Majestic Theater", type: "theater", lat: 40.758253, lng: -73.988217, primary: "false", id: "122819"},
+                {name: "Times Square", type: "sign", lat: 40.758896, lng: -73.985130, primary: "true", id: "129656"},
+                {name: "Top of the Rock Observation Deck", type: "icecream", lat:40.759258, lng: -73.978947, primary: "false", id: "78926"},
+                {name: "Toys 'R' Us Times Square", type: "shopping", lat: 40.75654, lng: -73.98659, primary: "true", id: "116335"},
+                {name: "Trump Tower", type: "monument", lat: 40.762481, lng: -73.974339, primary: "false", id: "126073"}
+            ],
 
+            center: {lat: 40.7590562537867, lng: -73.984508248797}, 
+            polygon: [
+                {lng: -73.985265, lat: 40.768532},{lng: -73.995544, lat: 40.754642},{lng: -73.983701, lat: 40.749557},{lng: -73.973503, lat: 40.763546},{lng: -73.985265, lat: 40.768532}
+            ],
+            staticMapUrl: "40.768532,-73.985265|40.754642,-73.995544|40.749557,-73.983701|40.763546,-73.973503|40.768532,-73.985265"
+        
+        },
         {
             name: "Central Park",
             nid: "1707357",
@@ -1467,11 +1698,11 @@ var content = {
  
             
             landmarks: [
-                {name: "Bowery", type: "", lat: "", lng: "", primary: "false"},
-                {name: "Grand St. Station (Chrystie St.)", type: "", lat: "", lng: "", primary: "false"},
-                {name: "Manhattan Bridge", type: "Historic", lat: 40.71017, lng: -73.99242, primary: "true"},
-                {name: "Lower East Side Tenement Museum", type: "", lat: "", lng: "", primary: "false"},
-                {name: "Little Italy", type: "", lat: "", lng: "", primary: "false"}
+                {name: "Bowery", type: "", lat: "", lng: "", primary: "false"}
+                //{name: "Grand St. Station (Chrystie St.)", type: "", lat: "", lng: "", primary: "false"},
+                //{name: "Manhattan Bridge", type: "Historic", lat: 40.71017, lng: -73.99242, primary: "true"},
+                //{name: "Lower East Side Tenement Museum", type: "", lat: "", lng: "", primary: "false"}
+                //{name: "Little Italy", type: "", lat: "", lng: "", primary: "false"}
             ],
 
             center: {lat: 40.718564877237, lng: -73.987148172463}, 
@@ -1481,35 +1712,7 @@ var content = {
             staticMapUrl: "40.733312,-73.98995|40.730904,-73.990422|40.724771,-73.995483|40.722302,-73.997122|40.721437,-73.997607|40.719938,-73.99844|40.715311,-74.002374|40.714215,-74.003426|40.712237,-74.0051|40.706664,-73.998058|40.710311,-73.97575|40.725696,-73.971317|40.733312,-73.98995"
         },
 
-        {
-            name: "Broadway - Times Square",
-            nid: "1662301",
-            hasContent : true,
-            image: "https://a1.cdn-hotels.com/cos/production179/d925/11c336e0-ac68-11e4-99a1-d89d672bd508.jpg",
-            tags: "Monuments, Theatre, Culture, Family friendly",
-            transport: [
-                {name: "transport1", type: "type1"},
-                {name: "transport2", type: "type2"},
-                {name: "transport3", type: "type3"}
-            ],
-            description: "Known as the 'Crossroads of the World', Times Square is a dazzling intersection famed for its lavish neon signs, grand theaters, and pulsating crowds. Whether you're on your way to a Broadway show, a buzzing bar or one of the family-friendly restaurant that line the streets, look out for iconic structures like the Paramount Building and One Times Square – site of the celebrated New Year's Eve ball drop.",
-            
-            landmarks: [
-                {name: "Times Square", type: "Square/Center", lat: 40.758896, lng: -73.985130, primary: "true"},
-                {name: "Rockefeller Center", type: "Historic building", lat: 40.7587, lng: -73.9787, primary: "true"},
-                {name: "Museum of Modern Art (MOMA)", type: "Museum", lat: 40.76106, lng: -73.97741, primary: "true"},
-                {name: "Broadway", type: "", lat: 40.75799, lng: -73.98556, primary: "true"},
-                {name: "New York Public Library", type: "Civic" , lat: 40.7526, lng: -73.9827, primary: "true"},
-                {name: "5th Avenue", type: "", lat: 40.731412, lng: -73.996985, primary: "false"}
-            ],
-
-            center: {lat: 40.7590562537867, lng: -73.984508248797}, 
-            polygon: [
-                {lng: -73.985265, lat: 40.768532},{lng: -73.995544, lat: 40.754642},{lng: -73.983701, lat: 40.749557},{lng: -73.973503, lat: 40.763546},{lng: -73.985265, lat: 40.768532}
-            ],
-            staticMapUrl: "40.768532,-73.985265|40.754642,-73.995544|40.749557,-73.983701|40.763546,-73.973503|40.768532,-73.985265"
         
-        },
 
         {
             name: "Midtown East - Grand Central",
@@ -1526,10 +1729,10 @@ var content = {
                       
             landmarks: [
                 {name: "Grand Central Terminal", type: "", lat: "", lng: "", primary: "false"},
-                {name: "United Nations Headquarters", type: "", lat: "", lng: "", primary: "false"},
+                {name: "United Nations Headquarters", type: "", lat: "", lng: "", primary: "true"},
                 {name: "St. Patrick's Cathedral", type: "", lat: "", lng: "", primary: "false"},
                 {name: "Murray Hill", type: "", lat: "", lng: "", primary: "false"},
-                {name: "Tiffany & Co.", type: "", lat: "", lng: "", primary: "false"},
+                {name: "Tiffany & Co.", type: "", lat: "", lng: "", primary: "true"},
                 {name: "Chrysler Building", type: "", lat: "", lng: "", primary: "false"}
             ],
 
@@ -1585,7 +1788,7 @@ var content = {
                 {name: "Columbia University", type: "", lat: "", lng: "", primary: "false"},
                 {name: "Lincoln Center for the Performing Arts", type: "", lat: "", lng: "", primary: "false"},
                 {name: "Beacon Theater", type: "", lat: "", lng: "", primary: "false"},
-                {name: "Metropolitan Opera House", type: "", lat: "", lng: "", primary: "false"}
+                {name: "Metropolitan Opera House", type: "", lat: "", lng: "", primary: "true"}
             ],
 
             center: {lat: 40.7918357210547, lng: -73.9745897404072}, 
@@ -1640,6 +1843,20 @@ prague: [
             ],
             description: "Located in the center of Prague, sandwiched between the Old Town and the river Josefov is Josefov, the old Jewish Quarter, dating back to medieval times. It has 6 distinct synagogues in different styles, ranging from the simple, austere Old-New Synagogue to the flamboyant and decorative Spanish Synagogue. The Jewish Cemetery is well worth a visit – the centuries-old gravestones are packed so tightly together that they lean in all directions.",
             landmarks: "lCharles University, Old Jewish Cemetery, Rudolfinum,  St. Agnes Convent",
+            
+            landmarks: [
+                {name: "Ceremonial Hall", type: "museums", lat: 50.09017, lng: 14.417142, primary: "true"},
+                {name: "Charles University", type: "school", lat: 50.08871, lng: 14.41553, primary: "false"},
+                {name: "Klausen Synagogue", type: "museums", lat: 50.090052, lng: 14.417292, primary: "false"},
+                {name: "Maisel Synagogue", type: "museums", lat: 50.08863, lng: 14.41852, primary: "false"},
+                {name: "Old Jewish Cemetery", type: "historic", lat: 50.09006, lng: 14.41717, primary: "false"},
+                {name: "Old-New Synagogue", type: "monument", lat: 50.09005, lng: 14.4186, primary: "false"},
+                {name: "Pinkas Synagogue", type: "museums", lat: 50.08905, lng: 14.41712, primary: "false"},
+                {name: "Rudolfinum", type: "historic", lat: 50.08969, lng: 14.41477, primary: "false"},
+                {name: "Spanish Synagogue", type: "museums", lat: 50.09031, lng: 14.42054, primary: "false"},
+                {name: "St. Agnes Convent", type: "historic", lat: 50.09201, lng: 14.42402, primary: "false"}
+            ],
+
             center: {lat: 50.0903417035908, lng: 14.4190186443565}, 
             polygon: [
                 {lng: 14.416694, lat: 50.09257},{lng: 14.413591, lat: 50.090166},{lng: 14.412789, lat: 50.086166},{lng: 14.414698, lat: 50.086747},{lng: 14.415328, lat: 50.088434},{lng: 14.424825, lat: 50.088786},{lng: 14.423799, lat: 50.089988},{lng: 14.424989, lat: 50.090749},{lng: 14.424099, lat: 50.093236},{lng: 14.416694, lat: 50.09257}
@@ -1658,7 +1875,30 @@ prague: [
                 {name: "transport3", type: "type3"}
             ],
             description: "A treasure trove of Baroque architecture on the left bank of the Vltava, Mala Strana is a highlight of any Prague city break. Wallenstein Palace, with its arches, sculptures, and idyllic Italian garden, is a huge draw, although you'll enjoy simply walking the winding lanes of this quaint quarter just as much. Charles Bridge, with its array of statues, is a symbol of Prague and leads to the Old Town.",
-            landmarks: "Charles Bridge,  Prague Castle,   Lesser Town Square",
+            
+            landmarks: [
+                {name: "Charles Bridge", type: "monument", lat: 50.08643, lng: 14.41121, primary: "true"},
+                {name: "Czech Museum of Music", type: "museums", lat: 50.08518, lng: 14.40428, primary: "false"},
+                {name: "Franza Kafka Museum", type: "museums", lat: 50.088186, lng: 14.409955, primary: "false"},
+                {name: "Historical Pharmacy Museum", type: "museums", lat: 50.08846, lng: 14.39849, primary: "false"},
+                {name: "Jan Zizka Statue", type: "historic", lat: 50.08348, lng: 14.39492, primary: "false"},
+                {name: "Kampa Park", type: "tree", lat: 50.08396, lng: 14.40825, primary: "false"},
+                {name: "Lennon Wall", type: "monument", lat: 50.08615, lng: 14.40704, primary: "false"},
+                {name: "Lesser Town Bridge Tower", type: "monument", lat: 50.08724, lng: 14.40694, primary: "false"},
+                {name: "Lesser Town Square", type: "sign", lat: 50.08854, lng: 14.40377, primary: "true"},
+                {name: "Lobkowicz Palace", type: "museums", lat: 50.09121, lng: 14.40312, primary: "false"},
+                {name: "Loreta ", type: "monument", lat: 50.08916, lng: 14.39129, primary: "false"},
+                {name: "Memorial to the Victims of Communism", type: "monument", lat: 50.081023, lng: 14.404458, primary: "false"},
+                {name: "Old Royal Palace", type: "historic", lat: 50.09035, lng: 14.40092, primary: "false"},
+                {name: "Prague Castle", type: "monument", lat: 50.090473, lng: 14.398901, primary: "true"},
+                {name: "Schwarzenberg Palace", type: "historic", lat: 50.08932, lng: 14.39681, primary: "false"},
+                {name: "St. Vitus Cathedral", type: "monument", lat: 50.09097, lng: 14.40204, primary: "false"},
+                {name: "Sternberg Palace National Gallery", type: "museums", lat: 50.09061, lng: 14.39583, primary: "false"},
+                {name: "Sternberk Palace", type: "historic", lat: 50.08975, lng: 14.39659, primary: "false"},
+                {name: "Wallenstein Palace Gardens", type: "tree", lat: 50.09002, lng: 14.40807, primary: "false"},
+                {name: "Wallenstein Riding School", type: "museums", lat: 50.091255, lng: 14.409804, primary: "false"}
+            ],
+
             center: {lat: 50.086133748991, lng: 14.4011153739354}, 
             polygon: [
                 {lng: 14.41266, lat: 50.089541},{lng: 14.410214, lat: 50.091965},{lng: 14.38959, lat: 50.091719},{lng: 14.384961, lat: 50.089404},{lng: 14.400672, lat: 50.078165},{lng: 14.411149, lat: 50.079633},{lng: 14.41266, lat: 50.089541}
@@ -1679,6 +1919,26 @@ prague: [
             ],
             description: "It may be 'New Town' but the Nove Mesto district was actually founded in the 14th Century. Its vibrant hub is Wenceslas Square, site of historic events, demonstrations, revolutionary fervor, and demonstrations, as well as home to the National Museum. This is also the center of Prague's nightlife, with jumping venues from jazz clubs to cabarets all around. Don't forget to check out the bending, surreal Dancing House, a modern architectural masterpiece.",
             landmarks: "Wenceslas Square,   Czech National Museum,   Prague Dancing House,   Czech Technical University",
+            
+            landmarks: [
+                {name: "Charles Square", type: "sign", lat: 50.075802, lng: 14.419942, primary: "true"},
+                {name: "Church of Saints Cyril and Methodius", type: "monument", lat: 50.07583, lng: 14.41759, primary: "false"},
+                {name: "Czech National Museum", type: "museums", lat: 50.07948, lng: 14.43023, primary: "true"},
+                {name: "Czech Technical University", type: "school", lat: 50.07609, lng: 14.41923, primary: "false"},
+                {name: "Jan Palach Memorial", type: "monument", lat: 50.0795, lng: 14.43033, primary: "false"},
+                {name: "Jindrisska Tower", type: "monument", lat: 50.085137, lng: 14.429869, primary: "false"},
+                {name: "Langhans Gallery", type: "museums", lat: 50.0815, lng: 14.42507, primary: "false"},
+                {name: "Laterna Magika", type: "theater", lat: 50.08135, lng: 14.41473, primary: "false"},
+                {name: "Lucerna Arcade", type: "shopping", lat: 50.081169, lng: 14.425015, primary: "false"},
+                {name: "Lucerna Palace", type: "shopping", lat: 50.08085, lng: 14.42646, primary: "false"},
+                {name: "Mucha Museum", type: "museums", lat: 50.08429, lng: 14.42741, primary: "false"},
+                {name: "Prague Dancing House", type: "monument", lat: 50.0756, lng: 14.41396, primary: "false"},
+                {name: "Prague National Theatre", type: "theater", lat: 50.08105, lng: 14.41306, primary: "true"},
+                {name: "Saint Wenceslaus Monument", type: "monument", lat: 50.079856, lng: 14.429907, primary: "false"},
+                {name: "Slavic Island", type: "tree", lat: 50.07962, lng: 14.41327, primary: "false"},
+                {name: "Wenceslas Square", type: "sign", lat: 50.08104, lng: 14.42771, primary: "true"}
+            ],
+
             center: {lat: 50.078758339939, lng: 14.4262345489025}, 
             polygon: [
                 {lng: 14.412949, lat: 50.081382},{lng: 14.414375, lat: 50.068111},{lng: 14.433231, lat: 50.068186},{lng: 14.434739, lat: 50.070109},{lng: 14.434911, lat: 50.069921},{lng: 14.437044, lat: 50.070457},{lng: 14.431259, lat: 50.07894},{lng: 14.437628, lat: 50.086583},{lng: 14.437714, lat: 50.09508},{lng: 14.429698, lat: 50.094428},{lng: 14.429388, lat: 50.086949},{lng: 14.424489, lat: 50.084107},{lng: 14.421511, lat: 50.083267},{lng: 14.419894, lat: 50.082468},{lng: 14.416436, lat: 50.081802},{lng: 14.412949, lat: 50.081382}
@@ -1699,7 +1959,15 @@ prague: [
                 {name: "transport3", type: "type3"}
             ],
             description: "Close to the more famous Mala Strana district, Smichov has plenty of its own charms, including loads of lovely little parks dotted here – great for relaxing in after an amble along Smichov's streets. Music lovers may also be interested in checking out Bertramka, the historic estate which is now forever linked with the name of Mozart as the great composer stayed there to finish his masterpiece, Don Giovanni.",
-            landmarks: "Staropramen Brewery, Andel Station,  Novy Smichov Shopping Centre    ",
+    
+            landmarks: [
+                {name: "Bertramka", type: "museums", lat: 50.070799, lng: 14.395617, primary: "false"},
+                {name: "Mrazovka Park", type: "tree", lat: 50.070544, lng: 14.397478, primary: "false"},
+                {name: "Novy Smichov Shopping Centre", type: "shopping", lat: 50.074005, lng: 14.402073, primary: "true"},
+                {name: "Sacre Coeur Park", type: "tree", lat: 50.074351, lng: 14.397752, primary: "false"},
+                {name: "Staropramen Brewery", type: "historic", lat: 50.068426, lng: 14.406499, primary: "true"}
+            ],
+
             center: {lat: 50.0705850883383, lng: 14.4035328610567}, 
             polygon: [
                 {lng: 14.41293, lat: 50.06208},{lng: 14.411279, lat: 50.079654},{lng: 14.391635, lat: 50.076833},{lng: 14.397783, lat: 50.062128},{lng: 14.41293, lat: 50.06208}
@@ -1719,7 +1987,13 @@ prague: [
                 {name: "transport3", type: "type3"}
             ],
             description: "Once covered in vineyards, Vinohrady is now one of Prague's most elegant residential neighborhoods, boasting Art Nouveau and Neo-Renaissance architecture. The vibe here is serene and understated, and you can chill out on the grass in Peace Square and admire landmarks like the Vinohrady Theater. That said, the area is also known for its nightlife, with clubs to suit all tastes.",
-            landmarks: "Prague State Opera,  Namesti Miru Station,    Jiriho z Podebrad",
+            
+            landmarks: [
+                {name: "Peace Square", type: "sign", lat: 50.07527, lng: 14.435247, primary: "false"},
+                {name: "Prague State Opera", type: "theater", lat: 50.08037, lng: 14.43348, primary: "true"},
+                {name: "Riegrovy Sady", type: "tree", lat: 50.079145, lng: 14.440938, primary: "false"}
+            ],
+
             center: {lat: 50.0777965474997, lng: 14.4609897318995}, 
             polygon: [
                 {lng: 14.437644, lat: 50.086108},{lng: 14.431406, lat: 50.079019},{lng: 14.437118, lat: 50.070454},{lng: 14.434905, lat: 50.0699},{lng: 14.434748, lat: 50.070054},{lng: 14.433335, lat: 50.068203},{lng: 14.43643, lat: 50.068217},{lng: 14.438672, lat: 50.068148},{lng: 14.447698, lat: 50.072428},{lng: 14.495564, lat: 50.075177},{lng: 14.489874, lat: 50.084954},{lng: 14.451475, lat: 50.080303},{lng: 14.437644, lat: 50.086108}

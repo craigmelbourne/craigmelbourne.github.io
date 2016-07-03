@@ -65,8 +65,17 @@ var addLandmarkPins = function() {
 		if(nhoods.hasContent) {
 			var landmarks = nhoods.landmarks; 
 			
+            var circle ={
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: 'red',
+    fillOpacity: 1.0,
+    scale: 3.5,
+    strokeColor: 'white',
+    strokeWeight: 1
+};
+
 			$.each(landmarks, function(i, lmark){
-				if (lmark.primary != "false"){
+				//if (lmark.primary != ""){
 					
 					var latlng = {lat:lmark.lat, lng:lmark.lng}
 					console.log(latlng);
@@ -74,13 +83,13 @@ var addLandmarkPins = function() {
 					var lmarker = new google.maps.Marker({
           				position: latlng,
           				map: map,
-          				icon: "landmark.png",
+          				icon: circle,
           				zIndex: 1000,
           				title: lmark.name
         			});
 
         			lmarkers.push(lmarker);
-				}
+				//}
 			})
 
 		}
@@ -135,9 +144,9 @@ var addNeighbourhoodPolygon = function(){
                 paths: nhoods.polygon,
                 strokeColor: '#555555',
                 strokeOpacity: 0.8,
-                strokeWeight: 2,
+                strokeWeight: 1,
                 fillColor: '#555555',
-                fillOpacity: 0.1
+                fillOpacity: 0.2
             });
 
             var name = nhoods.name;
@@ -158,11 +167,11 @@ var addNeighbourhoodPolygon = function(){
             });
 
             google.maps.event.addListener(neighbourhoodPolygon, 'mouseover', function() {
-                infowindow.open(map, nmarkers[num]);
+                //infowindow.open(map, nmarkers[num]);
             });
 
             google.maps.event.addListener(neighbourhoodPolygon, 'mouseout', function() {
-                infowindow.close();
+                //infowindow.close();
                 
                 if (polygonHighlighted != num) {
                 	//npolygons[num].setOptions({fillColor: '#999999', strokeColor: '#555555'})
@@ -179,12 +188,16 @@ var addNeighbourhoodPolygon = function(){
 
 var highlightSelectedPolygon = function(num){
     polygonHighlighted = num;
+    removePolygonHighlight();
+    npolygons[num].setOptions({fillColor: '#026dc5', strokeColor: '#026dc5'})
+
+    
+}
+
+var removePolygonHighlight = function(){
     $.each(npolygons, function(i, np) {
         np.setOptions({fillColor: '#999999', strokeColor: '#555555'});
     });
-    npolygons[num].setOptions({fillColor: '#ff0000', strokeColor: '#FF0000'})
-
-    
 }
 
 var mapCenterNeighburhood = function(location){
