@@ -25,18 +25,38 @@ var destination = {
     ]
 }
 
+var typeDescription = [
+    {type: "anchor", description: "Harbors and Seaports"},
+    {type: "casino", description: "Casino"},
+    {type: "civic", description: "Civic buildings"},
+    {type: "golf", description: "Golf course"},
+    {type: "historic", description: "Historic Buildings"},
+    {type: "icecream", description: "Amusement Parks, Zoos, etc..."},
+    {type: "monument", description: "Towers, Arches, Fountains, Churches, etc..."},
+    {type: "museums", description: "Museum"},
+    {type: "school", description: "Universities"},
+    {type: "shopping", description: "Shopping"}, 
+    {type: "sign", description: "Squares or Centers"},
+    {type: "skiing", description: "Ski resort"},
+    {type: "stadium", description: "Sports stadiums/Arenas"},
+    {type: "sunglass", description: "Beach"},
+    {type: "theater", description: "Theater"},
+    {type: "tree", description: "Parks / Nature"},
+    {type: "winery", description: "Winery"}
+]
+
 var landmarks = {
     newyork : [
-        {name: "Times Square", type: "sigh", lat: 40.758896, lng: -73.985130, primary: "true", neighbourhood: "Broadway - Times Square"},
+        {name: "Times Square", type: "sign", lat: 40.758896, lng: -73.985130, primary: "true", neighbourhood: "Broadway - Times Square"},
         {name: "Rockefeller Center", type: "historic", lat: 40.7587, lng: -73.9787, primary: "true", neighbourhood: "Broadway - Times Square"},
-        {name: "Museum of Modern Art (MOMA)", type: "museum", lat: 40.76106, lng: -73.97741, primary: "true", neighbourhood: "Broadway - Times Square"},
+        {name: "Museum of Modern Art (MOMA)", type: "museums", lat: 40.76106, lng: -73.97741, primary: "true", neighbourhood: "Broadway - Times Square"},
         {name: "Broadway", type: "theater", lat: 40.75799, lng: -73.98556, primary: "true", neighbourhood: "Broadway - Times Square"},
         {name: "New York Public Library", type: "civic" , lat: 40.7526, lng: -73.9827, primary: "true", neighbourhood: "Broadway - Times Square"},
-        {name: "American Museum of Natural History", type: "museum", lat: 40.7805, lng: -73.97286, primary: "true", neighbourhood: "Central Parl"},
-        {name: "Metropolitan Museum of Art (The Met)", type: "museum", lat: 40.77896, lng: -73.96235, primary: "true", neighbourhood: "Central Park"},
+        {name: "American Museum of Natural History", type: "museums", lat: 40.7805, lng: -73.97286, primary: "true", neighbourhood: "Central Parl"},
+        {name: "Metropolitan Museum of Art (The Met)", type: "museums", lat: 40.77896, lng: -73.96235, primary: "true", neighbourhood: "Central Park"},
         {name: "Central Park Zoo", type: "icecream", lat: 40.76881, lng: -73.97204, primary: "true", neighbourhood: "Central Park"},
-        {name: "United Nations Headquarters", type: "", lat: "", lng: "", primary: "true", neighbourhood: "Midtown East - Grand Central"},
-        {name: "Tiffany & Co.", type: "", lat: "", lng: "", primary: "true", neighbourhood: "Midtown East - Grand Central"},
+        {name: "United Nations Headquarters", type: "civic", lat: "", lng: "", primary: "true", neighbourhood: "Midtown East - Grand Central"},
+        {name: "Tiffany & Co.", type: "icecream", lat: "", lng: "", primary: "true", neighbourhood: "Midtown East - Grand Central"},
     ]
 }
 
@@ -964,7 +984,7 @@ var content = {
                 {name: "Palazzo dei Congressi", type: "civic" , lat: 43.7784, lng: 11.24881, primary: "true"},
                 {name: "Piazza di Santa Maria Novella", type: "sign" , lat: 43.773618, lng: 11.249418, primary: "true"},
                 {name: "Porta al Prato Station", type: "train" , lat: 43.777899, lng: 11.238303, primary: "true"},
-                {name: "Santa Maria Novella Basilica and Museum monument", type: "museum" , lat: 43.774151, lng: 11.249361, primary: "true"},
+                {name: "Santa Maria Novella Basilica and Museum monument", type: "museums" , lat: 43.774151, lng: 11.249361, primary: "true"},
                 {name: "Teatro Comunale Florence", type: "theater", lat: 43.774872, lng: 11.238633, primary: "false"}
             ],
 
@@ -1577,26 +1597,26 @@ var content = {
                 {name: "August Wilson Theater", type: "theater", lat: 40.763156, lng: -73.984361, primary: "false", id: "118938"}, 
                 {name: "Broadway", type: "theater", lat: 40.75799, lng: -73.98556, primary: "true", id: "129374"},  
                 {name: "Bryant Park", type: "tree", lat: 40.75332, lng: -73.98438, primary: "false", id: "127999"},
-                {name: "Carnegie Hall", type: "theater", lat: 40.7653, lng: -73.98022, primary: "true", id: "128085"},
+                {name: "Carnegie Hall", type: "theater", lat: 40.7653, lng: -73.98022, primary: "false", id: "128085"},
                 {name: "Circle in the Square Theater", type: "theater", lat: 40.76151, lng: -73.98401, primary: "false", id: "89994"},
                 {name: "Ed Sullivan Theater", type: "theater", lat: 40.76365, lng: -73.9827, primary: "false", id: "113614"},
                 {name: "Gershwin Theater", type: "theater", lat: 40.76224, lng: -73.98391, primary: "false", id: "127243"},
                 {name: "International Center of Photography", type: "museums", lat: 40.7559, lng: -73.98343, primary: "false", id: "45345"},
                 {name: "Madame Tussauds Wax Museum", type: "museums", lat: 40.75653, lng: -73.98814, primary: "true", id: "122651"},
                 {name: "Minskoff Theater ", type: "theater", lat: 40.75819, lng: -73.98607, primary: "false", id: "124608"},
-                {name: "Museum of Modern Art (MOMA)", type: "museum", lat: 40.76106, lng: -73.97741, primary: "true", id: "129424"},
-                {name: "Museum of Television and Radio", type: "museum", lat: 40.76024, lng: -73.97736, primary: "true", id: "99249"},
+                {name: "Museum of Modern Art (MOMA)", type: "museums", lat: 40.76106, lng: -73.97741, primary: "true", id: "129424"},
+                {name: "Museum of Television and Radio", type: "museums", lat: 40.76024, lng: -73.97736, primary: "false", id: "99249"},
                 {name: "NBC Studios", type: "icecream", lat: 40.758478, lng: -73.978906, primary: "true", id: "117576"},
                 {name: "New Amsterdam Theater", type: "theater", lat: 40.75631, lng: -73.98773, primary: "false", id: "121845"},
-                {name: "New York Public Library", type: "civic" , lat: 40.7526, lng: -73.9827, primary: "true", id: "120349"},
+                {name: "New York Public Library", type: "civic" , lat: 40.7526, lng: -73.9827, primary: "false", id: "120349"},
                 {name: "Port Authority Bus Terminal", type: "civic" , lat: 40.756811, lng: -73.990117, primary: "false", id: "129422"},
-                {name: "Radio City Music Hall", type: "theater" , lat: 40.76024, lng: -73.98014, primary: "true", id: "128990"},
+                {name: "Radio City Music Hall", type: "theater" , lat: 40.76024, lng: -73.98014, primary: "false", id: "128990"},
                 {name: "Rockefeller Center", type: "historic", lat: 40.7587, lng: -73.9787, primary: "true", id: "129423"},
                 {name: "Roseland Ballroom ", type: "theater", lat: 40.763127, lng: -73.984215, primary: "false", id: "37471"},
                 {name: "The Majestic Theater", type: "theater", lat: 40.758253, lng: -73.988217, primary: "false", id: "122819"},
                 {name: "Times Square", type: "sign", lat: 40.758896, lng: -73.985130, primary: "true", id: "129656"},
                 {name: "Top of the Rock Observation Deck", type: "icecream", lat:40.759258, lng: -73.978947, primary: "false", id: "78926"},
-                {name: "Toys 'R' Us Times Square", type: "shopping", lat: 40.75654, lng: -73.98659, primary: "true", id: "116335"},
+                {name: "Toys 'R' Us Times Square", type: "shopping", lat: 40.75654, lng: -73.98659, primary: "false", id: "116335"},
                 {name: "Trump Tower", type: "monument", lat: 40.762481, lng: -73.974339, primary: "false", id: "126073"}
             ],
 
@@ -1624,7 +1644,7 @@ var content = {
             landmarks: [
                 {name: "Columbus Circle White Plains", type: "", lat: "", lng: "", primary: "false"},
                 {name: "American Museum of Natural History", type: "", lat: 40.7805, lng: -73.97286, primary: "true"},
-                {name: "Metropolitan Museum of Art (The Met)", type: "Museum", lat: 40.77896, lng: -73.96235, primary: "true"},
+                {name: "Metropolitan Museum of Art (The Met)", type: "museums", lat: 40.77896, lng: -73.96235, primary: "true"},
                 {name: "Morristown", type: "", lat: "", lng: "", primary: "false"},
                 {name: "Central Park Zoo", type: "Zoo", lat: 40.76881, lng: -73.97204, primary: "true"}
             ], 
@@ -1650,7 +1670,7 @@ var content = {
             
             landmarks: [
                 {name: "Holland Tunnel", type: "", lat: 40.723844, lng: -74.007946, primary: "true"},
-                {name: "New York City Fire Museum", type: "Museum", lat: 40.72582, lng: -74.00679, primary: "true"}
+                {name: "New York City Fire Museum", type: "museums", lat: 40.72582, lng: -74.00679, primary: "true"}
             ], 
 
             center: {lat: 40.7219590673274, lng: -74.0069763854816}, 

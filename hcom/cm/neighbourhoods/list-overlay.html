@@ -190,12 +190,14 @@
 				<li><a href="#" class="selected" rel="neighbourhoods">Neighbourhoods</a></li>
 				<li><a href="#" rel="landmarks">Landmarks</a></li>
 			</ul>
+			
 		</div>
 		<div id="neighbourhood-list" style=""></div>
 
 		<div id="landmark-list" style="display:none;"></div>
 	
 		<div id="neighbourhood-content" style="display:none;">
+			<a href="#" class="back" style="padding:0 8px 8px; font-size:12px; background-color:#f5f4f0; display:block;">&laquo all neighbourhoods</a>
 			<div class="image">
 				<img / style="width:100%">
 			</div>
@@ -212,9 +214,13 @@
 			</div>
 			
 			
+			
 
 			
 		</div>	
+		<div class="shopfor" style="">
+			<button rel="">Shop for hotes in <span></span></button>
+		</div>
 	</div>
 
 </div>
@@ -256,16 +262,14 @@
  					{{displayTags tags}}
  					</ul>
  					<h3>Popular landmarks</h3>
+ 					<ul class="landmarks">
 					{{displayLandmarks landmarks}}
- 						
+ 					</ul>	
 
  					</div>
- 					<div class="image">
- 						
- 						<img style="text-align:center" class="thumb" src="{{image}}" />
- 						
- 					</div>
- 						
+ 					
+ 					<a id="{{nid}}" rel="{{@index}}" class="more" href="#" style="display:block; padding:0 8px 8px; font-size:12px; ">More about {{name}}</a>
+ 					<button class="shop" rel="{{nid}}" style="margin-bottom:8px">Shop for hotels in <span>{{name}}</span></button>	
  				</div>
  		
 		    {{/each}}
@@ -274,9 +278,13 @@
 <script id="landmark-card" type="text/x-handlebars-template">
  	{{#each this}}
  		<div class="landmark-card">
+ 			<div class="type"><img src="pin.png" /> {{displayLandmarkType type}}</div>
  			<h3>{{name}}</h3>
- 			<div class="type">{{type}}</div>
- 			<div class="neighbourhood">{{neighbourhood}}</div>
+ 			
+ 			<div class="neighbourhood">
+ 				<h4>Neighbourhood</h4>
+ 				{{neighbourhood}}
+ 			</div>
  		</div>
  	{{/each}}
 </script>
@@ -350,6 +358,7 @@
 					$("#neighbourhood-content").hide();
 					$("#landmark-list").show();
 					removePolygonHighlight();
+					$(".shopfor").hide();
 				});
 
 				$("ul.tabs li a[rel='neighbourhoods']").on("click", function(e){
@@ -359,6 +368,7 @@
 					$("#neighbourhood-content").hide();
 					$("#landmark-list").hide();
 					removePolygonHighlight();
+					$(".shopfor").hide();
 				});
 
 				// neighbourhood guides
@@ -382,19 +392,20 @@
 				$(".neighbourhood-card button").on("click", function(){
 					var hoodName = $(this).find("span").text();
 					var hoodId = $(this).attr("rel");
+					//var hoodStr = $(this).attr("rel");
 
-					$("#overlay").hide();
-					$("#guides").hide();
-					$(".hotel-card").remove();
-					$("#loading-nhood-hotels").show().find("div").text("Finding available hotels in " + hoodName);
-					fetchHotelListNeighbourhood(destinationStr, $(this).attr("rel"), displayHotels);
-					$("body").removeClass("modal-open");
-
-					$("#selected-filters").hide().html("Selected filters: <span class='fs'>" + hoodName + "</span>");
-					$( "#f-neighbourhoods input[type=checkbox]" ).prop( "checked", false );
-					$( "input[name=" + hoodId + "]" ).prop( "checked", true );
+					shopNeighbourhood(hoodName, hoodId);
 
 					//window.location.hash = "guide-close";
+				}); 
+
+				$(".shopfor button").on("click", function(e){
+					e.preventDefault();
+					var hoodName = $(this).find("span").text();
+					var hoodId = $(this).attr("rel");
+
+					console.log(hoodName + " - " + hoodId);
+					shopNeighbourhood(hoodName, hoodId);
 				})
 
 				$("#close-guide").on("click", function(e){
@@ -405,10 +416,37 @@
 					//window.location.hash = "guide-close";
 				})
 
-				
+				$(".neighbourhood-card .more").on("click", function(){
+					
+					showNeighbourhoodContent($(this).attr("rel"));
+					highlightSelectedPolygon($(this).attr("rel"));
+					$(".shopfor").show();
+				}); 
+
+				$("#neighbourhood-content a.back").on("click", function(e){
+					$("#neighbourhood-list").show(); 
+					//$("#neighbourhood-header").show(); 
+					$("#neighbourhood-content").hide();
+					//$("#neighbourhood-content-header").hide();
+					removePolygonHighlight();
+					$(".shopfor").hide();
+				})
 
 
 			});
+
+			var shopNeighbourhood = function(hoodName, hoodId){
+				$("#overlay").hide();
+					$("#guides").hide();
+					$(".hotel-card").remove();
+					$("#loading-nhood-hotels").show().find("div").text("Finding available hotels in " + hoodName);
+					fetchHotelListNeighbourhood(destinationStr, hoodId, displayHotels);
+					$("body").removeClass("modal-open");
+
+					$("#selected-filters").hide().html("Selected filters: <span class='fs'>" + hoodName + "</span>");
+					$( "#f-neighbourhoods input[type=checkbox]" ).prop( "checked", false );
+					$( "input[name=" + hoodId + "]" ).prop( "checked", true );
+			}
 
 			var displayContent = function(data){
 				displayHotels(data);
@@ -449,20 +487,20 @@
 
 				// add landmarks
 				var landmarks = neighbourhoodContent[num].landmarks;
+
 				var lStr = "";
 				$.each(landmarks, function(i, lmark) {
-						lStr += "<li>" + lmark.name + "</li>"
+						var typeObj = getObjects(typeDescription, 'type', lmark.type); 
+						var typeDesc = typeObj[0];
+						console.log(typeDesc);
+						lStr += "<li><div>" + lmark.name + "</div><div class='type'>" + typeDesc.description + "</li>"
 				});
 				$("#neighbourhood-content ul.landmarks").html(lStr)
+
+				$(".shopfor button").attr("rel", neighbourhoodContent[num].nid).find("span").text(neighbourhoodContent[num].name);
 			}
 
-			$("#neighbourhood-content-header .back").on("click", function(e){
-				$("#neighbourhood-list").show(); 
-				$("#neighbourhood-header").show(); 
-				$("#neighbourhood-content").hide();
-				$("#neighbourhood-content-header").hide();
-				removePolygonHighlight();
-			})
+			
 
 			
 
@@ -483,14 +521,7 @@
 			}; 
 
 			var displayNeighbourhoods = function(data){
-				//console.log("nhoods")
-				// hide loading message
-				//$("#loading-hotels").hide();
-			
 				var neighbourhood = data;
-				//console.log(neighbourhood);
-				
-				// attach to handle bar template
         		var source   = $("#neighbourhood-card").html();
   				var template = Handlebars.compile(source);
   				$("#neighbourhood-list").html(template(neighbourhood));
@@ -498,11 +529,19 @@
 
 			var displayLandmarkContent = function(data){
 				var landmarks = data;
-
 				var source   = $("#landmark-card").html();
   				var template = Handlebars.compile(source);
   				$("#landmark-list").html(template(landmarks));
 			}
+
+			Handlebars.registerHelper("displayLandmarkType", function(type){
+				
+				var typeObj = getObjects(typeDescription, 'type', type); 
+				var typeDesc = typeObj[0];
+				//console.log(typeDesc.description);
+
+				return typeDesc.description;
+			})
 
 			Handlebars.registerHelper("addCount", function(){
 				count++
@@ -531,9 +570,9 @@
 				return new Handlebars.SafeString(tagsStr);
 			});
 
+
 			Handlebars.registerHelper("displayLandmarks", function(landmarks){
-				console.log(landmarks)
-				var lm = "<ul>";
+				var lm = ""
 
 				$.each(landmarks, function(i, lmark) {
 					if (lmark.primary != "false"){
@@ -541,16 +580,12 @@
 					}
 				});
 
-				lm += "</ul>"
 				return new Handlebars.SafeString(lm);
 			});
 
-			var count = 0;
 			Handlebars.registerHelper("displayName", function(name){
-				
-				count ++;
-
-				return new Handlebars.SafeString("<span class='number'>" + count / 2 + "</span><span class='title'>" + name + "</span>");
+			
+				return new Handlebars.SafeString("<span class='number'>" + count + "</span><span class='title'>" + name + "</span>");
 			})
 
 

@@ -59,18 +59,32 @@ box-shadow: -2px 0px 3px 0px rgba(204,204,204,1);}
 .neighbourhood-card .content ul {list-style-type: none; margin:0; padding:0;}
 .neighbourhood-card .content ul li {font-size:12px; margin-bottom:4px;}
 .neighbourhood-card .content ul.tags li {font-size:12px; font-weight:normal;}
+.neighbourhood-card .content ul.landmarks li {background:url('pin.png') no-repeat; padding:2px 0 2px 20px;}
 
 .neighbourhood-card  .name {margin-bottom:0; color:#026dc5; padding:0; font-weight:bold;}
 .neighbourhood-card  .name .number { font-size:14px; display:inline-block; vertical-align:top; background-color:#026dc5; color:#fff; padding:8px 8px 4px; margin-right:8px;}
 .neighbourhood-card  .name .title { font-size:14px; display:inline-block; vertical-align:top; padding:8px 0 0 0;}
 
+.neighbourhood-card button {background-color:#026dc5; color:#fff; font-size:12px; padding:4px 8px; border-radius: 4px; border:0; border-bottom:solid #000 2px; margin-bottom:8px;}
+.neighbourhood-card button:hover {cursor:pointer;}
+
+.shopfor {background-color:#f5f4f0; position:absolute; bottom:0; left:0; right:0; padding:16px 8px; display:none;}
+.shopfor button {background-color:#026dc5; color:#fff; font-size:14px; padding:4px 8px; border-radius: 4px; border:0; border-bottom:solid #000 2px;}
+.shopfor button:hover {cursor:pointer;}
+
 .tags {margin:0; padding:0;}
 .tags li {display:inline-block; list-style-type: none; padding:0; margin:0; padding:0; margin-right:16px; border-radius:4px; font-size:13px; font-weight:bold; margin-bottom:4px;}
 
 #neighbourhood-content {box-sizing:border-box; background-color:#fff; position:absolute; top:100px; bottom:0; left:0; right:0; overflow-y:scroll;}
+#neighbourhood-content h3 {margin:0 0 8px 0; padding:0;}
+#neighbourhood-content ul.landmarks {list-style-type: none;}
+#neighbourhood-content ul.landmarks li {margin-bottom:8px; font-size:13px; padding-left:20px; background:url('pin.png') no-repeat;}
+#neighbourhood-content ul.landmarks li .type {font-size:12px; color:#999;}
 
 #landmark-list {box-sizing:border-box; position:absolute; top:100px; bottom:0; left:0; right:0; overflow-y:scroll; padding:8px;}
-.landmark-card {overflow:hidden; padding:0 12px; border:solid 1px #ddd; background-color:#fff; margin-bottom:8px;}
+.landmark-card {overflow:hidden; padding:12px; border:solid 1px #ddd; background-color:#fff; margin-bottom:8px;}
+.landmark-card .type {margin:0; padding:0; color:#555; font-size:12px;}
+.landmark-card h3 {margin:4px 0; padding:0;}
 
 /*.neighbourhood-card h2 {margin:0; padding:8px; background-color:#000; color:#fff; font-size:14px;}
 .neighbourhood-card h3 {margin:0 0 4px; padding:4px 0; color:#000;  font-size:14px;}
@@ -87,8 +101,7 @@ box-shadow: -2px 0px 3px 0px rgba(204,204,204,1);}
 .landmarks li {list-style-type: none; margin-bottom:4px;}
 .prices li {list-style-type: none; margin-bottom:4px;}
 
-.neighbourhood-card button {background-color:#026dc5; color:#fff; font-size:16px; padding:8px 16px; border-radius: 4px; border:0; border-bottom:solid #000 2px; margin-bottom:8px;}
-.neighbourhood-card button:hover {cursor:pointer;}
+
 
 
 

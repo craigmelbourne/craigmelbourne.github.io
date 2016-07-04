@@ -83,12 +83,31 @@ var addLandmarkPins = function() {
 					var lmarker = new google.maps.Marker({
           				position: latlng,
           				map: map,
-          				icon: circle,
+          				icon: "pin.png",
           				zIndex: 1000,
           				title: lmark.name
         			});
 
+					
+
+        			
+
         			lmarkers.push(lmarker);
+
+        			
+        			var num = lmarkers.indexOf(lmarker);
+
+        			var infowindow = new google.maps.InfoWindow({
+          				content: lmark.name
+        			});
+
+        			google.maps.event.addListener(lmarker, 'mouseover', function() {
+                		infowindow.open(map, lmarkers[num]);
+            		});
+
+            		google.maps.event.addListener(lmarker, 'mouseout', function() {
+                		infowindow.close();
+            		});
 				//}
 			})
 
