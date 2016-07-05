@@ -4,6 +4,7 @@ var map;
 var nmarkers = [];
 var lmarkers = [];
 var npolygons = [];
+var hotelPins = [];
 var polygonHighlighted;
 
 var markerImage = new google.maps.MarkerImage('images/marker.png',
@@ -50,13 +51,51 @@ function initializeMap(destination, destinationObj) {
     google.maps.event.addListenerOnce(map, 'idle', function(){
     // do something only the first time the map is loaded
         
+        addLandmarkPins();
         addNeighbourhoodPins();
         addNeighbourhoodPolygon();
-        addLandmarkPins();
+        
     });
 
 
     
+}
+
+var addNeighbourhoodPins = function(){
+    
+    
+    //for (var nhoods in neighbourhoods) {
+    $.each(neighbourhoodContent, function(i, nhoods) {
+
+        if (nhoods.hasContent) {
+
+            var markerLabel = new MarkerWithLabel({
+                position: nhoods.center,
+                draggable: false,
+                map: map,
+                icon: markerImage,
+                labelContent: i + 1,
+                //labelContent: "<i class='fa fa-university' aria-hidden='true'></i>",
+                //labelAnchor: new google.maps.Point(40, 32),
+                labelClass: "labels", // the CSS class for the label
+                labelStyle: {opacity: 0.9}
+            });
+
+            nmarkers.push(markerLabel);
+
+            var name = nhoods.name;
+            var loc = nhoods.center;
+            var num = i;
+
+            google.maps.event.addListener(markerLabel, 'click', function() {
+                console.log(name);
+                highlightSelectedPolygon(num);
+                showNeighbourhoodContent(num);
+            });
+
+        }
+    })
+        
 }
 
 var addLandmarkPins = function() {
@@ -78,18 +117,28 @@ var addLandmarkPins = function() {
 				//if (lmark.primary != ""){
 					
 					var latlng = {lat:lmark.lat, lng:lmark.lng}
-					console.log(latlng);
+					//console.log(latlng);
 
-					var lmarker = new google.maps.Marker({
+					/*var lmarker = new google.maps.Marker({
           				position: latlng,
           				map: map,
-          				icon: "pin.png",
+          				icon: "landmark-pin.png",
           				zIndex: 1000,
           				title: lmark.name
-        			});
+        			});*/
 
 					
-
+					var lmarker = new MarkerWithLabel({
+                		position: latlng,
+                		draggable: false,
+                		map: map,
+                		icon: markerImage,
+                		labelContent: "<i class='fa fa-university' aria-hidden='true'></i>",
+                //labelContent: "<i class='fa fa-university' aria-hidden='true'></i>",
+                //labelAnchor: new google.maps.Point(40, 32),
+                		labelClass: "labels-landmarks", // the CSS class for the label
+                		labelStyle: {opacity: 0.9}
+            		});
         			
 
         			lmarkers.push(lmarker);
@@ -117,41 +166,6 @@ var addLandmarkPins = function() {
 }
 
 
-var addNeighbourhoodPins = function(){
-    
-    
-    //for (var nhoods in neighbourhoods) {
-    $.each(neighbourhoodContent, function(i, nhoods) {
-
-        if (nhoods.hasContent) {
-
-            var markerLabel = new MarkerWithLabel({
-                position: nhoods.center,
-                draggable: false,
-                map: map,
-                icon: markerImage,
-                labelContent: i + 1,
-                //labelAnchor: new google.maps.Point(40, 32),
-                labelClass: "labels", // the CSS class for the label
-                labelStyle: {opacity: 0.9}
-            });
-
-            nmarkers.push(markerLabel);
-
-            var name = nhoods.name;
-            var loc = nhoods.center;
-            var num = i;
-
-            google.maps.event.addListener(markerLabel, 'click', function() {
-                console.log(name);
-                highlightSelectedPolygon(num);
-                showNeighbourhoodContent(num);
-            });
-
-        }
-    })
-        
-}
 
 
 var addNeighbourhoodPolygon = function(){
@@ -233,6 +247,19 @@ function setMapOnAll(map) {
 }
 
 
+function setMapOnAllLandmarks(map) {
+  for (var i = 0; i < lmarkers.length; i++) {
+    lmarkers[i].setMap(map);
+  }
+}
+
+function clearLandmarks(){
+	setMapOnAllLandmarks(null);
+}
+
+function showLandmarks(){
+	setMapOnAllLandmarks(map);
+}
 
 function showMarkers() {
   setMapOnAll(map);

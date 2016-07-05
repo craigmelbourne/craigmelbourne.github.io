@@ -71,12 +71,26 @@ var buildMapAndContent = function(){
     displayNeighbourhoods(neighbourhoodContent);
     displayLandmarkContent(landmarkList);
     initializeMap(destinationStr, destinationObj[0]);
+    
 };
+
+var getNeighbourhoodHotels =function(){
+    var destStr = getParameterByName("destination");
+    var destObj = getObjects(destination, 'str', destinationStr);
+    var hoodContent = content[destinationObj[0].val];
+
+    $.each(hoodContent, function(i, hoods) {
+        console.log(hoods.nid)
+        fetchHotelListNeighbourhood(destinationStr, hoods.nid, displayHotelPins)
+    })
+    
+
+}
 
 var displayHotels = function (data) {
                 // hide loading message
                 //$("#loading-hotels").hide();
-            
+            console.log("i go in here")
                 var hotels = data.result.hotels;
                 //console.log(data.result.hotels[0]);
                 $.each(hotels, function(i, hotel) { 

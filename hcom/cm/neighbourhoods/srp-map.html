@@ -68,7 +68,7 @@
 				<img src="http://www.hotels.com/da/assets/s/41.0/images/themes/red/pages/sha/map.png" style="display:inline-block; border:3px solid #fff; vertical-align:top;"/>
 				<div style="display:inline-block; margin-left:20px; vertical-align:top;">
 					<h1 id="destination"></h1>
-					<div style="padding:4px 0 0 0; font-size:16px">Wed 22 - Thu 23 June 2016, 1 night, 1 room, 2 adults</div>
+					<div style="padding:4px 0 0 0; font-size:16px">Wed 22 - Thu 23 July 2016, 1 night, 1 room, 2 adults</div>
 						
 				</div>
 
@@ -188,9 +188,9 @@
 					</ul>
 				</div>
 
-				<a href="" id="guide-open" style="display:block; padding:8px; background-color:#026dc5; margin-top:8px; color:#fff; background:url('nhood-promo.png') no-repeat; height:106px; padding:32px 20px 0 200px; box-sizing:border-box; outline:0">
-						<span style="display:block; font-size:18px; margin-bottom:4px;">Not sure where to stay in <span class="dest"></span>?</span>
-						<span style="display:block; font-size:16px">Try our neighbourhood guide &raquo;</span>
+				<a href="" id="guide-open" style="display:block; padding:8px; background-color:#026dc5; margin-top:8px; color:#fff; height:auto; padding:16px 20px 16px 230px; box-sizing:border-box; outline:0; background: no-repeat #026dc5; background-position:left top;">
+						<span style="display:block; font-size:18px; margin-bottom:8px;">Not sure where to stay in <span class="dest"></span>?</span>
+						<span style="display:inline-block; font-size:13px; border-bottom:solid 2px #000; border-radius:4px; padding:6px 8px; background-color:#fff; color:#026dc5">Try our neighbourhood guide <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
 				</a>
 			
 				<div id="loading-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">
@@ -344,6 +344,7 @@
 		<script src="../handlebars.js"></script>
 		<script src="content.js"></script>
 		<script src="methods.js"></script>
+		<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
 
 		<!-- JQuery Google CDN -->
 		
@@ -370,11 +371,15 @@
 
 						var d = getParameterByName("destination"); 
 						var dd = d.split(",")
+
+						
 						$("span.dest").append(dd[0]);
 						$("#destination").text(d);
 
-						$("#guide-open").attr("href", "map-v2.html?destination=" + d)
-						$(".guide-open").attr("href", "map-v2.html?destination=" + d)
+						$("#guide-open").attr("href", "map-integration.html?destination=" + d)
+						$(".guide-open").attr("href", "map-integration.html?destination=" + d)
+						var ddd = dd[0].replace(" ", "-")
+						$("#guide-open").css("background-image", "url(i/" + ddd + ".png)");
 					
 					} else {
 
