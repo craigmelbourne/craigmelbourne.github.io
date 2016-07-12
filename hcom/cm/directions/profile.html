@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/mt-base.css">
+
+		<!-- Roboto font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+		<!-- Scripts -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			$(function(){
+
+				$("#content label a").on("click", function(e){
+					e.preventDefault();
+					$(".transport ul").show();
+				});
+
+				$(".transport ul li").on("click", function(e){
+					e.preventDefault();
+					$("#content label a").text($(this).text());
+					$(".transport ul").hide();
+				});
+
+				$("div.yes").on("click", function(){
+					$(this).find("img").attr("src", "i/icons/happy_face_selected.png");
+					$(this).siblings(".no").find("img").attr("src", "i/icons/sad_face.png");
+				});
+
+				$("div.no").on("click", function(){
+					$(this).find("img").attr("src", "i/icons/sad_face_selected.png");
+					$(this).siblings(".yes").find("img").attr("src", "i/icons/happy_face.png");
+				});
+
+				$(".add-photo").on("click", function(e){
+					e.preventDefault()
+					$(this).text("edit photo");
+					$(".profile-pic").attr("src", "i/complete_profile_pic.png");
+					$("#profile_first_name").val("Sarah");
+					$("#profile_last_name").val("Smith");
+					$("#profile_email").val("sarah.smith@gmail.com");
+					$("#profile_mobile").val("0123456789");
+				})
+
+			});
+
+		</script>
+
+	</head>
+
+	<body id="profile">
+		<div id="header">
+			<div id="logo"><a href="home.html"><img src="i/logo.png" /></a></div>
+			<div id="tools">Sign in</div>
+		</div>
+
+		<div id="col1" class="col">
+			<div class="title">Profile</div>
+			<div style="padding:32px;">
+				<div style="text-align:center;">
+					<img class="profile-pic" src="i/empty_profile_pic.png" /> <br />
+					<a href="#" class="add-photo">add photo</a>
+				</div>
+				
+
+				<fieldset>
+					<input id="profile_first_name" type="text" placeholder="First Name" />
+					<input id="profile_last_name" type="text" placeholder="Last Name" />
+					<input id="profile_email" type="text" placeholder="Email" />
+					<input id="profile_mobile" type="text" placeholder="Mobile number" />
+				</fieldset>
+				<p style="font-size:12px; color:#999; padding:8px;">A temporary password will be sent to your email address</p>
+			</div>
+		</div>
+
+		<style type="text/css">
+			div.pref {overflow:hidden;}
+			div.yes {float:left; padding:8px; margin-right:8px;}
+			div.yes:hover, div.no:hover {cursor: pointer;}
+			div.no {float:left; padding:8px; margin-right:8px;}
+			div.label {float:left; padding:12px 8px;}
+		</style>
+
+		<div id="col2" class="col">
+			<div class="title">Interests</div>
+			<div style=" margin:32px 32px 0">
+				<div class="pref" rel="fooddrink">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Food & Drink</div> 
+				</div>
+
+				<div class="pref" rel="shopping">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Shopping</div> 
+				</div>
+
+				<div class="pref" rel="sightseeing">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Sightseeing tours</div> 
+				</div>
+
+				<div class="pref" rel="wellness">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Wellness and Spas</div> 
+				</div>
+
+				<div class="pref" rel="museums">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Museums</div> 
+				</div>
+
+				<div class="pref" rel="landmarks">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Landmarks & History</div> 
+				</div>
+
+				<div class="pref" rel="art">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Art & Paintings</div> 
+				</div>
+
+				<div class="pref" rel="performances">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Performances</div> 
+				</div>
+
+				<div class="pref" rel="cultural">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Cultural</div> 
+				</div>
+				
+			</div>
+		</div>
+
+		<div id="col3" class="col">
+			<div class="title">Food</div>
+			<div style="width:80%; margin:30px auto 0">
+				<div class="pref" rel="american">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">American</div> 
+				</div>
+
+				<div class="pref" rel="mexican">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Mexican</div> 
+				</div>
+
+				<div class="pref" rel="southwestern">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Southwestern</div> 
+				</div>
+
+				<div class="pref" rel="italian">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Italian</div> 
+				</div>
+
+				<div class="pref" rel="japanese">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Japanese</div> 
+				</div>
+
+				<div class="pref" rel="chinese">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Chinese</div> 
+				</div>
+
+				<div class="pref" rel="french">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">French</div> 
+				</div>
+
+				<div class="pref" rel="vegetarian">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Vegetarian</div> 
+				</div>
+
+				<div class="pref" rel="spanish">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Spanish</div> 
+				</div>
+
+				<div class="pref" rel="thai">
+					<div class="yes"><img src="i/icons/happy_face.png" /></div>
+					<div class="no"><img src="i/icons/sad_face.png" /></div>
+					<div class="label">Thai</div> 
+				</div>
+			</div>
+		</div>
+
+		<div id="footer">
+			<a href="settings.html">Next: <strong>Trip Settings</strong></a>
+		</div>
+	</body>
+</html>

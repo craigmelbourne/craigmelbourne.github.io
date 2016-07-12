@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <title>Place search pagination</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+    <script>
+        var map, placesList;
+        var geocoder = new google.maps.Geocoder();
+        var dest = "Vienna";
+        var destination;
+        var placeRequest = {}
+        
+        geocoder.geocode( { 'address': dest}, function(pos, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            //console.log (pos[0].geometry.location.k + " " + pos[0].geometry.location.B)
+            destination = pos[0].geometry.location
+            //map.setCenter(pos[0].geometry.location);
+            console.log(destination)
+            initialize();
+            
+        } 
+    });
+
+function initialize() {
+  
+    
+    
+    var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+    var placetogo = new google.maps.LatLng(destination.lat(), destination.lng());
+
+  map = new google.maps.Map(document.getElementById('map-canvas'), {
+    center: placetogo,
+    zoom: 14
+  });
+    
+    
+
+  var request = {
+    location: placetogo,
+    radius: 1000
+    //types: ['point_of_interest']
+  };
+
+  placesList = document.getElementById('places');
+
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
+}
+
+function callback(results, status, pagination) {
+  if (status != google.maps.places.PlacesServiceStatus.OK) {
+    return;
+  } else {
+    createMarkers(results);
+
+    if (pagination.hasNextPage) {
+      var moreButton = document.getElementById('more');
+
+      moreButton.disabled = false;
+
+      google.maps.event.addDomListenerOnce(moreButton, 'click',
+          function() {
+        moreButton.disabled = true;
+        pagination.nextPage();
+      });
+    }
+  }
+}
+
+function createMarkers(places) {
+  var bounds = new google.maps.LatLngBounds();
+
+  for (var i = 0, place; place = places[i]; i++) {
+    console.log(place);
+    var image = {
+      url: place.icon,
+      size: new google.maps.Size(71, 71),
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(17, 34),
+      scaledSize: new google.maps.Size(25, 25)
+    };
+      //console.log (place);
+    var marker = new google.maps.Marker({
+      map: map,
+      icon: image,
+      title: place.name,
+      position: place.geometry.location
+    });
+      var typesplace = place.types.toString();
+      
+      //console.log("types:" + place.types.length);
+      
+    placesList.innerHTML += '<li>' + place.name + '<br /><span class="type">' + typesplace + '</span></li>';
+
+    bounds.extend(place.geometry.location);
+  }
+  map.fitBounds(bounds);
+}
+
+//google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    <style>
+      #results {
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        right: 5px;
+        top: 0;
+        bottom:0;
+        width: 300px;
+        padding: 5px;
+        z-index: 5;
+        background: #fff;
+          overflow-y: scroll;
+      }
+      h2 {
+        font-size: 22px;
+        margin: 0 0 5px 0;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        
+      }
+      li {
+        background-color: #f1f1f1;
+        padding: 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      li:nth-child(odd) {
+        background-color: #ffffff;
+      }
+        
+        li span.type {font-size: 12px; color:#999;}
+      #more {
+        width: 100%;
+        margin: 5px 0 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+    <div id="results">
+      <h2>Places</h2>
+      <ul id="places"></ul>
+      <button id="more">More results</button>
+    </div>
+  </body>
+</html>

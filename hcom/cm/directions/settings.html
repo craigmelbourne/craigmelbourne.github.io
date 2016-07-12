@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/mt-base.css">
+
+		<!-- Roboto font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:300,300italic,500,500italic' rel='stylesheet' type='text/css'>
+
+		<!-- Scripts -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			$(function(){
+				$( "#months li:not(.inactive)" ).click(function() {
+					$( "#months li" ).removeClass("selected");
+					$( "#months li img" ).hide();
+  					$( this ).addClass( "selected" );
+  					$(this).find("img.check").show();
+				});
+
+				$( "#budget li" ).click(function() {
+  					$( "#budget li" ).removeClass("selected");
+  					$( "#budget li img.check" ).hide()
+  					$(this).addClass("selected");
+  					$(this).find("img.check").show();
+  						
+				});
+
+				$( "#type li" ).click(function() {
+  					$( "#type li" ).removeClass("selected");
+  					$( "#type li img.check" ).hide()
+  					$(this).addClass("selected");
+  					$(this).find("img.check").show();
+  						
+				});
+
+				$(".add-person").on("click", function(e){
+					e.preventDefault();
+					$(this).hide();
+					$(".check-person").show();
+					$(".add-new-person").hide();
+					$(".person").show();
+					$(".person-name").show();
+					$(".add-link").hide();
+					$(".link-add-new").show();
+				})
+			});
+
+		</script>
+
+	</head>
+
+	<body id="settings">
+		<div id="header">
+			<div id="logo"><a href="home.html"><img src="i/logo.png" /></a></div>
+			<div id="tools">Sarah</div>
+		</div>
+
+		<div id="col1" class="col">
+			<div class="title">What?</div>
+			<div style="padding:32px 32px;">
+				<h4 style="text-align:center;">Type</h4>
+
+				<ul id="type" class="multi-select">
+					<li>Leisure <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+					<li>Business <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+					<li>Both <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+				</ul>
+
+				<h4 style="text-align:center;">Budget</h4>
+
+				<ul id="budget" class="multi-select">
+					<li>Thrifty <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+					<li>Moderate <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+					<li>Luxury <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+				</ul>
+				<div style="margin-top:-16px; margin-left:16px"><a href="#">Specific budget?</a></div>
+			</div>
+		</div>
+
+		<div id="col2" class="col">
+			<div class="title">When?</div>
+			<div style="width:272px; margin:0 auto; box-sizing:border-box; padding:32px 0">
+				<h4 style="text-align:center; ">Dates</h4>
+
+				<div style="position:relative; text-align:center; margin-top:24px;">
+					2015
+					<img src="i/icons/12px/tertiary/chevron_left.png" style="position:absolute; top:2px; left:0;" />
+					<img src="i/icons/12px/tertiary/chevron_right.png" style="position:absolute; top:2px; right:0;" />
+
+				</div>
+				<style type="text/css">
+					ul#months {overflow:hidden; margin-top:16px;}
+					ul#months li {width:56px; margin-right:16px; float:left; box-sizing:border-box; margin-bottom:16px; height:72px; background:url("i/calendar_active.png"); text-align:center; padding-top:24px; color:#009df5; position:relative;}
+					ul#months li:hover {cursor:pointer;}
+					ul#months li:nth-child(4n) {margin-right:0;}
+					ul#months li.selected {color:#000;}
+					ul#months li.inactive {background:url("i/calendar_inactive.png"); color: #664e3c;}
+					ul#months li.inactive:hover {cursor:auto;}
+					ul#months li img.check {position:absolute; bottom:16px; left:20px; display:none;}
+				</style>
+
+				<ul id="months">
+					<li class="inactive">Jan</li>
+					<li class="inactive">Feb</li>
+					<li class="inactive">Mar</li>
+					<li>Apr <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+					<li>May <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+					<li>Jun <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+					<li>Jul <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+					<li>Aug <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+					<li>Sep <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+					<li>Oct <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+					<li>Nov <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+					<li>Dec <img class="check" src="i/icons/12px/secondary/check.png" /></li>
+				</ul>
+				<div style=""><a href="#">Know your dates?</a></div>
+			</div>
+		</div>
+
+		<div id="col3" class="col">
+			<div class="title">Who?</div>
+			
+			<div style="width:256px; margin:0 auto; box-sizing:border-box; padding:32px 0">
+				<h4 style="text-align:center">1 Traveller</h4>
+				
+				<style type="text/css">
+					ul.people {overflow:hidden; margin-top:24px;}
+					ul.people li {float:left; width:128px; box-sizing:border-box; text-align: center;}
+				</style>
+
+				<ul class="people">
+					<li style="position:relative">
+						<div style="position:absolute; top:0; right:16px; border-radius: 50%;
+	width:28px;
+	height: 28px; background-color:#fff; padding-top:6px; box-sizing:border-box;"><img src="i/icons/12px/secondary/check.png" /></div>
+							<img src="i/complete_profile_pic.png" />
+						
+						<p style="text-align:center;">You</p>
+					</li>
+					<li style="position:relative">
+						<div style="position:absolute; top:0; right:16px; border-radius: 50%;
+	width:28px;
+	height: 28px; background-color:#fff; padding-top:6px; box-sizing:border-box;"><a href="#" class="add-person" ><img src="i/icons/12px/primary/plus.png" /></a><img class="check-person" src="i/icons/12px/secondary/check.png" style="display:none;"/></div>
+						<img class="add-new-person" src="i/add_profile_pic.png" />
+						<img src="i/a.png" class="person" style="width:96px; display:none;"/>
+						<a href="#" class="add-link" style="display:block; text-align:center;">Add</a>
+						<p class="person-name" style="text-align:center; display:none;">Alex</p>
+					</li>
+					<li style="position:relative; margin-top:16px; display:none;" class="link-add-new">
+						<div style="position:absolute; top:0; right:16px; border-radius: 50%;
+	width:28px;
+	height: 28px; background-color:#fff; padding-top:6px; box-sizing:border-box;"><img src="i/icons/12px/primary/plus.png" /></div>
+						<img src="i/add_profile_pic.png" />
+	
+						<a href="#" style="display:block; text-align:center;">Add</a>
+						
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--<div id="what" class="panel">
+			<div class="title">What</div>
+			
+			
+		</div>
+
+		<div id="when" class="panel">
+			<div class="title">When</div>
+			<div style="width:80%; margin:30px auto 0; ">
+				<h4 style="text-align:center;">TBD</h4>
+			</div>
+		</div>
+
+		<div id="who" class="panel">
+			<div class="title">Who</div>
+			<div style="width:70%; margin:30px auto 0; ">
+				<h4 style="text-align:center;">1 Traveller</h4>
+				<ul class="people">
+					<li>
+						<div class="avatar"></div>
+						<p style="text-align:center;">You</p>
+					</li>
+					<li>
+						<div class="avatar" style="background-color:#3B98AF"></div>
+						<a href="#" style="display:block; text-align:center;">Add</a>
+					</li>
+				</ul>
+			</div>
+		</div>-->
+
+		<div id="footer">
+			<a href="details.html">Next: <strong>Trip Details</strong></a>
+		</div>
+	</body>
+</html>

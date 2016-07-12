@@ -1,0 +1,143 @@
+
+body {margin:0; font-family: Arial; color: #555;}
+strong {font-weight:bold;}
+a {text-decoration: none; color:#009df5;}
+strong {font-weight:bold;}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+input[type="text"] {width:100%; font-size:14px; border:solid 1px #dad1c5; padding:8px; border-radius:4px; box-sizing:border-box;}
+::-webkit-input-placeholder {
+   color: #efebe3;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #efebe3;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #efebe3;  
+}
+
+:-ms-input-placeholder {  
+   color: #efebe3;  
+}
+ul.multi-select {margin:16px 0 32px; padding:0px 16px; background-color:#fff; border:1px solid #E7E3D8; border-radius:4px;}
+ul.multi-select li {display:block; padding:16px 0; background-color:#fff; border-bottom:1px solid #E7E3D8; color:#009df5; position:relative;}
+ul.multi-select li img.check {position:absolute; top:16px; right:0; display:none;}
+ul.multi-select li:last-child {border-bottom:0;}
+ul.multi-select li.selected {color:#000;}
+ul.multi-select li:hover {cursor:pointer;}
+
+#header {height:48px; background-color: #312D26; color:#E7E3D8; padding:8px 16px 0; box-sizing:border-box; font-size:14px; position:fixed; top:0; left:0; right:0; background: -webkit-linear-gradient(#27251e, #38342b); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#27251e, #38342b); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#27251e, #38342b); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#27251e, #38342b); /* Standard syntax (must be last) */
+    }
+#header #logo {display:inline-block; vertical-align:top;}
+#header #tools {display:inline-block; vertical-align:top; float:right; padding-top:8px;}
+#content-wrapper {margin:0 0 0 0}
+
+#content-wrapper #content {margin:0 auto; text-align: center;}
+
+#home #search {background-color:#EDE8DF; padding:80px 0;}
+#home #search > div {width:500px; margin:0 auto;}
+#home #search h1 {font-size:24px; margin-bottom:16px;}
+#home #search input {}
+
+#home #destinations {margin:40px auto; font-size:20px; width:400px; text-align: center;}
+#home #destinations ul {margin:24px auto;}
+#home #destinations ul li {float:left; margin:0 16px 16px 0; width:120px;  height:120px; box-sizing:border-box; font-size: 14px}
+#home #destinations ul li:nth-child(3n+1){clear:left;}
+#home #destinations ul li:nth-child(3n){margin-right: 0}
+
+.transport {position:relative;}
+.transport ul {text-align:left; position:absolute; top:0; background-color:#fff; border:solid 6px #E7E3D8; left:0; width:180px; left:50%; margin-left:-90px; display:none;}
+.transport ul li {padding:6px; border-bottom:solid 3px #E7E3D8; font-size:14px;}
+.transport ul li:hover {cursor:pointer;}
+
+/* profile page */
+body#profile {} 
+
+
+ .col {position:absolute; top:48px; bottom:70px; box-sizing:border-box; width:33.33%; overflow-y:scroll; background-color:#EEEBE2;}
+ #col1 {left:0;}
+ #col2 {left:33.33%; border-left:dotted 1px #D6D3C0;}
+ #col3 {right:0; border-left:dotted 1px #D6D3C0;}
+
+body#profile #sidebar {position:absolute; top:30px; bottom:50px; left:0; width:320px; background-color:#E7E3D8; color: #605445; box-sizing:border-box; text-align: center; line-height: 16px; padding:0; }
+body#profile #col1 fieldset {margin-top:30px;}
+body#profile #col1 input {margin-bottom:8px;}
+.title {text-align:center; padding:12px; background-color:#786956; color:#efebe3; font-size:24px; font-weight: 300}
+ #footer {position:absolute;  left:0px; right:0; bottom:0px; height:70px; background-color: #fff; border-top:3px solid #D6D3C0; padding:16px; box-sizing:border-box; text-align:right;}
+ #footer a {display: inline-block; color:#fff; background-color:#99CC33; padding:8px; border-radius:4px;}
+
+body#settings {} 
+body#settings h4 {font-size:24px;}
+
+body#settings #who .avatar {width:60px; height:60px; border-radius:50%; background-color: #fff; margin:0 auto 12px;}
+body#settings #who ul.people {margin-top:30px; 	}
+body#settings #who ul.people li {float:left;  width:50%; box-sizing:border-box;}
+
+
+body#details {} 
+body#details .panel {position:absolute; top:96px; box-sizing:border-box; bottom:0px; overflow-y:scroll;}
+body#details #itinerary {width:346px; background-color:#E7E3D8;}
+body#details #itinerary-elements ul li {position:relative;}
+body#details #itinerary-elements ul li:hover {cursor: pointer}
+body#details #itinerary-elements ul li:active {-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.17);
+-moz-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.17);
+box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.17);}
+
+body#details #itinerary-elements ul {}
+body#details #itinerary-elements ul li {}
+body#details #itinerary-elements ul li div.name {margin:8px 16px; background-color:#fff; padding:16px 16px 16px 48px; border:solid 1px #dad1c5; border-radius:4px; position:relative;}
+body#details #itinerary-elements ul li div.home {background: url('../i/icons/16px/secondary/home.png') no-repeat 16px 14px #fff; }
+body#details #itinerary-elements ul li div.hotel {background: url('../i/icons/16px/secondary/hotel.png') no-repeat 16px 14px #fff; }
+body#details #itinerary-elements ul li div.attraction {background: url('../i/icons/16px/secondary/camera.png') no-repeat 16px 14px #fff; }
+body#details #itinerary-elements ul li div.activity {background: url('../i/icons/16px/secondary/activity.png') no-repeat 16px 14px #fff; }
+body#details #itinerary-elements ul li div.restaurant {background: url('../i/icons/16px/secondary/food.png') no-repeat 16px 14px #fff; }
+body#details #itinerary-elements ul li div.airport-up {background: url('../i/icons/16px/secondary/plane_depart.png') no-repeat 16px 14px #fff; }
+body#details #itinerary-elements ul li div.airport-down {background: url('../i/icons/16px/secondary/plane_arrive.png') no-repeat 16px 14px #fff; }
+body#details #itinerary-elements ul li a.time {display:block; font-size:12px; text-align: right; padding-right:24px; text-transform:lowercase;}
+body#details #itinerary-elements ul li div.delete {position:absolute; right:16px; top:8px; padding:8px; color:#ccc;}
+
+body#details #itinerary-elements .empty {background-color:#FFF2CC; height:30px; border:dashed 1px #D6D3C0; padding:6px; color:#FFF2CC;}
+body#details #itinerary-elements .empty::after {content: "Drop here";}
+body#details #itinerary-elements .empty > div {}
+
+body#details #content {left:346px; right:0; background-color:#E7E3D8; padding:0;}
+body#details #content .list .item {width:50%; box-sizing:border-box; float:left; padding-right:16px; margin-bottom:16px; position:relative;}
+body#details #content .list .item > div { border:solid 1px  #dad1c5; position:relative; border-top-left-radius: 4px; border-top-right-radius: 4px;}
+body#details #content .list .item > div:hover {cursor: pointer; border-color:#999;}
+
+body#details #content .list .item .image {background-color:#eee; margin-bottom:8px; position:relative;}
+body#details #content .list .item .image img{max-width: 100%; border-top-left-radius: 4px; border-top-right-radius: 4px;}
+body#details #content .list .item .name { padding:8px 16px; font-weight:bold;}
+body#details #content .list .item .image .rank {position:absolute; top:16px; left:16px; text-align:center; background-color:#fff; border-radius:50%; width:40px; height:40px; box-sizing:border-box; padding-top:12px;}
+body#details #content .list .item .snippet {position:relative; font-size:14px; line-height: 20px; height:60px; overflow:hidden; padding:0 16px;}
+body#details #content .list .item .snippet:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20%;
+  height: 16px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+}
+body#details #content #list .item-selected > div {background-color:#eee; color:#999;}
+body#details #content .list .item .rating {overflow:hidden; margin:16px;}
+
+body#details #content .list .item .image .add-pin {position: absolute; bottom:-30px; right:24px; z-index:10000}
+body#details #content .list .item .selected {position:absolute; top:0; left:0; right:0; bottom:0; background-color:#fff; opacity:0.9; z-index:10001; border-radius:4px; display:none;}
+
+body#details #content .list .item .selected p {position: absolute;
+  top: 25%;
+ text-align: center; left:0; right:0; line-height: 1.5}
+
+
+

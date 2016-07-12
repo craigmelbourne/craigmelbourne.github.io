@@ -137,7 +137,7 @@ function buildHotelDetailsUrl(id) {
 
   qStr1 += 'hotelId='+ id;
   qStr1 += '&cur='+ currency;
-  qStr += ciDates();
+  qStr1 += ciDates();
   qStr1 += '&roomno=1';
   qStr1 += '&rooms[0].numberOfAdults=' + numAdults;
   qStr1 += '&children[0]=' + numChildren;

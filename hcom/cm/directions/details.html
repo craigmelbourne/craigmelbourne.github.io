@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/mt-base.css">
+
+		<!-- Roboto font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+		<!-- Scripts -->
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=places"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>-->
+		<script src="tabletop.js"></script>
+
+		<script type="text/javascript">
+
+			var attractions;
+			var activities;
+			var hotels;
+			var restaurants;
+
+			var destination;
+
+			var directionsDisplay;
+			var directionsService = new google.maps.DirectionsService();
+
+			function calcRoute(pa, pb) {
+                var start = $("#itinerary-elements ul li").eq(pa).find("div.latlong").attr("rel");
+                
+                var end = $("#itinerary-elements ul li").eq(pb).find("div.latlong").attr("rel");
+
+                console.log(start + " " + end)
+
+               // console.log(start + " - " + end)
+
+                var request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.TravelMode.DRIVING
+                };
+    
+                directionsService.route(request, function(response, status) {
+                    console.log(response)
+                    var duration = response.routes[0].legs[0].duration
+                    var mode = "taxi";
+                    console.log(status)
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        //directionsDisplay.setDirections(response);
+                        $("#itinerary-elements ul li").eq(pb).find(".time").text(duration.text + " " + mode)
+                    }
+                });
+            }
+
+			$(function(){
+
+				$(".airports li#heathrow").on("click", function(){
+					$("li[rel=home] a.time").show();
+					$("li[rel=htr]").show();
+					$("li[rel=cdg]").show();
+					$("#airports").hide();
+				})
+
+				Tabletop.init( { key: '1OyBSRHM5jfeHGqiFSdAHikPP0MBBNfw1k4epiF7Nib0',
+                   callback: function(data, tabletop) {displayList (data) },
+                   simpleSheet: false } );
+
+				//$( "#itinerary-elements ul" ).sortable({
+  				//	placeholder: "empty"
+				//});
+    			//$( "#itinerary-elements ul" ).disableSelection();
+
+				var displayList = function(data){
+					console.log(data);
+					//console.log(data.Attractions.elements)
+
+					attractions = data.Attractions.elements;
+					activities = data.Activities.elements;
+					restaurants = data.Restaurants.elements;
+					hotels = data.Hotels.elements;
+
+					console.log(activities);
+					console.log(restaurants);
+					console.log(hotels);
+
+					$.each(attractions, function(i, attraction) {
+       					//console.log(poi.Title);
+       					$("#attractions").append(
+        					"<div class='item' rel='attraction' id='" + attraction.ID + "'><div>" 
+        					+ "<div class='image'><img src='" + attraction.Photo + "' /><div class='rank'>" + (i + 1) + "</div><div class='add-pin'><img src='i/icons/large_add_pin.png' /></div></div>"
+        					+ "<div class='name'>" + attraction.Title + "</div>"
+        					+ "<div class='snippet'>" + attraction.Description + "</div>"
+        					+ "<div class='rating'>"
+        					+ "<div style='font-size:12px; float:left;'><img src='i/icons/ta_rating_" + attraction.Rating + ".png' /> <br />" + attraction.Reviewers + " reviews</div>"
+        					+ "<div style='font-size:24px; float:right;'>" + attraction.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
+        					+ "</div>"
+        					+ "<div class='latlong' rel='" + attraction.Lat_Long +"'></div>"
+        					+ "<div class='selected'><p><img src='i/icons/medium_checked_pin.png' /><br />Added<br />FRI 28 MAY</p></div>"
+        					+ "</div></div>"
+        				)
+        			});
+
+        			$.each(activities, function(i, activity) {
+       					//console.log(poi.Title);
+       					$("#activities").append(
+        					"<div class='item' rel='activity' id='" + activity.ID + "'><div>" 
+        					+ "<div class='image'><img src='" + activity.Photo + "' /><div class='rank'>" + (i + 1) + "</div><div class='add-pin'><img src='i/icons/large_add_pin.png' /></div></div>"
+        					+ "<div class='name' style='margin-bottom:6px;'>" + activity.Title + "</div>"
+        					+ "<div class='snippet'>" + activity.Description + "</div>"
+        					+ "<div class='rating'>"
+        					+ "<div style='font-size:12px; float:left;'><img src='i/icons/ta_rating_" + activity.Rating + ".png' /> <br />" + activity.Reviewers + " reviews</div>"
+        					+ "<div style='font-size:24px; float:right;'>" + activity.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
+        					+ "</div>"
+        					+ "<div class='selected'><p><img src='i/icons/medium_checked_pin.png' /><br />Added<br />FRI 28 MAY</p></div>"
+        					+ "<div class='latlong' rel='" + activity.Lat_Long +"'></div>"
+        					+ "</div></div>"
+        				)
+        			});
+
+        			$.each(hotels, function(i, hotel) {
+       					//console.log(poi.Title);
+       					$("#hotels").append(
+        					"<div class='item' rel='hotel' id='" + hotel.ID + "'><div>" 
+        					+ "<div class='image'><img src='" + hotel.Photo + "' /><div class='rank'>" + (i + 1) + "</div><div class='add-pin'><img src='i/icons/large_add_pin.png' /></div></div>"
+        					+ "<div class='name' style='margin-bottom:6px;'>" + hotel.Title + "</div>"
+        					+ "<div class='snippet'>" + hotel.Description + "</div>"
+        					+ "<div class='rating'>"
+        					+ "<div style='font-size:12px; float:left;'><img src='i/icons/ta_rating_" + hotel.Rating + ".png' /> <br />" + hotel.Reviewers + " reviews</div>"
+        					+ "<div style='font-size:24px; float:right;'>" + hotel.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
+        					+ "</div>"
+        					+ "<div class='selected'><p><img src='i/icons/medium_checked_pin.png' /><br />Added<br />FRI 28 MAY</p></div>"
+        					+ "<div class='latlong' rel='" + hotel.Lat_Long +"'></div>"
+        					+ "</div></div>"
+        				)
+        			});
+
+        			$.each(restaurants, function(i, restaurant) {
+       					//console.log(poi.Title);
+       					$("#restaurants").append(
+        					"<div class='item' rel='restaurant' id='" + restaurant.ID + "'><div>" 
+        					+ "<div class='image'><img src='" + restaurant.Photo + "' /><div class='rank'>" + (i + 1) + "</div><div class='add-pin'><img src='i/icons/large_add_pin.png' /></div></div>"
+        					+ "<div class='name' style='margin-bottom:6px;'>" + restaurant.Title + "</div>"
+        					+ "<div class='snippet'>" + restaurant.Description + "</div>"
+        					+ "<div class='rating'>"
+        					+ "<div style='font-size:12px; float:left;'><img src='i/icons/ta_rating_" + restaurant.Rating + ".png' /> <br />" + restaurant.Reviewers + " reviews</div>"
+        					+ "<div style='font-size:24px; float:right;'>" + restaurant.Percent_Rec + "% <img src='i/icons/happy_face_selected.png' /></div>"
+        					+ "</div>"
+        					+ "<div class='selected'><p><img src='i/icons/medium_checked_pin.png' /><br />Added<br />FRI 28 MAY</p></div>"
+        					+ "<div class='latlong' rel='" + restaurant.Lat_Long +"'></div>"
+        					+ "</div></div>"
+        				)
+        			});
+				}
+
+
+				$("#poi-menu li a").on("click", function(e){
+					e.preventDefault();
+					var selected = $(this).attr("rel");
+					$("#poi-menu li a.selected").removeClass("selected");
+					
+					$(this).addClass("selected");
+					$(".list").hide();
+					$("#" + selected).show();
+				})
+
+				$(".list").on("click", "div.item", function(){
+					console.log($(this).attr("id"));
+					//$(this).addClass("item-selected");
+					var name = $(this).find(".name").text(); 
+					var id = $(this).attr("id");
+					var index = $("#itinerary-elements ul li").length;
+					var type = $(this).attr("rel");
+					var latlong = $(this).find(".latlong").attr("rel");
+					//var mins = randomIntFromInterval(1,60)
+					console.log(latlong);
+					$("#itinerary-elements ul").append(
+						"<li rel='" + type + "'>" 
+						+ "<a class='time' rel='" + index + "'></a>"
+						+ "<div class='name " + type + "'>" + name + "<div class='delete' rel='" + id + "'> X </div></div>"
+						+ "<div class='latlong' rel='" + latlong + "'></div>"
+						+ "</li>"
+					);
+					//console.log(name)
+					if ($("#itinerary-elements ul li").length >= 2){
+						calcRoute($("#itinerary-elements ul li").length-2, $("#itinerary-elements ul li").length-1);
+					}
+
+					$(this).find(".selected").show();
+					
+				});
+
+				function randomIntFromInterval(min,max){
+    				return Math.floor(Math.random()*(max-min+1)+min);
+				}
+
+				$("#itinerary-elements ul").on("click", ("li div.delete"), function(){
+					console.log($(this).attr("rel"));
+					//$("#list").find("div#" + $(this).attr("rel")).removeClass("item-selected");
+					var item = $(".list").find("div#" + $(this).attr("rel"));
+					console.log(item.find(".selected").hide());
+					
+					$(this).closest("li").remove();
+				})
+
+
+				$("#close-map").on("click", function(e){
+					e.preventDefault();
+					$("#directions-window").hide();
+					$("#directions-panel").empty();
+				});
+
+				$("#itinerary-elements ul").on("click", ("li a.time"), function(){
+					$("#directions-window").show();
+					console.log($(this).attr("rel"))
+					initialize($(this).attr("rel"));
+					//var index = $(this).parent().children().index(this);
+					//console.log($(this).attr("rel"));
+				});
+
+			});
+
+			function initialize(pos) {
+
+
+				//var loc = "48.861011, 2.325708"
+				
+				console.log("pos " + pos)
+
+				var endPos = $("#itinerary-elements ul li").eq(parseInt(pos)).find(".latlong").attr("rel");
+				//console.log(center)
+				var endArr = JSON.parse("[" + endPos + "]");
+				var end = new google.maps.LatLng(endArr[0], endArr[1]); 
+
+				var startPos = $("#itinerary-elements ul li").eq(parseInt(pos - 1)).find(".latlong").attr("rel");
+				//
+				var startArr = JSON.parse("[" + startPos + "]");
+				var start = new google.maps.LatLng(startArr[0], startArr[1]); 
+				console.log(startArr[0])
+  
+    			directionsDisplay = new google.maps.DirectionsRenderer();
+    			var mapOptions = {
+      				zoom: 14,
+      				//center: new google.maps.LatLng(pos)
+
+      				center: end
+   				 };  
+
+    			var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    			directionsDisplay.setMap(map);
+   				directionsDisplay.setPanel(document.getElementById('directions-panel'));
+
+   				//var start = $("#itinerary-elements ul li").eq(parseInt(pos)).attr("rel");
+  				//var end = $("#itinerary-elements ul li").eq(parseInt(pos)+1).attr("rel");
+
+  				//console.log(pos + " - " + pos+1)
+
+  				var request = {
+    				origin: start,
+    				destination: end,
+    				travelMode: google.maps.TravelMode.DRIVING
+  				};
+  
+  				directionsService.route(request, function(response, status) {
+    				//console.log(response)
+    				if (status == google.maps.DirectionsStatus.OK) {
+      					directionsDisplay.setDirections(response);
+					}
+  				});
+
+			}
+
+			
+			
+            
+
+		</script>
+
+	</head>
+
+	<body id="details">
+		<div id="header">
+			<div id="logo"><a href="home.html"><img src="i/logo.png" /></a></div>
+			<div id="tools">Sarah</div>
+		</div>
+
+		<div style="height:48px; background-color:#786956; position:absolute; top:48px; left:0; right:0; box-sizing:border-box; font-size:24px; padding:8px 16px; color:#efebe3; font-weight:300;">
+			<div style="float:right;"><img src="i/complete_profile_pic.png" style="width:32px;"/> <img src="i/a.png" style="width:32px;"/></div>
+			Paris
+		</div>
+
+		<div id="itinerary" class="panel">
+			
+			<style type="text/css">
+				ul#dates {overflow:hidden; margin:0px; position:relative; height: 72px;}
+				ul#dates li.cal {width:56px; height:72px; box-sizing:border-box; margin-bottom:16px; margin-right:16px; text-align:center; padding-top:20px; background:url("i/calendar_inactive.png"); position:absolute;}
+				ul#dates li span.day {display:block;font-size:16px; margin-bottom:4px;}
+				ul#dates li span.date {display:block;font-size:24px;}
+				ul#dates li.selected { background:url("i/calendar_active.png");  color:#009df5; }
+			</style>
+
+			<div style="padding:16px; position:relative">
+				
+				<ul id="dates">
+					<img src="i/icons/12px/tertiary/chevron_left.png" style="position:absolute; bottom:2px; left:0;" />
+					<img src="i/icons/12px/tertiary/chevron_right.png" style="position:absolute; bottom:2px; right:0;" />
+					<img src="i/icons/12px/tertiary/plus.png" style="position:absolute; top:2px; left:0;" />
+					<img src="i/icons/12px/tertiary/plus.png" style="position:absolute; top:2px; right:0;" />
+					<li class="cal selected" style="left:20px">
+						<span class="day">Fri</span><span class="date">28</span>
+					</li>
+					<li class="cal" style="left:92px">
+						<span class="day">Sat</span><span class="date">29</span>
+					</li>
+					<li class="cal" style="left:162px;"><span class="cal day">Sun</span><span class="date">30</span></li>
+					<li class="cal" style="left:234px;"><span class="day">Mon</span><span class="date">31</span></li>
+					
+				</ul>
+			</div>
+			<div id="itinerary-elements">
+				<ul>
+					<li rel='home'>
+						<div class='name home'>Home</div>
+						
+						<!--<div class='delete' rel="" > X </div>-->
+					</li>
+					<li rel='htr' style="display:none;">
+						<a class='time' rel='' style="">55 mins taxi</a>
+						<div class='name airport-up'>Heathrow <div class='delete' rel="" > X </div></div>
+						
+						
+					</li>
+					<li rel='cdg' style="display:none;">
+						<a class='time' rel=''>1hr 10 mins flight</a>
+						<div class='name airport-down'>Charles de Gaulle <div class='delete' rel="" > X </div></div>
+						<div class='latlong' rel="49.009849, 2.547956"></div>
+						
+						
+					</li>
+				</ul>
+				<div style="margin:16px 16px; background-color:#fff; padding:16px 16px 16px 48px; border-radius:4px; border:solid 1px #009df5; background:url('i/icons/16px/primary/car.png') no-repeat 16px 16px #fff">Taxi to</div>
+			</div>
+			
+		</div>
+
+		<style type="text/css">
+			#poi-menu {overflow:hidden; margin:8px 0 16px;}
+			#poi-menu li {float:left;}
+			#poi-menu li a {display:block; padding:0 8px; border-left:solid 1px #ddd; font-size:16px;}
+			#poi-menu li a.selected {color:#000;}
+			#poi-menu li:first-child a{padding-left:0; border-left:solid 0px #ddd;}
+			.airports {overflow:hidden; margin-top:16px;}
+			.airports li {float:left; text-align: center; width:25%;}
+			.airports li#heathrow:hover {cursor: pointer;}
+		</style>
+
+		<div id="content" class="panel">
+				
+				<div id="airports" style="min-height:100px; padding:16px; margin:16px; background-color:#fff; border-radius:4px;">
+					<h1 style="font-size:24px;">Airport first?</h1>
+					<ul class="airports">
+						<li id="heathrow"><img src="i/lhr.png" />
+							<div>Heathrow</div>
+							<div>55 mins</div>
+						</li>
+						<li><img src="i/stn.png" />
+							<div>Stansted</div>
+							<div>55 mins</div>
+						</li>
+						<li><img src="i/ltn.png" />
+							<div>Luton</div>
+							<div>55 mins</div>
+						</li>
+						<li><img src="i/gtw.png" />
+							<div>Gatwick</div>
+							<div>55 mins</div>
+						</li>
+					</ul>
+				</div>
+				<div style="background-color:#fff; padding:16px 0 0 16px; overflow:hidden; margin:16px; border-radius:4px">
+					<div style="overflow:hidden;">
+					<div style="float:left; width:50%;">
+						<img src="i/tripadvisor.png" />
+						<div >
+							<ul id="poi-menu">
+								<li><a href="#" rel="attractions" class="selected">Attractions</a></li>
+								<li><a href="#" rel="activities">Activities</a></li>
+								<li><a href="#" rel="hotels">Hotels</a></li>
+								<li><a href="#" rel="restaurants">Restaurants</a></li>
+							</ul>
+						</div>
+
+
+					</div>
+					<div style="float:right; width:50%; text-align:right; box-sizing:border-box; padding-right:24px; color:#BBAA89;">Paris, France
+						<ul style="overflow:hidden; margin-top:12px">
+							<li style="float:right; padding:0 8px;"><img src="i/icons/16px/tertiary/search.png" /></li>
+							<li style="float:right; padding:0 8px; border-right:solid 1px #ddd;"><img src="i/icons/16px/tertiary/pin.png" /></li>
+							
+						</ul>
+					</div>
+					</div>
+					<div style="" id="attractions" class="list" style="clear-left;">
+					</div>
+
+					<div style="display:none;" id="activities" class="list">
+					</div>
+
+				
+
+					<div style=" display:none;" id="hotels" class="list">
+					</div>
+
+					<div style="display:none;" id="restaurants" class="list">
+					</div>
+
+					<div style="padding:0 0 16px 0"><a href="#">See more results on TripAdvisor</a></div>
+				</div>
+		</div>
+
+		
+		
+		<style type="text/css">
+			#map-canvas {height:100%;}
+			#results {
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        left: 0px;
+        top: 0;
+        bottom:0;
+        width: 350px;
+        padding: 12px;
+        z-index: 5;
+        background: #fff;
+          overflow-y: scroll;
+      }
+
+      	.adp-directions {width:100%;}
+      .adp-directions td {padding:16px 0;}
+		</style>
+		<div id="directions-window" style="display:none; position:absolute; top:48px; left:0; right:0; bottom:0; background-color:#fff; z-index:20000">
+			
+			<div id="results">
+				<a href="details.html" id="close-map" style="font-size:16px; display:block; margin-bottom:12px;">
+					<img src="i/icons/12px/primary/chevron_left.png" /> Daily planner</a>
+				<div id="directions-panel" style="margin-top:12px; overflow-y:scroll; position:absolute; top:30px; bottom:0; left:12px; right:12px; font-size:14px;"></div>
+			</div>
+
+			<div id="map-wrapper" style="position:absolute; top:0px; left:360px; right:0; bottom:0;">
+      			<div id="map-canvas"></div>
+    		</div>
+		</div>
+		
+	</body>
+</html>

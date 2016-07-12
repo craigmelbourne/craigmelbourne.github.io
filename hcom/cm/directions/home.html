@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/mt-base.css">
+
+		<!-- Roboto font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+		<!-- Scripts -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			$(function(){
+
+				$("#content label a").on("click", function(e){
+					e.preventDefault();
+					$(".transport ul").show();
+				});
+
+				$(".transport ul li").on("click", function(e){
+					e.preventDefault();
+					$("#content label a").text($(this).text());
+					$(".transport ul").hide();
+				});
+
+			});
+
+		</script>
+
+	</head>
+
+	<body id="home">
+		<div id="header">
+			<div id="logo"><a href="home.html"><img src="i/logo.png" /></a></div>
+			<div id="tools">Sign up</div>
+		</div>
+
+		<div id="content-wrapper">
+			<div id="content">
+				<div id="search">
+					<div>
+						<h1>Plan your next trip</h1>
+						<div id="search-box" style="overflow:hidden;">
+							<div style="background-color:#fff; float:left;border-top:solid 1px #dad1c5; border-bottom:solid 1px #dad1c5; box-sizing:border-box; height:48px; padding:12px 10px 0; border-top-left-radius:4px; border-bottom-left-radius:4px; border-left:solid 1px #dad1c5;"><img src="i/icon_sesrch_plane_up.png" /></div>
+							<div style="background-color:#fff; float:left; border-top:solid 1px #dad1c5; border-bottom:solid 1px #dad1c5; height:48px; box-sizing:border-box; padding-top:6px"><input style="border:0; font-size:16px; width:400px" type="text" autofocus placeholder="City or Airport"/></div>
+							<div style="background-color:#fff; float:left;border-top:solid 1px #dad1c5; border-bottom:solid 1px #dad1c5; border-right:solid 1px #dad1c5; padding:10px; box-sizing:border-box; height:48px; border-top-right-radius:4px; border-bottom-right-radius:4px"><a href="profile.html"><img src="i/icon_sesrch_magnifier.png" /></a></div>
+						</div>
+						
+					</div>
+				</div>
+					
+				
+				
+
+				<div id="destinations">
+					<p>Popular destinations from London</p>
+					<ul>
+						<li><img src="i/homepage/photo_01.png" />
+							Bath</li>
+						<li><img src="i/homepage/photo_02.png" /><br />Brighton</li>
+						<li><img src="i/homepage/photo_03.png" /><br />Oxford</li>
+						<li><img src="i/homepage/photo_04.png" /><br />Edinburgh</li>
+						<li><img src="i/homepage/photo_05.png" /><br />Rome</li>
+						<li><img src="i/homepage/photo_06.png" /><br />Paris</li>
+						
+					</ul>	
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,6 +1,7 @@
 body {font-size: 14px; color:#555;}
 ul {margin:0; padding:0;}
 a {color:#026dc5;}
+body.modal-open {overflow: hidden;}
 
 
 #wrapper-query {background-color:#eae8e0;}
