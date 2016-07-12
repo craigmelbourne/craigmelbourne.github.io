@@ -49,7 +49,7 @@
 
 
 		#page-wrapper #content {width:calc(100% - 274px); display:inline-block; vertical-align: top; margin-left:16px;}
-		#page-wrapper #content .card {background-color: #fff; border-radius: 4px; height:100px; margin-bottom:16px;}
+		#page-wrapper #content .card {background-color: #fff; border-radius: 4px; min-height:100px; margin-bottom:16px;}
 
 		#filters #total-hotels {font-weight:bold; font-size:12px; padding:0; margin:0;}
 #filters > div {box-sizing: border-box; padding:8px; }
@@ -63,6 +63,13 @@
     #filters  ul.stars li {margin:0; padding:0;}
     #filters  ul.stars li input[type="checkbox"] {float:left; width:16px; margin-top:6px;}
     #filters  ul.stars li label {color:#d41200; font-size:16px; padding:0;}
+
+    .card {padding:8px 8px 8px; overflow:hidden;}
+    .card .thumb { width:250px; float:left;}
+    .card .content {width:calc(100% - 250); float:left;}
+    .card .thumb img {max-width: 100%}
+    .card .thumb .qual {border-radius:4px; padding:4px 8px; background-color:#f5f4f0; margin-bottom:4px; color:#388E3C;}
+    .badge {font-weight:bold;}
 
 	</style>
 
@@ -151,21 +158,7 @@
 			<div id="f-neighbourhoods"></div>
 		</div>
 		<div id="content">
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
-			<div class="card"></div>
+
 		</div>
 	</div>
 
@@ -195,6 +188,30 @@
  		{{/each}}
  	</ul>			
 </script>
+
+<script id="hotel-cards" type="text/x-handlebars-template">
+{{#each this}}
+	<div class="card">
+		<div class="thumb">
+			
+			<div class="qual">
+				<i class="fa fa-comments" aria-hidden="true" style="display:inline-block; vertical-align:top;"></i> 
+				<div style="display:inline-block; vertical-align:top;">
+					<span class="badge">{{qualitativeBadgeText}}</span> {{guestReviewRating}}/5
+					<span style="display:block; font-size:11px; margin-top:2px">{{numberOfGuestReviews}} verified Hotels.com guest reviews</span>
+					<div style="font-size:11px; margin-top:4px"><img src="ta-score.png" style="height:16px;"/> 1,117 reviews</div>
+				</div>
+			</div>
+			<img src="{{thumbnailUrl imageUrl}}" />
+		</div>
+		<div class="content">
+			<div class="name"><a href="#">{{hotelName}}</a></div>
+			<div class="address">{{address1}}</div>
+
+		</div>
+	</div>
+{{/each}}
+</script>
 		
 
 
@@ -212,6 +229,7 @@
 					hotelData = data; 
 					console.log(hotelData); 
 					displayFiltersNeighbourhoods(data.result.neighborhoods);
+					displayHotelCards(data.result.hotels);
 
 				});
       			
@@ -228,6 +246,17 @@
   				var template = Handlebars.compile(source);
   				$("#f-landmarks").html(template(data));
 			}
+
+			var displayHotelCards = function(data){
+				var source   = $("#hotel-cards").html();
+  				var template = Handlebars.compile(source);
+  				$("#content").html(template(data));
+			}
+
+			Handlebars.registerHelper("thumbnailUrl", function(imageUrl){
+				var thumb = imageUrl.replace("_b.jpg", "_l.jpg");
+				return thumb;
+			})
 
 		</script>
 	</body>
