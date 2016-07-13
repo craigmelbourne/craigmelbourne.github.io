@@ -162,9 +162,9 @@ function getParameterByName(name) {
 var ciDates = function(){
   var today = new Date();
   var cidd = today.getDate();
-  var cimm = today.getMonth()+2;
+  var cimm = today.getMonth()+3;
   var codd = today.getDate()+1;
-  var comm = today.getMonth()+2;
+  var comm = today.getMonth()+3;
   
   return "&dayInMonthCheckIn="+ cidd + "&monthCheckIn=" + cimm + "&dayInMonthCheckOut=" + codd + "&monthCheckOut=" + comm;
 }

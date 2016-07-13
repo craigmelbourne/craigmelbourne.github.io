@@ -1,8 +1,16 @@
 var geocoder = new google.maps.Geocoder();
 var distanceService = new google.maps.DistanceMatrixService;
 
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+
 var markersLandmarks = [];
 var markersTransport = [];
+
+var transportObj;
+var landmarkObj;
+
+var openInfoWindow = false; 
 
 var map;
 //var service;
@@ -62,20 +70,23 @@ function initializeMap() {
    
     map = new google.maps.Map(document.getElementById('map_canvas'), {
         center: loc,
-        zoom: 14,
+        zoom: 13,
         mapTypeId: 'roadmap',
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         panControl: false,
         mapTypeControl: false,
         streetViewControl:false,
-        zoomControl: false,
+        zoomControl: true,
         zoomControlOptions: {
             style: google.maps.ZoomControlStyle.MEDIUM,
             position: google.maps.ControlPosition.RIGHT_TOP
         }
     });
 
+    directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: false});
+    directionsDisplay.setMap(map);
     service = new google.maps.places.PlacesService(map);
+    //directionsDisplay.setMap(map);
 
     google.maps.event.addListenerOnce(map, 'idle', function(){
         // do something only the first time the map is loaded  
@@ -90,6 +101,29 @@ function initializeMap() {
     
 }
 
+function calcRoute(obj) {
+    
+    //console.log("calc route")
+
+    var locStr = obj.latlng.split(", ");
+    var latlngObj = new google.maps.LatLng(locStr[0], locStr[1]);
+
+    //console.log(latlngObj);
+
+ var request = {
+    origin: loc,
+    destination: latlngObj,
+    travelMode: google.maps.TravelMode[obj.transitMode]
+  };
+  directionsService.route(request, function(response, status) {
+    //console.log(response)
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+
+    }
+  });
+}
+
 var displayHotelPin = function(){
     var markerLabel = new MarkerWithLabel({
         position: loc,
@@ -97,8 +131,7 @@ var displayHotelPin = function(){
         map: map,
         icon: markerImage,
         labelContent: "<span class='icon'>&#xe947;</span> " + hotelData.roomRates.lowPrice,
-                //labelContent: "<i class='fa fa-university' aria-hidden='true'></i>",
-                //labelAnchor: new google.maps.Point(40, 32),
+        //labelAnchor: new google.maps.Point(40, 32),
         labelClass: "map-label-selected-hotel", // the CSS class for the label
         labelStyle: {opacity: 0.9}
     });
@@ -106,7 +139,7 @@ var displayHotelPin = function(){
 
 var displayTransportPOI = function(){
     console.log(content['lacoruna']);
-    var transportObj = content['lacoruna'].transport
+    transportObj = content['lacoruna'].transport
 
     $.each(transportObj, function(i, obj) {
         //console.log(transport.name);
@@ -114,7 +147,7 @@ var displayTransportPOI = function(){
         var latlngObj = new google.maps.LatLng(locStr[0], locStr[1]);
         //console.log(latlngObj);
         var poiTypeObj = getObjects(typeDescription, 'type', obj.type);
-        console.log(poiTypeObj);
+        //console.log(poiTypeObj);
 
         var markerLabel = new MarkerWithLabel({
             position: latlngObj,
@@ -126,17 +159,41 @@ var displayTransportPOI = function(){
             labelClass: "poi-transport", // the CSS class for the label
             labelStyle: {opacity: 0.9}
         });
+        
         markersTransport.push(markerLabel);
 
-        // displat list on panel
-        $("#transport-list ul").append("<li><span class='icon'>" + poiTypeObj[0].iconfont + "</span> " + obj.name + "</li>")
+        var num = markersTransport.indexOf(markerLabel);
 
+        var infowindow = new google.maps.InfoWindow({
+            content: obj.name
+        });
+
+        google.maps.event.addListener(markerLabel, 'click', function() {
+           
+
+            if( openInfoWindow ) {
+                openInfoWindow.close();
+            }
+
+            openInfoWindow = infowindow;
+
+            infowindow.open(map, markersTransport[num]);
+            calcRoute(obj);
+        });
+
+        google.maps.event.addListener(markerLabel, 'mouseout', function() {
+            //infowindow.close();
+        });
+
+        // displat list on panel
+        //$("#transport-list ul").append("<li rel='" + num + "'><span class='icon'>" + poiTypeObj[0].iconfont + "</span> " + obj.name + "</li>")
+        getDistance(latlngObj, "transport-list", obj, num, poiTypeObj[0].iconfont, obj.transitMode);
     });
 }
 
 var displayLandmarksPOI = function(){
-    console.log(content['lacoruna']);
-    var landmarkObj = content['lacoruna'].landmarks
+    //console.log(content['lacoruna']);
+    landmarkObj = content['lacoruna'].landmarks
 
     $.each(landmarkObj, function(i, obj) {
         //console.log(transport.name);
@@ -156,9 +213,31 @@ var displayLandmarksPOI = function(){
             labelClass: "poi-transport", // the CSS class for the label
             labelStyle: {opacity: 0.9}
         });
+        
         markersLandmarks.push(markerLabel);
 
-        $("#landmarks-list ul").append("<li><span class='icon'>" + poiTypeObj[0].iconfont + "</span> " + obj.name + "</li>")
+        var infowindow = new google.maps.InfoWindow({
+            content: obj.name
+        });
+
+        google.maps.event.addListener(markerLabel, 'click', function() {
+           
+
+            if( openInfoWindow ) {
+                openInfoWindow.close();
+            }
+
+            openInfoWindow = infowindow;
+
+            infowindow.open(map, markersLandmarks[num]);
+            calcRoute(obj);
+        });
+
+        var num = markersLandmarks.indexOf(markerLabel);
+
+
+        getDistance(latlngObj, "landmarks-list", obj, num, poiTypeObj[0].iconfont, obj.transitMode);
+        //$("#landmarks-list ul").append("<li><span class='icon'>" + poiTypeObj[0].iconfont + "</span> " + obj.name + "</li>")
 
     });
 }
@@ -192,16 +271,39 @@ function displayPlacesList(places, status, type, num_results){
     }
 }
 
-function displayNameDistance(hotelLoc, place, type) {
-    
-    function getRating(){
+function getRating(place){
         if (place.rating) {
             var rating = place.rating
-            return " <span class='rating' style='color:#999; font-size:14px'>(rating:" + rating + "/5)</span>";
+            return " <span class='rating' style='color:#999; font-size:11px'>(" + rating + "/5)</span>";
         } else {
             return "";
         }
     }
+
+
+var getDistance = function(endLoc, elem, obj, num, icon, mode) {
+    distanceService.getDistanceMatrix({
+        origins: [loc],
+        destinations: [endLoc],
+        travelMode: google.maps.TravelMode[mode],
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false
+    }, function(response, status) {
+        if (status !== google.maps.DistanceMatrixStatus.OK) {
+            alert('Error was: ' + status);
+        } else {
+            var distance = response.rows[0].elements[0].distance.text;
+            var duration = response.rows[0].elements[0].duration.text;
+            $("#" + elem + " ul").append("<li rel='" + num + "'><span class='icon'>" + icon + "</span><div class='item'><div> " + obj.name + "</div><div class='distance'>" + distance + " - " + duration + " - " + mode + "</div></div></li>")
+        }
+
+    })
+}
+
+function displayNameDistance(hotelLoc, place, type) {
+    
+    
 
     
 
@@ -217,7 +319,7 @@ function displayNameDistance(hotelLoc, place, type) {
         alert('Error was: ' + status);
         } else {
 
-            var placeData = place.name + getRating();
+            var placeData = place.name + getRating(place);
 
 
             //console.log(place.name + " - " + response.rows[0].elements[0].distance.text);
@@ -263,6 +365,8 @@ function fetchPOI(location) {
 
     
 }
+
+
 
 
 
@@ -334,11 +438,15 @@ var content = {
         destinationId: "457467",
         
         transport: [
-            {name:"San Cristobal Train Station", latlng:"43.3526, -8.4099", type:"train"}
+            {name:"San Cristobal Train Station", latlng:"43.3526, -8.4099", type:"train", transitMode:"DRIVING"},
+            {name:"La Coruña Airport", latlng:"43.3020, -8.3811", type:"airport", transitMode:"DRIVING"}
         ],
 
         landmarks: [
-            {name:"Tower of Hercules", latlng:"43.3860, -8.4065", type:"monument"}
+            {name:"Tower of Hercules", latlng:"43.3860, -8.4065", type:"monument", transitMode: "WALKING"},
+            {name:"Aquarium Finisterrae", latlng:"43.3840, -8.4097", type:"icecream", transitMode: "WALKING"},
+            {name:"Museo Domus", latlng:"43.3776, -8.4065", type:"museums", transitMode: "WALKING"}, 
+            {name:"Orzan Beach", latlng:"43.37031, -8.40351", type:"museums", transitMode: "WALKING"}
         ]
     }
 }
