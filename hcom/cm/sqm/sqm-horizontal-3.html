@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- <i class="material-icons">&#xE87C;</i> -->
+	</head>
+
+	<body>
+
+	<style type="text/css">
+		body {margin:0; padding:0; font-family: "Helvetica Neue"; background-color:#f5f4f0;}
+		ul {list-style-type: none; padding:0; margin:0;}
+		a {text-decoration: none; color:#026dc5;}
+		#header-wrapper {background-color: #d41200; height:184px; position:absolute; left:0; right:0; top:0; z-index:-1;}	
+		#header-content {max-width:1100px; margin:0 auto; color:#fff;}	
+		#header-content h1 {margin:0; padding:0; float:left;}
+		#header-content .phone {padding:8px 0; float:left;}
+		#header-content .link {font-size:13px;}
+		#tp-wrapper {background-color: ; position:absolute; left:0; right:0; top:130px; z-index:-1; height:90px;}	
+		#tp-content {max-width:1100px; margin:60px auto;}	
+		#sqm {position:relative; max-width:1100px; margin:0 auto; background-color:#d41200; margin-top:94px; box-sizing: border-box;  z-index:1000; border-top:solid 1px #fff; padding-top:16px;}
+
+		#tp-strip {position:relative; max-width:1100px; margin:-12px auto; background-color:#fff; box-sizing: border-box; padding:20px 16px; background-color:#026dc5; border-radius:4px;}
+
+		#sqm .field {display:inline-block;padding:0 12px 0 0; box-sizing:border-box; }
+		
+		#sqm .field label.sqm {display:block; margin-bottom:8px;  font-size:13px; color:#fff;}
+		#sqm .field input[type="text"] {font-size:16px; width:calc(100% - 16px); border:0; font-family:arial; padding:8px; border-radius:4px; 
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.39)}
+		#sqm .date {background: url("cal.png") no-repeat #fff center right;}
+
+		ul.main-links li {display: inline-block; padding-top:16px; margin-left:20px;}
+
+		#page-wrapper {max-width:1100px; margin:30px auto 0; }
+		#page-wrapper #filters {width:250px; height:600px; border-radius: 4px; display:inline-block; vertical-align: top;}
+		#page-wrapper #filters h2 {font-size:18px; padding:0; margin:0 0 0 0;}
+		#page-wrapper #filters p {font-size:14px; padding:0; margin:4px 0 8px 0;}
+		#page-wrapper #filters > div { padding: 8px 0;}
+		#page-wrapper #filters input[type="text"] {font-size:12px; width:calc(100% - 48px); border:0; font-family:arial; padding:8px; border-radius:4px; 
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.39)}
+		#page-wrapper #filters h3 {font-size:14px; padding:0; margin:0 0 8px 0;}
+		#page-wrapper #filters ul.stars li {color:#d41200; font-size:14px;}
+
+
+		#page-wrapper #content {width:calc(100% - 274px); display:inline-block; vertical-align: top; margin-left:16px;}
+		#page-wrapper #content .card {background-color: #fff; border-radius: 4px; min-height:100px; margin-bottom:16px;}
+
+		#filters #total-hotels {font-weight:bold; font-size:12px; padding:0; margin:0;}
+#filters > div {box-sizing: border-box; padding:8px; }
+    #filters ul {list-style-type: none;}
+    #filters .filter {border-top:solid 1px #ddd;}
+    #filters  h2 {font-size:16px; font-weight:bold; margin:0 0 8px 0; padding:0;}
+    #filters  h3 {font-size:14px; font-weight:bold; margin:0 0 12px 0; padding:0;}
+    #filters  ul li {overflow:hidden; margin-bottom:4px;}
+    #filters  ul li input[type="checkbox"] {float:left; width:16px; padding:0;}
+    #filters  ul li label {float:left; width:calc(100% - 30px); padding:2px 0 0 0; font-size: 12px}
+    #filters  ul.stars li {margin:0; padding:0;}
+    #filters  ul.stars li input[type="checkbox"] {float:left; width:16px; margin-top:6px;}
+    #filters  ul.stars li label {color:#d41200; font-size:16px; padding:0;}
+
+    .card {padding:8px 8px 8px; overflow:hidden;}
+    .card .thumb { width:250px; float:left;}
+    .card .thumb img {width: 250px}
+    .card .thumb .strip {display:flex; flex-direction:row;}
+    .card .thumb .strip > div {flex-grow:1; height:60px;}
+    .card .thumb .strip > div > div:first-child {height:60px; background-color:#eee; box-sizing:border-box;}
+    .card .content {width:calc(100% - 425px); float:left; box-sizing:border-box; padding-left:16px;}
+    .card .content .name {font-size:14px; margin-bottom:4px;}
+    .card .content .address {font-size:12px; color:#999;}
+    
+    .card .content .qual {padding:8px 0}
+    .card .content .location .neighbourhood {font-size:13px;vertical-align: top;}
+    .card .content .location .place {font-size:12px; color:#555;}
+    .card .content .location .place .walking {font-size:12px;}
+    .badge {font-weight:bold;}
+
+    .card .price {width:175px; float:left; box-sizing:border-box; text-align:right; padding-right:8px;}
+
+
+			.card .price .specialDeal .total {color:#d41200; font-weight:bold; font-size:20px;}
+			.card .price .specialDeal .description {color:#d41200; font-size:12px; display:block; font-weight:bold; margin-bottom:4px;}
+			.card .price .specialDeal .strikethrough {color:#555; font-size:16px; text-decoration: line-through}
+			.card .price .standard {font-weight:bold; font-size:20px;}
+			.card .price .disclaimer {font-size:11px; color:#999;}
+
+    .card .price .disclaimer {font-size:11px; color:#999;}
+    button.primary {background-color: #026dc5; display:inline-block; margin-top:16px; color:#fff; padding:4px 8px; font-size:14px; border:0; border-radius:4px; font-family: arial; border-bottom: solid 2px #000}
+
+	</style>
+
+	<div id="header-wrapper">
+
+		<div id="header-content">
+			<div style="overflow:hidden; margin-bottom:4px">
+				<div class="phone link">0800 028 3906 | 020 3027 1427</div>
+				<div style="float:right;">
+					<span class="link">Rewards :: Hotel Deals</span>
+					
+					<span style="display:inline-block; padding:4px; background-color:#000;"><img src="currency.png" /></span>
+					
+				</div>
+			</div>
+			
+			<div style="overflow:hidden;">
+				<div style="height:100px; overflow:hidden; float:left;"><img src="https://a2.cdn-hotels.com/da/assets/s/41.0/images/brands/hcom/logos/logo_en_GB.png" style="height:100px"/></div>
+				<div style="float:right;">
+					<ul class="main-links">
+						<li>Customer Service</li>
+						<li>Your account</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<!--<div id="tp-wrapper">
+		<div id="tp-content">
+			<div>Trip planner</div>
+		</div>
+	</div>-->
+
+	<div id="sqm">
+		<div class="field" style="width:400px">
+			<label class="sqm">Destination, hotel, landmark or address</label>
+			<input type="text" placeholder="--"/>
+			<!--<input type="radio" />Business  <input type="radio" />Business-->
+		</div>
+		<div class="field" style="width:180px">
+			<label class="sqm " >Check in</label>
+			<input class="date" type="text" placeholder="--"/>
+		</div>
+		<div class="field" style="width:180px">
+			<label class="sqm ">Check out</label>
+			<input class="date" type="text"placeholder="--" />
+		</div>
+		<div class="field" style="width:200px">
+			<label class="sqm">Rooms</label>
+			<input type="text" placeholder="--" />
+		</div>
+		<div class="field" style="text-align:right">
+			<button style="color:#026dc5; background-color:#fff; font-size:16px; padding:8px 16px; border:0; border-radius:4px; border-bottom: solid 2px #000"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+		</div>
+	</div>
+	<!--<div id="tp-strip">Trip planner</div>-->
+
+	<div id="page-wrapper">
+		<div id="filters">
+			<h2>Narrow results:</h2>
+			<p>1234 hotels</p>
+			<div>
+				<h3>Name contains</h3>
+				<input type="text">
+			</div>
+			<div>
+				<h3>Price</h3>
+				<img src="slider.png" />
+			</div>
+			<div>
+				<h3>Star rating</h3>
+				<ul class="stars">
+					<li><input type="checkbox" /> &#9733&#9733&#9733&#9733&#9733</li>
+					<li><input type="checkbox" /> &#9733&#9733&#9733&#9733</li>
+					<li><input type="checkbox" /> &#9733&#9733&#9733</li>
+					<li><input type="checkbox" /> &#9733&#9733</li>
+					<li><input type="checkbox" /> &#9733</li>
+				</ul>
+			</div>
+			<div>
+				<h3>Guest rating</h3>
+				<img src="slider.png" />
+			</div>
+			<div id="f-neighbourhoods"></div>
+		</div>
+		<div id="content">
+
+		</div>
+	</div>
+
+
+<!-- TEMPLATES --> 
+
+<script id="filters-neighborhoods" type="text/x-handlebars-template">
+ 	<h3>Neighbourhoods</h3>
+ 	<ul>
+ 		{{#each this}}
+ 		<li>
+ 			<input type="checkbox">
+ 			<label>{{title}}</label>
+ 		</li>
+ 		{{/each}}
+ 	</ul>			
+</script>
+
+<script id="filters-landmarks" type="text/x-handlebars-template">
+ 	<h3>Landmarks</h3>
+ 	<ul>
+ 		{{#each this}}
+ 		<li>
+ 			<input type="checkbox">
+ 			<label>{{title}}</label>
+ 		</li>
+ 		{{/each}}
+ 	</ul>			
+</script>
+
+<script id="hotel-cards" type="text/x-handlebars-template">
+{{#each this}}
+	<div class="card" rel={{@index}}>
+		<div class="thumb">
+			
+			
+			<img src="{{thumbnailUrl imageUrl}}" />
+			<div class="strip">
+				<div>
+					<div></div>
+				</div>
+				<div>
+					<div></div>
+				</div>
+				<div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="name"><a href="#">{{hotelName}}</a></div>
+			<!--<div class="address">{{address1}}, {{locality}}</div>-->
+			<div class="location">
+				 <div class="neighbourhood">{{getNeighbourhood location}}</div>
+					<span style="font-size:12px; color:#555;">City center</span>	
+					<span class="place citycenter">{{getCityCenterDistance lat lon @index}}</span>
+			</div>
+			<div class="qual">
+				
+				<div style="display:inline-block; vertical-align:top;">
+				<i class="fa fa-comments" aria-hidden="true" style=""></i> 
+					<span class="badge">{{qualitativeBadgeText}}</span> {{guestReviewRating}}/5
+					<span style="display:block; font-size:11px; margin-top:2px">{{numberOfGuestReviews}} verified Hotels.com guest reviews</span>
+					<div style="font-size:11px; margin-top:4px"><img src="ta-score.png" style="height:16px;"/> 1,117 reviews</div>
+				</div>
+			</div>
+		</div>
+		<div class="price">
+       	 			{{#if promoPriceDetails}}
+
+       	 				{{#if promoPriceDescription.length}}
+       	 					<div class="specialDeal">
+       	 						<span class="description">{{promoPriceDescription}}</span>
+       	 						<span class="strikethrough">{{avgPrice}}</span> 
+       	 						<span class="total">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</span>
+       	 					</div>
+       	 				{{else}}
+       	 					<div class="standard">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</div>
+       	 				{{/if}}
+       	 				
+       	 			{{else}}
+       	 				<div class="standard">{{avgPrice}}</div>
+       	 			{{/if}}
+       	 				<div class="disclaimer">{{avgPriceDescription}}</div>
+       	 				<button class="primary">Choose room</button>
+
+       	 			</div>
+	</div>
+{{/each}}
+</script>
+		
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="../handlebars.js"></script>
+		<script src="destinations.js"></script>
+		<script type="text/javascript"
+          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI&libraries=places">
+      	</script>
+
+		<script type="text/javascript">
+
+		var service = new google.maps.DistanceMatrixService();
+
+		var getDistance = function(start, end, elem) {
+
+			service.getDistanceMatrix({
+        		origins: [start],
+        		destinations: [end],
+        		travelMode: google.maps.TravelMode["WALKING"],
+        		unitSystem: google.maps.UnitSystem.METRIC,
+        		avoidHighways: false,
+        		avoidTolls: false
+    		}, function(response, status) {
+        		if (status !== google.maps.DistanceMatrixStatus.OK) {
+        			alert('Error was: ' + status);
+       			} else {
+
+            		console.log(response.rows[0].elements[0].distance.text)
+            		var distance = response.rows[0].elements[0].distance.text;
+            		var duration = response.rows[0].elements[0].duration.text
+            		$("div[rel=" + elem + "]").find(".citycenter").html(distance + " - <i class='material-icons walking'>&#xE536;</i>" + duration)
+            		
+        		}
+    		})
+
+		}
+
+		var hotelData
+			// run things on page load
+			$(function(){
+
+				$.getJSON( "../ny-json.js", function( data ) {
+					hotelData = data; 
+					console.log(hotelData); 
+					displayFiltersNeighbourhoods(data.result.neighborhoods);
+					displayHotelCards(data.result.hotels);
+
+				});
+      			
+			});
+
+			var displayFiltersNeighbourhoods = function (data){
+				var source   = $("#filters-neighborhoods").html();
+  				var template = Handlebars.compile(source);
+  				$("#f-neighbourhoods").html(template(data));
+			}
+
+			var displayFiltersLandmarks = function (data){
+				var source   = $("#filters-landmarks").html();
+  				var template = Handlebars.compile(source);
+  				$("#f-landmarks").html(template(data));
+			}
+
+			var displayHotelCards = function(data){
+				var source   = $("#hotel-cards").html();
+  				var template = Handlebars.compile(source);
+  				$("#content").html(template(data));
+			}
+
+			Handlebars.registerHelper("thumbnailUrl", function(imageUrl){
+				var thumb = imageUrl.replace("_b.jpg", "_l.jpg");
+				return thumb;
+			}); 
+
+			Handlebars.registerHelper("getNeighbourhood", function(strLocation){
+				var loc = strLocation.split("/");
+				return loc[0];
+			}); 
+
+			Handlebars.registerHelper("getCityCenterDistance", function(hlat, hlng, elem){
+				var start = destinations.newyork[0].center
+				var end = {lat: hlat, lng: hlng};
+				var distance = getDistance(start, end, elem);
+				//console.log(start)
+				return distance;
+			});
+
+		</script>
+	</body>
+</html>
