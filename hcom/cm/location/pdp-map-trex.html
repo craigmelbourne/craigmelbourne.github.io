@@ -48,16 +48,24 @@
 					console.log("click");
 					var num = parseInt($(this).attr("rel"));
 					google.maps.event.trigger(markersTransport[num], 'click');
-					calcRoute(transportObj[num]);
+					//calcRoute(transportObj[num]);
 				});
 
 				$("#landmarks-list ul").on("click", "li", function(e){
 					console.log("click");
 					var num = parseInt($(this).attr("rel"));
 					google.maps.event.trigger(markersLandmarks[num], 'click');
-					calcRoute(landmarkObj[num]);
+					//calcRoute(landmarkObj[num]);
 				});
 				
+				$("#restaurants-list ul").on("click", "li", function(e){
+					console.log("click");
+					var num = parseInt($(this).attr("rel"));
+					google.maps.event.trigger(markersRestaurants[num], 'click');
+					//calcRoute(landmarkObj[num]);
+				});
+
+
 			});
 
 			var call = function(data){
@@ -103,7 +111,7 @@
 
 		</div>
 		
-		<div id="content-panel" style="position:absolute; top:0; left:0; bottom:0; width:400px;  box-sizing:border-box; overflow:hidden;">
+		<div id="content-panel">
 
 			<div style="position:absolute; top:0; left:0; right:0; height:120px;">
 				<div id="thumb">
@@ -112,11 +120,10 @@
 				<div style="padding:24px; border-bottom:solid 1px #eee;">
 					<h1 id="name"></h1>
 					<address></address>
-					<p style="font-size:14px; line-height: 16px; margin-top:8px">4-star beachfront hotel with restaurant, near Orzan Beach</p>
 				</div>
 			</div>
 
-			<div style="position:absolute; top:330px; left:0; right:0; bottom:0; overflow-y:scroll; padding:24px; margin-right:12px; box-sizing:border-box;">
+			<div id="items" style="">
 				<div id="transport-list" class="list">
 					<h3>Transport</h3>
 					<ul></ul>
@@ -126,6 +133,12 @@
 					<h3>Popular landmarks</h3>
 					<ul></ul>
 				</div>
+
+				<div id="restaurants-list" class="list">
+					<h3>Nearby Restaurants</h3>
+					<ul></ul>
+				</div>
+
 
 				<div id="list">
 				</div>
@@ -156,6 +169,10 @@
 			h1 {font-size:24px; margin-bottom:8px;}
 			address {font-size:12px;}
 			h2 {font-size:20px; margin-bottom:4px;}
+
+			#content-panel {position:absolute; top:0; left:0; bottom:0; width:400px;  box-sizing:border-box; overflow:hidden;}
+			#items {position:absolute; top:300px; left:0; right:0; bottom:0; overflow-y:scroll; padding:24px; margin-right:12px; box-sizing:border-box;}
+
 			#list {display:none;}
 			#list h3 {font-weight: bold; font-size:16px; padding:0 0 4px 0;}
 			#list ul {margin-bottom:20px;}
@@ -166,8 +183,12 @@
 			.list ul li {font-size:13px; margin-bottom:8px;}
 			.list ul li:hover {cursor:pointer;}
 			.list ul li .icon {font-size:11px; display:inline-block; vertical-align:top; width:24px; padding-top:2px;}
-			.list ul li .item {display:inline-block; vertical-align:top;}
+			.list ul li .item {display:inline-block; vertical-align:top; color:#026dc5;}
 			.list ul li .item .distance {font-size:12px; color:#999; margin-top:4px;}
+			
+			.list .cuisine {font-size:12px; color:#555; margin-top:4px;}
+			.list .ta-icon {margin-top:4px;}
+			.list .ta-icon img {height:12px;}
 
 
 			#thumb {height:200px; overflow:hidden; position:relative;}
@@ -176,7 +197,7 @@
 			/* map labels */
 			.map-label-selected-hotel {background-color:#d41200; padding:6px 8px; color:#fff; font-size:14px; border-radius:2px;}
 			.map-label-selected-hotel .icon {font-size: 12px; margin-right:4px;}
-			.poi-transport {background-color:#d41200; color:#fff; padding:4px; border-radius:2px; font-size:9px;}
+			.poi-transport {background-color:#fff; color:#000; padding:4px 6px; border-radius:50%; font-size:9px; border-bottom:solid 2px #999;}
 		</style>
 
 		

@@ -6,9 +6,11 @@ var directionsService = new google.maps.DirectionsService();
 
 var markersLandmarks = [];
 var markersTransport = [];
+var markersRestaurants = [];
 
 var transportObj;
 var landmarkObj;
+var restaurantObj;
 
 var openInfoWindow = false; 
 
@@ -70,7 +72,7 @@ function initializeMap() {
    
     map = new google.maps.Map(document.getElementById('map_canvas'), {
         center: loc,
-        zoom: 13,
+        zoom: 14,
         mapTypeId: 'roadmap',
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         panControl: false,
@@ -94,6 +96,7 @@ function initializeMap() {
         fetchPOI(loc);
         displayTransportPOI();
         displayLandmarksPOI();
+        displayTARestaurants();
     });
 
 
@@ -103,7 +106,7 @@ function initializeMap() {
 
 function calcRoute(obj) {
     
-    //console.log("calc route")
+    console.log(obj.name)
 
     var locStr = obj.latlng.split(", ");
     var latlngObj = new google.maps.LatLng(locStr[0], locStr[1]);
@@ -138,7 +141,7 @@ var displayHotelPin = function(){
 }
 
 var displayTransportPOI = function(){
-    console.log(content['lacoruna']);
+    //console.log(content['lacoruna']);
     transportObj = content['lacoruna'].transport
 
     $.each(transportObj, function(i, obj) {
@@ -201,7 +204,7 @@ var displayLandmarksPOI = function(){
         var latlngObj = new google.maps.LatLng(locStr[0], locStr[1]);
         //console.log(latlngObj);
         var poiTypeObj = getObjects(typeDescription, 'type', obj.type);
-        console.log(poiTypeObj);
+        //console.log(poiTypeObj);
 
         var markerLabel = new MarkerWithLabel({
             position: latlngObj,
@@ -240,6 +243,91 @@ var displayLandmarksPOI = function(){
         //$("#landmarks-list ul").append("<li><span class='icon'>" + poiTypeObj[0].iconfont + "</span> " + obj.name + "</li>")
 
     });
+}
+
+var displayTARestaurants = function(){
+    var taURL = "http://api.tripadvisor.com/api/partner/2.0/map/" + loc.lat + "," + loc.lng + "/restaurants?key=a428337c-7f6e-4290-8f1f-7627f5d3716d"
+    //43.37577,-8.40314
+    $.ajax({
+      //dataType: "json",
+      crossDomain: true,
+      dataType: 'jsonp',
+      url: taURL,
+      //success: cb,
+      success: function (response) {
+        //console.log(response.data)
+        restaurantObj = response.data
+        $.each(restaurantObj, function (index, place) {
+            //console.log(place.name)
+            
+            var rating = parseFloat(place.rating);
+
+            if (rating > 4){
+                console.log(place);
+                var name = place.name;
+                var cuisineObj = place.cuisine; 
+                var cusineStr = "";
+
+                $.each(cuisineObj, function (index, cuisine) {
+                    cusineStr += "&#8226; " + cuisine.localized_name + " &nbsp;";
+                }); 
+
+                console.log(cusineStr)
+                
+                var latlngObj = new google.maps.LatLng(place.latitude, place.longitude);
+                var markerLabel = new MarkerWithLabel({
+                    position: latlngObj,
+                    draggable: false,
+                    map: map,
+                    icon: markerImage,
+                    labelContent: "<span class='icon'>&#xe950;</span>",
+                    labelAnchor: new google.maps.Point(10, 8),
+                    labelClass: "poi-transport", // the CSS class for the label
+                    labelStyle: {opacity: 0.9}
+                });
+        
+
+                markersRestaurants.push(markerLabel);
+                var num = markersRestaurants.indexOf(markerLabel);
+
+                $("#restaurants-list ul").append("<li rel="+num+"><span class='icon'>&#xe950;</span><div class='item'><div>" + name + "</div><div class='cuisine'>" + cusineStr + "</div><div class='ta-icon'><img src=" + place.rating_image_url + "/></div></div></li>"); 
+                
+                var obj = [
+                    {
+                        name:name, 
+                        latlng:place.latitude + ", " +  place.longitude, 
+                        type:"food", 
+                        transitMode:"WALKING"
+                    },
+                ]
+                
+
+                var infowindow = new google.maps.InfoWindow({
+                  content: name
+                });
+
+                google.maps.event.addListener(markerLabel, 'click', function() {
+                    if( openInfoWindow ) {
+                        openInfoWindow.close();
+                    }
+
+                    openInfoWindow = infowindow;
+
+                    infowindow.open(map, markersRestaurants[num]);
+                    calcRoute(obj[0]);
+                });
+
+            }
+
+         }); 
+      }, 
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+  });
+
+    //console.log()
 }
 
 function displayPlacesList(places, status, type, num_results){
@@ -446,7 +534,13 @@ var content = {
             {name:"Tower of Hercules", latlng:"43.3860, -8.4065", type:"monument", transitMode: "WALKING"},
             {name:"Aquarium Finisterrae", latlng:"43.3840, -8.4097", type:"icecream", transitMode: "WALKING"},
             {name:"Museo Domus", latlng:"43.3776, -8.4065", type:"museums", transitMode: "WALKING"}, 
-            {name:"Orzan Beach", latlng:"43.37031, -8.40351", type:"museums", transitMode: "WALKING"}
+            {name:"Orzan Beach", latlng:"43.37031, -8.40351", type:"museums", transitMode: "WALKING"},
+            {name:"Avenida de la Marina", latlng:"43.36950, -8.39975", type:"shopping", transitMode: "WALKING"},
+            {name:"Plaza de Maria Pita", latlng:"43.37118, -8.39639", type:"shopping", transitMode: "WALKING"},
+            {name:"Castle of San Anton", latlng:"43.382851, -8.402894", type:"monument", transitMode: "WALKING"},
+            {name:"Casa de las Ciencias", latlng:"43.362306, -8.412513", type:"monument", transitMode: "WALKING"},
+            {name:"San Carlos Garden", latlng:"43.368603, -8.391219", type:"monument", transitMode: "WALKING"},
+            {name:"Monte de San Pedro", latlng:"43.371823, -8.434461", type:"monument", transitMode: "DRIVING"}
         ]
     }
 }

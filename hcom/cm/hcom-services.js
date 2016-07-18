@@ -27,7 +27,27 @@ var fetchHotelList = function (destination, cb){
 var fetchHotelListNeighbourhood = function (destination, nid, cb){
   var url = buildSearchNeighbourhoodUrl(destination, nid);
 
-  console.log("fetch list")
+  console.log(url)
+
+  $.ajax({
+      dataType: "json",
+      url: url,
+      success: cb,
+      /*success: function (response) {
+        console.log(response)
+      }, */
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+  });
+
+}
+
+var fetchHotelListDestinationID = function (destinationID, cb){
+  var url = buildSearchNeighbourhoodUrl(destinationID);
+
+  console.log(url)
 
   $.ajax({
       dataType: "json",
@@ -48,7 +68,7 @@ var fetchHotelDetails = function (id, cb){
 	var url = buildHotelDetailsUrl(id);
   //var url = "http://localhost:8899/device/hotelDetails.html?hotelId=" + id + "&na=os%3DFacebook%7Ccv%3D1171%7Csv%3D2%7Cid%3DCFUUID9BC82AC4A123485586F5F6AFEF2084E0"
 	//console.log("fetch hotel details");
-  //console.log(id);
+  console.log(url);
 
 	$.ajax({
   		dataType: "json",
@@ -115,6 +135,29 @@ buildSearchNeighbourhoodUrl = function(destination, nid) {
       qStr += '&roomInfoList[0].numberOfAdults=' + numAdults;
       qStr += '&roomInfoList[0].numberOfChildren=' + numChildren;
       qStr += '&nids=' + nid; 
+      //qStr += '&roomInfoList[0].childrenAges[0]=9';
+      qStr += '&na=os%3DFacebook%7Ccv%3D1171%7Csv%3D2%7Cid%3DCFUUID9BC82AC4A123485586F5F6AFEF2084E0';
+      
+
+      // create API URL
+      var url = '/api/' + pos + '/search.html?'+qStr;
+      //console.log(url);
+
+      return url;
+}
+
+buildDestinationIDUrl = function(lat, lng) {
+      var qStr = ""
+      // build query string
+      qStr += 'rl=CITY:'+ destination + "%3AUNKNOWN%3AUNKNOWN"
+      //CITY:1634640:SRS:UNKNOWN
+      qStr += '&cur='+ currency 
+      qStr += '&pn=1';
+      //qStr += '&monthCheckIn='+ciMonth+'&dayInMonthCheckIn='+ciDay+'&monthCheckOut='+coMonth+'&dayInMonthCheckOut='+coDay;
+      qStr += ciDates();
+      qStr +='&r=1' 
+      qStr += '&roomInfoList[0].numberOfAdults=' + numAdults;
+      qStr += '&roomInfoList[0].numberOfChildren=' + numChildren;
       //qStr += '&roomInfoList[0].childrenAges[0]=9';
       qStr += '&na=os%3DFacebook%7Ccv%3D1171%7Csv%3D2%7Cid%3DCFUUID9BC82AC4A123485586F5F6AFEF2084E0';
       

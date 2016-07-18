@@ -8,7 +8,7 @@
 
 		<!-- style sheets -->
 		<link rel="stylesheet" type="text/css" href="../common.css">
-		<link rel="stylesheet" type="text/css" href="list-overlay.css">
+		<link rel="stylesheet" type="text/css" href="srp.css">
 
 
 	</head>
@@ -89,7 +89,7 @@
  							<img src="{{imageUrl}}" />
  						</div>
  						<div class="details">
-       	 					<a class="name" href="#">{{hotelName}}</a>
+       	 					<a class="name" href="pdp-map-trex.html?hotelid={{hotelId}}">{{hotelName}}</a>
        	 					<span class="address">{{address1}}, {{address2}}, {{locality}}, {{region}}</span>
        	 					<span class="neighbourhood">{{location}}</span>
        	 				</div>
@@ -137,17 +137,9 @@
 						<li>Price</li>
 					</ul>
 				</div>
-
-				<a href="" id="guide-open" style="display:block; padding:8px; background-color:#026dc5; margin-top:8px; color:#fff; height:auto; padding:16px 20px 16px 230px; box-sizing:border-box; outline:0; background: no-repeat #026dc5; background-position:left top;">
-						<span style="display:block; font-size:18px; margin-bottom:8px;">Not sure where to stay in <span class="dest"></span>?</span>
-						<span style="display:inline-block; font-size:13px; border-bottom:solid 2px #000; border-radius:4px; padding:6px 8px; background-color:#fff; color:#026dc5">Try our neighbourhood guide <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
-				</a>
 			
 				<div id="loading-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">
 					<div style="margin-bottom:4px">fetching hotels</div>
-					<img src="red_spinner.gif" />
-				</div>
-				<div id="loading-nhood-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">			<div style="margin-bottom:4px">fetching hotels</div>
 					<img src="red_spinner.gif" />
 				</div>
 
@@ -162,59 +154,7 @@
 				</div>	
 			</div>
 		</div>
-		
-<div id="overlay" style="">
-	<div style="position:absolute; top:16px; right:16px; color:#fff; font-size:20px">X</div>
-
-</div>
-
-<div id="guides">
-	<!--<h2 style="position:absolute; top:0;margin:0; padding:0; left:0; right:0; color:#fff; background-color:#d41200; padding:16px 16px 16px; position:relative;">
-		Popular <span class="dest"></span> neighbourhoods
-
-		<a id="close-guide" href="#" style="position:absolute; right:8px; top:8px; color:#fff; font-weight:normal; font-size:18px; padding:8px; ">X</a>
-	</h2>-->
 	
-	<div id="map" style="position:absolute; top:0px; left:0px; bottom:0; right:400px; background-color:#eee;">
-		<div id="map_canvas" style="width:100%; height:100%;"></div>
-	</div>
-
-	<div id="neighbourhoods" style="">
-		<div id="neighbourhood-header">
-			<h2 style="padding:0; margin:4px 8px 8px; font-size:16px"><a href="#" class="back" style="color:#fff;"><i class="fa fa-arrow-left" style="display:none;" aria-hidden="true"></i> Popular neighbourhoods and landmarks</a></h2>
-			
-		</div>
-		<div id="neighbourhood-list" style=""></div>
-
-		<div id="landmark-list" style="display:none;"></div>
-	
-		<div id="neighbourhood-content" style="display:none;">
-			<div class="image">
-				<img / style="width:100%">
-			</div>
-
-			<div class="content" style="padding:16px;">
-				<h2 id="hood-name"></h2>
-				<h3>Great for</h3>
-			<ul class="tags"></ul>
-			<p class="description" style="font-size:13px; line-height:18px"></p>
- 			
-			
-			<h3 style="margin-top:12px;">Landmarks</h3>
-			<ul class="landmarks"></ul>
-			</div>
-			
-			
-			
-
-			
-		</div>	
-		<div class="shopfor" style="">
-			<button rel="">Shop for hotels in <span></span></button>
-		</div>
-	</div>
-
-</div>
 
 <script id="filters-neighborhoods" type="text/x-handlebars-template">
  	<h3>Neighbourhoods</h3>
@@ -332,22 +272,12 @@
 						//$("#neighbourhood-header h2").text(d);
 
 						var ddd = dd[0].replace(" ", "-")
-						$("#guide-open").css("background-image", "url(i/" + ddd + ".png)");
+						//$("#guide-open").css("background-image", "url(i/" + ddd + ".png)");
 					
 					} else {
 
 					}
 				}
-
-      			$(window).on('hashchange', function() {
-  					var hash = window.location.hash;
-  					console.log(hash)
-  					if (hash == "guide-close"){
-  						//$("#overlay").hide();
-						//$("#guides").hide();
-						//$("body").removeClass("modal-open");
-  					}
- 				});
 				
 				$("ul.tabs li a[rel='landmarks']").on("click", function(e){
 					$(this).addClass("selected");
@@ -371,67 +301,10 @@
 
 				// neighbourhood guides
 
-				$("#guide-open").on("click", function(e){
-					e.preventDefault()
-					$("#overlay").show();
-					$("#guides").show();
-					$("body").addClass("modal-open");
-					buildMapAndContent();
-					//window.location.hash = "guide-open";
-				});
+	
 
-				$("#overlay").on("click", function(e){
-					$("#overlay").hide();
-					$("#guides").hide();
-					$("body").removeClass("modal-open");
-					//window.location.href.split('#')[0];
-					//window.location.hash = "guide-close";
-				});
 
-				$(document).on("click", ".neighbourhood-card button", function(){
-					var hoodName = $(this).find("span").text();
-					var hoodId = $(this).attr("rel");
-					//var hoodStr = $(this).attr("rel");
-
-					shopNeighbourhood(hoodName, hoodId);
-
-					//window.location.hash = "guide-close";
-				}); 
-
-				$(".shopfor button").on("click", function(e){
-					e.preventDefault();
-					var hoodName = $(this).find("span").text();
-					var hoodId = $(this).attr("rel");
-
-					console.log(hoodName + " - " + hoodId);
-					shopNeighbourhood(hoodName, hoodId);
-				})
-
-				$("#close-guide").on("click", function(e){
-					e.preventDefault();
-					$("#overlay").hide();
-					$("#guides").hide();
-					$("body").removeClass("modal-open");
-					//window.location.hash = "guide-close";
-				})
-
-				$(document).on("click", ".neighbourhood-card .more", function(){
-					console.log("clicked " + $(this).attr("rel"))
-					showNeighbourhoodContent($(this).attr("rel"));
-					highlightSelectedPolygon($(this).attr("rel"));
-					$(".shopfor").show();
-					
-				}); 
-
-				$("#neighbourhood-header a.back").on("click", function(e){
-					$("#neighbourhood-list").show(); 
-					//$("#neighbourhood-header").show(); 
-					$("#neighbourhood-content").hide();
-					//$("#neighbourhood-content-header").hide();
-					removePolygonHighlight();
-					$(".shopfor").hide();
-					$("#neighbourhood-header i").hide();
-				})
+	
 
 
 			});

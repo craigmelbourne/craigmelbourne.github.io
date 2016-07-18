@@ -17,6 +17,9 @@
 	<style type="text/css">
 		body {margin:0; padding:0; font-family: "Helvetica Neue"; background-color:#f5f4f0;}
 		ul {list-style-type: none; padding:0; margin:0;}
+
+		a{text-decoration: none; color:#026dc5;;}
+
 		#header-wrapper {background-color: #d41200; height:184px; position:absolute; left:0; right:0; top:0; z-index:-1;}	
 		#header-content {max-width:1100px; margin:0 auto; color:#fff;}	
 		#header-content h1 {margin:0; padding:0; float:left;}
@@ -66,11 +69,15 @@
 
     .card {padding:8px 8px 8px; overflow:hidden;}
     .card .thumb { width:250px; float:left;}
-    .card .content {width:calc(100% - 250); float:left;}
+    .card .content {width:calc(100% - 250); float:left; box-sizing: border-box; padding:0 8px;}
     .card .thumb img {max-width: 100%}
-    .card .thumb .qual {border-radius:4px; padding:4px 8px; background-color:#f5f4f0; margin-bottom:4px; color:#388E3C;}
+    .card .content .name {font-size:14px;}
+    .card .content .address {font-size:11px; margin-top:2px; color:#999;}
+    .card .content .qual {margin:8px 0;}
     .badge {font-weight:bold;}
 
+    .strip {display:flex; flex-direction: row; }
+    .strip > div {flex-grow: 1; height:50px; background-color:#000;}
 	</style>
 
 	<div id="header-wrapper">
@@ -194,19 +201,25 @@
 	<div class="card">
 		<div class="thumb">
 			
-			<div class="qual">
-				<i class="fa fa-comments" aria-hidden="true" style="display:inline-block; vertical-align:top;"></i> 
-				<div style="display:inline-block; vertical-align:top;">
-					<span class="badge">{{qualitativeBadgeText}}</span> {{guestReviewRating}}/5
-					<span style="display:block; font-size:11px; margin-top:2px">{{numberOfGuestReviews}} verified Hotels.com guest reviews</span>
-					<div style="font-size:11px; margin-top:4px"><img src="ta-score.png" style="height:16px;"/> 1,117 reviews</div>
-				</div>
-			</div>
+			
 			<img src="{{thumbnailUrl imageUrl}}" />
+			<div class="strip">
+				<div>1</div>
+				<div>1</div>
+				<div>1</div>
+			</div>
 		</div>
 		<div class="content">
 			<div class="name"><a href="#">{{hotelName}}</a></div>
-			<div class="address">{{address1}}</div>
+			<div class="address">{{address1}}, {{locality}}</div>
+			<div class="qual">
+				
+				<div style="display:inline-block; vertical-align:top;">
+					<i class="fa fa-comments" aria-hidden="true"></i> <span class="badge">{{qualitativeBadgeText}}</span> {{guestReviewRating}}/5
+					<span style="display:block; font-size:11px; margin-top:2px; color:#999;">{{numberOfGuestReviews}} verified Hotels.com guest reviews</span>
+					<div style="font-size:11px; margin-top:8px"><img src="ta-score.png" style="height:14px;display:inline-block; vertical-align:top;"/> <span style="display:inline-block; vertical-align:top; padding-top:1px; color:#999;">1,117 reviews</span></div>
+				</div>
+			</div>
 
 		</div>
 	</div>
