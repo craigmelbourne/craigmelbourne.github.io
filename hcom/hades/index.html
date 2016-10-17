@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+
+		<style type="text/css">
+
+			
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="header-strip"></div>
+
+	
+		<div id="article-wrapper">
+			<blockquote>The design system should help us efficiently create a cohesive design that can easily adapt to a constantly evolving product. </blockquote>
+
+				<p>Key benefits from this system should include:</p>
+
+				<ul style="margin-bottom:32px">
+					<li>a more efficient workflow across design and UI development</li>
+					<li>a scalable and maintainable design framework for HCOM and affiliates</li>
+					<li>performance gains across breakpoints</li>
+					<li>a more modern (less dated) ‘look and feel’ to the site</li>
+				</ul>
+
+				<!--<h3>UI Principles</h3>
+
+				<dl>
+  					<dt>Lightweight</dt>
+  					<dd>Do more with less. Lightweight design with a minimal number of rules and guidelines. </dd>
+  					<dt>Reusable</dt>
+  					<dd>Having reuse at front of mind will push us towards a more cohesive design, managable code base and efficient workflow</dd>
+  					<dt>Flexible</dt>
+  					<dd>Design guidelines should be flexible enough to quickly adapt to different contexts and situations</dd>
+				</dl>
+
+				<p>This document will act as a set of guidelines for the building blocks that make up the features we design. It will not be a set of specificaton rules for each component on ths site</p>-->
+				<section class="theme">
+				<h2 class="large">Foundations</h2>
+				
+					<div class="card">
+						<img src="i/home_layout.png" style="width:268px;"/>
+						<a href="layout.html">Layout</a>
+						<p>Covering breakpoints, grid and spacing</p>
+					</div>
+					<div class="card">Typography</div>
+					<div class="card">Colours</div>
+					<div class="card">Iconography</div>
+					<div class="card">Shapes / Containers</div>
+					<div class="card">Motion</div>
+
+				</section>
+
+				<section class="theme">
+					<h2 class="large">Elements</h2>
+
+					<div class="card">
+						Form elements
+					</div>
+					<div class="card">Buttons</div>
+					<div class="card">Modals</div>
+					<div class="card">Messages</div>
+				</section>
+				<section class="theme">	
+					<h2 class="large">Core components</h2>
+					<div class="card">
+						Header
+					</div>
+					<div class="card">SQM</div>
+					<div class="card">Hotel listing</div>
+				</section>
+
+		</div>
+			
+		
+
+				
+
+
+
+
+</body>
+
+		
+
+
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+      			$("#header-strip").load("header-component.html");
+      			$("#footer-strip").load("footer-component.html");
+			});
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+
+	</head>
+
+	<body>
+
+		<div id="header-strip"></div>
+
+		<div id="article-wrapper">
+			
+			
+	
+
+				<h1 name="layout">Layout</h1>
+				<h2>Breakpoints</h2>
+				<p>Existing breakpoints with typical viewport ranges. Focus design efforts around these ranges. </p>
+				<img src="i/breakpoints.png" />
+
+
+				
+
+				<h2>Page layout</h2>
+				<p>When laying out components on the page use a 12-column grid with percentage based columns and fixed width margins and gutters. This provides flexibility to create many different layouts and page types.</p>
+				
+				<h3>Smaller viewports</h3>
+				<p>Default margins and gutters set to 8px, use multipes of 4px if design requires something different.</p>
+
+				<h3>Medium to Large viewports</h3>
+				<p>Default margins and gutters set to 16px, use multipes of 8px if design requires something different.</p>
+
+				<img src="i/spacing.png" />
+
+				<h2>Grid proportions</h2>
+				Use the grid when laying out components and use proportions that best suit the content and required heirarchy. 
+
+				<h3>Typical grid proportions on HCOM</h3>
+
+				<img src="i/grid-proportions.png" style="margin-top:16px"/>
+
+				<h3>Example layouts</h3>
+				<img src="i/grid-layout.png" style="margin-top:16px"/>
+
+				<h3>Content and element structure</h3>
+				<p>Content and functional elements that sit with in a component <strong>do not need to sit on a grid.</strong></p>
+
+				<p>Use <strong>mutiples of 4px</strong> for padding, margins etc when laying out content and fuctional elements inside components</p>
+				<p>Below is an example of how this might apply to an existing component. Spacing and positioning are used to help create visual relationships between information types. </p>
+				<p><i></i></p>
+				<img src="i/content-spacing.png" />
+
+
+
+
+			
+
+			
+
+		</div>
+
+		
+		<div id="footer-strip"></div>
+
+
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+      			$("#header-strip").load("header-component.html");
+      			$("#footer-strip").load("footer-component.html");
+			});
+
+		</script>
+	</body>
+</html>

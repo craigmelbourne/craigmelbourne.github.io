@@ -1,0 +1,48 @@
+body {
+	font-family:arial;
+	margin:0; 
+	padding:0;
+	font-size:16px;
+}
+
+a {text-decoration: none; color:#026dc5;}
+
+/* CSS for header component */
+
+#header-strip {
+	background-color:#d41200;
+	min-height:40px;
+}
+
+#header-wrapper {
+	max-width:960px; margin:0 auto; padding:16px;
+}
+#header-wrapper #title {
+	color:#fff; font-size:32px; margin-top:48px;
+}
+
+
+/* CSS for artcile content */
+
+#article-wrapper {max-width:960px; margin:0 auto; padding:16px;}
+#article-wrapper h1 {font-size:48px; margin-bottom:48px; font-weight:bold;}
+#article-wrapper h2.large {font-size:36px; margin:36px 0 24px 0; font-weight:bold;}
+#article-wrapper h2 {font-size:24px; margin:24px 0; font-weight:bold;}
+#article-wrapper h3 {font-size:20px; margin:24px 0 8px; font-weight:bold;}
+#article-wrapper p {padding:0; margin:0 0 16px; line-height: 20px}
+
+#article-wrapper blockquote {font-weight:bold; font-size:24px; padding:0; margin:16px 0 16px 0; }
+
+#article-wrapper ul {margin:0 0 0 20px; padding:0;}
+#article-wrapper ul li {margin-bottom: 8px}
+
+#article-wrapper dl dt {font-weight: bold}
+#article-wrapper dl dd {margin:4px 0 16px 0; padding:0;}
+
+section.theme {overflow:hidden; border-top:solid 1px #eee; margin-top:36px;}
+.card {width:300px; height:300px; float:left; background-color: #eee; margin:16px 16px 0 0; box-sizing:border-box; padding:16px;}
+.card a {font-size:20px; display:inline-block; margin:8px 0;}
+
+
+
+

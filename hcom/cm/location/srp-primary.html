@@ -86,13 +86,14 @@
 			<script id="some-template" type="text/x-handlebars-template">
  				
  				{{#each_upto hotels 15}}
- 					<div class="card" rel="{{addCount}}">
+ 					<div id="{{hotelId}}" class="card" rel="{{addCount}}">
  						<div class="thumb">
  							<img src="{{thumbnailUrl imageUrl}}" />
+ 							<div class="small-thumbs">{{getMorePhotos hotelId}}</div>
  						</div>
  						<div class="content">
        	 					<div class="name">
-       	 						<a href="pdp-map-trex.html?hotelid={{hotelId}}">{{hotelName}}</a>
+       	 						<a href="pdp-map-primary.html?hotelid={{hotelId}}">{{hotelName}}</a> {{displayStarRating starRating}}
        	 					</div>
        	 					<!--<span class="address">{{address1}}, {{address2}}, {{locality}}, {{region}}</span>-->
        	 					<div class="neighbourhood">{{getNeighbourhood location}}</div>
@@ -227,7 +228,7 @@
       	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="../hcom-services.js"></script>
 		<script src="../handlebars.js"></script>
-		<script src="map.js"></script>
+		<script src="map-primary.js"></script>
 		<!-- JQuery Google CDN -->
 		
 		<script type="text/javascript">
@@ -469,17 +470,7 @@
 			})
 
 
-			Handlebars.registerHelper("staticMapLink", function(staticMapUrl){
-				var smURL = "http://maps.googleapis.com/maps/api/staticmap?";
-				smURL += "&center=" + destinationObj[0].map;
-				smURL += "&zoom=" + destinationObj[0].staticMapZoom;
-				smURL += "&size=300x220"
-				smURL += "&sensor=false"
-				smURL += "&path=color:red|weight:1|fillcolor:red|" + staticMapUrl
-
-				return smURL;
-			})
-
+			
 			Handlebars.registerHelper("thumbnailUrl", function(imageUrl){
 				var thumb = imageUrl.replace("_b.jpg", "_l.jpg");
 				return thumb;
@@ -498,18 +489,18 @@
     			for(var i = 0; i < max && i < ary.length; ++i)
         			result.push(options.fn(ary[i]));
     				return result.join('');
-				});
+			});
 
 			Handlebars.registerHelper("getDistance", function(hlat, hlng, elem, mode, elemClass){
 				//console.log(content.lacoruna[.center])
 
 				if (elemClass == "center"){
-					var start = content.lacoruna[elemClass];
+					var start = content.barcelona[elemClass];
 					var name = "City center"
 				} else {
 					
-					var start  = content.lacoruna[elemClass][0].latlng;
-					var name = content.lacoruna[elemClass][0].name;
+					var start  = content.barcelona[elemClass][0].latlng;
+					var name = content.barcelona[elemClass][0].name;
 					//console.log(start)
 					//console.log($("div." + elemClass + " .name").attr("class"));
 				}
@@ -518,9 +509,31 @@
 				var end = {lat: hlat, lng: hlng};
 				getDistance(start, end, elem, mode, elemClass, name);
 				$("div[rel=" + elem + "]").find("." + elemClass + " .name").text(name)
-				console.log(name + " " + elemClass)
+				//console.log(name + " " + elemClass)
 				return "";
 			});
+
+			Handlebars.registerHelper("displayStarRating", function(starRating){
+				
+				var rating = parseInt(starRating);
+				var sr = "<span class='stars'>"
+				for(var i = 0; i < rating; ++i) {
+					sr += "<i class='material-icons'>&#xE838;</i>" 
+				}
+				sr += "</span>"
+
+				return new Handlebars.SafeString(sr);
+			});
+
+			Handlebars.registerHelper("getMorePhotos", function(hotelId){
+				//console.log(hotelId);
+				fetchHotelDetails(hotelId, getHotelPhotos);
+			})
+
+			var getHotelPhotos = function(data){
+				console.log(data.result.hotelId);
+				$("#" + data.result.hotelId).find(".small-thumbs").append("<div><img src='" + data.result.photos[1].url + "'/></div><div><img src='" + data.result.photos[2].url + "'/></div>");
+			}
 
 			var service = new google.maps.DistanceMatrixService();
 
@@ -549,7 +562,7 @@
             		//console.log(response.rows[0].elements[0].distance.text)
             		var distance = response.rows[0].elements[0].distance.text;
             		var duration = response.rows[0].elements[0].duration.text;
-            		console.log(name)
+            		//console.log(name)
             		$("div[rel=" + elem + "]").find("." + elemClass + " .name").text(name)
             		$("div[rel=" + elem + "]").find("." + elemClass + " ." + mode.toLowerCase()).html("<i class='material-icons' style='display:inline-block; vertical-align:top;'>" + iconFont[mode] + "</i><span style='display:inline-block; vertical-align:top; margin-left:2px; padding-top:2px'>" + duration + "</span>")
             		

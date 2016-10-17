@@ -1,23 +1,24 @@
-body {font-size: 14px; color:#555;}
+body {font-size: 14px; color:#555; background-color:#f5f4f0;}
 ul {margin:0; padding:0;}
 a {color:#026dc5;}
 body.modal-open {overflow: hidden;}
 
 
-#wrapper-query {background-color:#eae8e0;}
+#wrapper-query {}
 #query {max-width:1160px; margin:0 auto; padding: 16px; box-sizing:border-box;}
 
 #wrapper-results {max-width:1160px; margin:0 auto; padding:0 16px 0; box-sizing:border-box;}
 #wrapper-results #filters {width:225px; float:left; background-color:#f5f4f0;}
 #wrapper-results #list {width:calc(100% - 245px); float:right;  height:400px;}
 #wrapper-results #sort {padding:16px 0; border-bottom:solid 1px #ccc;}
-#wrapper-results #list #hotels .hotel-card {margin-top:16px; border:solid 1px #eee; padding:8px; border-radius:4px; position:relative}
-#wrapper-results #list #hotels .hotel-card .details {display: inline-block; vertical-align: top; margin-left:8px;}
-#wrapper-results #list #hotels .hotel-card .address {font-size:12px; display: block; margin-top:4px;}
-#wrapper-results #list #hotels .hotel-card .neighbourhood {font-size:12px; display: block; margin-top:4px;}
-#wrapper-results #list #hotels .hotel-card .thumbnail {height:80px; width:120px; overflow:hidden; display:inline-block; vertical-align: top; position:relative;}
-		#wrapper-results #list #hotels .hotel-card .thumbnail img {width:100%; position:absolute; bottom:0;}
-#wrapper-results #list #hotels .hotel-card .price {position:absolute; right:16px; top:0; text-align: right;}
+
+.hotel-card {margin-top:16px; border:solid 1px #eee; padding:8px; border-radius:4px; position:relative; background-color: #fff;}
+.hotel-card .details {display: inline-block; vertical-align: top; margin-left:8px;}
+.hotel-card .address {font-size:12px; display: block; margin-top:4px;}
+.hotel-card .neighbourhood {font-size:12px; display: block; margin-top:4px;}
+.hotel-card .thumbnail {width:250px; display:inline-block; vertical-align: top;}
+.hotel-card .thumbnail img {width:100%; position:absolute; bottom:0;}
+.hotel-card .price {position:absolute; right:16px; top:0; text-align: right;}
 
 		#location-list {position:absolute; top:0; bottom:0px; left:0px; right:0px; width:200px;  background-color:#fff; border-right:8px #fff solid; overflow-y: scroll; box-sizing: border-box; padding:8px; background-color:#eee;}
 
@@ -34,10 +35,56 @@ body.modal-open {overflow: hidden;}
     	.fs {display:inline-block; padding:4px 8px; background-color:#ddd;}
     	.hotel-card {min-height: 90px}
     	.hotel-card button {background-color:#026dc5; color:#fff; font-size:14px; padding:4px 8px; border-radius: 4px; border:0; border-bottom:solid #000 2px; margin:8px 0;}
+.card {background-color: #fff; border-radius: 4px; min-height:100px; margin-bottom:16px;}
+.card {padding:8px 8px 8px; overflow:hidden; }
+    .card .thumb { width:200px; float:left;}
+    .card .thumb img {width: 200px}
+    .card .thumb .small-thumbs {overflow:hidden;}
+    .card .thumb .small-thumbs > div {float:left; height:60px; width:calc(50% - 2px); overflow:hidden;}
+    .card .thumb .small-thumbs > div:first-child{margin-right:4px;}
+    .card .thumb .small-thumbs > div img {width:100%;}
+    .card .content {width:calc(100% - 575px); float:left; box-sizing:border-box; padding-left:16px;}
+    .card .content .name {font-size:14px; margin-bottom:4px;}
+    .card .content .address {font-size:12px; color:#999;}
+    .card .content .stars {white-space: no-wrap; display:block; margin-top:4px;}
+    .card .content .stars i {font-size:13px; color:#d41200}
+    
+    .card .qual {width:175px; float:left; box-sizing:border-box;}
+    .card .qual i {font-size:16px; display:inline-block; vertical-align:top; padding-top:2px;}
+    .card .qual .badge {font-size:18px; font-weight:bold; display:inline-block; vertical-align: top;}
+    .card .qual .score {font-size:18px; font-weight:bold; display:inline-block; vertical-align: top}
+    .card .content .neighbourhood {font-size:13px;vertical-align: top;}
+    .card .content .poi {font-size:12px; color:#555; margin-top:6px; }
+    .card .content .poi .name {font-size:12px;}
+    .card .content .poi .walking, .card .content .poi .driving, .card .content .poi .transit {font-size:11px; color:#999; margin-right:8px;}
+    .card .content .poi i {font-size: 13px}
+    .transport.poi .name:hover {cursor:pointer; color:#026dc5;}
+    .badge {}
+
+    .card .price {width:200px; float:left; box-sizing:border-box; text-align:right; padding-right:8px;}
+
+
+            .card .price .specialDeal .total {color:#d41200; font-weight:bold; font-size:24px;}
+            .card .price .specialDeal .description {color:#d41200; font-size:12px; display:block; font-weight:bold; margin-bottom:4px;}
+            .card .price .specialDeal .strikethrough {color:#555; font-size:16px; text-decoration: line-through}
+            .card .price .standard {font-weight:bold; font-size:24px;}
+            .card .price .disclaimer {font-size:11px; color:#999;}
+
+    .card .price .disclaimer {font-size:11px; color:#999;}
+    button.primary {background-color: #026dc5; display:inline-block; margin-top:16px; color:#fff; padding:4px 8px; font-size:14px; border:0; border-radius:4px; font-family: arial; border-bottom: solid 2px #000}
 
 /* Overlay */
 #overlay {position:fixed; top:0; left:0; right:0; bottom:0; background-color:#000; opacity:0.8; display:none; }
 #overlay:hover {cursor:pointer;}
+#modal {position: fixed;
+width: 320px;
+top: 0  ;
+left: 50%;
+margin-left: -160px; display:none; background-color:#fff; padding:16px;}
+
+#modal ul li {list-style-type: none; padding:12px; margin-bottom:12px; border:solid 1px #ccc; color:#026dc5; border-radius:4px;}
+#modal ul li:hover {cursor:pointer;}
+#modal ul li.selected {background-color:#026dc5; color:#fff;}
 
 /* guides */
 #guides {position:fixed; top:50px; bottom:50px; left:50px; right:50px;  background-color:#fff; border-radius:4px; display:none;}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		<link rel="stylesheet" type="text/css" href="common.css">
+		<style type="text/css">
+			#header {background-color: #d41200;}	
+
+		</style>
+
+	</head>
+
+	<body>
+
+	<div id="header"></div>
+	<div id="nav"></div>
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+      			$( "#header" ).load( "../components/c-header.html" );
+				$( "#nav" ).load( "../components/c-nav.html" );
+			});
+
+		</script>
+	</body>
+</html>

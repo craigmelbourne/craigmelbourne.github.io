@@ -12,12 +12,14 @@
 
 		<style type="text/css">
 		#header {background-color:#d41200; height:auto;}
+		a {color:#026dc5;}
 		h1 {margin:0; padding:48px 0 8px 0; color:#fff; font-weight:normal; font-size: 32px;}
 		#header > div {margin:0 auto 48px; max-width:800px; padding:0l}
 		body #wrapper {margin:50px auto; max-width:800px; padding:0 16px;}
 
-		body #wrapper h2 {margin:48px 0 0 0;}
-		body #wrapper ul li {list-style-type: none; padding: 0; margin-left: -17px; margin-bottom:8px;}
+		body #wrapper h2 {margin:48px 0 0 0; font-size:28px;}
+		body #wrapper h3 {font-size:20px; margin:32px 0 16px 0;}
+		body #wrapper ul li {list-style-type: none; padding: 0; margin-left: -17px; margin-bottom:8px; line-height: 20px}
 		</style>
 
 	</head>
@@ -31,26 +33,55 @@
 		<div id="wrapper">
 			
 			<div class="project">
-				<h2>TREX: Practical POI</h2>
-				<ul>
-					<li><a href="places/srp-frame.html">Google places demo tool</a></li>
-				</ul>
+				
 			</div>
 
 			<div class="project">
-				<h2>Neighbourhood/region guide prototypes</h2>
+
+				<h2>Location focused</h2>
+				
+				<h3>SRP Map</h3>
 				<ul>
-					<li><a href="neighbourhoods/stand-alone-srp.html?destination=Tokyo">SRP Overlay</a></li>
-					<li><a href="neighbourhoods/stand-alone-srp-2.html?destination=Tokyo">SRP Overlay: extra content</a></li>
-					<li><a href="neighbourhoods/stand-alone-srp-3.html?destination=Tokyo">SRP Overlay: exposed neighbourhood navigation</a></li>
-					<li><a href="neighbourhoods/map.html?destination=Tokyo">SRP Map Integration</a></li>
+					<li><a href="location/pins.html?destination=New%20York">Map pins exploration</a></li>
+				</ul>
+				
+				<h3>PDP Map</h3>
+				<ul>
+					<li>Richer set of POI (including transport, nearby restaurants, practical services)</li><li>Walk/drive times</li><li> Route between hotel and POI displayed on map</li><li>Transit Layer</li><li>POI displayed/hidden at different zoom levels</li>
+					<li style="margin-top:16px;">
+						<a href="location/pdp-map-trex.html?hotelid=131304">PDP Map: TREX Small town (La Coruna, Galicia, Spain)</a>
+						
+					</li>
+					<li>
+						<a href="location/pdp-map-primary.html?hotelid=394102">PDP Map: Big City (Barcelona, Spain)</a>
+						
+					</li>
+				</ul>
+
+				
+
+				<h3>SRP</h3>
+				<ul>
+
+					<li>
+						<a href="location/srp-geo-bullets.html?destination=London,%20United%20Kingdom">Hotel card</a>
+						<br />User selected geo-bullets, travel times (walk/drive/transit) between hotel and POI
+					</li>
+					<li><a href="neighbourhoods/prototype3.html">Neighbourhood guide: SRP List integration</a></li>
+					<li><a href="neighbourhoods/prototype4.html">Neighbourhood guide: SRP Map integration</a></li>
+				</ul>
+				<ul>
+					
+					
+					
+					<li><a href="places/srp-frame.html">Google places demo tool</a></li>
 				</ul>
 
 			</div>
 
 			
 
-			<div class="project">
+			<!--<div class="project">
 				<h2>Trip Planner: Onboarding</h2>
 				<ul>
 					<li><a href="tp/srp-ob.html?destination=London, UK">SRP: save hotels</a></li>
@@ -64,13 +95,13 @@
 					<li><a href="sort-filter/joe-v1.html">Clean up: V1</a></li>
 					<li><a href="sort-filter/joe-v2.html">Clean up: V2</a></li>
 				</ul>
-			</div>
+			</div>--> 
 
 			<div class="project">
 				<h2>Hotel card: Mobile</h2>
 				<ul>
-					<li><a href="listing/listing-tall-left-aligned.html">Tall image: Left aligned price</a></li>
-					<li><a href="listing/listing-tall-right-aligned.html">Tall image: Right aligned price</a></li>
+					<li><a href="listing/api-tall-image-left-aligned-price.html">Tall image: Left aligned price</a></li>
+					<li><a href="listing/api-tall-image-right-aligned-price.html">Tall image: Right aligned price</a></li>
 				</ul>
 			</div>
 

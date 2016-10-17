@@ -8,6 +8,7 @@ var markersLandmarks = [];
 var markersTransport = [];
 var markersRestaurants = [];
 var markersServices = [];
+var markersLocalTransport = [];
 
 var transportObj;
 var landmarkObj;
@@ -48,22 +49,19 @@ var placeTypes = [
         //{type: "bakery", rank:"distance", title:"Bakery", num_results:"2"},
         {type: "atm", rank:"distance", radius: "2000", title:"ATM", num_results:"3", iconfont: "&#xE53E;"},
         {type: "gas_station", rank:"distance", radius: "10000", title:"Petrol Station", num_results:"3", iconfont: "&#xE546;"},
-        {type: "bus_station", rank:"distance", radius: "10000", title:"Bus Station", num_results:"3", iconfont: "&#xE530;"}
+        {type: "bus_station", rank:"distance", radius: "10000", title:"Bus Station", num_results:"3", iconfont: "&#xE530;"}, 
+        {type: "subway_station", rank:"distance", radius: "10000", title:"Metro", num_results:"3", iconfont: "&#xE533;"}
         //{type: "hardware_store", rank:"prominence", radius: "2000", title:"Hardware Store", num_results:"2"},
         //{type: "home_ware_store", rank:"prominence", radius: "2000", title:"Homeware Store", num_results:"2"}
 ]
 
 
-
-
-
 function initializeMap() {
-    
     
    
     map = new google.maps.Map(document.getElementById('map_canvas'), {
         center: loc,
-        zoom: 14,
+        zoom: 13,
         mapTypeId: 'roadmap',
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         panControl: false,
@@ -98,14 +96,19 @@ function initializeMap() {
         displayHotelPin()
         fetchPOI(loc);
         fetchPOIByType(loc, "restaurant");
+        fetchTransportByType(loc, "subway_station")
         displayTransportPOI();
         displayLandmarksPOI();
-        displayTARestaurants();
+        //displayTARestaurants();
     });
 
     google.maps.event.addListener(map, 'zoom_changed', function() {
         var zoom = map.getZoom();
         console.log(zoom);
+        // iterate over markers and call setVisible
+        //for (i = 0; i < locations.length; i++) {
+         //markers[i].setVisible(zoom <= 15);
+        //}
 
         if (zoom >= 16){
             showServiceMarkers();
@@ -116,10 +119,7 @@ function initializeMap() {
         }
 
     });
-
-
-
-    
+  
 }
 
 function calcRoute(obj) {
@@ -157,7 +157,7 @@ var displayHotelPin = function(){
         draggable: false,
         map: map,
         icon: markerImage,
-        labelContent: "<i class='material-icons hotel'>&#xE53A;</i> <span class='price'>" + price + "</span>",
+        labelContent: "<span class='price'>" + price + "</span>",
         //labelAnchor: new google.maps.Point(40, 32),
         labelClass: "map-label-selected-hotel", // the CSS class for the label
         labelStyle: {opacity: 0.9}
@@ -165,8 +165,8 @@ var displayHotelPin = function(){
 }
 
 var displayTransportPOI = function(){
-    //console.log(content['lacoruna']);
-    transportObj = content['lacoruna'].transport
+    console.log("call transport POI");
+    transportObj = content["copenhagen"].transport
 
     $.each(transportObj, function(i, obj) {
         //console.log(transport.name);
@@ -238,7 +238,7 @@ var displayTransportPOI = function(){
 
 var displayLandmarksPOI = function(){
     //console.log(content['lacoruna']);
-    landmarkObj = content['lacoruna'].landmarks
+    landmarkObj = content["copenhagen"].landmarks
 
     $.each(landmarkObj, function(i, obj) {
         //console.log(transport.name);
@@ -294,97 +294,12 @@ var displayLandmarksPOI = function(){
 
         var num = markersLandmarks.indexOf(markerLabel);
 
-        $("#landmarks-list ul").append("<li rel='" + num + "'><i class='material-icons'>" + poiTypeObj[0].iconfont + "</i><div class='item'><div class='name'> " + obj.name + "</div><span class='walking'></span> <span class='driving'></span></div></li>")
+        $("#landmarks-list ul").append("<li rel='" + num + "'><i class='material-icons'>" + poiTypeObj[0].iconfont + "</i><div class='item'><div class='name'> " + obj.name + "</div><span class='walking'></span> <span class='transit'></span></div></li>")
 
         getDistance(latlngObj, "landmarks-list", num, "WALKING", "&#xE536;");
-        getDistance(latlngObj, "landmarks-list", num, "DRIVING", "&#xE531;");
+        getDistance(latlngObj, "landmarks-list", num, "TRANSIT", "&#xE533;");
        
     });
-}
-
-var displayTARestaurants = function(){
-    var taURL = "http://api.tripadvisor.com/api/partner/2.0/map/" + loc.lat + "," + loc.lng + "/restaurants?key=a428337c-7f6e-4290-8f1f-7627f5d3716d"
-    //43.37577,-8.40314
-    $.ajax({
-      //dataType: "json",
-      crossDomain: true,
-      dataType: 'jsonp',
-      url: taURL,
-      //success: cb,
-      success: function (response) {
-        //console.log(response.data)
-        restaurantObj = response.data
-        $.each(restaurantObj, function (index, place) {
-            //console.log(place.name)
-            
-            var rating = parseFloat(place.rating);
-
-            if (rating > 4){
-                console.log(place);
-                var name = place.name;
-                var cuisineObj = place.cuisine; 
-                var cusineStr = "";
-
-                $.each(cuisineObj, function (index, cuisine) {
-                    cusineStr += "&#8226; " + cuisine.localized_name + " &nbsp;";
-                }); 
-
-                console.log(cusineStr)
-                
-                var latlngObj = new google.maps.LatLng(place.latitude, place.longitude);
-                var markerLabel = new MarkerWithLabel({
-                    position: latlngObj,
-                    draggable: false,
-                    map: map,
-                    icon: markerImage,
-                    labelContent: "<span class='icon'>&#xe950;</span>",
-                    labelAnchor: new google.maps.Point(10, 8),
-                    labelClass: "poi-transport", // the CSS class for the label
-                    labelStyle: {opacity: 0.9}
-                });
-        
-
-                markersRestaurants.push(markerLabel);
-                var num = markersRestaurants.indexOf(markerLabel);
-
-                $("#restaurants-list ul").append("<li rel="+num+"><span class='icon'>&#xe950;</span><div class='item'><div>" + name + "</div><div class='cuisine'>" + cusineStr + "</div><div class='ta-icon'><img src=" + place.rating_image_url + "/></div></div></li>"); 
-                
-                var obj = [
-                    {
-                        name:name, 
-                        latlng:place.latitude + ", " +  place.longitude, 
-                        type:"food", 
-                        transitMode:"WALKING"
-                    },
-                ]
-                
-
-                var infowindow = new google.maps.InfoWindow({
-                  content: name
-                });
-
-                google.maps.event.addListener(markerLabel, 'click', function() {
-                    if( openInfoWindow ) {
-                        openInfoWindow.close();
-                    }
-
-                    openInfoWindow = infowindow;
-
-                    infowindow.open(map, markersRestaurants[num]);
-                    calcRoute(obj[0]);
-                });
-
-            }
-
-         }); 
-      }, 
-      error: function (xhr, ajaxOptions, thrownError) {
-        alert(xhr.status);
-        alert(thrownError);
-      }
-  });
-
-    //console.log()
 }
 
 function displayPlacesList(places, status, type, num_results){
@@ -438,7 +353,10 @@ var getDistance = function(endLoc, elem, num, mode, iconFont) {
         if (status !== google.maps.DistanceMatrixStatus.OK) {
             alert('Error was: ' + status);
         } else {
-            //console.log(response.rows[0].elements[0])
+            if (mode == "TRANSIT") {
+               console.log(response.rows[0].elements[0]) 
+            }
+            //
             var distance = response.rows[0].elements[0].distance.text;
             var duration = response.rows[0].elements[0].duration.text;
             //$("#" + elem + " ul").append("<li rel='" + num + "'><i class='material-icons'>" + icon + "</i><div class='item'><div> " + obj.name + "</div><div class='distance'>" + distance + " - " + duration + " - " + mode + "</div></div></li>")
@@ -468,6 +386,68 @@ function displayNameDistance(hotelLoc, place, type) {
     })
 }
 
+var fetchTransportByType = function(location, category){
+    //console.log(type);
+    service.nearbySearch({
+        location: location,
+        //radius: 1000,
+        rankBy: google.maps.places.RankBy.DISTANCE,
+        types: [category]
+    }, function(response, status){
+            console.log(response);
+            $.each(response, function (index, obj) {
+                if (index <= 1){
+
+                    //console.log(place.name + " " + place.rating);
+                    
+                    var markerLabel = new MarkerWithLabel({
+                        position: obj.geometry.location,
+                        draggable: false,
+                        map: map,
+                        icon: markerImage,
+                        labelContent: "<i class='material-icons'>&#xE533;</i>",
+                        labelAnchor: new google.maps.Point(10, 8),
+                        labelClass: "poi-transport", // the CSS class for the label
+                        labelStyle: {opacity: 0.9}
+                    });
+
+                    var placeObj = [
+                        {
+                            name:obj.name, 
+                            latlng:obj.geometry.location, 
+                            type:category, 
+                            transitMode:"WALKING"
+                        },
+                    ]
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: obj.name
+                    });
+
+                    google.maps.event.addListener(markerLabel, 'click', function() {
+                        if( openInfoWindow ) {
+                            openInfoWindow.close();
+                        }
+                        openInfoWindow = infowindow;
+
+                        infowindow.open(map, markersLocalTransport[num]);
+                        calcRoute(placeObj);
+                    });
+
+                    markersLocalTransport.push(markerLabel);
+                    var num = markersLocalTransport.indexOf(markerLabel);
+
+                    $("#local-transport-list ul").append("<li rel='" + num + "'><i class='material-icons'>&#xE533;</i><div class='item'><div class='name'> " + obj.name + " </div><span class='walking'></span> <span class='driving'></span></div></li>")
+                    getDistance(obj.geometry.location, "local-transport-list", num, "WALKING", "&#xE536;");
+                    clearServiceMarkers()
+                }
+                
+            })
+            //displayPlacesList(results, status, placeType.type, placeType.num_results )
+    });
+}
+
+
 var fetchPOIByType = function(location, type){
     console.log(type);
     service.nearbySearch({
@@ -478,7 +458,7 @@ var fetchPOIByType = function(location, type){
     }, function(response, status){
             console.log(response);
             $.each(response, function (index, obj) {
-                if (obj.rating >= 2 && index <= 5){
+                if (obj.rating >= 2){
 
                     //console.log(place.name + " " + place.rating);
                     
@@ -554,6 +534,10 @@ function fetchPOI(location) {
             $("#services-list ul").append("<li rel=" + index + "><i class='material-icons'>" + placeType.iconfont + "</i><div class='item'><div class='name'>" + results[0].name + " <span style='color:#555; font-size:12px'>(" + placeType.title + ")</span></div><span class='walking'></span> <span class='driving'></span></div></li>")
             getDistance(results[0].geometry.location, "services-list", index, "WALKING", "&#xE536;");
             getDistance(results[0].geometry.location, "services-list", index, "DRIVING", "&#xE531;");
+
+
+
+
         });
     } else {
         service.nearbySearch({
@@ -609,8 +593,13 @@ function fetchPOI(location) {
             servicesObj.push(results[0]);
             getDistance(results[0].geometry.location, "services-list", index, "WALKING", "&#xE536;");
             getDistance(results[0].geometry.location, "services-list", index, "DRIVING", "&#xE531;");
+
             clearServiceMarkers()
+                    
+
         });
+
+
     }
     });
 
@@ -675,40 +664,64 @@ var typeDescription = [
     {type: "monument", description: "Towers, Arches, Fountains, Churches, etc...", iconfont: "&#xE84F;"},
     {type: "museums", description: "Museum", iconfont: "&#xE84F;"},
     {type: "school", description: "Universities", iconfont: "&#xE84F;"},
-    {type: "shopping", description: "Shopping", iconfont: "&#xE84F;"}, 
+    {type: "shopping", description: "Shopping", iconfont: "&#xE8CB;"}, 
     {type: "sign", description: "Squares or Centers", iconfont: "&#xE84F;"},
     {type: "skiing", description: "Ski resort", iconfont: "&#xE84F;"},
     {type: "stadium", description: "Sports stadiums/Arenas", iconfont: "&#xE84F;"},
     {type: "sunglass", description: "Beach", iconfont: "&#xE84F;"},
     {type: "theater", description: "Theater", iconfont: "&#xE84F;"},
-    {type: "tree", description: "Parks / Nature", iconfont: "&#xE84F;"},
+    {type: "tree", description: "Parks / Nature", iconfont: "&#xE407;"},
     {type: "train", description: "Train station", iconfont: "&#xE570;"},
     {type: "winery", description: "Winery", iconfont: "&#xE84F;"}
 ]
 
 
+
 var content = {
-    lacoruna : {
-        name: "La Coruna", 
+    barcelona : {
+        name: "Barcelona", 
         destinationId: "457467",
-        center: {lat: 43.371498, lng: -8.39773}, 
+        center: {lat: 41.297445, lng: 2.083294}, 
         
         transport: [
-            {name:"San Cristobal Train Station", latlng:"43.3526, -8.4099", type:"train", transitMode:"DRIVING"},
-            {name:"La Coruña Airport", latlng:"43.3020, -8.3811", type:"airport", transitMode:"DRIVING"}
+            {name:"Barcelona–El Prat Airport", latlng:"41.297445, 2.083294", type:"airport", transitMode:"DRIVING"},
+            {name:"Barcelona Sants Station", latlng:"41.379093, 2.140133", type:"train", transitMode:"DRIVING"}
         ],
 
         landmarks: [
-            {name:"Orzan Beach", latlng:"43.371639, -8.404545", type:"beach", transitMode: "WALKING"},
-            {name:"Praia de Riazor", latlng:"43.368738, -8.411398", type:"beach", transitMode: "WALKING"},
-            {name:"Tower of Hercules", latlng:"43.3860, -8.4065", type:"monument", transitMode: "WALKING"},
-            {name:"Aquarium Finisterrae", latlng:"43.3840, -8.4097", type:"icecream", transitMode: "WALKING"},
-            {name:"Museo Domus", latlng:"43.3776, -8.4065", type:"museums", transitMode: "WALKING"}, 
-            {name:"Avenida de la Marina", latlng:"43.36950, -8.39975", type:"shopping", transitMode: "WALKING"},
-            {name:"Plaza de Maria Pita", latlng:"43.37118, -8.39639", type:"shopping", transitMode: "WALKING"},
-            {name:"Castle of San Anton", latlng:"43.382851, -8.402894", type:"monument", transitMode: "WALKING"},
-            {name:"San Carlos Garden", latlng:"43.368603, -8.391219", type:"monument", transitMode: "WALKING"},
-            {name:"Monte de San Pedro", latlng:"43.371823, -8.434461", type:"monument", transitMode: "DRIVING"}
+            {name:"Las Ramblas", latlng:"41.380758, 2.173767", type:"shopping", transitMode: "WALKING"},
+            {name:"Plaça de Catalunya", latlng:"41.386483, 2.169490", type:"shopping", transitMode: "WALKING"},
+            {name:"Sagrada Família", latlng:"41.404484, 2.175728", type:"monument", transitMode: "WALKING"},
+            {name:"Barceloneta Beach", latlng:"41.378348, 2.192470", type:"beach", transitMode: "WALKING"},
+            {name:"Passeig de Gracia", latlng:"41.393170, 2.163960", type:"shopping", transitMode: "WALKING"},
+            {name:"Camp Nou", latlng:"41.380048, 2.120070", type:"monument", transitMode: "WALKING"},
+            {name:"Barcelona Cathedral", latlng:"41.383933, 2.176366", type:"monument", transitMode: "WALKING"},
+            {name:"Port Olimpic", latlng:"41.386052, 2.200981", type:"monument", transitMode: "WALKING"},
+            {name:"Picasso Museum", latlng:"41.385230, 2.180932", type:"monument", transitMode: "WALKING"}
+        ], 
+
+        neighbourhoods: [
+            {name: "Exiample", tags:"Shopping, Architecture, Historical, Food, Friendly people", description:"Its lavish avenue, Passeig de Gracia, is the place to check out Barcelona's chic fashion boutiques, but there's another reason Eixample is a must-see district: Gaudi. The trailblazing architect's uniquely organic-looking buildings – which look more grown than built – can be seen here, including Casa Mila and the cactus-like spires of Sagrada Familia, Gaudi's great church which is as much a symbol of Barcelona as the Eiffel Tower is of Paris."}
+        ]
+    }, 
+
+    copenhagen : {
+        name: "Copenhagen", 
+        destinationId: "408991",
+
+        transport: [
+            {name:"Kastrup Airport", latlng:"55.6180, 12.6508", type:"airport", transitMode:"DRIVING"}
+        ], 
+
+        landmarks: [
+            {name:"Tivoli Gardens", latlng:"55.6737, 12.5681", type:"tree", transitMode:"WALKING"},
+            {name:"Stroeget", latlng:"55.678678, 12.577490", type:"shopping", transitMode:"WALKING"},
+            {name:"Church of Our Saviour", latlng:"55.672939, 12.594210", type:"historic", transitMode:"WALKING"},
+            {name:"Ny Carlsberg Glyptotek", latlng:"55.676097, 12.568337", type:"museums", transitMode:"WALKING"},
+        ], 
+
+        neighbourhoods: [
+            {name: "Christianshavn", tags:"Shopping, Architecture, Historical, Food, Friendly people", description:"Christianshavn, set near central Copenhagen, is a relaxed, eclectic neighborhood steeped in history. Dominated by quaint canals, lined with pink, blue, and white buildings with flower-flecked balconies, Christianshavn is perfect for an enchanting amble. Spiraling Baroque church towers occupy the streets, where a blend of academics, businessmen, and artists enjoy the resplendent café culture, cool bars, and ritzy restaurants, all infused with an alternative, welcoming atmosphere. "}
         ]
     }
 }

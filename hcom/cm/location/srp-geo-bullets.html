@@ -100,13 +100,14 @@
        	 						<span class="name"></span>
        	 						<div>
        	 							<span class="walking">{{getDistance lat lon (displayCount) "WALKING" "landmarks"}}</span> 
+       	 							<span class="transit">{{getDistance lat lon (displayCount) "TRANSIT" "landmarks"}}</span> 
        	 							<span class="driving">{{getDistance lat lon (displayCount) "DRIVING" "landmarks"}}</span> 
        	 						</div>
        	 					</div>
        	 					<div class="transport poi">
        	 						<span class="name"></span>
        	 						<div>
-       	 							<span class="walking">{{getDistance lat lon (displayCount) "WALKING" "transport"}}</span> 
+       	 							<span class="transit">{{getDistance lat lon (displayCount) "TRANSIT" "transport"}}</span> 
        	 							<span class="driving">{{getDistance lat lon (displayCount) "DRIVING" "transport"}}</span> 
        	 						</div>
        	 					</div>
@@ -227,7 +228,9 @@
       	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="../hcom-services.js"></script>
 		<script src="../handlebars.js"></script>
+		<script src="destination-data.js"></script>
 		<script src="map.js"></script>
+
 		<!-- JQuery Google CDN -->
 		
 		<script type="text/javascript">
@@ -294,9 +297,38 @@
 				});
 
 				// neighbourhood guides
+				$.each(destinations.london.transport, function(i, obj) {
+					if (i != 0){
+						$("#modal ul").append("<li rel='" + i + "'>" + obj.name + "</li>")
+					} else {
+						$("#modal ul").append("<li class='selected' rel='" + i + "'>" + obj.name + "</li>")
+					}
+					
+				});
 
+				$("#modal ul").find("li:first-child").addClass("selected");
 	
+				$("#hotels").on("click", ".transport", function(e){
+					$("#overlay").show();
+					$("#modal").slideDown(100);
+				}); 
 
+				$("#modal ul").on("click", "li", function(){
+					$("#modal ul").find("li").removeClass("selected");
+					$(this).addClass("selected");
+					var name = $(this).text()
+					var poiname = "<span style='display:inline-block; vertical-align:top;'>" + name + "</span>"; 
+					poiname += " <i class='material-icons' style='vertical-align:top display:inline-block;'>&#xE5CF;</i>"
+ 
+					$("#hotels").find(".transport .name").html(poiname); 
+					$("#overlay").hide();
+					$("#modal").hide();
+				})
+
+				$("#overlay").on("click", function(e){
+					$(this).hide();
+					$("#modal").hide();
+				});
 
 	
 
@@ -504,12 +536,12 @@
 				//console.log(content.lacoruna[.center])
 
 				if (elemClass == "center"){
-					var start = content.lacoruna[elemClass];
+					var start = content.london[elemClass];
 					var name = "City center"
 				} else {
 					
-					var start  = content.lacoruna[elemClass][0].latlng;
-					var name = content.lacoruna[elemClass][0].name;
+					var start  = destinations.london[elemClass][0].latlng;
+					var name = destinations.london[elemClass][0].name;
 					//console.log(start)
 					//console.log($("div." + elemClass + " .name").attr("class"));
 				}
@@ -543,14 +575,22 @@
        				//console.log("get dstance")
        				var iconFont = {
        					WALKING: "&#xE536;",
-       					DRIVING: "&#xE531;"
+       					DRIVING: "&#xE531;",
+       					TRANSIT: "&#xE530;"
        				}
 
             		//console.log(response.rows[0].elements[0].distance.text)
             		var distance = response.rows[0].elements[0].distance.text;
             		var duration = response.rows[0].elements[0].duration.text;
             		console.log(name)
-            		$("div[rel=" + elem + "]").find("." + elemClass + " .name").text(name)
+
+            		var poiname = "<span style='display:inline-block; vertical-align:top;'>" + name + "</span>"; 
+
+            		if (elemClass == "transport"){
+            			poiname += " <i class='material-icons' style='vertical-align:top display:inline-block;'>&#xE5CF;</i>"
+            		}
+
+            		$("div[rel=" + elem + "]").find("." + elemClass + " .name").html(poiname)
             		$("div[rel=" + elem + "]").find("." + elemClass + " ." + mode.toLowerCase()).html("<i class='material-icons' style='display:inline-block; vertical-align:top;'>" + iconFont[mode] + "</i><span style='display:inline-block; vertical-align:top; margin-left:2px; padding-top:2px'>" + duration + "</span>")
             		
         		}
@@ -561,5 +601,17 @@
 			
 
 		</script>
+
+		<div id="overlay"></div>
+		<div id="modal">
+			<div>
+				<h2>I'm arriving into...</h2>
+				<p>Tell us where you are arriving into and we'll give you typical travel times to each hotel</p>
+				<ul>
+					
+				</ul>
+			</div>
+		</div>
+
 	</body>
 </html>
