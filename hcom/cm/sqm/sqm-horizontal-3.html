@@ -66,22 +66,23 @@
     #filters  ul.stars li label {color:#d41200; font-size:16px; padding:0;}
 
     .card {padding:8px 8px 8px; overflow:hidden;}
-    .card .thumb { width:250px; float:left;}
-    .card .thumb img {width: 250px}
+    .card .thumb { width:200px; float:left;}
+    .card .thumb img {width: 200px}
     .card .thumb .strip {display:flex; flex-direction:row;}
     .card .thumb .strip > div {flex-grow:1; height:60px;}
     .card .thumb .strip > div > div:first-child {height:60px; background-color:#eee; box-sizing:border-box;}
-    .card .content {width:calc(100% - 425px); float:left; box-sizing:border-box; padding-left:16px;}
+    
+    .card .content {width:calc(100% - 575px); float:left; box-sizing:border-box; padding-left:16px;}
     .card .content .name {font-size:14px; margin-bottom:4px;}
     .card .content .address {font-size:12px; color:#999;}
-    
-    .card .content .qual {padding:8px 0}
     .card .content .location .neighbourhood {font-size:13px;vertical-align: top;}
     .card .content .location .place {font-size:12px; color:#555;}
     .card .content .location .place .walking {font-size:12px;}
     .badge {font-weight:bold;}
 
-    .card .price {width:175px; float:left; box-sizing:border-box; text-align:right; padding-right:8px;}
+    .card .qual {float:left; width:175px; box-sizing:border-box; padding-left:16px;}
+
+    .card .price {width:200px; float:left; box-sizing:border-box; text-align:right; padding-right:8px;}
 
 
 			.card .price .specialDeal .total {color:#d41200; font-weight:bold; font-size:20px;}
@@ -238,7 +239,9 @@
 					<span style="font-size:12px; color:#555;">City center</span>	
 					<span class="place citycenter">{{getCityCenterDistance lat lon @index}}</span>
 			</div>
-			<div class="qual">
+			
+		</div>
+		<div class="qual">
 				
 				<div style="display:inline-block; vertical-align:top;">
 				<i class="fa fa-comments" aria-hidden="true" style=""></i> 
@@ -247,7 +250,6 @@
 					<div style="font-size:11px; margin-top:4px"><img src="ta-score.png" style="height:16px;"/> 1,117 reviews</div>
 				</div>
 			</div>
-		</div>
 		<div class="price">
        	 			{{#if promoPriceDetails}}
 

@@ -1,0 +1,45 @@
+/* Site wide CSS */
+/* red: #D41200 */
+body {padding:0; margin:0; font-family:arial; background-color:#f5/f4f0; color:#555;}
+div {box-sizing:border-box;}
+ul {list-style-type: none; padding:0; margin:0;}
+a {color:#026dc5; text-decoration: none;}
+
+#overlay {position:fixed; top:0; left:0; right:0; bottom:0; opacity:0.9; background-color:#000;}
+#photo-overlay {position:fixed; top:0; left:0; right:0; bottom:0; color:#fff;}
+#photo-overlay #controls {position:absolute; top:0; left:0; right:0; height:80px; padding:12px;}
+#photo-overlay #controls h1 {font-size:18px; margin:0; padding:0;}
+#photo-overlay #controls .close {position:absolute; top:0; right:0; padding:12px; display:inline-block; color:#fff; font-size:18px;}
+#photo-overlay #controls  select {background-color:#fff; padding:4px; font-size: 14px; width:100%; border:0; border-radius:2px; margin-top:12px;}
+#photo-overlay #photo-list {position:absolute; top:80px; left:0; right:0; bottom:0; overflow-y:scroll; padding:12px;}
+#photo-overlay #photo-list ul {}
+#photo-overlay #photo-list li {margin-bottom:16px;}
+#photo-overlay #photo-list li p {margin:0 0 4px 0; padding:0;}
+#photo-overlay #photo-list li img {width:100%;}
+
+/* Media Queries - HCOM breakpoints */
+@media only screen and (min-width:0px) {
+	body {font-size:14px;}
+	.block {padding:0 12px;}
+	#name {margin-top:8px;}
+	#name h1 {margin:0; padding:0; font-size:18px;}
+	#name #address {font-size:11px;}
+	#description {margin-top:8px;}
+	#photos {margin-top:8px;}
+
+}
+
+@media only screen and (min-width:600px) {
+}
+
+@media only screen and (min-width:750px) {
+}
+
+@media only screen and (min-width:850px) {
+}
+
+@media only screen and (min-width:960px) {
+}
+
+@media only screen and (min-width:1260px) {
+}
