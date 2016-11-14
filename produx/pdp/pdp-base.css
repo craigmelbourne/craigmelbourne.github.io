@@ -14,7 +14,7 @@ a {color:#026dc5; text-decoration: none;}
 #photo-overlay #photo-list {position:absolute; top:80px; left:0; right:0; bottom:0; overflow-y:scroll; padding:12px;}
 #photo-overlay #photo-list ul {}
 #photo-overlay #photo-list li {margin-bottom:16px;}
-#photo-overlay #photo-list li p {margin:0 0 4px 0; padding:0;}
+#photo-overlay #photo-list li p {margin:0 0 0px 0; padding:0; background-color:#555; color:#fff; padding:8px; border-top-left-radius:2px; border-top-right-radius:2px; font-size:13px;}
 #photo-overlay #photo-list li img {width:100%;}
 
 /* Media Queries - HCOM breakpoints */

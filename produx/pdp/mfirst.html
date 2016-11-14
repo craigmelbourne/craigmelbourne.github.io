@@ -25,8 +25,9 @@
 			<span id="address">24 Ludgate Hill, London, England, EC4M 7DR, United Kingdom, 0203 027 9779</span>
 		</div>
 		<div id="description" class="block">4-star hotel with restaurant, near St. Paul's Cathedral</div>
-		<div id="photos">
+		<div id="photos" style="position:absolute;">
 			<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/31a11b62_z.jpg" style="width:100%" />
+			<p style="text-align: right; padding:4px 8px; margin:0; position:absolute; bottom:0; right:0; background-color:#fff;"><a href="#" class="open-photos">See all photos (34)</a></p>
 		</div>
 
 
@@ -176,6 +177,11 @@
 				});
 
 				$("#photos img").on("click", function(){
+					$("#overlay").show();
+					$("#photo-overlay").show();
+				});
+
+				$("#photos a").on("click", function(){
 					$("#overlay").show();
 					$("#photo-overlay").show();
 				});
