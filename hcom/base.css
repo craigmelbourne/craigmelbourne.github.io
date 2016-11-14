@@ -1,5 +1,8 @@
 /* Site wide CSS */
-body {}
+/* red: #D41200 */
+body {
+	font-family:arial;
+}
 
 /* Media Queries - HCOM breakpoints */
 @media only screen and (min-width:0px) {
