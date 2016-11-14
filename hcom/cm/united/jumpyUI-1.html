@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		<link rel="stylesheet" type="text/css" href="../base.css">
+		<style type="text/css">
+			body {font-family:arial; padding:0; margin:0;}
+			#header {}	
+		</style>
+
+	</head>
+
+	<body>
+
+<div class="wrapper" style="width:360px; margin:0 auto;">
+	<div id="header">
+		<img src="i/header.png" style="width:360px" />
+	</div>
+
+	<div style="padding:8px; font-size:13px; background-color:#eae8e0;">
+		Secure booking (it only takes 2 minutes)
+	</div>
+	<div>
+		<img src="i/check-details.png" style="width:360px"/>
+		<img id="check-price" src="i/check-details-price.png" style="width:360px"/>
+	</div>
+	<div>
+		<img src="i/room-details.png" style="width:360px" />
+	</div>
+	
+	<style type="text/css">
+		.block {padding:8px;}
+		.block h3 {margin:0; padding:0;}
+		#payment {border-top:solid 2px #ddd; background-color:#f5f4f0;}
+		#payment-selector {list-style-type: none; margin:0; padding:0; border:solid 1px #ddd; margin:8px 0;}
+		#payment-selector li { padding:8px; }
+		#payment-selector li label {font-size:13px;}
+		#payment-selector li:first-child {border-bottom:solid 1px #ddd;}
+	</style>
+
+	<div id="payment" class="block">
+		<h3>Payment details</h3>
+
+		<ul id="payment-selector">
+			<li>
+				<input type="radio" name="type" value="cc" checked> <label>Credit / Debit card</label>
+			</li>
+			<li>
+				<input type="radio" name="type" value="mileage" > <label>MileagePlus miles</label>
+			</li>
+		</ul>
+
+		<img src="i/payment-details-cc.png" style="width:344px;" />
+		
+	</div>
+	<div>
+		<img src="i/your-details.png" style="width:360px; ma"/>
+	</div>
+</div>
+	
+
+	
+		
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+      			
+				$('input[name=type]').change(function() {
+        			if (this.value == 'cc') {
+            			$("#payment img").attr("src","i/payment-details-cc.png");
+            			$("img#check-price").show();
+        			} else if (this.value == 'mileage') {
+           				$("#payment img").attr("src","i/payment-details.png");
+           				//var elemTop = $('#payment-selector').offset().top - $(window).scrollTop()
+           				var elemHeight = $("#check-price").height();
+           				var scrollPos = $(window).scrollTop();
+           				//console.log($(window).scrollTop());
+           				$("img#check-price").hide();
+
+           				console.log(scrollPos);
+           					console.log(elemHeight);
+           					$(window).scrollTop(scrollPos - elemHeight);
+           				
+
+           				
+           				
+
+           				//console.log();
+           				//console.log(elemTop); 
+           				
+           				//$("#payment-selector").
+        			}
+    			});
+
+
+			});
+
+		</script>
+	</body>
+</html>
