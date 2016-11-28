@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		<!--<link rel="stylesheet" type="text/css" href="pdp-base.css">-->
+		<style type="text/css">
+		body {padding:0; margin:0; font-family:arial; color:#555;}
+		#wrapper-page {width:360px;}
+		#wrapper-page > div {position:relative;}
+		#header {height:30px; background-color: #d41200;}
+		#search {height:60px; background-color: #f5f4f0;}
+		#name {padding:12px 12px;}
+		#name h1 {padding:0; margin:0; font-size:18px; margin-bottom:4px;}
+		#name .address {display:block; font-size:12px; line-height: 16px}
+		#name .highlights {display:block; font-size:14px; margin-top:8px;}
+		#name .freebies {display:block; font-size:14px; margin-top:8px; font-weight:bold;}
+		#photos {background-color:#333; height:350px;}
+		</style>
+
+	</head>
+
+	<body>
+
+	<div id="wrapper-page">
+		<div id="header"></div>
+		<div id="search"></div>
+		<div id="name">
+			<h1>Vienna House Dream Castle at Disneyland ® Paris</h1>
+			<span class="address">40 Avenue de la Fosse des Pressoirs, Val de France, Magny-le-Hongre, Seine-et-Marne, 77703, France, 0203 027 9779</span>
+			<span class="highlights">4-star hotel with 2 restaurants, near Disneyland® Paris</span>
+			<span class="freebies">Free WiFi and free parking</span>
+
+		</div>
+		<div id="photos"></div>
+		<div id="price"></div>
+		<div id="summary"></div>
+		<div id="map"></div>
+		<div id="reviews"></div>
+		<div id="rewards"></div>
+		<div id="rooms"></div>
+		<div id="alternative"></div>
+		<div id="amenities"></div>
+	</div>
+
+
+<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+      			
+				$( "#header-wrapper" ).load( "../components/c-header-new.html" );
+
+				$("#controls .close").on("click", function(){
+					$("#overlay").hide();
+					$("#photo-overlay").hide();
+				});
+
+				$("#photos img").on("click", function(){
+					$("#overlay").show();
+					$("#photo-overlay").show();
+				});
+
+				$("#photos a").on("click", function(){
+					$("#overlay").show();
+					$("#photo-overlay").show();
+				});
+			});
+
+		</script>
+	</body>
