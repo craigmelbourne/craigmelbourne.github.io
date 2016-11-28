@@ -9,18 +9,31 @@
 		<!-- style sheets -->
 
 		<!--<link rel="stylesheet" type="text/css" href="pdp-base.css">-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<style type="text/css">
-		body {padding:0; margin:0; font-family:arial; color:#555;}
-		#wrapper-page {width:360px;}
+		body {padding:0; margin:0 0 0 20px; font-family:arial; color:#555; }
+		#wrapper-page {width:360px; background-color: #f5f4f0;}
 		#wrapper-page > div {position:relative;}
 		#header {height:30px; background-color: #d41200;}
-		#search {height:60px; background-color: #f5f4f0;}
+		#search {height:60px; background-color: #e5e3db;}
 		#name {padding:12px 12px;}
 		#name h1 {padding:0; margin:0; font-size:18px; margin-bottom:4px;}
 		#name .address {display:block; font-size:12px; line-height: 16px}
 		#name .highlights {display:block; font-size:14px; margin-top:8px;}
 		#name .freebies {display:block; font-size:14px; margin-top:8px; font-weight:bold;}
 		#photos {background-color:#333; height:350px;}
+		
+		#rooms {border:solid 2px #333; min-height:300px; margin:12px 0;}
+		#rooms #search-summary {background-color:#4e4e4e; padding:12px;} 
+		#rooms #lock-in-price {background-color:#dae9cc; padding:12px;}
+		#rooms .room {margin:8px; background-color:#fff; min-height:100px;}
+		#rooms .room .details {background-color: #e5e3db; padding:8px;}
+		#rooms .room .rate {padding:8px; border-bottom:solid 1px #ddd;}
+
+		#amenities .section {border-bottom:solid 1px #ddd; position:relative;}
+		#amenities .section h2{color:#d41200; padding:0; margin:0; font-size:16px; padding:12px;}
+		#amenities .section a.arrow {position:absolute; right:12px; top:8px; }
+		#amenities .section a.arrow i {color:#026dc5; font-size:24px;}
 		</style>
 
 	</head>
@@ -43,9 +56,51 @@
 		<div id="map"></div>
 		<div id="reviews"></div>
 		<div id="rewards"></div>
-		<div id="rooms"></div>
+		<div id="rooms">
+			<div id="search-summary"><img src="i/rooms-search-summary.png" /></div>
+			<div id="lock-in-price"><img src="i/rooms-lock-in-price.png" /></div>
+			<div class="room">
+				<div class="details">
+					<img src="i/rooms-room-1-details.png" />
+				</div>
+				<div class="rate">
+					<img src="i/rooms-room-1-rate-1.png" />
+				</div>
+			</div>
+			<div class="room">
+				<div class="details">
+					<img src="i/rooms-room-2-details.png" />
+				</div>
+				<div class="rate">
+					<img src="i/rooms-room-2-rate-1.png" />
+				</div>
+			</div>
+			<div class="room">
+				<div class="details">
+					<img src="i/rooms-room-3-details.png" />
+				</div>
+				<div class="rate">
+					<img src="i/rooms-room-3-rate-1.png" />
+				</div>
+			</div>
+		</div>
 		<div id="alternative"></div>
-		<div id="amenities"></div>
+		<div id="amenities">
+			<div class="section">
+				<h2>Key facts</h2>
+				<a class="arrow" href="#"><i class="material-icons">&#xE5C5;</i></a>
+			</div>
+			<div class="section">
+				<h2>In the hotel</h2>
+				
+				<a class="arrow" href="#"><i class="material-icons">&#xE5C5;</i></a>
+			</div>
+			<div class="section">
+				<h2>In the room</h2>
+				
+				<a class="arrow" href="#"><i class="material-icons">&#xE5C5;</i></a>
+			</div>
+		</div>
 	</div>
 
 
