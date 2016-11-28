@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		<link rel="stylesheet" type="text/css" href="comm/on.css">
+		<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
+	</head>
+
+	<body>
+
+	<style type="text/css">
+		body {margin:0; padding:0; font-family: "Helvetica Neue"; background-color:#f5f4f0;}
+		ul {list-style-type: none; padding:0; margin:0;}
+		a {color:#026dc5; text-decoration: none;}
+		#header-wrapper {background-color: #d41200; }	
+		
+		#tp-wrapper {background-color: ; position:absolute; left:0; right:0; top:130px; z-index:-1; height:90px;}	
+		#tp-content {max-width:1100px; margin:60px auto;}	
+		#sqm {position:relative; max-width:1100px; margin:0 auto; background-color:#d41200; margin-top:94px; box-sizing: border-box;  z-index:1000; border-top:solid 1px #fff; padding-top:16px;}
+
+		#tp-strip {position:relative; max-width:1100px; margin:-12px auto; background-color:#fff; box-sizing: border-box; padding:20px 16px; background-color:#026dc5; border-radius:4px;}
+
+		#sqm .field {display:inline-block;padding:0 12px 0 0; box-sizing:border-box; }
+		
+		#sqm .field label.sqm {display:block; margin-bottom:8px;  font-size:13px; color:#fff;}
+		#sqm .field input[type="text"] {font-size:16px; width:calc(100% - 16px); border:0; font-family:arial; padding:8px; border-radius:4px; 
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.39)}
+		#sqm .date {background: url("cal.png") no-repeat #fff center right;}
+
+		ul.main-links li {display: inline-block; padding-top:16px; margin-left:20px;}
+
+		#page-wrapper {max-width:1100px; margin:0 auto 0; }
+		#page-wrapper #filters {width:250px; height:600px; border-radius: 4px; display:inline-block; vertical-align: top;}
+		#page-wrapper #filters h2 {font-size:18px; padding:0; margin:0 0 0 0;}
+		#page-wrapper #filters p {font-size:14px; padding:0; margin:4px 0 8px 0;}
+		#page-wrapper #filters > div { padding: 8px 0;}
+		#page-wrapper #filters input[type="text"] {font-size:12px; width:calc(100% - 48px); border:0; font-family:arial; padding:8px; border-radius:4px; 
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.39)}
+		#page-wrapper #filters h3 {font-size:14px; padding:0; margin:0 0 8px 0;}
+		#page-wrapper #filters ul.stars li {color:#d41200; font-size:14px;}
+
+
+		#page-wrapper #content {margin-left:0}
+		#page-wrapper #content .card {background-color: #fff; height:100px; margin-bottom:4px;}
+
+		.tools {padding:12px; display:flex; flex-direction: row;}
+		.tools li {flex-grow:1; text-align:center;}
+		.tools li:last-child{flex-grow:10; text-align:left;}
+		.tools li a {display:block; font-size:14px; background-color:#fff; border:solid 1px #026dc5; font-weight:bold; padding:4px 8px; border-radius:2px;}
+
+		.hotel-card {border-bottom:solid 1px #eee; margin:0 0 8px; position:relative; padding:8px 0; background-color: #fff;}
+    		.hotel-card .thumbnail {position:absolute; top:0px; left:0; bottom:20px; width:30%; text-align: center; overflow: hidden;}
+			.hotel-card .thumbnail img { position: relative; left: 100%; margin-left: -200%; height:100%; min-width:100%;}
+			.hotel-card .rewards {position:absolute; bottom:0; width:30%; color:#fff; background-color: #906; height:24px; font-size:13px;text-align: center; padding:4px 0; box-sizing:border-box;}
+			.hotel-card .details, .hotel-card .price {margin-left:30%; box-sizing:border-box; padding-left:12px;}
+			.hotel-card .details .name {text-decoration: none; display:block; margin-bottom:0px; font-size:14px; }
+			.hotel-card .details .address {text-decoration: none; display:none;}
+			.hotel-card .details .stars {display:none; vertical-align: top; margin-top:0px;}
+			.hotel-card .details .stars img { height:12px; display:inline-block; vertical-align: top;}
+			.hotel-card .details .neighbourhood {font-size:12px;}
+			.hotel-card .details .guestRating {font-size:12px; margin-top:4px;}
+			.hotel-card .details .guestRating .qual, .hotel-card .details .guestRating .score {font-weight:bold;}
+			.numReviews {font-size:11px; color:#999; margin-left:4px;}
+			.taGuestReview {margin-top:4px;}
+			.taGuestReview img.owl {height:16px; display:inline-block; vertical-align: top;}
+			.taGuestReview img.circles {display:inline-block; vertical-align: top; margin-top:2px;}
+			.taGuestReview .numReviews {display:inline-block; vertical-align: top; margin-top:2px;}
+
+			.hotel-card .price {margin-top:12px; text-align:right; padding-right:12px;}
+			.hotel-card .price .specialDeal .total {color:#d41200; font-weight:bold; font-size:20px;}
+			.hotel-card .price .specialDeal .description {color:#d41200; font-size:12px; display:block; font-weight:bold; margin-bottom:4px;}
+			.hotel-card .price .specialDeal .strikethrough {color:#555; font-size:16px; text-decoration: line-through}
+			.hotel-card .price .standard {font-weight:bold; font-size:20px;}
+			.hotel-card .price .disclaimer {font-size:11px; color:#999;}
+
+			.fix-tools {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+}
+
+	</style>
+
+	<div id="header-wrapper">
+
+	</div>
+
+
+	<div id="page-wrapper">
+		<ul class="tools">
+			<li style=" margin-right:4px;"><a href="" >Filter</a></li>
+			<li style=" margin-right:4px;"><a href="#" >Map</a></li>
+			<li style="position:relative;">
+				<a href="#">Sort by</a>
+				<i class="fa fa-caret-down" style="position:absolute; top:4px; right:8px; font-size:20px; color:#026dc5" aria-hidden="true"></i>
+			</li>
+		</ul>
+		<div id="hotels">
+			
+		</div>
+	</div>
+
+
+<script id="hotel-card" type="text/x-handlebars-template">
+ 			{{#each hotels}}
+ 				<div class="hotel-card">
+ 					<div class="thumbnail">
+ 						<img src="{{imageUrl}}" />
+ 					</div>
+ 					<div class="rewards">Collect</div>
+ 					<div class="details">
+       	 				<a class="name" href="#">{{hotelName}}</a>
+       	 				<span class="address">{{address1}}, {{address2}}, {{locality}}, {{region}}</span>
+       	 				<span class="stars">{{displayStarRating starRating}}</span>
+       	 				<span class="neighbourhood">{{displayNeighbourhood location}}</span>
+       	 				<div class="guestRating"><span class="qual">{{qualitativeBadgeText}}</span> <span class="score">{{guestReviewRating}}</span> / 5 <span class="numReviews">{{numberOfGuestReviews}} reviews</span></div>
+       	 				<div class="taGuestReview"><img class="owl" src="../listing/i/ta-owl.png" /> <img class="circles" src="../listing/i/ta-circles.png" /> <span class="numReviews">100 reviews</span></div>
+       	 			</div>
+       	 			<div class="price">
+       	 			{{#if promoPriceDetails}}
+
+       	 				{{#if promoPriceDescription.length}}
+       	 					<div class="specialDeal">
+       	 						<span class="description">{{promoPriceDescription}}</span>
+       	 						<span class="strikethrough">{{avgPrice}}</span> 
+       	 						<span class="total">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</span>
+       	 					</div>
+       	 				{{else}}
+       	 					<div class="standard">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</div>
+       	 				{{/if}}
+       	 				
+       	 			{{else}}
+       	 				<div class="standard">{{avgPrice}}</div>
+       	 			{{/if}}
+       	 			<div class="disclaimer">price for 1 night including taxes and fees</div>
+       	 			</div>
+       	 		</div>
+		    {{/each}}
+    	</script>
+		
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="../handlebars.js"></script>
+
+		<script type="text/javascript">
+			var hotelData;
+			// run things on page load
+			$(function(){
+      			$.getJSON( "../ny-json.js", function( data ) {
+  					displayHotels(data);
+				});
+
+				var wrap = $(".tools");
+
+				wrap.on("scroll", function(e) {
+    
+  				if (window.scrollTop > 147) {
+    				wrap.addClass("fix-tools");
+  				} else {
+    				wrap.removeClass("fix-tools");
+ 	 			}
+ 
+				});
+			});
+
+			var displayHotels = function (data) {
+				// hide loading message
+				//$("#loading-hotels").hide();
+			
+				var hotels = data.result;
+				console.log(hotels);
+				
+				// attach to handle bar template
+        		var source   = $("#hotel-card").html();
+  				var template = Handlebars.compile(source);
+  				$("#hotels").html(template(hotels));
+			}
+
+			Handlebars.registerHelper("displayStarRating", function(starRating){
+				var num = parseInt(Math.floor(starRating));
+				var starsHTML = ""
+				for (i = 0; i < num; i++) { 
+    				starsHTML += "<img src='../listing/i/red_star.png' />"
+				}
+
+				return new Handlebars.SafeString(starsHTML);
+			});
+
+			Handlebars.registerHelper("displayNeighbourhood", function(locality){
+				var neighbourhood = locality.split("/")
+				return neighbourhood[0];
+			});
+
+		</script>
+	</body>
+</html>
