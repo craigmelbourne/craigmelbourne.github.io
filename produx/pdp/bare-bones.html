@@ -12,6 +12,7 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<style type="text/css">
 		body {padding:0; margin:0 0 0 20px; font-family:arial; color:#555; }
+		a {text-decoration: none;}
 		#wrapper-page {width:360px; background-color: #f5f4f0;}
 		#wrapper-page > div {position:relative;}
 		#header {height:30px; background-color: #d41200;}
@@ -29,6 +30,9 @@
 		#rooms .room {margin:8px; background-color:#fff; min-height:100px;}
 		#rooms .room .details {background-color: #e5e3db; padding:8px;}
 		#rooms .room .rate {padding:8px; border-bottom:solid 1px #ddd;}
+
+		#rooms .room .show-rates {position:relative; border-top:solid 1px #ddd; padding:12px;}
+		#rooms .room .show-rates i {color:#026dc5; font-size:24px; position:absolute; right:12px; top:8px;}
 
 		#amenities .section {border-bottom:solid 1px #ddd; position:relative;}
 		#amenities .section h2{color:#d41200; padding:0; margin:0; font-size:16px; padding:12px;}
@@ -66,6 +70,10 @@
 				<div class="rate">
 					<img src="i/rooms-room-1-rate-1.png" />
 				</div>
+				<div class="show-rates">
+						<a href="#">Show all rates for this room</a>
+						<a class="arrow" href="#"><i class="material-icons">&#xE5C5;</i></a>
+					</div>
 			</div>
 			<div class="room">
 				<div class="details">
@@ -74,6 +82,10 @@
 				<div class="rate">
 					<img src="i/rooms-room-2-rate-1.png" />
 				</div>
+				<div class="show-rates">
+						<a href="#">Show all rates for this room</a>
+						<a class="arrow" href="#"><i class="material-icons">&#xE5C5;</i></a>
+					</div>
 			</div>
 			<div class="room">
 				<div class="details">
@@ -81,7 +93,12 @@
 				</div>
 				<div class="rate">
 					<img src="i/rooms-room-3-rate-1.png" />
+					
 				</div>
+				<div class="show-rates">
+						<a href="#">Show all rates for this room</a>
+						<a class="arrow" href="#"><i class="material-icons">&#xE5C5;</i></a>
+					</div>
 			</div>
 		</div>
 		<div id="alternative"></div>
@@ -101,6 +118,7 @@
 				<a class="arrow" href="#"><i class="material-icons">&#xE5C5;</i></a>
 			</div>
 		</div>
+		<div style="height:100px; padding:12px; color:#999">Footer lives in here</div>
 	</div>
 
 
