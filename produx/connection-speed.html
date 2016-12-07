@@ -27,10 +27,10 @@
 			var end = perf.timing.responseStart; // first byte received
 			var total_time = end - start;
 			
-			if (total_time < 1000) {
-    			$("#fast").show();
+			if (total_time < 150) {
+    			$("#fast").show().append(" " + total_time);
 			} else {
-				$("#slow").show();
+				$("#slow").show().append(" (" + total_time + "ms)");
 			}
 
 			// run things on page load
