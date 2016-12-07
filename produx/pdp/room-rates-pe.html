@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		<!--<link rel="stylesheet" type="text/css" href="pdp-base.css">-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<style type="text/css">
+		body {padding:0; margin:0 0 0 20px; font-family:arial; color:#555; }
+		a {text-decoration: none;}
+		#wrapper-page {width:360px; background-color: #f5f4f0;}
+		#wrapper-page > div {position:relative;}
+		#header {height:30px; background-color: #d41200;}
+		#search {height:60px; background-color: #e5e3db;}
+		#name {padding:12px 12px;}
+		#name h1 {padding:0; margin:0; font-size:18px; margin-bottom:4px;}
+		#name .address {display:block; font-size:12px; line-height: 16px}
+		#name .highlights {display:block; font-size:14px; margin-top:8px;}
+		#name .freebies {display:block; font-size:14px; margin-top:8px; font-weight:bold;}
+		#photos {background-color:#333; height:350px;}
+		
+		#rooms {border:solid 2px #333; min-height:300px; margin:12px 0;}
+		#rooms #search-summary {background-color:#4e4e4e; padding:12px;} 
+		#rooms #lock-in-price {background-color:#dae9cc; padding:12px;}
+		#rooms .room {margin:8px; background-color:#fff; min-height:100px;}
+		#rooms .room .details {background-color: #e5e3db; padding:8px;}
+		#rooms .room .rate {padding:8px; border-bottom:solid 1px #ddd;}
+
+		#rooms .room .rate-hidden {display:none;}
+
+		#rooms .room .loading-rates {position:relative; background-color:#eee; padding:12px; display:none;}
+
+		#rooms .room .show-rates {position:relative; border-top:solid 1px #ddd; padding:12px;}
+		#rooms .room .show-rates i {color:#026dc5; font-size:24px; position:absolute; right:12px; top:8px;}
+
+		#amenities .section {border-bottom:solid 1px #ddd; position:relative;}
+		#amenities .section h2{color:#d41200; padding:0; margin:0; font-size:16px; padding:12px;}
+		#amenities .section a.arrow {position:absolute; right:12px; top:8px; }
+		#amenities .section a.arrow i {color:#026dc5; font-size:24px;}
+
+		#connection {width:300px;}
+		#connection span {display:block; font-size: 24px; margin-top:8px;}
+		</style>
+
+	</head>
+
+	<body>
+
+	<div id="connection" style="position:absolute; left: 500px; top:50px;">
+		We think you're on a <span id="fast" style="display:none;">fast connection</span>
+		<span id="slow" style="display:none;">slow connection</span>
+	</div>
+
+	<div id="wrapper-page">
+		<!--<div id="header"></div>
+		<div id="search"></div>
+		<div id="name">
+			<h1>Vienna House Dream Castle at Disneyland ® Paris</h1>
+			<span class="address">40 Avenue de la Fosse des Pressoirs, Val de France, Magny-le-Hongre, Seine-et-Marne, 77703, France, 0203 027 9779</span>
+			<span class="highlights">4-star hotel with 2 restaurants, near Disneyland® Paris</span>
+			<span class="freebies">Free WiFi and free parking</span>
+
+		</div>
+		<div id="photos"></div>
+		<div id="price"></div>
+		<div id="summary"></div>
+		<div id="map"></div>
+		<div id="reviews"></div>
+		<div id="rewards"></div>-->
+		<div id="rooms">
+			<div id="search-summary"><img src="i/rooms-search-summary.png" /></div>
+			<div id="lock-in-price"><img src="i/rooms-lock-in-price.png" /></div>
+			<div class="room" id="room-1">
+				<div class="details">
+					<img src="i/rooms-room-1-details.png" />
+				</div>
+				<div class="rate">
+					<img src="i/rooms-room-1-rate-1.png" />
+				</div>
+				<div class="rate rate-hidden">
+					<img src="i/rooms-room-1-rate-2.png" />
+				</div>
+				<div class="rate rate-hidden">
+					<img src="i/rooms-room-1-rate-3.png" />
+				</div>
+				<div class="loading-rates">
+					<img src="i/ajax-loader.gif" /> Loading rates 
+				</div>
+				<div class="show-rates">
+						<a href="#" rel="room-1">Show all rates for this room</a>
+						<a class="arrow" href="#" rel="room-1"><i class="material-icons">&#xE5C5;</i></a>
+					</div>
+			</div>
+			<div class="room" id="room-2">
+				<div class="details">
+					<img src="i/rooms-room-2-details.png" />
+				</div>
+				<div class="rate">
+					<img src="i/rooms-room-2-rate-1.png" />
+				</div>
+				<div class="rate rate-hidden">
+					<img src="i/rooms-room-2-rate-2.png" />
+				</div>
+				<div class="rate rate-hidden">
+					<img src="i/rooms-room-2-rate-3.png" />
+				</div>
+				<div class="loading-rates">
+					<img src="i/ajax-loader.gif" /> Loading rates 
+				</div>
+				<div class="show-rates">
+						<a href="#" rel="room-2">Show all rates for this room</a>
+						<a class="arrow" href="#" rel="room-2"><i class="material-icons">&#xE5C5;</i></a>
+					</div>
+			</div>
+			<div class="room" id="room-3">
+				<div class="details">
+					<img src="i/rooms-room-3-details.png" />
+				</div>
+				<div class="rate">
+					<img src="i/rooms-room-3-rate-1.png" />
+				</div>
+				<div class="rate rate-hidden">
+					<img src="i/rooms-room-3-rate-2.png" />
+				</div>
+				<div class="rate rate-hidden">
+					<img src="i/rooms-room-3-rate-3.png" />
+				</div>
+				<div class="loading-rates">
+					<img src="i/ajax-loader.gif" /> Loading rates 
+				</div>
+				<div class="show-rates">
+						<a href="#" rel="room-3">Show all rates for this room</a>
+						<a class="arrow" href="#" rel="room-3"><i class="material-icons">&#xE5C5;</i></a>
+					</div>
+			</div>
+		</div>
+		<!--<div id="alternative"></div>
+		<div id="amenities">
+			<div class="section">
+				<h2>Key facts</h2>
+				<a class="arrow" href="#"><i class="material-icons">&#xE5C5;</i></a>
+			</div>
+			<div class="section">
+				<h2>In the hotel</h2>
+				
+				<a class="arrow" href="#"><i class="material-icons">&#xE5C5;</i></a>
+			</div>
+			<div class="section">
+				<h2>In the room</h2>
+				
+				<a class="arrow" href="#"><i class="material-icons">&#xE5C5;</i></a>
+			</div>
+		</div>
+		<div style="height:100px; padding:12px; color:#999">Footer lives in here</div>-->
+	</div>
+
+
+<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
+
+		<script type="text/javascript">
+
+			var perf = window.performance;
+			var start = perf.timing.requestStart; // just before page is requested
+			var end = perf.timing.responseStart; // first byte received
+			var total_time = end - start;
+			
+			var displayRoomRates = function(){
+					$(".loading-rates").hide();
+					$(".rate-hidden").show();
+					$(".show-rates").hide();
+			}
+
+			if (total_time < 300) {
+    			$("#fast").show().append(" (" + total_time + "ms)");
+    			displayRoomRates();
+			} else {
+				$("#slow").show().append(" (" + total_time + "ms)");
+			}
+
+			
+
+			// run things on page load
+			$(function(){
+      			
+				var showRoomRates = function(roomid) {
+					$("#" + roomid + " > .loading-rates").hide();
+					$("#" + roomid + " > .rate-hidden").show();
+					console.log(roomid);
+				}
+
+				$( "#header-wrapper" ).load( "../components/c-header-new.html" );
+
+				$(".show-rates a").on("click", function(e){
+					e.preventDefault();
+					var roomid = $(this).attr("rel");
+					$("#" + roomid + " > .loading-rates").show(); 
+					 
+					
+					$(this).parent().hide();
+
+					setTimeout(function(){ 
+						showRoomRates(roomid);
+					}, 2000);
+				})
+			});
+
+		</script>
+	</body>
