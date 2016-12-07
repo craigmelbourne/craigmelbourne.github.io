@@ -45,6 +45,7 @@
 
 		#connection {width:300px;}
 		#connection span {display:block; font-size: 24px; margin-top:8px;}
+		
 		</style>
 
 	</head>
@@ -52,8 +53,28 @@
 	<body>
 
 	<div id="connection" style="position:absolute; left: 500px; top:50px;">
-		We think you're in our <span id="fast" style="display:none;">fast bucket</span>
-		<span id="slow" style="display:none;">slow bucket</span>
+		<h2>Progressive enhancement based on speed of connection</h2>
+		<p style="background-color:#eee; color:#555; padding:12px">We think you're in our <span id="fast" style="display:none;">fast bucket</span>
+		<span id="slow" style="display:none;">slow bucket</span></p>
+
+		<p style="font-size:14px; line-height:20px">Prototype is using the time difference between <i>requestStart</i> and <i>responseStart</i> from the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming" target="_blank">Navigation Timing API</a> to decide which functionality/content to display</p>
+
+		<pre>
+// I've made this number up
+var threshold = 175;
+
+// code lifted from the Guardian
+var perf = window.performance;
+var start = perf.timing.requestStart; // just before page is requested
+var end = perf.timing.responseStart; // first byte received
+var total_time = end - start;
+			
+
+if (total_time < threshold) {
+// we're putting you in our 'fast' bucket.
+    displayAllRoomRates();
+} 
+		</pre>
 	</div>
 
 	<div id="wrapper-page">
@@ -167,6 +188,7 @@
 
 		<script type="text/javascript">
 
+		 	var threshold = 175;
 			var perf = window.performance;
 			var start = perf.timing.requestStart; // just before page is requested
 			var end = perf.timing.responseStart; // first byte received
@@ -178,7 +200,7 @@
 					$(".show-rates").hide();
 			}
 
-			if (total_time < 175) {
+			if (total_time < threshold) {
     			$("#fast").show().append(" (" + total_time + "ms)");
     			displayRoomRates();
 			} else {
