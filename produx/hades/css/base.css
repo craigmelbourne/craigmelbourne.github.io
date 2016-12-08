@@ -27,7 +27,7 @@ a {text-decoration: none; color:#026dc5;}
 #article-wrapper {max-width:960px; margin:0 auto; padding:16px;}
 #article-wrapper h1 {font-size:48px; margin-bottom:48px; font-weight:bold;}
 #article-wrapper h2.large {font-size:36px; margin:36px 0 24px 0; font-weight:bold;}
-#article-wrapper h2 {font-size:24px; margin:24px 0; font-weight:bold;}
+#article-wrapper h2 {font-size:28px; margin:48px 0 24px; font-weight:bold;}
 #article-wrapper h3 {font-size:20px; margin:24px 0 8px; font-weight:bold;}
 #article-wrapper p {padding:0; margin:0 0 16px; line-height: 20px}
 
