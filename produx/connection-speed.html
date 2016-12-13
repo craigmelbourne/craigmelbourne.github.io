@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<style type="text/css">
+			body {text-align:center; font-family:arial; margin-top:50px;}
+			span {display:block; font-size: 24px; margin-top:8px;}
+		</style>
+	</head>
+	<body>
+		
+		We think you're on a <span id="fast" style="display:none;">fast connection</span>
+		<span id="slow" style="display:none;">slow connection</span>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			var perf = window.performance;
+			var start = perf.timing.requestStart; // just before page is requested
+			var end = perf.timing.responseStart; // first byte received
+			var total_time = end - start;
+			
+			if (total_time < 300) {
+    			$("#fast").show().append(" " + total_time);
+			} else {
+				$("#slow").show().append(" (" + total_time + "ms)");
+			}
+
+			// run things on page load
+			$(function(){
+      			
+			});
+
+		</script>
+	</body>
+</html>

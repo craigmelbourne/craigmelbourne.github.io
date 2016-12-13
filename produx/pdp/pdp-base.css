@@ -34,10 +34,14 @@ a {color:#026dc5; text-decoration: none;}
 	#name #address {font-size:11px;}
 	#description {margin-top:8px;}
 	#photos {margin-top:8px;}
+	
 
 }
 
-@media only screen and (min-width:600px) {
+@media only screen and (min-width:360px) {
+	#page-wrapper {max-width:360px;}
+	#overlay {width:360px; }
+	#photo-overlay {width:360px; }
 }
 
 @media only screen and (min-width:750px) {

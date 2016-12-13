@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+		<style type="text/css">
+			
+			.range h2 {}
+			.range ul {overflow:hidden; list-style-type: none; }
+			.range ul li {float:left; text-align:center; margin-right:36px;}
+			.range ul li > div {height:50px; width:50px; border-radius:50%;}
+			.range ul li > span {display:block; margin-top:12px;}
+			.range p {margin-top:20px;}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="header-strip"></div>
+
+		<div id="article-wrapper">
+			
+			
+	
+
+				<h1 name="layout">Colours</h1>
+				
+
+				<div class="range">
+					<h2>Brand</h2>
+					<ul>
+						<li><div style="background-color:#d41200"></div><span>#d41200</span></li>
+					</ul>
+					<p><i>Add some examples</i></p>
+				</div>
+
+				<div class="range">
+					<h2>CTA's / Links (blue)</h2>
+					<ul>
+						<li><div style="background-color:#026dc5"></div><span>#026dc5</span></li>
+						<li><div style="background-color:#003789"></div><span>#003789</span></li>
+					</ul>
+					<p><i>Add some examples</i></p>
+				</div>
+
+				<div class="range">
+					<h2>Positive (green)</h2>
+					<ul>
+						<li><div style="background-color:#458f00"></div><span>#458f00</span></li>
+					</ul>
+					<p><i>Add some examples</i></p>
+				</div>
+
+				<div class="range">
+					<h2>Neutral messaging (yellow)</h2>
+					<ul>
+						<li><div style="background-color:#ffd542"></div><span>#ffd542</span></li>
+					</ul>
+					<p><i>Add some examples</i></p>
+				</div>
+
+				<div class="range">
+					<h2>Backgrounds (beige)</h2>
+					<ul>
+						<li><div style="background-color:#e5e3db"></div><span>#e5e3db</span></li>
+						<li><div style="background-color:#f5f4f0"></div><span>#f5f4f0</span></li>
+					</ul>
+					<p><i>Add some examples</i></p>
+				</div>
+
+				<div class="range">
+					<h2>Grayscale </h2>
+					<ul>
+						<li><div style="background-color:#333"></div><span>#333333</span></li>
+						<li><div style="background-color:#555"></div><span>#555555</span></li>
+					</ul>
+					<p><i>Add some examples</i></p>
+				</div>
+				
+
+				
+
+			
+
+		</div>
+
+		
+		<div id="footer-strip"></div>
+
+
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+      			$("#header-strip").load("header-component.html");
+      			$("#footer-strip").load("footer-component.html");
+			});
+
+		</script>
+	</body>
+</html>

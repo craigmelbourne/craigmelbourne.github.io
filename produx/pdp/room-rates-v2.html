@@ -59,12 +59,8 @@
 
 		</div>
 		<div id="photos"></div>
-		<div id="price">
-			<img src="i/pdp-price-overview.png" />
-		</div>
-		<div id="summary">
-			<img src="i/main-amenities.png" />
-		</div>
+		<div id="price"></div>
+		<div id="summary"></div>
 		<div id="map"></div>
 		<div id="reviews"></div>
 		<div id="rewards"></div>-->
@@ -88,7 +84,7 @@
 					<img src="i/ajax-loader.gif" /> Loading rates 
 				</div>
 				<div class="show-rates">
-						<a href="#" rel="room-1">Show all rates for this room</a>
+						<a href="#" rel="room-1">Show all rates</a>
 						<a class="arrow" href="#" rel="room-1"><i class="material-icons">&#xE5C5;</i></a>
 					</div>
 			</div>
@@ -109,7 +105,7 @@
 					<img src="i/ajax-loader.gif" /> Loading rates 
 				</div>
 				<div class="show-rates">
-						<a href="#" rel="room-2">Show all rates for this room</a>
+						<a href="#" rel="room-2">Show all rates</a>
 						<a class="arrow" href="#" rel="room-2"><i class="material-icons">&#xE5C5;</i></a>
 					</div>
 			</div>
@@ -130,7 +126,7 @@
 					<img src="i/ajax-loader.gif" /> Loading rates 
 				</div>
 				<div class="show-rates">
-						<a href="#" rel="room-3">Show all rates for this room</a>
+						<a href="#" rel="room-3">Show all rates</a>
 						<a class="arrow" href="#" rel="room-3"><i class="material-icons">&#xE5C5;</i></a>
 					</div>
 			</div>
@@ -152,8 +148,8 @@
 				<a class="arrow" href="#"><i class="material-icons">&#xE5C5;</i></a>
 			</div>
 		</div>
-		<div style="height:100px; padding:12px; color:#999">Footer lives in here</div>
-	</div>-->
+		<div style="height:100px; padding:12px; color:#999">Footer lives in here</div>-->
+	</div>
 
 
 <!-- Scripts -->
@@ -166,10 +162,10 @@
 			// run things on page load
 			$(function(){
       			
-				var showRoomRates = function(roomid) {
-					$("#" + roomid + " > .loading-rates").hide();
-					$("#" + roomid + " > .rate-hidden").show();
-					console.log(roomid);
+				var showRoomRates = function(r) {
+					$(".loading-rates").hide();
+					$(".rate-hidden").show();
+					//console.log(roomid);
 				}
 
 				$( "#header-wrapper" ).load( "../components/c-header-new.html" );
@@ -177,13 +173,13 @@
 				$(".show-rates a").on("click", function(e){
 					e.preventDefault();
 					var roomid = $(this).attr("rel");
-					$("#" + roomid + " > .loading-rates").show(); 
+					$(".loading-rates").show(); 
 					 
 					
-					$(this).parent().hide();
+					$(".show-rates").hide();
 
 					setTimeout(function(){ 
-						showRoomRates(roomid)
+						showRoomRates()
 						
 					}, 2000);
 				})

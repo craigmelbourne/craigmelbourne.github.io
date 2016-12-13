@@ -42,11 +42,42 @@
 		#amenities .section h2{color:#d41200; padding:0; margin:0; font-size:16px; padding:12px;}
 		#amenities .section a.arrow {position:absolute; right:12px; top:8px; }
 		#amenities .section a.arrow i {color:#026dc5; font-size:24px;}
+
+		#connection {width:300px;}
+		#connection span {display:block; font-size: 24px; margin-top:8px;}
+		
 		</style>
 
 	</head>
 
 	<body>
+
+	<div id="connection" style="position:absolute; left: 500px; top:50px;">
+		<h2>Progressive enhancement based on speed of connection</h2>
+		<p style="background-color:#eee; color:#555; padding:12px">We think you're in our <span id="fast" style="display:none;">fast bucket</span>
+		<span id="slow" style="display:none;">slow bucket</span></p>
+
+		<p style="font-size:14px; line-height:20px">Prototype is using the time difference between <i>requestStart</i> and <i>responseStart</i> from the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming" target="_blank">Navigation Timing API</a> to decide which functionality/content to display</p>
+
+		<p style="font-size:14px; line-height:20px">Change the network throttling setting in the browser dev tools to see the different variants</p>
+
+		<pre>
+// I've made this number up
+var threshold = 175;
+
+// code lifted from the Guardian
+var perf = window.performance;
+var start = perf.timing.requestStart; // just before page is requested
+var end = perf.timing.responseStart; // first byte received
+var total_time = end - start;
+			
+
+if (total_time < threshold) {
+// we're putting you in our 'fast' bucket and enhancing the experience.
+    displayAllRoomRates();
+} 
+		</pre>
+	</div>
 
 	<div id="wrapper-page">
 		<!--<div id="header"></div>
@@ -59,12 +90,8 @@
 
 		</div>
 		<div id="photos"></div>
-		<div id="price">
-			<img src="i/pdp-price-overview.png" />
-		</div>
-		<div id="summary">
-			<img src="i/main-amenities.png" />
-		</div>
+		<div id="price"></div>
+		<div id="summary"></div>
 		<div id="map"></div>
 		<div id="reviews"></div>
 		<div id="rewards"></div>-->
@@ -152,8 +179,8 @@
 				<a class="arrow" href="#"><i class="material-icons">&#xE5C5;</i></a>
 			</div>
 		</div>
-		<div style="height:100px; padding:12px; color:#999">Footer lives in here</div>
-	</div>-->
+		<div style="height:100px; padding:12px; color:#999">Footer lives in here</div>-->
+	</div>
 
 
 <!-- Scripts -->
@@ -162,6 +189,27 @@
 		<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
 
 		<script type="text/javascript">
+
+		 	var threshold = 175;
+			var perf = window.performance;
+			var start = perf.timing.requestStart; // just before page is requested
+			var end = perf.timing.responseStart; // first byte received
+			var total_time = end - start;
+			
+			var displayRoomRates = function(){
+					$(".loading-rates").hide();
+					$(".rate-hidden").show();
+					$(".show-rates").hide();
+			}
+
+			if (total_time < threshold) {
+    			$("#fast").show().append(" (" + total_time + "ms)");
+    			displayRoomRates();
+			} else {
+				$("#slow").show().append(" (" + total_time + "ms)");
+			}
+
+			
 
 			// run things on page load
 			$(function(){
@@ -183,8 +231,7 @@
 					$(this).parent().hide();
 
 					setTimeout(function(){ 
-						showRoomRates(roomid)
-						
+						showRoomRates(roomid);
 					}, 2000);
 				})
 			});
