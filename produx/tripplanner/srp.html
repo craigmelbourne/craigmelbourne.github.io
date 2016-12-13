@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		<style type="text/css">
+				body {padding:0; margin:0; font-family:arial; background-color:#f/5f4f0; color:#555;}
+div {box-sizing:border-box;}
+ul {list-style-type: none; padding:0; margin:0;}
+a {color:#026dc5; text-decoration: none;}
+
+.tools {padding:8px 12px; display:flex; flex-direction: row;}
+		.tools li {flex-grow:1; }
+		.tools li {display:block; font-size:13px; background-color:#fff; border:solid 1px #026dc5; padding:4px 8px; border-radius:2px; font-weight:bold;}
+
+
+		.tp-add{position:absolute; top:0; left:0; padding:4px; font-size:16px; font-weight:bold; background-color:transparent; color:#fff;}
+			.tp-add:hover {cursor:pointer; color:#026dc5;}
+			.tp-selected { color:#d41200;}
+			
+
+		.hotel {border-bottom:solid 1px #eee; margin:8px; position:relative; padding:0 0 8px; min-height:120px;}
+			.hotel .thumbnail {position:absolute; top:0; left:0; bottom:6px; width:25%; text-align: center; overflow: hidden;}
+			.hotel .thumbnail img { position: relative; left: 100%; margin-left: -200%; height:100%;}
+			.hotel .name {margin-left:25%; padding:0 8px 4px; font-size:12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size:14px;}
+			.hotel .neighbourhood {display:block; margin-left:25%; padding:0 8px 4px; font-size:12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size:11px;}
+			/**.hotel .stars { margin-left:33%; font-size:12px; color: #D41200; padding:0 8px 4px; background-color: #fff;}
+			.hotel .stars span {color:#999;}
+			.hotel .neighbourhood {background:url('i/map_pin-1.png') no-repeat; background-size:16px; background-position:8px 3px; padding:0; vertical-align: top; font-size:12px; margin-left:33%; padding:4px 8px 4px 30px;}
+			.hotel .qual {padding:4px 8px 4px 30px; font-weight:bold; font-size:12px;  margin-left:33%; color:#555; background:url('i/icon_review.png') no-repeat; background-size:16px; background-position:6px 3px;}
+			.hotel .rewards {background:url('i/icon_wr.png') no-repeat; background-size:14px; background-position:6px 3px; margin-left:33%; font-size:12px; color:#906; padding:4px 8px 4px 30px;}
+			.hotel .price {text-align:right; margin-left:33%; padding:4px 0 0 8px}
+
+			.hotel .price .badge {position:absolute; top:4px; left:-4px; -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,1);
+-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,1);
+box-shadow: 0px 2px 4px 0px rgba(0,0,0,1);}
+			.hotel .price .great { padding:4px; color:#D41200; font-weight:bold; font-size:12px; background-color: #fff; border:1px solid #D41200;}
+			.hotel .price .special {padding:4px; background-color:#D41200; color:#fff; font-weight:bold; font-size:12px; margin-bottom:4px; border:1px solid #fff;}
+			.hotel .price .total {font-size:20px; font-weight:bold;}
+			.hotel .price .strikethrough {font-size:12px; color:#555; text-decoration: line-through;}
+			.hotel .price .red {color:#D41200; margin:0 0 4px;}
+			.hotel .price .nights {font-size:11px; color:#999; margin:4px 0 0;}**/
+
+
+/* Media Queries - HCOM breakpoints */
+@media only screen and (min-width:0px) {
+	body {font-size:14px;}
+	.block {padding:0 12px;}
+	#name {margin-top:8px;}
+	#name h1 {margin:0; padding:0; font-size:18px;}
+	#name #address {font-size:11px;}
+	#description {margin-top:8px;}
+	#photos {margin-top:8px;}
+	
+
+}
+
+@media only screen and (min-width:360px) {
+	#page-wrapper {width:360px; position:absolute; top:0; bottom:0; left:50px;}
+}
+
+@media only screen and (min-width:750px) {
+}
+
+@media only screen and (min-width:850px) {
+}
+
+@media only screen and (min-width:960px) {
+}
+
+@media only screen and (min-width:1260px) {
+}
+
+		</style>
+
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+			<div id="header-wrapper"></div>
+		<ul class="tools">
+			<li style=" margin-right:4px;"><label style="font-size:11px; font-weight:normal; display:block; padding-bottom:2px">Open</label><a href="" >Filters</a></li>
+			
+			<li style="position:relative; background-color:#fff; border:solid 1px #026dc5; font-weight:bold; padding:4px 4px; border-radius:2px; margin-right:4px; flex-grow:1;">
+				
+				<label style="font-size:11px; font-weight:normal; display:block; padding:0 4px">Sort by:</label>
+				<select style="font-size:13px; font-family:arial; padding:0; color:#026dc5; background-color: #fff; border:none; width:100%; outline:none; font-weight:bold">
+					<option>Our favourites</option>
+					<option>Stars (high to low)</option>
+					<option>Stars (low to high)</option>
+					<option>Distance to city center</option>
+					<option>Guest rating</option>
+					<option>Price (high to low)</option>
+					<option>Price (low to high)</option>
+				</select>
+				
+			</li>
+			<li ><label style="font-size:11px; font-weight:normal; display:block; padding-bottom:2px">View on</label><a href="#" >Map</a></li>
+		</ul>
+
+			<div id="hotels">
+			</div>
+
+			<style type="text/css">
+				#tp-bar {position:fixed; bottom:0; left:50px; width:360px; background-color:#BBDEFB; padding:8px; overflow:hidden; display:none;}
+				#tp-bar button {position:absolute; right:8px; top:8px; border:solid 1px #026dc5; background-color:#fff; color:#026dc5; font-size:14px; font-weight:bold; font-family:arial; padding:4px 8px; border-radius:2px;}
+				.tp-list {list-style-type: none; margin:0; padding:0;}
+				.tp-list li {display:inline-block;  height:24px; width:30px; margin-left:4px; vertical-align: top; box-sizing:border-box;}
+				.tp-list li img {width:100%; height:100%;}
+				.tp-list li.empty {border:dashed 1px #026dc5; padding:4px 0 0 4px; font-weight:bold; font-size: 12px}
+
+				#tp-bar button:hover {cursor: pointer;}
+
+			</style>
+
+			<div id="tp-bar">
+
+				<div style="font-size:12px; display:inline-block; vertical-align:top;">
+					Added to <br />
+					Trip Planner
+				</div>
+
+
+				<div style="margin-left:8px; display:inline-block; vertical-align:top; ">
+					<ul class="tp-list">
+						<li class="empty"></li>
+					</ul>
+				</div>
+				<button>Compare</button>
+			</div>
+
+		</div>
+		
+		<!-- Component Templates -->
+		<script id="hotel-card" type="text/x-handlebars-template">
+ 			{{#each hotels}}
+ 				<div class="hotel">
+ 					<div class="thumbnail">
+
+ 						<img src="{{imageUrl}}" />
+ 						<div class="tp-add" rel="{{imageUrl}}"> <i class="material-icons">&#xE87D;</i> </div>
+ 					</div>
+ 
+       	 				<a class="name" href="#">{{hotelName}}</a>
+       	 				<span class="neighbourhood">{{location}}</span>
+
+       	 		</div>
+		    {{/each}}
+    	</script>
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
+		<script src="../../handlebars.js"></script>
+
+		<script type="text/javascript">
+			var tpCount = 0;
+			// run things on page load
+			$(function(){
+
+					$.ajax({
+  						dataType: "json",
+  						url: '../ny-json.js',
+  						//data: data,
+  						success: displayHotels
+					});
+      			
+				$( "#header-wrapper" ).load( "../components/c-header-new.html" );
+
+				$("#hotels").on("click", ".tp-add", function(e){
+					e.preventDefault();
+					tpCount++
+					$(".num").text(tpCount);
+					var hotelImg = $(this).attr("rel");
+					//$(".message").fadeOut("fast", function(){
+						//$(".message").text("Added: " + hotelName).fadeIn("fast");
+					//})
+
+					console.log(hotelImg);
+
+					
+					
+					console.log(tpCount);
+					$(this).addClass("tp-selected");
+					if (tpCount == 1){
+						$("#tp-bar").slideDown();
+					} 
+
+					if (tpCount <= 3) {
+						$(".tp-list").prepend("<li><img src='" + hotelImg + "'/></li>")
+					} else {
+						console.log("in here");
+						$(".tp-list .empty").text("+ " + (tpCount - 3));
+					}
+				});
+				
+			});
+
+			var displayHotels = function (data) {
+					// attach to handle bar template
+					var hotels = data.result;
+					console.log(hotels);
+        			var source   = $("#hotel-card").html();
+  					var template = Handlebars.compile(source);
+  					$("#hotels").html(template(hotels));
+				}
+
+			
+
+		</script>
+	</body>
+</html>
