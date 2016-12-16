@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		<link rel="stylesheet" type="text/css" href="pdp-base.css">
+		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		
+		<style type="text/css">	
+			#carousel-wrapper {position: relative; width:100%;}
+
+			#carousel-wrapper button {background-color:#fff; padding:4px; border-radius:50%; font-weight:bold; border:0; color:#026dc5; outline:0; opacity:0.8;}
+			#carousel-wrapper #count {position:absolute; left:0; right:0; bottom:0; margin:0 auto; width:40px; background-color: #fff; text-align:center; padding:4px; opacity:0.8; color:#000; font-weight:bold;}
+			#carousel-wrapper .prev {position: absolute; top:80px; left:12px; }
+			#carousel-wrapper .next {position: absolute; top:80px; right:12px;}
+
+
+			#photos {height:200px;}
+			#photos div {margin-left:2px; position:relative;}
+			#photos div img {height:200px; opacity:0.2;}
+			#photos .prev {position:absolute;}
+		</style>
+
+	</head>
+
+	<body>
+
+	<div id="page-wrapper">
+		<div id="header-wrapper"></div>
+
+		<div id="name" class="block">
+			<h1>Club Quarters Hotel, St. Paul's</h1>
+			<span id="address">24 Ludgate Hill, London, England, EC4M 7DR, United Kingdom, 0203 027 9779</span>
+		</div>
+		<div id="description" class="block">4-star hotel with restaurant, near St. Paul's Cathedral</div>
+		<div id="carousel-wrapper">
+			
+
+			<div id="photos" >
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/15118004_1_b.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/15118004_2_b.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/ad7733b4_b.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/e700cdfd_b.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/7c55a1a5_b.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/0b471cc6_b.jpg" /></div>
+			</div>
+
+			<button type="button" class="prev"><i class="material-icons">&#xE314;</i></button>
+			<button type="button" class="next"><i class="material-icons">&#xE315;</i></button>
+			<div id="count">1/6</div>
+		</div>
+		
+		
+
+
+	</div>
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
+		<script src="slick/slick.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+      			
+				$( "#header-wrapper" ).load( "../components/c-header-new.html" );
+
+				$('#photos').slick({
+					arrows: false,
+    				dots: false,
+  					infinite: true,
+  					speed: 300,
+  					slidesToShow: 1,
+  					centerMode: true,
+  					variableWidth: true
+  				});
+
+  				console.log($('#photos').slick('slickCurrentSlide'));
+
+  				$("div.photo:eq(2) img").css("opacity", "1.0")
+  				//$( "td:eq( 2 )" ).css( "color", "red" );
+
+				$(".prev").on("click", function(e){
+					$('#photos').slick('slickPrev');
+					var currentSlide = $('#photos').slick('slickCurrentSlide');
+					console.log(currentSlide)
+					$("div.photo img").css("opacity", "0.2")
+					$("div.photo:eq(" + (currentSlide + 2) + ") img").css("opacity", "1.0")
+
+
+				});
+
+				$(".next").on("click", function(e){
+					$('#photos').slick('slickNext');
+					var currentSlide = $('#photos').slick('slickCurrentSlide');
+					console.log(currentSlide)
+
+					$("div.photo img").css("opacity", "0.2")
+					$("div.photo:eq(" + (currentSlide + 2) + ") img").css("opacity", "1.0")
+				});
+				
+
+				
+				
+
+			});
+
+		</script>
+	</body>
+</html>
