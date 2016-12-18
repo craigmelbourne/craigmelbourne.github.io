@@ -153,7 +153,15 @@
 				
 
 				
-				
+				$('#photos').on('swipe', function(event, slick, direction){
+  					
+  					var currentSlide = $('#photos').slick('slickCurrentSlide');
+					console.log(direction + " - " + currentSlide)
+					$("div.photo img").css("opacity", "0.2")
+					$("div.photo:eq(" + (currentSlide) + ") img").css("opacity", "1.0")
+					$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
+					$("#carousel-content").text(caption[$('#photos').slick('slickCurrentSlide')]);
+				});
 
 			});
 
