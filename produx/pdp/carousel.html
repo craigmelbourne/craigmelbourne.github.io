@@ -16,40 +16,54 @@
 		
 		<style type="text/css">	
 			body {background-color:#f5f4f0;}
-			#carousel-wrapper {position: relative; width:100%;}
+			#carousel-wrapper {position: relative; width:100%; background-color:#fff;}
 			#carousel-wrapper button {background-color:#fff; padding:2px; border-radius:4px; font-weight:bold; border:0; color:#026dc5; outline:0;}
 			#carousel-wrapper .prev {position: absolute; top:100px; left:-4px; }
 			#carousel-wrapper .next {position: absolute; top:100px; right:-4px;}
 
-			#carousel-wrapper #count {position:absolute; left:0; right:0; bottom:0; margin:0 auto; width:50px; background-color: #fff; text-align:center; padding:4px; color:#000; font-weight:bold; border-top-left-radius:4px; border-top-right-radius:4px; font-size:13px;}
-			#carousel-content {background-color:#fff; text-align: center; padding:4px 0; font-weight:bold; font-size:13px; color:#000;}
+			#carousel-wrapper #count {position:absolute; left:0; right:0; bottom:22px; margin:0 auto; width:50px; background-color: #fff; text-align:center; padding:4px; color:#000; font-weight:bold; border-top-left-radius:4px; border-top-right-radius:4px; font-size:13px;}
+			#carousel-content {background-color:#fff; height:22px; text-align: center; padding:4px 0; font-weight:bold; font-size:13px; color:#000;}
 			#photos {height:240px;}
 			#photos div {margin-right:2px; position:relative;}
 			#photos div img {height:240px; opacity:0.2;}
 			#photos .prev {position:absolute;}
 
+			#map-reviews {display:none;}
+
 			@media only screen and (min-width:0px) {
 				body {font-size:14px;}
-				#photos {margin-top:8px;}
+				#photos {margin-top:2px; margin-left:2px;}
 			}
 
 			@media only screen and (min-width:600px) {
 				#photos {height:300px;}
 				#photos div img {height:300px; opacity:0.2;}
-				#carousel-wrapper .prev {top:140px; left:-4px; }
-				#carousel-wrapper .next {top:140px; right:-4px;}
+				#carousel-wrapper .prev {top:140px;}
+				#carousel-wrapper .next {top:140px;}
 			}
 
 			@media only screen and (min-width:750px) {
+				#carousel-wrapper {width:66.6%; margin-top:16px; display:inline-block; vertical-align: top;}
+				#carousel-wrapper .prev {position: absolute; top:140px; left:0; border-radius: 0; border-top-right-radius: 4px; border-bottom-right-radius: 4px}
+				#carousel-wrapper .next {position: absolute; top:140px; right:0; border-radius: 0; border-top-left-radius: 4px; border-bottom-left-radius: 4px}
+				#map-reviews {height:300px; display:inline-block; background-color:#fff; width:calc(33% - 32px); margin-left:8px; vertical-align: top; margin-top:16px;}
 			}
 
 			@media only screen and (min-width:850px) {
 			}
 
 			@media only screen and (min-width:960px) {
+				#photos {height:530px;}
+				#photos div img {height:530px; opacity:0.2;}
+				#carousel-wrapper .prev {top:250px;}
+				#carousel-wrapper .next {top:250px;}
+				#wrapper {max-width:1160px; margin:0 auto;}
+				#carousel-wrapper #count {font-size:14px; bottom:32px;}
+				#carousel-content {font-size:14px; padding:8px 0; height:auto;}
 			}
 
-			@media only screen and (min-width:1260px) {
+			@media only screen and (min-width:1160px) {
+				#map-reviews {height: 530px}
 			}
 		</style>
 
@@ -60,45 +74,50 @@
 
 		<div id="header-wrapper"></div>
 
+		<div id="wrapper">
 		<div id="name" class="block">
 			<h1>Club Quarters Hotel, St. Paul's</h1>
 			<span id="address">24 Ludgate Hill, London, England, EC4M 7DR, United Kingdom, 0203 027 9779</span>
 		</div>
 		<div id="description" class="block">4-star hotel with restaurant, near St. Paul's Cathedral</div>
 		<div id="carousel-wrapper">
-			
-
 			<div id="photos" >
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/15118004_1_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/15118004_2_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/ad7733b4_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/e700cdfd_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/7c55a1a5_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/0b471cc6_b.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/15118004_1_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/15118004_2_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/ad7733b4_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/e700cdfd_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/7c55a1a5_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/0b471cc6_z.jpg" /></div>
 
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/a4861c5c_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/f6c8f4da_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/c07ef7ef_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/60fd7c92_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/9400adcc_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/c7a6ac9c_b.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/a4861c5c_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/f6c8f4da_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/c07ef7ef_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/60fd7c92_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/9400adcc_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/c7a6ac9c_z.jpg" /></div>
 
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/59bdf9af_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/e6431c25_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/ac99b15a_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/59bedd3c_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/4c709d6b_b.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/ed39dafd_b.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/59bdf9af_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/e6431c25_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/ac99b15a_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/59bedd3c_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/4c709d6b_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/ed39dafd_z.jpg" /></div>
 			</div>
 
 			<button type="button" class="prev"><i class="material-icons">&#xE314;</i></button>
 			<button type="button" class="next"><i class="material-icons">&#xE315;</i></button>
 			<div id="count"><span id="num"></span>/<span id="total"></span></div>
+			<div id="carousel-content"></div>
 		</div>
-		<div id="carousel-content"></div>
 		
-	
+		
+		<div id="map-reviews">
 
+		</div>
+	
+		<div style="height:100px;"></div>
+
+</div>
 
 		<!-- Scripts -->
 		<!-- JQuery Google CDN -->
