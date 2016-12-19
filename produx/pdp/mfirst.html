@@ -9,194 +9,195 @@
 		<!-- style sheets -->
 
 		<link rel="stylesheet" type="text/css" href="pdp-base.css">
-		<style type="text/css">
-				
+		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 		
+		<style type="text/css">	
+			body {background-color:#f5f4f0;}
+			#carousel-wrapper {position: relative; width:100%; background-color:#fff;}
+			#carousel-wrapper button {background-color:#fff; padding:2px; border-radius:4px; font-weight:bold; border:0; color:#026dc5; outline:0;}
+			#carousel-wrapper .prev {position: absolute; top:100px; left:-4px; }
+			#carousel-wrapper .next {position: absolute; top:100px; right:-4px;}
+
+			#carousel-wrapper #count {position:absolute; left:0; right:0; bottom:22px; margin:0 auto; width:50px; background-color: #fff; text-align:center; padding:4px; color:#000; font-weight:bold; border-top-left-radius:4px; border-top-right-radius:4px; font-size:13px;}
+			#carousel-content {background-color:#fff; height:22px; text-align: center; padding:4px 0; font-weight:bold; font-size:13px; color:#000;}
+			#photos {height:240px;}
+			#photos div {margin-right:2px; position:relative;}
+			#photos div img {height:240px; opacity:0.2;}
+			#photos .prev {position:absolute;}
+
+			#map-reviews {display:none;}
+
+			@media only screen and (min-width:0px) {
+				body {font-size:14px;}
+				#photos {margin-top:2px; margin-left:2px;}
+			}
+
+			@media only screen and (min-width:600px) {
+				#photos {height:300px;}
+				#photos div img {height:300px; opacity:0.2;}
+				#carousel-wrapper .prev {top:140px;}
+				#carousel-wrapper .next {top:140px;}
+			}
+
+			@media only screen and (min-width:750px) {
+				#carousel-wrapper {width:66.6%; margin-top:16px; display:inline-block; vertical-align: top;}
+				#carousel-wrapper .prev {position: absolute; top:140px; left:0; border-radius: 0; border-top-right-radius: 4px; border-bottom-right-radius: 4px}
+				#carousel-wrapper .next {position: absolute; top:140px; right:0; border-radius: 0; border-top-left-radius: 4px; border-bottom-left-radius: 4px}
+				#map-reviews {height:300px; display:inline-block; background-color:#fff; width:calc(33% - 32px); margin-left:8px; vertical-align: top; margin-top:16px;}
+			}
+
+			@media only screen and (min-width:850px) {
+			}
+
+			@media only screen and (min-width:960px) {
+				#photos {height:530px;}
+				#photos div img {height:530px; opacity:0.2;}
+				#carousel-wrapper .prev {top:250px;}
+				#carousel-wrapper .next {top:250px;}
+				#wrapper {max-width:1160px; margin:0 auto;}
+				#carousel-wrapper #count {font-size:14px; bottom:32px;}
+				#carousel-content {font-size:14px; padding:8px 0; height:auto;}
+			}
+
+			@media only screen and (min-width:1160px) {
+				#map-reviews {height: 530px}
+			}
 		</style>
 
 	</head>
 
 	<body>
 
-	<div id="page-wrapper">
+
 		<div id="header-wrapper"></div>
 
+		<div id="wrapper">
 		<div id="name" class="block">
 			<h1>Club Quarters Hotel, St. Paul's</h1>
 			<span id="address">24 Ludgate Hill, London, England, EC4M 7DR, United Kingdom, 0203 027 9779</span>
 		</div>
 		<div id="description" class="block">4-star hotel with restaurant, near St. Paul's Cathedral</div>
-		<div id="photos" >
-			<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/31a11b62_z.jpg" style="width:100%" />
-			<ul class="thumbs">
-				<li><img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/559690_96_z.jpg" /></li>
-				<li><img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/9a4697cc_z.jpg" /></li>
-				<li>
-					<a href="#" class="open-photos"><span class="number">34 <br />photos</span> <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+		<div id="carousel-wrapper">
+			<div id="photos" >
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/15118004_1_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/15118004_2_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/ad7733b4_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/e700cdfd_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/7c55a1a5_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/0b471cc6_z.jpg" /></div>
 
-					</a>
-					
-				</li>
-			</ul>
-		</div>
-		</div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/a4861c5c_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/f6c8f4da_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/c07ef7ef_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/60fd7c92_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/9400adcc_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/c7a6ac9c_z.jpg" /></div>
 
-		<div id="overlay"></div>
-		<div id="photo-overlay">
-			<div id="controls">
-				<a href="#" class="close">X</a>
-				<h1>Hotel photos (34)</h1>
-				<select>
-					<option>All photos</option>
-					<option>Rooms</option>
-					<option>Bathrooms</option>
-					<option>Hotel Interior</option>
-					<option>Fitness Facility</option>
-					<option>Hotel Exterior</option>
-				</select>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/59bdf9af_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/e6431c25_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/ac99b15a_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/59bedd3c_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/4c709d6b_z.jpg" /></div>
+				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/ed39dafd_z.jpg" /></div>
 			</div>
-			<div id="photo-list">
-				<ul>
-					<li>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/31a11b62_z.jpg" />
-					</li>
-					<li>
-						<p>Reception</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/559690_96_z.jpg" />
-					</li>
-					<li>
-						<p>Reception</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/285328cf_z.jpg" /></li>
-					<li>
-						<p>Standard Room - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/e85634e1_z.jpg" /></li>
-					<li>
-						<p>Club - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/18449b25_z.jpg" /></li>
-					<li>
-						<p>Standard Room - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/c48347bc_z.jpg" /></li>
-					<li>
-						<p>Standard Room - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/9a4697cc_z.jpg" />
-					</li>
-					<li>
-						<p>Standard Room - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/3bf5bb9a_z.jpg" />
-					</li>
-					<li>
-						<p>Standard Room - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/2a29c342_z.jpg" /></li>
-					<li>
-						<p>One Room Suite With Kitchenette - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/99645e55_z.jpg" /></li>
-					<li>
-						<p>One Room Suite With Kitchenette - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/b422a4c5_z.jpg" /></li>
-					<li>
-						<p>Superior Room With Kitchenette - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/856b4030_z.jpg" /></li>
-					<li>
-						<p>Superior Room With Kitchenette - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/89b60123_z.jpg" /></li>
-					<li>
-						<p>Superior Room With Kitchenette - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/a12fd18a_z.jpg" /></li>
-					<li>
-						<p>Superior Room With Kitchenette - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/1f66a629_z.jpg" /></li>
-					<li>
-						<p>Superior Room With Kitchenette - Guestroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/188ba834_z.jpg" /></li>
-					<li>
-						<p>Standard Room - Bathroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/54f60dc2_z.jpg" /></li>
-					<li>
-						<p>One Room Suite With Kitchenette - Bathroom</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/2d52a59a_z.jpg" /></li>
-					<li>
-						<p>Fitness Faciity</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/d475b418_z.jpg" /></li>
-					<li>
-						<p>Fitness Faciity</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/a492177b_z.jpg" /></li>
-					<li>
-						<p>Fitness Faciity</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/08217851_z.jpg" /></li>
-					<li>
-						<p>Fitness Faciity</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/dd6d4a28_z.jpg" /></li>
-					<li>
-						<p>Property Amenity</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/d51c6957_z.jpg" /></li>
-					<li>
-						<p>Restaurant</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/559690_92_z.jpg" /></li>
-					<li>
-						<p>Restaurant</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/559690_93_z.jpg" /></li>
-					<li>
-						<p>Hotel Interior</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/0f631952_z.jpg" /></li>
-					<li>
-						<p>Hotel Interior</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/10e4d610_z.jpg" /></li>
-					<li>
-						<p>Hotel Interior</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/f7050f66_z.jpg" /></li>
-					<li>
-						<p>Hotel Interior</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/b8677324_z.jpg" /></li>
-					<li>
-						<p>Hotel Interior</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/adda785f_z.jpg" /></li>
-					<li>
-						<p>Hotel Interior</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/99c7df4a_z.jpg" /></li>
-					<li>
-						<p>Hotel Interior</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/ecc117af_z.jpg" /></li>
-					<li>
-						<p>Hotel Interior</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/4062169d_z.jpg" /></li>
-					<li>
-						<p>Hotel Front</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/68bbe7e7_z.jpg" /></li>
-					<li>
-						<p>Hotel Entrance</p>
-						<img src="https://exp.cdn-hotels.com/hotels/1000000/560000/559700/559690/65d2a06e_z.jpg" /></li>
-				</ul>
-			</div>
-		</div>
 
+			<button type="button" class="prev"><i class="material-icons">&#xE314;</i></button>
+			<button type="button" class="next"><i class="material-icons">&#xE315;</i></button>
+			<div id="count"><span id="num"></span>/<span id="total"></span></div>
+			<div id="carousel-content"></div>
+		</div>
 		
+		
+		<div id="map-reviews">
+
+		</div>
+	
+		<div style="height:100px;"></div>
+
+</div>
 
 		<!-- Scripts -->
 		<!-- JQuery Google CDN -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
+		<script src="slick/slick.js"></script>
 
 		<script type="text/javascript">
+			var caption = ["Front of hotel", "Superior Double Room - Guest room", "Twin Room (Studio) - Guest room", "Twin Room (Studio) - Guest room", "Twin Room (Studio) - Guest room", "Twin Room (Studio) - Guest room", "Superior Double Room - Bathroom", "Superior Double Room - Bathroom", "Indoor pool", "Breakfast area", "Restaurant", "Hotel bar", "Hotel bar", "Hotel lounge", "Hotel lounge", "Hotel lounge", "Meeting facility", "Interior detail"];
+
+
+			$("#carousel-content").text(caption[0]);
+
 
 			// run things on page load
 			$(function(){
       			
+				// num photos
+				
+				//$("#num").text($('#photos').slick('slickCurrentSlide'))
+
+				var numPhotos = $('.photo').length;
+				$("#total").text(numPhotos);
+
 				$( "#header-wrapper" ).load( "../components/c-header-new.html" );
 
-				$("#controls .close").on("click", function(){
-					$("#overlay").hide();
-					$("#photo-overlay").hide();
+				$('#photos').slick({
+					arrows: false,
+    				dots: false,
+  					infinite: false,
+  					speed: 300,
+  					slidesToShow: 1,
+  					centerMode: true,
+  					variableWidth: true
+  				});
+
+  				console.log($('#photos').slick('slickCurrentSlide'));
+
+  				 
+				$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
+
+  				$("div.photo:eq(0) img").css("opacity", "1.0")
+  				//$( "td:eq( 2 )" ).css( "color", "red" );
+
+  				
+
+				$(".prev").on("click", function(e){
+					$('#photos').slick('slickPrev');
+					var currentSlide = $('#photos').slick('slickCurrentSlide');
+					console.log(currentSlide)
+					$("div.photo img").css("opacity", "0.2")
+					$("div.photo:eq(" + (currentSlide) + ") img").css("opacity", "1.0")
+					$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
+					$("#carousel-content").text(caption[$('#photos').slick('slickCurrentSlide')]);
+
 				});
 
-				$("#photos img").on("click", function(){
-					$("#overlay").show();
-					$("#photo-overlay").show();
+				$(".next").on("click", function(e){
+					$('#photos').slick('slickNext');
+					var currentSlide = $('#photos').slick('slickCurrentSlide');
+					console.log(currentSlide)
+
+					$("div.photo img").css("opacity", "0.2")
+					$("div.photo:eq(" + (currentSlide) + ") img").css("opacity", "1.0")
+					$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
+					$("#carousel-content").text(caption[$('#photos').slick('slickCurrentSlide')]);
+				});
+				
+
+				
+				$('#photos').on('swipe', function(event, slick, direction){
+  					
+  					var currentSlide = $('#photos').slick('slickCurrentSlide');
+					console.log(direction + " - " + currentSlide)
+					$("div.photo img").css("opacity", "0.2")
+					$("div.photo:eq(" + (currentSlide) + ") img").css("opacity", "1.0")
+					$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
+					$("#carousel-content").text(caption[$('#photos').slick('slickCurrentSlide')]);
 				});
 
-				$("#photos a").on("click", function(){
-					$("#overlay").show();
-					$("#photo-overlay").show();
-				});
 			});
 
 		</script>
