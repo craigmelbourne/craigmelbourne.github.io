@@ -16,6 +16,9 @@
 		
 		<style type="text/css">	
 			body {background-color:#f5f4f0;}
+
+			#header-wrapper {height:80px; background-color: #D41200}
+
 			#carousel-wrapper {position: relative; width:100%; background-color:#fff;}
 			#carousel-wrapper button {background-color:#fff; padding:2px; border-radius:4px; font-weight:bold; border:0; color:#026dc5; outline:0;}
 			#carousel-wrapper .prev {position: absolute; top:100px; left:-4px; }
@@ -60,6 +63,7 @@
 				#wrapper {max-width:1160px; margin:0 auto;}
 				#carousel-wrapper #count {font-size:14px; bottom:32px;}
 				#carousel-content {font-size:14px; padding:8px 0; height:auto;}
+				#name {margin:16px 0;}
 			}
 
 			@media only screen and (min-width:1160px) {
@@ -142,7 +146,7 @@
 				var numPhotos = $('.photo').length;
 				$("#total").text(numPhotos);
 
-				$( "#header-wrapper" ).load( "../components/c-header-new.html" );
+				//$( "#header-wrapper" ).load( "../components/c-header-new.html" );
 
 				$('#photos').slick({
 					arrows: false,
