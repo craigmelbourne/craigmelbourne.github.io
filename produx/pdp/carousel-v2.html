@@ -15,26 +15,39 @@
       rel="stylesheet">
 		
 		<style type="text/css">	
-			body {background-color:#f5f4f0; background-color: #fff}
+			body {background-color:#f5f4f0;}
+
+			#header-wrapper {height:80px; background-color: #D41200}
+
 			#carousel-wrapper {position: relative; width:100%; background-color:#fff;}
 			#carousel-wrapper button {background-color:#fff; padding:2px; border-radius:4px; font-weight:bold; border:0; color:#026dc5; outline:0;}
 			#carousel-wrapper .prev {position: absolute; top:100px; left:-4px; }
 			#carousel-wrapper .next {position: absolute; top:100px; right:-4px;}
 
-			#carousel-wrapper #count {position:absolute; left:0; right:0; bottom:22px; margin:0 auto; width:50px; background-color: #fff; text-align:center; padding:4px; color:#000; font-weight:bold; border-top-left-radius:4px; border-top-right-radius:4px; font-size:13px;}
-			#carousel-content {background-color:#fff; height:22px; text-align: center; padding:4px 0; font-weight:bold; font-size:13px; color:#000;}
-			#photos {height:240px;}
-			#photos div {margin-right:2px; position:relative;}
-			#photos div img {height:240px; opacity:0.2; }
+			#carousel-wrapper #count {}
+			#carousel-content {background-color:#fff; padding:12px; font-weight:bold; font-size:13px; color:#000;}
+			#photos {height:240px; overflow:hidden;}
+			#photos div {margin-right:0px; position:relative;}
+			#photos div img {height:240px; opacity:0.2; -webkit-filter: blur(20px); /* Safari 6.0 - 9.0 */
+    filter: blur(20px);}
 			#photos .prev {position:absolute;}
+
+			/*#photos div img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+}
+#photos div img.tall {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+}​*/
 
 			#map-reviews {display:none;}
 
 			@media only screen and (min-width:0px) {
 				body {font-size:14px;}
-				#photos {margin-top:8px; margin-left:2px;}
-				#name {margin:12px 0 8px;}
-				.fa-star {height:12px; color:#D41200;}
+				#photos {margin-top:2px; margin-left:2px;}
 			}
 
 			@media only screen and (min-width:600px) {
@@ -60,8 +73,9 @@
 				#carousel-wrapper .prev {top:250px;}
 				#carousel-wrapper .next {top:250px;}
 				#wrapper {max-width:1160px; margin:0 auto;}
-				#carousel-wrapper #count {font-size:14px; bottom:32px;}
+				#carousel-wrapper #count {font-size:14px; bottom:42px;}
 				#carousel-content {font-size:14px; padding:8px 0; height:auto;}
+				#name {margin:16px 0;}
 			}
 
 			@media only screen and (min-width:1160px) {
@@ -78,21 +92,15 @@
 
 		<div id="wrapper">
 		<div id="name" class="block">
-			<h1 style="font-size:16px">Park Plaza London Waterloo 
-				<span style="white-space: no-wrap;">
-					<i class="fa fa-star" aria-hidden="true" style="font-size:13px"></i>
-					<i class="fa fa-star" aria-hidden="true" style="font-size:13px"></i>
-					<i class="fa fa-star" aria-hidden="true" style="font-size:13px"></i>
-					<i class="fa fa-star" aria-hidden="true" style="font-size:13px"></i>
-					<i class="fa fa-star" aria-hidden="true" style="font-size:13px"></i></span></h1>
-			<span id="address">6 Hercules Road, London, England, SE1 7DP, United Kingdom, 020 3684 4822</span>
+			<h1>Club Quarters Hotel, St. Paul's</h1>
+			<span id="address">24 Ludgate Hill, London, England, EC4M 7DR, United Kingdom, 0203 027 9779</span>
 		</div>
-		<div id="description" class="block">4-star hotel with indoor pool, near London Dungeon</div>
+		<div id="description" class="block">4-star hotel with restaurant, near St. Paul's Cathedral</div>
 		<div id="carousel-wrapper">
 			<div id="photos" >
 				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/15118004_1_z.jpg" /></div>
 				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/15118004_2_z.jpg" /></div>
-				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/ad7733b4_z.jpg" /></div>
+				<div class="photo"><img class="tall" src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/ad7733b4_z.jpg" /></div>
 				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/e700cdfd_z.jpg" /></div>
 				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/7c55a1a5_z.jpg" /></div>
 				<div class="photo"><img src="https://exp.cdn-hotels.com/hotels/16000000/15120000/15118100/15118004/0b471cc6_z.jpg" /></div>
@@ -114,32 +122,19 @@
 
 			<button type="button" class="prev"><i class="material-icons">&#xE314;</i></button>
 			<button type="button" class="next"><i class="material-icons">&#xE315;</i></button>
-			<div id="count"><span id="num"></span>/<span id="total"></span></div>
-			<div id="carousel-content"></div>
+			<div id="carousel-content">
+				<span id="count"><span id="num"></span>/<span id="total"></span></span>: 
+				<span class="caption"></span>
+			</div>
 		</div>
 		
-		<div style="display: inline-block; width: calc(50% - 2px); box-sizing: border-box; padding:12px; vertical-align: top;">
-			<span style="font-size:12px; background-color:#D41200; padding:4px 8px; font-weight:bold; color:#fff; display:inline-block; border-radius:4px; margin-bottom:8px;">Special deal</span>
-
-			<!--<span style="display: block; color:#D41200; font-size: 12px; font-weight: bold; margin:4px 0">Book early and save 15%</span>-->
-
-			<div>
-				<span style="text-decoration: line-through; display:block">£244</span> 
-				<span style="color:#D41200; font-weight:bold; font-size:20px">£146</span>
-			</div>
-			<span style="font-size:11px; display:block; margin:0px 0 8px">price for 1 room for 1 night</span>
-			<button style="border:0; background-color:#026dc5; border-radius:4px; padding:8px 16px; color:#fff; font-size:14px; font-weight:bold; border-bottom:2px solid #000;">Book now</button>
-
-			<span style="color:#003789; display:block; font-size:12px; margin-top:4px; font-weight: bold">Price guarantee</span> </div>
-		<div style="display: inline-block; width: calc(50% - 2px); box-sizing: border-box; text-align:right; padding:12px; vertical-align:top;">
-			
-		</div>
+		
 		
 		<div id="map-reviews">
 
 		</div>
 	
-		<div style="height:100px; "></div>
+		<div style="height:100px;"></div>
 
 </div>
 
@@ -153,7 +148,7 @@
 			var caption = ["Front of hotel", "Superior Double Room - Guest room", "Twin Room (Studio) - Guest room", "Twin Room (Studio) - Guest room", "Twin Room (Studio) - Guest room", "Twin Room (Studio) - Guest room", "Superior Double Room - Bathroom", "Superior Double Room - Bathroom", "Indoor pool", "Breakfast area", "Restaurant", "Hotel bar", "Hotel bar", "Hotel lounge", "Hotel lounge", "Hotel lounge", "Meeting facility", "Interior detail"];
 
 
-			$("#carousel-content").text(caption[0]);
+			$(".caption").text(caption[0]);
 
 
 			// run things on page load
@@ -166,7 +161,7 @@
 				var numPhotos = $('.photo').length;
 				$("#total").text(numPhotos);
 
-				$( "#header-wrapper" ).load( "../components/c-header-new.html" );
+				//$( "#header-wrapper" ).load( "../components/c-header-new.html" );
 
 				$('#photos').slick({
 					arrows: false,
@@ -183,7 +178,11 @@
   				 
 				$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
 
-  				$("div.photo:eq(0) img").css("opacity", "1.0")
+  				$("div.photo:eq(0) img").css({
+  					"opacity": "1.0",
+  					"-webkit-filter": "blur(0px)",
+    				"filter": "blur(0px)"
+  				})
   				//$( "td:eq( 2 )" ).css( "color", "red" );
 
   				
@@ -192,10 +191,18 @@
 					$('#photos').slick('slickPrev');
 					var currentSlide = $('#photos').slick('slickCurrentSlide');
 					console.log(currentSlide)
-					$("div.photo img").css("opacity", "0.2")
-					$("div.photo:eq(" + (currentSlide) + ") img").css("opacity", "1.0")
+					$("div.photo img").css({
+  						"opacity": "0.2",
+  						"-webkit-filter": "blur(5px)",
+    					"filter": "blur(5px)"
+  					})
+					$("div.photo:eq(" + (currentSlide) + ") img").css({
+  						"opacity": "1.0",
+  						"-webkit-filter": "blur(0px)",
+    					"filter": "blur(0px)"
+  					})
 					$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
-					$("#carousel-content").text(caption[$('#photos').slick('slickCurrentSlide')]);
+					$(".caption").text(caption[$('#photos').slick('slickCurrentSlide')]);
 
 				});
 
@@ -204,10 +211,18 @@
 					var currentSlide = $('#photos').slick('slickCurrentSlide');
 					console.log(currentSlide)
 
-					$("div.photo img").css("opacity", "0.2")
-					$("div.photo:eq(" + (currentSlide) + ") img").css("opacity", "1.0")
+					$("div.photo img").css({
+  						"opacity": "0.2",
+  						"-webkit-filter": "blur(5px)",
+    					"filter": "blur(5px)"
+  					})
+					$("div.photo:eq(" + (currentSlide) + ") img").css({
+  						"opacity": "1.0",
+  						"-webkit-filter": "blur(0px)",
+    					"filter": "blur(0px)"
+  					})
 					$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
-					$("#carousel-content").text(caption[$('#photos').slick('slickCurrentSlide')]);
+					$(".caption").text(caption[$('#photos').slick('slickCurrentSlide')]);
 				});
 				
 
@@ -216,10 +231,18 @@
   					
   					var currentSlide = $('#photos').slick('slickCurrentSlide');
 					console.log(direction + " - " + currentSlide)
-					$("div.photo img").css("opacity", "0.2")
-					$("div.photo:eq(" + (currentSlide) + ") img").css("opacity", "1.0")
+					$("div.photo img").css({
+  						"opacity": "0.2",
+  						"-webkit-filter": "blur(5px)",
+    					"filter": "blur(5px)"
+  					})
+					$("div.photo:eq(" + (currentSlide) + ") img").css({
+  						"opacity": "1.0",
+  						"-webkit-filter": "blur(0px)",
+    					"filter": "blur(0px)"
+  					})
 					$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
-					$("#carousel-content").text(caption[$('#photos').slick('slickCurrentSlide')]);
+					$(".caption").text(caption[$('#photos').slick('slickCurrentSlide')]);
 				});
 
 			});
