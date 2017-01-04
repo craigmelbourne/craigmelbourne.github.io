@@ -16,6 +16,7 @@
 		
 		<style type="text/css">	
 			body {background-color:#f5f4f0; background-color: #fff}
+			.star {color:#D41200; font-size:16px;}
 			#carousel-wrapper {position: relative; width:100%; background-color:#fff;}
 			#carousel-wrapper button {background-color:#fff; padding:2px; border-radius:4px; font-weight:bold; border:0; color:#026dc5; outline:0;}
 			#carousel-wrapper .prev {position: absolute; top:100px; left:-4px; }
@@ -28,45 +29,29 @@
 			#photos div img {height:240px; opacity:0.2; }
 			#photos .prev {position:absolute;}
 
+			#main-amenities {padding:12px;}
+			#main-amenities h3 {font-size:14px; margin:0 0 4px 0;}
+			#main-amenities ul {margin-bottom:12px; overflow:hidden;}
+			#main-amenities ul li {font-size:12px; float:left; width:50%;}
+
 			#map-reviews {display:none;}
 
 			@media only screen and (min-width:0px) {
 				body {font-size:14px;}
+				#header-wrapper {background-color: #D41200; height:60px;}
 				#photos {margin-top:8px; margin-left:2px;}
 				#name {margin:12px 0 8px;}
-				.fa-star {height:12px; color:#D41200;}
+			
 			}
 
 			@media only screen and (min-width:600px) {
-				#photos {height:300px;}
-				#photos div img {height:300px; opacity:0.2;}
-				#carousel-wrapper .prev {top:140px;}
-				#carousel-wrapper .next {top:140px;}
+				#wrapper, #header-wrapper {width:360px; margin:0 auto;}
+				
 			}
 
-			@media only screen and (min-width:750px) {
-				#carousel-wrapper {width:66.6%; margin-top:16px; display:inline-block; vertical-align: top;}
-				#carousel-wrapper .prev {position: absolute; top:140px; left:0; border-radius: 0; border-top-right-radius: 4px; border-bottom-right-radius: 4px}
-				#carousel-wrapper .next {position: absolute; top:140px; right:0; border-radius: 0; border-top-left-radius: 4px; border-bottom-left-radius: 4px}
-				#map-reviews {height:300px; display:inline-block; background-color:#fff; width:calc(33% - 32px); margin-left:8px; vertical-align: top; margin-top:16px;}
-			}
+			
 
-			@media only screen and (min-width:850px) {
-			}
-
-			@media only screen and (min-width:960px) {
-				#photos {height:530px;}
-				#photos div img {height:530px; opacity:0.2;}
-				#carousel-wrapper .prev {top:250px;}
-				#carousel-wrapper .next {top:250px;}
-				#wrapper {max-width:1160px; margin:0 auto;}
-				#carousel-wrapper #count {font-size:14px; bottom:32px;}
-				#carousel-content {font-size:14px; padding:8px 0; height:auto;}
-			}
-
-			@media only screen and (min-width:1160px) {
-				#map-reviews {height: 530px}
-			}
+			
 		</style>
 
 	</head>
@@ -80,11 +65,8 @@
 		<div id="name" class="block" style="position:relative;">
 			<h1 style="font-size:20px;">Park Plaza Riverbank London 
 				<span style="white-space: nowrap; display:inline-block;">
-					<i class="fa fa-star" aria-hidden="true" style="font-size:13px"></i>
-					<i class="fa fa-star" aria-hidden="true" style="font-size:13px"></i>
-					<i class="fa fa-star" aria-hidden="true" style="font-size:13px"></i>
-					<i class="fa fa-star" aria-hidden="true" style="font-size:13px"></i>
-					<i class="fa fa-star" aria-hidden="true" style="font-size:13px"></i></span>
+					<i class="material-icons star">&#xE838;</i><i class="material-icons star">&#xE838;</i><i class="material-icons star">&#xE838;</i><i class="material-icons star">&#xE838;</i>
+					</span>
 			</h1>
 			<span id="address" style="display:block; margin-top:4px">18 Albert Embankment, London, England, SE1 7TJ, United Kingdom, 020 3564 4285</span>
 			
@@ -111,8 +93,9 @@
 		</div>
 		
 		<div style="margin-top:8px;">
-			<div style="display:inline-block; padding:2px 4px; border-radius:4px; background-color:#3e6e00; vertical-align:top; margin-left:12px">
-					<i class="fa fa-check" aria-hidden="true" style="font-size:12px; color:#fff;"></i>
+			<div style="display:inline-block; padding:4px 4px 2px; border-radius:4px; background-color:#3e6e00; vertical-align:top; margin-left:12px">
+					<i class="material-icons" style="font-size:13px; color:#fff; font-weight: bold;">&#xE876;</i>
+					
 				</div>
 				<span style="display:inline-block; vertical-align:top; font-size:13px; color:#3e6e00; margin-left:4px; padding-top:2px">FREE wifi in the lobby</span></div>
 		
@@ -164,6 +147,26 @@
 			
 		</div>-->
 		
+		<div id="main-amenities">
+			<h3>Main amenities</h3>	
+			<ul class="list-amenities">
+				<li>Free WIFI</li>
+				<li>395 smoke-free guestrooms</li>
+			</ul>
+
+			<h3>For families</h3>	
+			<ul class="list-amenities">
+				<li>Free cribs/infant beds</li>
+				<li>Babysitting or childcare (surcharge)</li>
+			</ul>
+
+			<h3>What's around</h3>	
+			<ul class="list-poi">
+				<li>In London City Centre</li>
+				<li>Big Ben (12 min-walk)</li>
+			</ul>
+		</div>
+
 		<div id="map-reviews">
 
 		</div>
@@ -195,7 +198,7 @@
 				var numPhotos = $('.photo').length;
 				$("#total").text(numPhotos);
 
-				$( "#header-wrapper" ).load( "../components/c-header-new.html" );
+				//$( "#header-wrapper" ).load( "../components/c-header-new.html" );
 
 				$('#photos').slick({
 					arrows: false,
