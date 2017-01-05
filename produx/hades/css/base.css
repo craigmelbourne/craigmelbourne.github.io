@@ -40,8 +40,8 @@ a {text-decoration: none; color:#026dc5;}
 #article-wrapper dl dd {margin:4px 0 16px 0; padding:0;}
 
 section.theme {overflow:hidden; border-top:solid 1px #eee; margin-top:36px;}
-.card {width:300px; height:300px; float:left; background-color: #eee; margin:16px 16px 0 0; box-sizing:border-box; padding:16px;}
-.card a {font-size:20px; display:inline-block; margin:8px 0;}
+.card {box-sizing:border-box; padding:16px 0;}
+.card a {font-size:28px; display:inline-block; margin:0 0 8px;}
 
 
 
