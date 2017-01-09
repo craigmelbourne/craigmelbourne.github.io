@@ -292,6 +292,18 @@
 			<style type="text/css">
 				.roo/m {min-height:160px; background-color:#fff; margin:8px -12px 8px; -webkit-box-shadow: -1px 1px 2px 0px rgba(153,153,153,1); -moz-box-shadow: -1px 1px 2px 0px rgba(153,153,153,1); box-shadow: -1px 1px 2px 0px rgba(153,153,153,1);}
 
+				.room {min-height:160px; background-color:#fff; margin:8px -12px 8px; border-bottom:solid 1px #ccc;}
+				.room .room-details {box-sizing: border-box; padding:12px; min-height:60px; border-bottom:solid 1px #eee; position:relative;}
+				.room .room-details h3 {padding:0; margin:0;}
+				.room .room-details .bed {margin-top:8px;}
+				.room .room-details .bed i {display:inline-block; vertical-align:top; font-size:18px;}
+				.room .room-details .bed span {display:inline-block; vertical-align:top; font-weight: bold; padding-top:2px; font-size:13px;}
+				.room .room-details .more {margin-top:8px;}
+				.room .room-details .more i {display:inline-block; vertical-align:top; font-size:18px;  color:#026dc5;}
+				.room .room-details .more a {display:inline-block; vertical-align:top; font-weight: bold; padding-top:2px; font-size:13px;}
+				.room .room-details .image  {position:absolute; top:12px; right:12px;}
+				.room .room-details .image img {height:60px;}
+
 				.room .details .occupancy i {display:inline-block; vertical-align:top; font-size:18px;}
 				.room .details .occupancy span {display:inline-block; vertical-align:top; font-weight: bold; padding-top:2px; font-size:12px;}
 
@@ -309,9 +321,7 @@
 
 
 
-				.room {min-height:160px; background-color:#fff; margin:8px -12px 8px; border-bottom:solid 1px #ccc;}
-				.room .room-details {box-sizing: border-box; padding:12px; height:60px; border-bottom:solid 1px #eee;}
-				.room .room-details h3 {padding:0; margin:0;}
+				
 				.room .rate {overflow:hidden; border-bottom:solid 1px #eee;}
 				.room .rate .details {float:left; width:50%; box-sizing: border-box; padding:12px 6px 12px 12px;}
 				.room .rate .price {float:left; width:50%; box-sizing: border-box; text-align:right; padding:12px 12px 12px 6px;}
@@ -327,6 +337,17 @@
 			<div class="room">
 				<div class="room-details">
 					<h3>Standard Room</h3>
+					<div class="bed">
+						<i class="material-icons">&#xE53A;</i>
+						<span>1 King bed</span>
+					</div>
+					<div class="more">
+						<i class="material-icons" style="display:inline-block; vertical-align:top; font-size:18px; color:">&#xE146;</i>
+						<a>Show room information</a>
+					</div>
+					<div class="image">
+						<img src="https://exp.cdn-hotels.com/hotels/2000000/1050000/1046400/1046317/1046317_185_e.jpg" />
+					</div>
 				</div>
 				<div class="rate">
 					<div class="details">
