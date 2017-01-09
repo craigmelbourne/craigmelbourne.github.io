@@ -294,7 +294,7 @@
 			
 			<style type="text/css">
 
-				.fixed {position:fixed; top:0; left:0; right:0; background-color:#fff;}
+				
 				.roo/m {min-height:160px; background-color:#fff; margin:8px -12px 8px; -webkit-box-shadow: -1px 1px 2px 0px rgba(153,153,153,1); -moz-box-shadow: -1px 1px 2px 0px rgba(153,153,153,1); box-shadow: -1px 1px 2px 0px rgba(153,153,153,1);}
 
 				.room {min-height:160px; background-color:#fff; margin:0px -12px 8px; border-bottom:solid 1px #ccc;}
@@ -337,10 +337,12 @@
 				.room .rate .price .taxes {color:#7e7e7e; font-size:12px; margin-top:2px;}
 				.room .rate .price button {border:0; background-color:#026dc5; border-radius:4px; padding:8px 12px; color:#fff; font-size:14px; border-bottom:2px solid #003789; margin-top:8px;}
 				.room .rate .price .time {color:#7e7e7e; font-size:12px; margin-top:4px;}
+
+				.room .fixed {position:fixed; top:0; left:0; right:0; background-color:#fff; z-index:1000;}
 			</style>
 			
 			<div class="room" id="room-1">
-				<div class="room-details" style="">
+				<div class="room-details">
 					<h3>Standard Room</h3>
 					<div class="bed">
 						<i class="material-icons">&#xE53A;</i>
@@ -551,24 +553,25 @@
 
 			// run things on page load
 			$(function(){
-      			//console.log($('div#room-1').offset().top);
+				var room1Start = $('div#room-1').offset().top
+				var room1Height = $('div#room-1').height()
+				var room1End = room1Start + room1Height;
+				var room1DetailsHeight = $('div#room-1 .room-details').height();
+				
+
+      			console.log($('div#room-1').height());
       			$("#pos").text($(window).scrollTop())
       			$(window).scroll(function(){
-      				$("#pos").text($(window).scrollTop())
-      				if ($(window).scrollTop() >= $('div#room-1').offset().top){
+      				$("#pos").text($(window).scrollTop() + " - " + room1Start + " - " + room1End + " - " + room1DetailsHeight)
+      				if ($(window).scrollTop() >= room1Start && $(window).scrollTop() <= room1End){
       					console.log("match");
-      					$("div#room-1 .room-details").css(
-      						{
-      							"position": "fixed",
-      							"top": "0",
-      							"left": "0",
-      							"right": "0", 
-      							"background-color": "#fff", 
-      							"z-index": "1000"
-      					});
-      				} 
-      				
-      			})
+      					$("div#room-1 .room-details").addClass("fixed");
+      					$("div#room-1").css("padding-top", (room1DetailsHeight + 12) +"px")
+      				} else {
+      					$("div#room-1 .room-details").removeClass("fixed");
+      					$("div#room-1").css("padding-top", "0")
+      				}
+      			});
       			
 				// num photos
 				
