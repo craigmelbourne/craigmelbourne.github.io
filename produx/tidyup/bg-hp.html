@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+
+		<style type="text/css">
+			body {background-color:#f5f4f0; background-color:#fff; margin: 0; padding:0;}
+			
+			#hero-wrapper {background-color:#455A64;}
+			#hero-wrapper  #hero-content {margin:0 auto; max-width:1160px; padding:16px 0;}
+			#hero-wrapper  #hero-content .sqm {background-color:#fff; width:362px; height:374px;}
+			#rewards-wrapper {background-color:#906; min-height:102px;}
+			#rewards-wrapper  #rewards-content {margin:0 auto; max-width:1160px; padding:16px 0;}
+			#rewards-wrapper  #rewards-content #punch-card {height:80px; width:250px; background-color: #fff;}
+			
+			#page-wrapper {margin-top:20px;}
+			#page-content {margin:20px auto; max-width:1160px;}
+			#page-content #ad {width:970px; height:90px; margin:40px auto 0; border:solid 1px #ccc;}
+			#page-content #merch {overflow:hidden; margin-top:100px;}
+			#page-content #merch .slot {background-color:#fff; float:left; width:33.33%; box-sizing:border-box; height:279px; border:solid 1px #ccc;}
+		</style>
+
+	</head>
+
+	<body>
+		
+		<div id="header"></div>
+
+		<div id="hero-wrapper">
+			<div id="hero-content">
+				<div class="sqm">
+
+				</div>
+			</div>
+		</div>
+		<div id="rewards-wrapper">
+			<div id="rewards-content">
+				<div id="punch-card"></div>
+			</div>
+		</div>
+
+		<div id="page-wrapper">
+			<div id="page-content">
+				
+				<div id="ad"></div>
+
+				<div id="merch">
+					<div class="slot" style="margin-right:8px; width:calc(33% - 8px)"></div>
+					<div class="slot" style="margin:0 4px; width:calc(33% - 8px)"></div>
+					<div class="slot" style="margin-left:8px; width:calc(33% - 8px)"></div>
+				</div>
+
+				<div id="rec-dest" style="margin:100px 0; ">
+					<div class="row-odd" style="overflow:hidden;">
+						<div style="width:calc(66.66% - 12px); margin-right:12px; float:left; height:400px; box-sizing:border-box; border:solid 1px #ccc;"></div>
+						<div style="width:calc(33.33% ); float:left; margin-left:0">
+							<div style="border:solid 1px #ccc; height:194px; margin-bottom:12px; box-sizing:border-box;"></div>
+							<div style="border:solid 1px #ccc; height:194px; box-sizing:border-box;"></div>
+						</div>
+						
+					</div>
+					<div class="row-even" style="overflow:hidden; margin-top:12px">
+						
+						<div style="width:calc(33.33% ); float:left; margin-left:0">
+							<div style="border:solid 1px #ccc; height:194px; margin-bottom:12px; box-sizing:border-box;"></div>
+							<div style="border:solid 1px #ccc; height:194px; box-sizing:border-box;"></div>
+						</div>
+
+						<div style="width:calc(66.66% - 12px); margin-left:12px; float:left; height:400px; box-sizing:border-box; border:solid 1px #ccc;"></div>
+						
+					</div>
+
+					<div style="margin-top:12px; border:solid 1px #ccc; height:40px"> </div>
+				</div>
+
+			</div>
+		</div>
+		
+	</body>
+
+	<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				$( "#header" ).load( "c-header-stripes.html" );
+			});
+
+		</script>
+</html>
