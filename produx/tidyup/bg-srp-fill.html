@@ -13,27 +13,84 @@
 		<style type="text/css">
 			body {background-color:#f5f4f0; margin: 0; padding:0; font-family: arial; color:#555;}
 			h1, h2, h3 {margin:0; padding:0;}
+			a {text-decoration: none;}
+
+			input[type=text] {font-size:14px; padding:8px; outline: none; border:solid 1px #ccc; border-top-left-radius:4px; border-bottom-left-radius:4px; width:170px;}
+			.range-control {width:26px; height:26px; border-radius:50%; border:solid 2px #026dc5; background-color:#fff; position:relative;}
+			.range-control i {font-size:18px; color:#026dc5; position:absolute; top:3px; left:4px;}
+			.range-bar {height:4px; background-color: #026dc5; }
 			
 			#page-wrapper {margin-top:20px;}
-			#page-content {margin:20px auto; max-width:1160px; overflow:hidden;}
+			#page-content {margin:20px auto; max-width:1260px; overflow:hidden;}
 			#page-content #col-left {float:left; width:225px; }
 			#page-content #col-left #map {height:68px; background-color:#455A64; margin-bottom:12px; border-radius:4px;}
 			#page-content #col-left #filters {min-height:1200px; box-sizing:border-box;}
+			#page-content #col-left #filters ul {list-style-type: none; margin:0; padding:0;}
 			#page-content #col-left #filters h2 {font-size:18px;}
 			#page-content #col-left #filters .total-results {font-size:13px;}
-			#page-content #col-left #filters .section {padding:12px 0; position:relative;}
-			#page-content #col-left #filters .section h3 {font-size:16px; margin-left:18px;}
-			#page-content #col-left #filters .section i {position:absolute; top:12px; left:0; font-size:18px;}
+			#page-content #col-left #filters .section {padding:12px 0; position:relative; padding-left:2px; margin-bottom:16px;}
+			#page-content #col-left #filters .section h3 {font-size:16px; margin:0 0 8px 20px;}
+			#page-content #col-left #filters .section i.arrow {position:absolute; top:12px; left:0; font-size:20px;}
+			#page-content #col-left #filters .section i.star {color:#d41200; font-size:18px; display:inline-block; margin-left:-4px;}
 			#page-content #col-left #filters .open {min-height:60px;}
+
+			input[type="checkbox"] {
+  				display: none;
+			}
+label {
+  cursor: pointer;
+  margin-left:;
+}
+input[type="checkbox"] + label:before {
+  content: "\00a0";
+  display: inline-block;
+  font: 10px arial;
+  height: 14px;
+  border-radius:3px;
+  margin: 1px 4px 0 0;
+  padding: 0;
+  vertical-align: top;
+  width: 16px;
+  background: #fff;
+  box-shad/ow: inset 1px 1px 0px 0px rgba(0,0,0,0.5);
+  border:solid 1px #ccc;
+}
+input[type="checkbox"]:checked + label:before {
+  background: #fff;
+  color: #666;
+  content: "\2713";
+  text-align: center;
+}
+input[type="checkbox"]:checked + label:after {
+  font-weight: bold;
+}
+
+			#page-content #col-left #filters #star-rating input {display:inline-block; vertical-align:top;}
 			
 			#page-content #col-left #why {height:100px; border:solid 1px #ccc; box-sizing:border-box; margin-top:24px;}
 			
 			#page-content #col-right {float:left; width:calc(100% - 249px); box-sizing:border-box; margin-left:24px;}
-			#page-content #col-right #name {height:80px; border-bottom:solid 1px #ccc;}
+			#page-content #col-right #name {height:80px; }
 			#page-content #col-right #name h1 {font-size:28px; margin-top:4px;}
 			#page-content #col-right #name .query {margin-top:4px;}
-			#page-content #col-right #tools {height:50px; border-bottom:solid 1px #ccc;}
-			#page-content #col-right .card {height:150px; margin-top:12px; background-color:#fff; border-radius:4px;}
+			#page-content #col-right #sort {height:50px; background-color:#e5e3db; border-radius:4px;}
+			#page-content #col-right .hotel-card {min-height:150px; margin-top:12px; background-color:#fff; border-radius:4px; padding:20px; overflow:hidden;}
+			#page-content #col-right .hotel-card .details {float:left; width:calc(100% - 230px); box-sizing:border-box;}
+			#page-content #col-right .hotel-card .details .hotel-name {display:block; font-size:16px; font-weight: bold; margin-bottom:4px;}
+			#page-content #col-right .hotel-card .details .address {font-size:13px;}
+			#page-content #col-right .hotel-card .details .thumbnail {height:160px; margin-top:16px;}
+			#page-content #col-right .hotel-card .details .thumbnail img {height:100%;}
+
+			#page-content #col-right .hotel-card .price {float:left; width:230px; box-sizing:border-box; text-align:right;}
+			.hotel-card .price .special-deal .tag {display:inline-block; background-color:#d41200; color:#fff;  padding:6px 8px 4px; border-radius:2px; margin-bottom:12px}
+			.hotel-card .price .special-deal .tag i {font-size:16px; display:inline-block; vertical-align: top;}
+			.hotel-card .price .special-deal .tag span {display:inline-block; font-weight:bold; font-size:13px; vertical-align: top;}
+			.hotel-card .price .special-deal .strikethrough {text-decoration: line-through; font-size:18px;}
+			.hotel-card .price .special-deal .total {color:#d41200; font-weight: bold; font-size:28px;}
+			.hotel-card .price .standard {font-size:28px; font-weight: bold;}
+			.hotel-card .price .nights {font-size:13px; margin-top:8px; color:#7e7e7e;}
+			.hotel-card .price .nights > span {display:block;}
+			.hotel-card .price button {border:0; background-color:#026dc5; border-radius:4px; padding:8px 16px; color:#fff; font-size:16px; border-bottom:4px solid #003789; display:inline-block; font-family: arial; margin-top:12px;}
 		</style>
 
 	</head>
@@ -50,25 +107,79 @@
 				<div id="col-left">
 					<div id="map"></div>
 					<div id="filters">
-						<div style="padding:12px 0">
+						<div style="padding:12px 4px">
 							<h2>Narrow results</h2>
 							<span class="total-results">100 hotels and holiday rentals</span>
 						</div>
 						<div class="section open">
-							<i class="material-icons">&#xE313;</i>
+							<i class="material-icons arrow">&#xE313;</i>
 							<h3>Name contains</h3>
+							<input type="text" placeholder="Hotel name..." style="display:inline-block; vertical-align:top;"/>
+							<button style="position:relative; margin-left:-4px; border:0; background-color:#026dc5; border-top-right-radius:4px; border-bottom-right-radius:4px; color:#fff; font-size:18px; border-bottom:0px solid #003789; display:inline-block; font-family: arial; vertical-align:top; box-sizing-border-box; padding-top:4px; width:30px; height:35px;"><i class="material-icons" style="position:absolute; top:6px; left:3px">&#xE315;</i></button>
 						</div>
 						<div class="section open">
-							<i class="material-icons">&#xE313;</i>
-							<h3>Price</h3>
+							<i class="material-icons arrow">&#xE313;</i>
+							<h3>Nightly Price</h3>
+							<div style="text-align:center; font-size:13px; margin:8px 0 0px; font-weight:bold;">$0 to $500+</div>
+							<div style="position:relative; padding-top:12px">
+								
+								<div class="range-control" style="position:absolute; top:0; left:0;"><i class="material-icons">&#xE86F;</i></div>
+								<div class="range-control" style="position:absolute; top:0; right:0;"><i class="material-icons">&#xE86F;</i></div>
+								<div class="range-bar" style=""></div>
+							</div>
 						</div>
-						<div class="section open">
-							<i class="material-icons">&#xE313;</i>
+						<div id="star-rating" class="section open">
+							<i class="material-icons arrow">&#xE313;</i>
 							<h3>Star rating</h3>
+							<ul>
+								<li><input type="checkbox" id="c5" style="display:none;"/>
+									<label for="c5">
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+								<li><input type="checkbox" id="c4" style="display:none;"/>
+									<label for="c4">
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+								<li><input type="checkbox" id="c3" style="display:none;"/>
+									<label for="c3">
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+								<li><input type="checkbox" id="c2" style="display:none;"/>
+									<label for="c2">
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+								<li><input type="checkbox" id="c1" style="display:none;"/>
+									<label for="c1">
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+							</ul>
 						</div>
 						<div class="section open">
-							<i class="material-icons">&#xE313;</i>
+							<i class="material-icons arrow">&#xE313;</i>
 							<h3>Guest rating</h3>
+							<div style="text-align:center; font-size:13px; margin:8px 0 0px; font-weight:bold;">0 to 5</div>
+							
+							<div style="position:relative; padding-top:12px">
+								
+								<div class="range-control" style="position:absolute; top:0; left:0;"><i class="material-icons">&#xE86F;</i></div>
+								<div class="range-control" style="position:absolute; top:0; right:0;"><i class="material-icons">&#xE86F;</i></div>
+								<div class="range-bar" style=""></div>
+							</div>
 						</div>
 						<div class="section open"></div>
 					</div>
@@ -81,33 +192,94 @@
 						<h1>New York, New York, USA</h1>
 						<div class="query">Wed 8 - Thu 9 March 2017, 1 night, 1 room, 2 adults</div>
 					</div>
-					<div id="tools"></div>
-					<div class="card"></div>
-					<div class="card"></div>
-					<div class="card"></div>
-					<div class="card"></div>
-					<div class="card"></div>
-					<div class="card"></div>
-					<div class="card"></div>
-					<div class="card"></div>
-					<div class="card"></div>
+					<div id="sort"></div>
+					<div id="hotel-list"></div>
+					<script id="hotel-card-template" type="text/x-handlebars-template">
+ 						{{#each hotels}}
+ 							<div class="hotel-card">
+ 								<div class="details">
+ 									<a href="#" class="hotel-name">{{hotelName}}</a>
+ 									<span class="address">{{address1}}, {{locality}}, {{region}}, {{postalCode}}, {{localizedCountryName}}</span>
+ 									<div style="position:relative">
+ 										<div class="thumbnail" style="float:left; width:283px;">
+ 											<img src="{{thumbnailUrl imageUrl}}" />
+ 										</div>
+ 										<div style="float:left; width:calc(100% - 283px); position:relative;">
+ 											<div style="float:left; width:70%; box-sizing:border-box; padding:12px;">
+ 												<div>{{location}}</div>
+ 											</div>
+ 											<div style="float:left; width:30%;">Guest </div>
+ 										</div>
+ 									</div>	
+
+ 									
+ 								</div>
+ 								<div class="price">
+ 									{{#if promoPriceDetails}}
+										{{#if promoPriceDescription.length}}
+       	 								<div class="special-deal">
+       	 									<div class="tag"><i class="material-icons">&#xE54E;</i> <span>Special deal</span></div><br />
+       	 									<span class="strikethrough">{{avgPrice}}</span> 
+       	 									<span class="total">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</span>
+       	 								</div>
+       	 							{{else}}
+       	 								<div class="standard">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</div>
+       	 							{{/if}}
+       	 				
+       	 						{{else}}
+       	 							<div class="standard">{{avgPrice}}</div>
+       	 						{{/if}}
+       	 							<div class="nights"><span>price for 1 night</span> <span>including taxes and fees</span></div>
+       	 							<button>Choose room</button>
+ 								</div>
+ 							</div>
+		    			{{/each}}
+    				</script>
 				</div>
 
 			
 			</div>
 		</div>
+
+
+		
 		
 	</body>
 
 	<!-- Scripts -->
 		<!-- JQuery Google CDN -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="../handlebars.js"></script>
 
 		<script type="text/javascript">
 
 			// run things on page load
 			$(function(){
 				$( "#header" ).load( "c-header-stripes.html" );
+
+				$.getJSON( "ny-json.js", function(data){
+					console.log(data);
+					displayHotels(data);
+				});
+  						
+			});
+
+			var displayHotels = function(data){
+				// get hotel data
+				var hotels = data.result;
+				console.log(hotels);
+				
+				// attach to handle bar template
+        		var source   = $("#hotel-card-template").html();
+  				var template = Handlebars.compile(source);
+  				$("#hotel-list").html(template(hotels));
+			}
+
+			Handlebars.registerHelper("thumbnailUrl", function(imageUrl){
+				
+				var url = imageUrl.replace("_b.jpg", "_l.jpg");
+
+				return url;
 			});
 
 		</script>
