@@ -205,10 +205,17 @@ input[type="checkbox"]:checked + label:after {
  											<img src="{{thumbnailUrl imageUrl}}" />
  										</div>
  										<div style="float:left; width:calc(100% - 283px); position:relative;">
- 											<div style="float:left; width:70%; box-sizing:border-box; padding:12px;">
- 												<div>{{location}}</div>
+ 											<div style="float:left; width:66%; box-sizing:border-box; padding:16px;">
+ 												<div style="font-size:14px; margin-bottom:4px">{{neighbourhood location}}</div>
+ 												<div style="font-size:14px;">{{distanceFromBaseLandmark}} to City Center</div>
  											</div>
- 											<div style="float:left; width:30%;">Guest </div>
+ 											<div style="float:left; width:33%; padding:12px 0">
+ 												<div style="font-size:20px; font-weight:bold; margin-bottom:2px;">{{qualitativeBadgeText}} {{guestReviewRating}} </div>
+ 												<a href="#" style="display:block; font-size:13px; margin-bottom:4px">{{numberOfGuestReviews}} Hotels.com guest reviews</a>
+
+ 												<div style="margin-top:12px;"><img src="i/srp-ta.png" /></div>
+
+ 											</div>
  										</div>
  									</div>	
 
@@ -276,11 +283,16 @@ input[type="checkbox"]:checked + label:after {
 			}
 
 			Handlebars.registerHelper("thumbnailUrl", function(imageUrl){
-				
 				var url = imageUrl.replace("_b.jpg", "_l.jpg");
-
 				return url;
 			});
+
+			Handlebars.registerHelper("neighbourhood", function(location){
+				var res = location.split("/");
+				//var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				return res[0];
+			});
+
 
 		</script>
 </html>
