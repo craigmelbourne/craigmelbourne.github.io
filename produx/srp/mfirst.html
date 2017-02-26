@@ -11,13 +11,19 @@
 		<link rel="stylesheet" type="text/css">
 		<style type="text/css">
 				body {padding:0; margin:0; font-family:arial; background-color:#f5f4f0; color:#555;}
+				#header {background-color: #d41200; }	
+		#header-content {padding:8px 8px;}	
+		#header-content h1 {margin:0; padding:0; float:left;}
+		#header-content .phone {padding:8px 0; float:left;}
+		#header-content .link {font-size:13px;}
+
 div {box-sizing:border-box;}
 ul {list-style-type: none; padding:0; margin:0;}
 a {color:#026dc5; text-decoration: none;}
 
-.tools {padding:8px 8px; display:flex; flex-direction: row;}
+.tools {padding:0px 0px 0px; display:flex; flex-direction: row; border-bottom:solid 1px #e5e3db; margin-bottom:8px;}
 		.tools li {flex-grow:1; }
-		.tools li {display:block; font-size:13px; background-color:#fff; border:solid 1px #026dc5; padding:4px 8px; border-radius:2px;}
+		.tools li {display:block; font-size:13px; background-color:#fff; border:solid 0px #026dc5; padding:4px 8px; border-radius:2px;}
 
 		</style>
 
@@ -25,11 +31,39 @@ a {color:#026dc5; text-decoration: none;}
 
 	<body>
 
-		<div id="header-wrapper"></div>
-		<ul class="tools">
-			<li style=" margin-right:4px;"><label style="font-size:11px; font-weight:normal; display:block; padding-bottom:2px">Open</label><a href="" >Filters</a></li>
+		<div id="header-wrapper">
+			<div id="header">
+
+		<div id="header-content">
 			
-			<li style="position:relative; background-color:#fff; border:solid 1px #026dc5; font-weight:bold; padding:4px 4px; border-radius:2px; margin-right:4px; flex-grow:1;">
+			
+			
+				<div style="height:24px; overflow:hidden; color:#fff; font-size:20px; width:100%">
+					<img src="https://a2.cdn-hotels.com/da/assets/s/41.0/images/brands/hcom/logos/logo_en_GB.png" style="height:70px; float:left;"/>
+					<div style="float:right">
+						<i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<i class="fa fa-user" aria-hidden="true"></i>
+					</div> 
+				</div>
+				
+				
+			
+			
+		</div>
+	</div>
+
+		</div>
+		<div style="border-radius:2px; background-color:#fff; min-height:20px; font-size:13px; position:relative; margin:0px 0px 0px; color:#555; padding:8px; border-bottom:solid 1px #e5e3db">
+					<div style="color:#026dc5; font-weight:bold; font-size:14px">London, United Kingdom</div>
+					<div style="padding:4px 0 0 0; font-size:12px; color:#026dc5;">Fri 24 - Sat 25 June 2016, 1 room 2 adults</div>
+					<div style="position:absolute; right:4px; top:4px; bottom:4px; background-color:#026dc5; color:#fff;  padding:4px 8px 0; border-radius:0px; text-align:center; box-sha/dow: inset 0 -2px 0 #003789; border-left:solid 1px #026dc5">
+						<i class="fa fa-search" aria-hidden="true" style="font-size:16px"></i> 
+						<span style="display:block; font-size:10px; text-align:center; margin-top:4px">EDIT</span>
+					</div>
+				</div>
+		<ul class="tools">
+			<li style=" margin-right:0px;"><label style="font-size:11px; font-weight:normal; display:block; padding-bottom:2px">Open</label><a href="" >Filters</a></li>
+			
+			<li style="position:relative; background-color:#fff; border:solid 0px #026dc5; font-weight:bold; padding:4px 4px; border-radius:2px; margin-right:0px; flex-grow:1;">
 				
 				<label style="font-size:11px; font-weight:normal; display:block; padding:0 4px">Sort by:</label>
 				<select style="font-size:13px; font-family:arial; padding:0; color:#026dc5; background: transparent; border:none; width:100%; outline:none;">
@@ -128,7 +162,7 @@ a {color:#026dc5; text-decoration: none;}
 			// run things on page load
 			$(function(){
       			
-				$( "#header-wrapper" ).load( "../components/c-header-new.html" );
+				//$( "#header-wrapper" ).load( "../components/c-header-n/ew.html" );
 				$.getJSON( "../ny-json.js", function(data){
 					console.log(data);
 					displayHotels(data);
