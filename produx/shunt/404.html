@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="shunt.css">
+
+		<style type="text/css">
+
+			ul {list-style-type: none; margin:0; padding:0;}
+			a {text-decoration: none;}
+			p {font-size:18px;}
+			button.primary {background-color: #026dc5; display:inline-block; color:#fff; padding:4px 8px; font-size:16px; border:0; border-radius:4px; font-family: arial; border-bottom: solid 2px #000; }
+
+
+			@media only screen and (min-width:0px) {
+				body {font-size:14px; font-family: arial; padding:0; margin:0; color:#555;}
+				h1 {margin:0; padding:0; color:#d41200; font-size:20px;}
+				h2 {margin:20px 0 0 0; padding:0; font-size:16px;}
+				#page-wrapper {padding:12px;}
+				.sqm {background-color:#f5f4f0; height:100px;}
+				.sqm h2 {margin:0; padding:0;}
+				.referral {font-weight: bold;}
+			}
+
+			@media only screen and (min-width:600px) {}
+
+			@media only screen and (min-width:750px) {}
+
+			@media only screen and (min-width:850px) {
+				.content h1 {font-size:32px;}
+				h2 {font-size:24px;}
+			}
+
+			@media only screen and (min-width:960px) {}
+
+			@media only screen and (min-width:1160px) {
+				#page-wrapper {max-width: 1160px; margin:0 auto; padding:24px 12px;}
+				.content-wrapper {overflow: hidden;}
+				.content {float:left; width:calc(100% - 446px); padding:20px 20px; box-sizing:border-box;}
+				img.co {float:right; height:300px; padding:0 20px; box-sizing:border-box; }
+				.sqm {padding:20px;}
+				
+				.other-links, .which-page {float:left; width:50%; box-sizing:border-box; padding:20px;}
+				.other-links h2 {margin-bottom: 12px}
+				.other-links ul li {font-size:18px; line-height: 26px; margin-bottom:4px;}
+				.which-page textarea {width:100%; padding:12px; box-sizing:border-box; margin-bottom:12px;}
+				.which-page .opinion-lab {float:left; font-size:12px; line-height: 16px}
+				button.primary {float:right;}
+			}
+		</style>
+
+	</head>
+
+	<body>
+		
+		<div id="header-wrapper"></div>
+		<div id="page-wrapper">
+			<div class="content-wrapper">
+				<div class="content">
+					<h1></h1>
+					<h2>- Captain Obvious</h2>
+				</div>
+				<img class="co" src="i/capo.png" />
+			</div>
+			<div class="sqm">
+				<h2>We're you looking for a hotel? Try searching again:</h2>
+				<p style="color:#999; font-size:24px;">PUT STANDARD SEARCH QUERY MODULE HERE</p>
+			</div>
+
+			<div class='content-wrapper'>
+				<div class="other-links">
+					<h2>Some other options</h2>
+					<ul>
+						<li><a href="#">Start afresh on the home page</a></li>
+						<li><a href="#">Let us help you on our Customer Service page</a></li>
+						<li><a href="#">Find a specific page on our Site Map</a></li>
+					</ul>
+				</div>
+				<div class="which-page">
+					<h2>What page were you trying to get to?</h2>
+					<p>Here’s what we think you were trying to get to: <br />
+						<span class="referral">[insert page requested]</span></p>
+					<p>Tell us in your own words what you we're looking for</p>
+					<textarea rows="5"></textarea>
+					<div>
+						<button class="primary">Submit</button>
+						<div class="opinion-lab">
+							<img src="https://cdn.opinionlab.com/customfooter/footer_logo_w_short.gif" />
+							<div>
+								<a href="https://secure.opinionlab.com/info/en_privacy_policy.html">Privacy Policy</a> <a href="https://secure.opinionlab.com/info/en_about_this_system.html">About OpinionLab</a><br />
+© OpinionLab, Inc. All rights reserved; Patented
+  Submit  
+
+							</div>
+						</div>
+						
+					</div>
+
+				</div>
+			</div>
+			
+
+			
+		</div>
+		
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			var quotes = ["This isn't the page you're looking for.", "You've reached this page by accident", "I'm on this page, but nothing else is.", "The page you want took a trip somewhere. Maybe you want to book one to join them", "This page is missing. If you go looking, you might need a hotel room.", "Hotels.com can find rooms anywhere, but it can't find this page.", "This is an error page, but we still want to know where you;re trying to go.", "Hotels.com can take you on an adventure, but this adventure has taken a wrong turn.", "This is a 404 page.", "This is a page that doesn't exist.", "This is a web page to tell you the web page you wanted isn't here.", "This page exists, but the one you tried to reach doesn't.", "This link is broken, I'm going to stare at you until you hit the back button."]
+			// run things on page load
+			$(function(){
+				$( "#header-wrapper" ).load( "c-header.html" );
+
+				$("h1").text('"' + quotes[getParameterByName("quote")] + '"');
+
+			});
+
+
+
+			function getParameterByName(name) {
+    			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+   				var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        		results = regex.exec(location.search);
+    			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+
+		</script>
+
+	</body>
+</html>
