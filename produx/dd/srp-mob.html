@@ -12,6 +12,8 @@
 			h2 {font-size:20px; margin:0 0 12px 0; padding:0; }
 			a {text-decoration: none;}
 
+			.sp {font-size:12px;}
+
 			#wrapper {max-width:360px; margin:0 auto;}
 			#header {height:50px; background-color:#d41200;}
 			#change-search {height:70px; background-color:#f5f4f0;}
@@ -124,7 +126,23 @@
 			<div id="footer"></div>
 		</div>
 
-		
+		<style type="text/css">
+			#overlay {position:fixed; top:0; left:0; right:0; bottom:0; display:n/one; background-color:#000; opacity:0.7;}
+			#modal {position:fixed; top:0; left:12px; right:12px; background-color:#fff; display:no/ne; padding:12px;}
+			#modal input {display:block; border:solid 1px #ccc; padding:8px; box-sizing:border-box; font-size:16px; width:100%;}
+			#modal button {display:block; border:solid 1px #ccc; padding:8px 0; text-align:center; box-sizing:border-box; font-size:16px; width:100%; margin:8px 0;}
+
+		</style>
+
+		<div id="overlay"></div>
+		<div id="modal">
+			<h2>Unlock instant savings now</h2>
+			<p>Save an extra 10% on over 40,000 properties</p>
+			<input type="text" placeholder="Enter email address"/>
+			<p class="sp">You agree to receive offers from Hotels.com and you can unsubscribe anytime.</p>
+			<button>Unlock now</button>
+			<a href="#" class="sp close">No thanks, I want to pay full price</a>
+		</div>
 
 		<!-- Scripts -->
 		<!-- JQuery Google CDN -->
@@ -134,7 +152,22 @@
 
 			// run things on page load
 			$(function(){
+				$("#rewards button").on("click", function(e){
+					e.preventDefault();
+					$("#overlay").show();
+					$("#modal").show();
+				});
 
+				$("#overlay").on("click", function(e){
+					$(this).hide();
+					$("#modal").hide();
+				}); 
+
+				$(".close").on("click", function(e){
+					e.preventDefault();
+					$("#overlay").hide();
+					$("#modal").hide();
+				})
 			});
 
 		</script>
