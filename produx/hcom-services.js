@@ -79,6 +79,7 @@ function buildHotelDetailsUrl(id) {
   
   var qStr1 = ""
 
+
   qStr1 += 'hotelId='+ id;
   qStr1 += '&cur='+ currency;
   qStr1 += '&monthCheckIn=' + ciMonth;
