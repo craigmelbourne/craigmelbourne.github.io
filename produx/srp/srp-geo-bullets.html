@@ -296,7 +296,7 @@
 					$(".shopfor").hide();
 				});
 
-				// neighbourhood guides
+				/* neighbourhood guides
 				$.each(destinations.london.transport, function(i, obj) {
 					if (i != 0){
 						$("#modal ul").append("<li rel='" + i + "'>" + obj.name + "</li>")
@@ -304,7 +304,7 @@
 						$("#modal ul").append("<li class='selected' rel='" + i + "'>" + obj.name + "</li>")
 					}
 					
-				});
+				});*/
 
 				$("#modal ul").find("li:first-child").addClass("selected");
 	
@@ -350,9 +350,9 @@
 			}
 
 			var displayContent = function(data){
-				displayHotels(data);
-				displayFiltersNeighbourhoods(data.result.neighborhoods);
-				displayFiltersLandmarks(data.result.landmarks);
+				//displayHotels(data);
+				//displayFiltersNeighbourhoods(data.result.neighborhoods);
+				//displayFiltersLandmarks(data.result.landmarks);
 				$("#total-hotels").text(data.result.matchingHotels + " hotels")
 			}
 

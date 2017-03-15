@@ -67,7 +67,7 @@ var buildSearchUrl = function(destination) {
       qStr += '&na=os%3DFacebook%7Ccv%3D1171%7Csv%3D2%7Cid%3DCFUUID9BC82AC4A123485586F5F6AFEF2084E0'
 
       // create API URL
-      var url = '/api/' + pos + '/search.html?'+qStr;
+      var url = 'http://womblelabs.com/api/' + pos + '/search.html?'+qStr;
 
       return url;
     }
