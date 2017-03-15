@@ -1,7 +1,7 @@
 /* Site wide CSS */
 /* red: #D41200 */
 body {
-	font-family:arial;
+	font-family:arial; font-size: 16px;
 }
 
 /* Media Queries - HCOM breakpoints */
