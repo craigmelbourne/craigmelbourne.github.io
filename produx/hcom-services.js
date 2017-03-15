@@ -1,13 +1,13 @@
 
 var fetchHotelList = function (destination, cb){
 	var url = buildSearchUrl(destination);
-
+var proxy = 'https://cors-anywhere.herokuapp.com/';
 	console.log("fetch list")
 
 	$.ajax({
   		dataType: "json",
-  		url: url,
-      crossDomain: true,
+  		url: proxy + url,
+      //crossDomain: true,
   		success: cb,
       /*success: function (response) {
         console.log(response)
