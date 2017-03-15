@@ -7,6 +7,7 @@ var fetchHotelList = function (destination, cb){
 	$.ajax({
   		dataType: "json",
   		url: url,
+      crossDomain: true,
   		success: cb,
       /*success: function (response) {
         console.log(response)
