@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<style type="text/css">
+			body {background-color:#f1f1f1; margin: 0; padding:0; font-family: arial; color:#555;}
+			h1, h2, h3 {margin:0; padding:0;}
+			a {text-decoration: none; color:#555;}
+			img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+			input[type=text] {font-size:14px; padding:8px; outline: none; border:solid 1px #ccc; border-top-left-radius:4px; border-bottom-left-radius:4px; width:170px;}
+			.range-control {width:26px; height:26px; border-radius:50%; border:solid 2px #555; background-color:#fff; position:relative;}
+			.range-control i {font-size:18px; color:#555; position:absolute; top:3px; left:4px;}
+			.range-bar {height:4px; background-color: #555; }
+			
+			#page-wrapper {margin-top:20px;}
+			#page-content {margin:20px auto; max-width:1260px; overflow:hidden;}
+			#page-content #col-left {float:left; width:225px; }
+			#page-content #col-left #map {height:68px; background-color:#455A64; margin-bottom:12px; border-radius:4px;}
+			#page-content #col-left #filters {min-height:1200px; box-sizing:border-box;}
+			#page-content #col-left #filters ul {list-style-type: none; margin:0; padding:0;}
+			#page-content #col-left #filters h2 {font-size:18px;}
+			#page-content #col-left #filters .total-results {font-size:13px;}
+			#page-content #col-left #filters .section {padding:12px 0; position:relative; padding-left:2px; margin-bottom:16px;}
+			#page-content #col-left #filters .section h3 {font-size:16px; margin:0 0 8px 20px;}
+			#page-content #col-left #filters .section i.arrow {position:absolute; top:12px; left:0; font-size:20px;}
+			#page-content #col-left #filters .section i.star {color:#555; font-size:18px; display:inline-block; margin-left:-4px;}
+			#page-content #col-left #filters .open {min-height:60px;}
+
+			
+
+			#page-content #col-left #filters #star-rating input {display:inline-block; vertical-align:top;}
+			
+			
+			#page-content #col-right {float:left; width:calc(100% - 249px); box-sizing:border-box; margin-left:24px;}
+			#page-content #col-right #name {height:80px; font-size:16px;}
+			#page-content #col-right #name h1 {font-size:28px; margin-top:4px;}
+			#page-content #col-right #name .query {margin-top:4px;}
+			#page-content #col-right #sort {height:50px; background-color:#ddd; border-radius:4px;}
+			#page-content #col-right .hotel-card {min-height:150px; margin-top:12px; background-color:#fff; border-radius:4px; padding:20px; overflow:hidden;border:solid 1px #e5e3db;}
+			#page-content #col-right .hotel-card .details {float:left; width:calc(100% - 230px); box-sizing:border-box;}
+			#page-content #col-right .hotel-card .details .hotel-name {display:block; font-size:16px; font-weight: bold; margin-bottom:4px;}
+			#page-content #col-right .hotel-card .details .address {font-size:13px;}
+			#page-content #col-right .hotel-card .details .thumbnail {height:160px; margin-top:16px;}
+			#page-content #col-right .hotel-card .details .thumbnail img {height:100%;}
+
+			#page-content #col-right .hotel-card .price {float:left; width:230px; box-sizing:border-box; text-align:right;}
+			.hotel-card .price .special-deal .tag {display:inline-block; background-color:#777; color:#fff;  padding:6px 8px 4px; border-radius:2px; margin-bottom:12px}
+			.hotel-card .price .special-deal .tag i {font-size:16px; display:inline-block; vertical-align: top;}
+			.hotel-card .price .special-deal .tag span {display:inline-block; font-weight:bold; font-size:13px; vertical-align: top;}
+			.hotel-card .price .special-deal .strikethrough {text-decoration: line-through; font-size:18px;}
+			.hotel-card .price .special-deal .total {color:#555; font-weight: bold; font-size:28px;}
+			.hotel-card .price .standard {font-size:28px; font-weight: bold;}
+			.hotel-card .price .nights {font-size:13px; margin-top:8px; color:#7e7e7e;}
+			.hotel-card .price .nights > span {display:block;}
+			.hotel-card .price button {border:0; background-color:#555; border-radius:4px; padding:8px 16px; color:#fff; font-size:16px; border-bottom:4px solid #000; display:inline-block; font-family: arial; margin-top:12px;}
+
+
+			
+
+		</style>
+
+	</head>
+
+	<body>
+		
+		<div id="header"></div>
+
+		
+		
+
+		<div id="page-wrapper">
+			<div id="page-content">
+				<div id="col-left">
+					<div id="map"></div>
+					<div id="filters">
+						<div style="padding:12px 4px">
+							<h2>Narrow results</h2>
+							<span class="total-results">100 hotels and holiday rentals</span>
+						</div>
+						<div class="section open">
+							<i class="material-icons arrow">&#xE313;</i>
+							<h3>Name contains</h3>
+							<input type="text" placeholder="Hotel name..." style="display:inline-block; vertical-align:top;"/>
+							<button style="position:relative; margin-left:-4px; border:0; background-color:#555; border-top-right-radius:4px; border-bottom-right-radius:4px; color:#fff; font-size:18px; border-bottom:0px solid #003789; display:inline-block; font-family: arial; vertical-align:top; box-sizing-border-box; padding-top:4px; width:30px; height:35px;"><i class="material-icons" style="position:absolute; top:6px; left:3px">&#xE315;</i></button>
+						</div>
+						<div class="section open">
+							<i class="material-icons arrow">&#xE313;</i>
+							<h3>Nightly Price</h3>
+							<div style="text-align:center; font-size:13px; margin:8px 0 0px; font-weight:bold;">$0 to $500+</div>
+							<div style="position:relative; padding-top:12px">
+								
+								<div class="range-control" style="position:absolute; top:0; left:0;"><i class="material-icons">&#xE86F;</i></div>
+								<div class="range-control" style="position:absolute; top:0; right:0;"><i class="material-icons">&#xE86F;</i></div>
+								<div class="range-bar" style=""></div>
+							</div>
+						</div>
+						<div id="star-rating" class="section open">
+							<i class="material-icons arrow">&#xE313;</i>
+							<h3>Star rating</h3>
+							<ul>
+								<li><input type="checkbox" id="c5"/>
+									<label for="c5">
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+								<li><input type="checkbox" id="c4"/>
+									<label for="c4">
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+								<li><input type="checkbox" id="c3"/>
+									<label for="c3">
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+								<li><input type="checkbox" id="c2"/>
+									<label for="c2">
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+								<li><input type="checkbox" id="c1"/>
+									<label for="c1">
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+							</ul>
+						</div>
+						<div class="section open">
+							<i class="material-icons arrow">&#xE313;</i>
+							<h3>Guest rating</h3>
+							<div style="text-align:center; font-size:13px; margin:8px 0 0px; font-weight:bold;">0 to 5</div>
+							
+							<div style="position:relative; padding-top:12px">
+								
+								<div class="range-control" style="position:absolute; top:0; left:0;"><i class="material-icons">&#xE86F;</i></div>
+								<div class="range-control" style="position:absolute; top:0; right:0;"><i class="material-icons">&#xE86F;</i></div>
+								<div class="range-bar" style=""></div>
+							</div>
+						</div>
+						<div class="section open"></div>
+					</div>
+					<div id="why">
+					</div>
+				</div>
+
+				<div id="col-right">
+					<div id="name">
+						<h1>Las Vegas, Nevada, USA</h1>
+						<div class="query">Wed 8 - Thu 9 March 2017, 1 night, 1 room, 2 adults</div>
+					</div>
+					<div id="sort"></div>
+					<div id="hotel-list">
+						<div class="hotel-card"> 
+							<div class="details">
+								<a href="#" class="hotel-name">The Westin Lake Las Vegas Resort & Spa</a>
+ 								<span class="address">101 Montelago Blvd, Henderson, NV, 89011 United States, 0203 450 6788</span>
+
+ 								<div style="position:relative">
+ 										<div class="thumbnail" style="float:left; width:283px; background-color:#ddd;">
+ 											
+ 										</div>
+ 										<div style="float:left; width:calc(100% - 283px); position:relative;">
+ 											<div style="float:left; width:66%; box-sizing:border-box; padding:16px;">
+ 												<div style="font-size:16px; font-weight:bold">Lake Las Vegas</div>
+ 												<div style="font-size:13px; margin-top:4px">14 miles to City centre</div>
+ 												<div style="font-size:13px; margin-top:4px">13 miles to Las Vegas Convention Center</div>
+ 												<div style="font-size:13px; margin-top:4px">13 miles to Las Vegas, NV (LAS-McCarran Intl.)</div>
+ 												<div style="font-size:16px; margin-top:12px; color:#555; font-weight:bold;">Collect nights</div>
+ 											</div>
+ 											<div style="float:left; width:33%; padding:12px 0">
+ 												<div style="font-size:20px; font-weight:bold; margin-bottom:2px;">Very Good 4.2/5 </div>
+ 												<a href="#" style="display:block; font-size:13px; margin-bottom:4px">1234	 Hotels.com guest reviews</a>
+
+ 												<div style="margin-top:12px;"><img src="../tidyup/i/srp-ta.png" /></div>
+
+ 											</div>
+ 										</div>
+ 									</div>
+							</div>
+							<div class="price">
+       	 								<div class="special-deal">
+       	 									<div class="tag"><i class="material-icons">&#xE54E;</i> <span>Special deal</span></div><br />
+       	 									<span class="strikethrough">$567</span> 
+       	 									<span class="total">£388</span>
+       	 								</div>
+       	 							<button>Choose room</button>
+ 								</div>
+						</div>
+						<div class="hotel-card"> 
+							<div class="details">
+								<a href="#" class="hotel-name">SLS Las Vegas a Tribute Portfolio Resort</a>
+ 								<span class="address">2535 Las Vegas Blvd S, Las Vegas, NV, 89109 United States, 0203 450 6788</span>
+
+ 								<div style="position:relative">
+ 										<div class="thumbnail" style="float:left; width:283px; background-color:#ddd;">
+ 											
+ 										</div>
+ 										<div style="float:left; width:calc(100% - 283px); position:relative;">
+ 											<div style="float:left; width:66%; box-sizing:border-box; padding:16px;">
+ 												<div style="font-size:16px; font-weight:bold">Las Vegas Strip</div>
+ 												<div style="font-size:13px; margin-top:4px">2.1 miles to City centre</div>
+ 												<div style="font-size:13px; margin-top:4px">0.8 miles to Las Vegas Convention Center</div>
+ 												<div style="font-size:13px; margin-top:4px">4.0 miles to Las Vegas, NV (LAS-McCarran Intl.)</div>
+ 												<div style="font-size:16px; margin-top:12px; color:#555; font-weight:bold;">Collect nights</div>
+ 											</div>
+ 											<div style="float:left; width:33%; padding:12px 0">
+ 												<div style="font-size:20px; font-weight:bold; margin-bottom:2px;">Very Good 4.0/5 </div>
+ 												<a href="#" style="display:block; font-size:13px; margin-bottom:4px">1234	 Hotels.com guest reviews</a>
+
+ 												<div style="margin-top:12px;"><img src="../tidyup/i/srp-ta.png" /></div>
+
+ 											</div>
+ 										</div>
+ 									</div>
+							</div>
+							<div class="price">
+       	 								<div class="special-deal"> 
+       	 									<span class="total">£222</span>
+       	 								</div>
+       	 							<button>Choose room</button>
+ 								</div>
+						</div>
+						<div class="hotel-card">
+							<div class="details">
+								<a href="#" class="hotel-name">Grandview at Las Vegas</a>
+ 								<span class="address">9940 Las Vegas Blvd S, Las Vegas, NV, 89183 United States, 0203 450 6788</span>
+
+ 								<div style="position:relative">
+ 										<div class="thumbnail" style="float:left; width:283px; background-color:#ddd;">
+ 											
+ 										</div>
+ 										<div style="float:left; width:calc(100% - 283px); position:relative;">
+ 											<div style="float:left; width:66%; box-sizing:border-box; padding:16px;">
+ 												<div style="font-size:16px; font-weight:bold">South of The Strip</div>
+ 												<div style="font-size:13px; margin-top:4px">7.2 miles to City centre</div>
+ 												<div style="font-size:13px; margin-top:4px">8.5 miles to Las Vegas Convention Center</div>
+ 												<div style="font-size:13px; margin-top:4px">5.4 miles to Las Vegas, NV (LAS-McCarran Intl.)</div>
+ 												<div style="font-size:16px; margin-top:12px; color:#555; font-weight:bold;">Collect nights</div>
+ 											</div>
+ 											<div style="float:left; width:33%; padding:12px 0">
+ 												<div style="font-size:20px; font-weight:bold; margin-bottom:2px;">Fabulous 4.3/5 </div>
+ 												<a href="#" style="display:block; font-size:13px; margin-bottom:4px">1234	 Hotels.com guest reviews</a>
+
+ 												<div style="margin-top:12px;"><img src="../tidyup/i/srp-ta.png" /></div>
+
+ 											</div>
+ 										</div>
+ 									</div>
+							</div>
+							<div class="price">
+       	 								<div class="special-deal">
+       	 									<div class="tag"><i class="material-icons">&#xE54E;</i> <span>Special deal</span></div><br />
+       	 									<span class="strikethrough">$567</span> 
+       	 									<span class="total">£388</span>
+       	 								</div>
+       	 							<button>Choose room</button>
+ 								</div>
+						</div>
+
+						<style type="text/css">
+							#rewards {background-color:#555; padding:20px; color:#fff;border-radius:4px; margin-top:24px; position:relative;}
+							#rewards h2 {font-size:24px; padding:0; margin:0 0 12px 0;}
+							#rewards .item {position:relative; display:inline-block; margin-right:32px;}
+							#rewards .thumb {position:absolute; top:0px; left:0px; width:48px; bottom:0px; background-color:#fff;}
+							#rewards h3 {font-size:20px; padding:0; margin:0 0 4px 0; margin-left:60px;}
+							#rewards p {font-size:14px; padding:0; margin:0; margin-left:60px;}
+							#rewards button {position:absolute; bottom:20px; right:20px; background-color:#fff; border-radius:4px; border:0; padding:8px 12px; font-size:20px; font-family: arial; }
+						</style>
+
+
+
+						<div id="rewards">
+						<h2>Hotels.com Rewards</h2>
+
+							<div class="item">
+								<div class="thumb"></div>
+								<h3>Unlock instant savings now</h3>
+								<p>Save an extra 10% or more with Secret Prices</p>
+								
+							</div>
+							<div class="item">
+								<div class="thumb"></div>
+								<h3>Get reward nights later</h3>
+								<p>Collect 10 nights, get 1 free</p>
+								
+							</div>
+							<button>Unlock now</button>
+
+						</div>
+						<div class="hotel-card">
+							<div class="details">
+								<a href="#" class="hotel-name">The Cliffs at Peace Canyon</a>
+ 								<span class="address">4550 S. Grand Canyon Dr., Las Vegas, NV, 89147 United States, 0203 450 6788</span>
+
+ 								<div style="position:relative">
+ 										<div class="thumbnail" style="float:left; width:283px; background-color:#ddd;">
+ 											
+ 										</div>
+ 										<div style="float:left; width:calc(100% - 283px); position:relative;">
+ 											<div style="float:left; width:66%; box-sizing:border-box; padding:16px;">
+ 												<div style="font-size:16px; font-weight:bold">Summerlin</div>
+ 												<div style="font-size:13px; margin-top:4px">7.5 miles to City centre</div>
+ 												<div style="font-size:13px; margin-top:4px">8.7 miles to Las Vegas Convention Center</div>
+ 												<div style="font-size:13px; margin-top:4px">8.8 miles to Las Vegas, NV (LAS-McCarran Intl.)</div>
+ 												<div style="font-size:16px; margin-top:12px; color:#555; font-weight:bold;">Collect nights</div>
+ 											</div>
+ 											<div style="float:left; width:33%; padding:12px 0">
+ 												<div style="font-size:20px; font-weight:bold; margin-bottom:2px;">Fabulous 4.4/5 </div>
+ 												<a href="#" style="display:block; font-size:13px; margin-bottom:4px">1234	 Hotels.com guest reviews</a>
+
+ 												<div style="margin-top:12px;"><img src="../tidyup/i/srp-ta.png" /></div>
+
+ 											</div>
+ 										</div>
+ 									</div>
+							</div>
+							<div class="price">
+       	 								<div class="special-deal">
+       	 									 
+       	 									<span class="total">£487</span>
+       	 								</div>
+       	 							<button>Choose room</button>
+ 								</div>
+						</div>
+						<div class="hotel-card">
+							<div class="details">
+								<a href="#" class="hotel-name">Downtown Grand Las Vegas</a>
+ 								<span class="address">206 North 3rd Street, Las Vegas, NV, 89101 United States, 0203 450 6788</span>
+
+ 								<div style="position:relative">
+ 										<div class="thumbnail" style="float:left; width:283px; background-color:#ddd;">
+ 											
+ 										</div>
+ 										<div style="float:left; width:calc(100% - 283px); position:relative;">
+ 											<div style="float:left; width:66%; box-sizing:border-box; padding:16px;">
+ 												<div style="font-size:16px; font-weight:bold">Downtown Las Vegas</div>
+ 												<div style="font-size:13px; margin-top:4px">4.3 miles to City centre</div>
+ 												<div style="font-size:13px; margin-top:4px">2.8 miles to Las Vegas Convention Center</div>
+ 												<div style="font-size:13px; margin-top:4px">6.0 miles to Las Vegas, NV (LAS-McCarran Intl.)</div>
+ 												<div style="font-size:16px; margin-top:12px; color:#555; font-weight:bold;">Collect nights</div>
+ 											</div>
+ 											<div style="float:left; width:33%; padding:12px 0">
+ 												<div style="font-size:20px; font-weight:bold; margin-bottom:2px;">Fabulous 4.3/5 </div>
+ 												<a href="#" style="display:block; font-size:13px; margin-bottom:4px">1234	 Hotels.com guest reviews</a>
+
+ 												<div style="margin-top:12px;"><img src="../tidyup/i/srp-ta.png" /></div>
+
+ 											</div>
+ 										</div>
+ 									</div>
+							</div>
+							<div class="price">
+       	 								<div class="special-deal">
+       	 									<div class="tag"><i class="material-icons">&#xE54E;</i> <span>Special deal</span></div><br />
+       	 									<span class="strikethrough">$370</span> 
+       	 									<span class="total">£314</span>
+       	 								</div>
+       	 							<button>Choose room</button>
+ 								</div>
+						</div>
+						
+					</div>
+
+
+					<script id="hotel-card-template" type="text/x-handlebars-template">
+ 						{{#each hotels}}
+ 							<div class="hotel-card">
+ 								<div class="details">
+ 									<a href="#" class="hotel-name">{{hotelName}}</a>
+ 									<span class="address">{{address1}}, {{locality}}, {{region}}, {{postalCode}}, {{localizedCountryName}}</span>
+ 									<div style="position:relative">
+ 										<div class="thumbnail" style="float:left; width:283px;">
+ 											<img src="{{thumbnailUrl imageUrl}}" />
+ 										</div>
+ 										<div style="float:left; width:calc(100% - 283px); position:relative;">
+ 											<div style="float:left; width:66%; box-sizing:border-box; padding:16px;">
+ 												<div style="font-size:14px; margin-bottom:4px">{{neighbourhood location}}</div>
+ 												<div style="font-size:14px;">{{distanceFromBaseLandmark}} to City Center</div>
+ 											</div>
+ 											<div style="float:left; width:33%; padding:12px 0">
+ 												<div style="font-size:20px; font-weight:bold; margin-bottom:2px;">{{qualitativeBadgeText}} {{guestReviewRating}} </div>
+ 												<a href="#" style="display:block; font-size:13px; margin-bottom:4px">{{numberOfGuestReviews}} Hotels.com guest reviews</a>
+
+ 												<div style="margin-top:12px;"><img src="i/srp-ta.png" /></div>
+
+ 											</div>
+ 										</div>
+ 									</div>	
+
+ 									
+ 								</div>
+ 								<div class="price">
+ 									{{#if promoPriceDetails}}
+										{{#if promoPriceDescription.length}}
+       	 								<div class="special-deal">
+       	 									<div class="tag"><i class="material-icons">&#xE54E;</i> <span>Special deal</span></div><br />
+       	 									<span class="strikethrough">{{avgPrice}}</span> 
+       	 									<span class="total">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</span>
+       	 								</div>
+       	 							{{else}}
+       	 								<div class="standard">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</div>
+       	 							{{/if}}
+       	 				
+       	 						{{else}}
+       	 							<div class="standard">{{avgPrice}}</div>
+       	 						{{/if}}
+       	 							<div class="nights"><span>price for 1 night</span> <span>including taxes and fees</span></div>
+       	 							<button>Choose room</button>
+ 								</div>
+ 							</div>
+		    			{{/each}}
+    				</script>
+				</div>
+
+			
+			</div>
+		</div>
+
+
+		
+		
+	</body>
+
+	<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				$( "#header" ).load( "../tidyup/c-header-stripes.html" );
+
+				
+  						
+			});
+
+			
+
+
+		</script>
+</html>
