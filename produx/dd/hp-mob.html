@@ -91,6 +91,9 @@
 				</div>
 				<button>Sign up for free</button>
 			</div>
+			<div id="rewards-current" style="text-align: center; background-color:#906; display:none;">
+				<img src="i/reward-hp-current.png" />
+			</div>
 			<div id="footer"></div>
 		</div>
 
@@ -104,7 +107,15 @@
 
 			// run things on page load
 			$(function(){
+				$("#rewards").on("click", function(){
+					$(this).hide();
+					$("#rewards-current").show();
+				})
 
+				$("#rewards-current").on("click", function(){
+					$(this).hide();
+					$("#rewards").show();
+				})
 			});
 
 		</script>
