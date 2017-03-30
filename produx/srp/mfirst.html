@@ -10,7 +10,7 @@
 
 		<link rel="stylesheet" type="text/css">
 		<style type="text/css">
-				body {padding:0; margin:0; font-family:arial; background-color:#f5f4f0; color:#555;}
+				body {padding:0; margin:0; font-family:arial; background-color:#fff; color:#555;}
 				#header {background-color: #d41200; }	
 		#header-content {padding:8px 8px;}	
 		#header-content h1 {margin:0; padding:0; float:left;}
@@ -25,11 +25,26 @@ a {color:#026dc5; text-decoration: none;}
 		.tools li {flex-grow:1; }
 		.tools li {display:block; font-size:13px; background-color:#fff; border:solid 1px #026dc5; padding:4px 8px; border-radius:0px;}
 
+		@media screen and (min-width: 420px) {
+    		#page-wrapper {
+        		max-width:360px;
+        		margin:0 auto;
+        		background-color:#f5f4f0;
+        		border-left:1px solid #ddd;
+        		border-right:1px solid #ddd;
+    		}
+		}
+
 		</style>
 
 	</head>
 
 	<body>
+
+	<div id="page-wrapper">
+		
+
+	
 
 		<div id="header-wrapper">
 			<div id="header">
@@ -128,6 +143,8 @@ a {color:#026dc5; text-decoration: none;}
  				</div>
  			{{/each}}
     	</script>	
+
+    	</div>
 
     	<style type="text/css">
     		.hotel-card {background-color: #fff; min-height:120px; margin-bottom:4px; border-bottom: solid 1px #e5e3db; border-top: solid 1px #e5e3db; position:relative;}
