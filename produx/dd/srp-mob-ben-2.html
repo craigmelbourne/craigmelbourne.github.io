@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		<!-- style sheets -->
+		<style type="text/css">
+			body {margin:0; padding:0; font-family: arial; color:#555; background-color:#fff;}
+			h2 {font-size:20px; margin:0 0 12px 0; padding:0; }
+			a {text-decoration: none; color:#555; font-weight:bold;}
+
+			.sp {font-size:12px;}
+
+			#wrapper {max-width:360px; margin:0 auto;}
+			#header {height:50px; background-color:#d41200;}
+			#change-search {height:70px; background-color:#eae8e0;}
+			#tools {overflow:hidden; padding:12px;}
+			#tools .tool {float:left; width:60px; padding:8px; font-size:14px; text-align: center; box-sizing:border-box; background-color:#fff; margin-right:4px; border:solid 1px #ccc;}
+			#tools .sort {float:left; width:calc(100% - 128px); padding:8px; font-size:14px; text-align: left; box-sizing:border-box; background-color:#fff; border:solid 1px #ccc;}
+			#results {}
+			#results .block {border-bottom:solid 1px #ccc; min-height:120px; position:relative;}
+			#results .block	.thumb {position:absolute; top:8px; bottom:8px; left:0; width:25%; background-color:#999;}
+			#results .block .content {margin-left:25%; padding:8px; box-sizing: border-box;}
+			#results .block .content .name {font-size:14px;}
+			#results .block .content .neighbourhood {font-size:12px; line-height: 16px;}
+			#results .block .content .rating {font-size:12px; line-height: 16px}
+			#results .block .content .price {text-align:right; margin-top:8px;}
+			#results .block .content .price .total {font-size:20px; font-weight:bold;}
+
+
+			#rewards {background-color:#906; color:#fff; padding:12px 12px 4px 12px; box-sizing:border-box;}
+			#rewards h2 {font-size:20px; margin:0 0 12px 0; padding:0; }
+			#rewards {margin-bottom:20px;}
+			#rewards h3 {font-size:14px; margin:0 0 4px 0; padding:0; }
+			#rewards p {padding:0; margin:0; font-size: 14px;}
+			#rewards button {color:#fff; background-color:#906; padding:6px 0 0 28px; text-align: center;  font-size: 14px; border:0; position:relative; font-family: arial; margin-top:4px;}
+
+			
+
+		</style>
+		
+
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<div id="header"></div>
+			<div id="change-search"></div>
+			<div id="tools">
+				<div class="tool">Filters</div>
+				<div class="tool">Map</div>
+				<div class="sort">Sort by</div>
+			</div>
+			<div id="results">
+				<div class="block">
+					<div class="thumb"></div>
+					<div class="content">
+						<a href="#" class="name">The Westin Lake Las Vegas Resort & Spa</a>
+						<div class="neighbourhood">Lake Las Vegas</div>
+						<div class="rating">Outstanding 4.7/5 </div>
+						<div class="price">
+							<div class="total">£388</div>
+							<div class="sp">price for 1 room for 2 nights including taxes & fees</div>
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<div class="thumb"></div>
+					<div class="content">
+						<a href="#" class="name">SLS Las Vegas a Tribute Portfolio Resort</a>
+						<div class="neighbourhood">Las Vegas Strip</div>
+						<div class="rating">Outstanding 4.7/5 </div>
+						<div class="price">
+							<div class="total">£388</div>
+							<div class="sp">price for 1 room for 2 nights including taxes & fees</div>
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<div class="thumb"></div>
+					<div class="content">
+						<a href="#" class="name">Grandview at Las Vegas</a>
+						<div class="neighbourhood">South of the Strip</div>
+						<div class="rating">Outstanding 4.7/5 </div>
+						<div class="price">
+							<div class="total">£388</div>
+							<div class="sp">price for 1 room for 2 nights including taxes & fees</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="rewards">
+				<!--<h2>Hotels.com Rewards</h2>-->
+				<div style="margin:0px 0 12px; position:relative;">
+					<div style="position:absolute; top:0; left:0; width:48px; border-radius:4px">
+						<img src="i/10white.svg" style="width:100px"/>
+					</div>
+					
+					<div style="margin-left:120px">
+						<!--<h3>Unlock instant savings now</h3>-->
+						<p>Save an extra 10% or more with Secret Prices</p>
+						<button>
+							<div style="position:absolute; left:0px; top:4px; background-color:#fff; padding:2px 2px 0 2px; display:inline-block; border-radius:4px;">
+								<i class="material-icons" style="font-size:16px; color:#906">&#xE5C8;</i>
+							</div>
+							
+							Unlock now
+						</button>
+					</div>
+				</div>
+				<!--<button>
+					<i class="material-icons" style="position:absolute; left:8px; top:6px">&#xE5C8;</i>
+					Unlock instant savings now
+					<i class="material-icons" style="position:absolute; right:8px; top:6px">&#xE5C4;</i>
+				</button>-->
+			</div>
+			
+			<div id="results" style="margin-top:-20px;">
+				<div class="block">
+					<div class="thumb"></div>
+					<div class="content">
+						<a href="#" class="name">The Cliffs at Peace Canyon</a>
+						<div class="neighbourhood">Summerlin</div>
+						<div class="rating">Outstanding 4.7/5 </div>
+						<div class="price">
+							<div class="total">£388</div>
+							<div class="sp">price for 1 room for 2 nights including taxes & fees</div>
+						</div>
+					</div>
+				</div>
+				<div class="block">
+					<div class="thumb"></div>
+					<div class="content">
+						<a href="#" class="name">Downtown Grand Las Vegas</a>
+						<div class="neighbourhood">Downtown Las Vegas</div>
+						<div class="rating">Outstanding 4.7/5 </div>
+						<div class="price">
+							<div class="total">£388</div>
+							<div class="sp">price for 1 room for 2 nights including taxes & fees</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div id="footer"></div>
+		</div>
+
+		<style type="text/css">
+			#overlay {position:fixed; top:0; left:0; right:0; bottom:0; display:none; background-color:#000; opacity:0.7;}
+			#modal {position:fixed; top:0; left:12px; right:12px; background-color:#fff; display:none; padding:12px;}
+			#modal input {display:block; border:solid 1px #ccc; padding:8px; box-sizing:border-box; font-size:16px; width:100%;}
+			#modal button {display:block; border:solid 1px #ccc; padding:8px 0; text-align:center; box-sizing:border-box; font-size:16px; width:100%; margin:8px 0;}
+
+		</style>
+
+		<div id="overlay"></div>
+		<div id="modal">
+			<h2>Unlock instant savings now</h2>
+			<p>Save an extra 10% or more on over 40,000 properties</p>
+			<input type="text" placeholder="Enter email address"/>
+			<p class="sp">You agree to receive offers from Hotels.com and you can unsubscribe anytime.</p>
+			<button>Unlock now</button>
+			<a href="#" class="sp close">No thanks, I want to pay full price</a>
+		</div>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				$("#rewards button").on("click", function(e){
+					e.preventDefault();
+					$("#overlay").show();
+					$("#modal").show();
+				});
+
+				$("#overlay").on("click", function(e){
+					$(this).hide();
+					$("#modal").hide();
+				}); 
+
+				$(".close").on("click", function(e){
+					e.preventDefault();
+					$("#overlay").hide();
+					$("#modal").hide();
+				})
+			});
+
+		</script>
+	</body>
+</html>
