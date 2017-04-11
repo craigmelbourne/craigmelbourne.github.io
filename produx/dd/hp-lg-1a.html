@@ -8,6 +8,8 @@
 
 		<!-- style sheets -->
 		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 		<style type="text/css">
 		
@@ -43,57 +45,65 @@
 
 		<style type="text/css">
 			#rewards-wrapper {background-color:#906;}
-			#rewards-wrapper  #rewards-content {margin:0 auto; max-width:1160px; padding:20px 0; color:#fff; position:relative;}
+			#rewards-wrapper  #rewards-content {margin:0 auto; max-width:1160px; padding:16px 32px; color:#fff; position:relative;}
 			#rewards-wrapper  #rewards-content h2 {font-size:20px; margin:0 0 8px 0; padding:0; vertical-align: top;}
 			
 			#rewards-wrapper #rewards-content #instant {display:inline-block; margin-right:40px; position:relative; vertical-align: top; margin-top:4px;}
 			#rewards-wrapper #rewards-content #instant h3 {font-size:20px; margin:0 0 4px 0; padding:0; margin-left:120px;}
-			#rewards-wrapper #rewards-content #instant p {font-size:16px; margin:4px 0 0 0; padding:0; margin-left:120px;}
+			#rewards-wrapper #rewards-content #instant p {font-size:16px; margin:0; padding:0; margin-left:120px;}
 
 			#rewards-wrapper #rewards-content #nights {display:inline-block; margin-left:60px; position:relative; vertical-align: top; margin-top:4px;}
 			#rewards-wrapper #rewards-content #nights h3 {font-size:20px; margin:0 0 4px 0; padding:0; margin-left:160px;}
-			#rewards-wrapper #rewards-content #nights p {font-size:16px; margin:4px 0 0 0; padding:0;}
-			#rewards-wrapper  #rewards-content #button {position:absolute; right:0; top:16px; text-align:right;}
-			#rewards-wrapper  #rewards-content #button img {display:block; height:15px; }
-			#rewards-wrapper  #rewards-content button {background-color:#fff; font-size:16px; font-family: arial; padding:8px 12px; border:0; border-radius:4px; margin-top:8px;}
+			#rewards-wrapper #rewards-content #nights p {font-size:16px; margin:0; padding:0; margin-left:160px;}
+			#rewards-wrapper  #rewards-content button {background-color:#fff; font-size:20px; font-family: arial; padding:8px 12px; border:0; border-radius:4px; position:absolute; right:0; bottom:20px; color:;}
 		</style>
 		<div id="rewards-wrapper">
 			<div id="rewards-content">
-				<!--<h2>Hotels.com Rewards</h2>-->
+				
+				<h2 style="margin-bottom:12px; margin-left:0px;"><img src="https://a2.cdn-hotels.com/da/assets/s/63.0.7734/images/brands/hcom/hcomrewards/logos/rewards-logo-white-no-moon-en_GB.png" style="height:20px;"/></h2>
+
+				<div style="display:inline-block; margin-left:0px;">
+					<img src="i/MOON_[white].svg" style="height:32px; display:inline-block; vertical-align:top;"/>
+						<div style="display:inline-block; vertical-align:top; width:90px; margin-left:4px;">
+								<img src="i/FREE_[white].svg" style="height:20px"/>
+								<img src="i/NIGHTS_[white].svg" style="height:12px"/>
+							</div>
+
+				</div>
+				<div style="display:inline-block; vertical-align:top;">
+					<i class="material-icons" style="font-size:32px; font-weight:bold;">&#xE145;</i>
+				</div>
+
+				<div style="display:inline-block; margin-left:12px;">
+					<img src="i/TAG_ANGLE_[white].svg" style="height:32px; display:inline-block; vertical-align:top;"/>
+							<div style="display:inline-block; vertical-align:top; width:60px; ">
+								<img src="i/10_[white].svg" style="height:20px"/>
+								<img src="i/OFF_[white].svg" style="height:12px"/>
+							</div>
+				</div>
+
+				
 				<div id="instant">
 						<div style="position:absolute; top:0; left:0; bottom:0;  border-radius:4px">
-							<!--<img src="i/TAG_ANGLE_[white].svg" style="width:40px; display:inline-block; vertical-align:top;"/>-->
-							<div style="display:inline-block; vertical-align:top; width:60px; ">
-								<img src="i/10_[white].svg" style="height:42px"/>
-								
-							</div>
+							
 						</div>
-						<img src="i/INSTANT_SAVINGS_[white_thin].svg" style="height:20px; margin-left:120px;"/>
-						<p>Save an extra 10% or more with Secret Prices</p>
+						<!--<h3>Unlock instant savings now</h3>
+						<p>Save an extra 10% or more with Secret Prices</p>-->
 				</div>
 				<div id="nights" class="elem">
 
-					<div style="">
-						<img src="i/MOON_[white].svg" style="width:45px; display:inline-block; vertical-align:top;"/>
-						<div style="display:inline-block; vertical-align:top; margin-left:8px;">
-								<img src="i/FREE_NIGHTS_[white_thin].svg" style="height:20px"/>
-								
-								<p>Collect 10 nights, get 1 free</p>
-							</div>
-							
-					</div>
-					<!--<h3>Get free nights later</h3>-->
+					<div style="position:absolute; top:0; left:0; bottom:0; border-radius:4px">
 						
+					</div>
+					<!--<h3>Get free nights later</h3>
+						<p>Collect 10 nights, get 1 free</p>-->
 				</div>
 				
 				
-				<div id="button">
-					<img src="https://a2.cdn-hotels.com/da/assets/s/63.0.7734/images/brands/hcom/hcomrewards/logos/rewards-logo-white-no-moon-en_GB.png"/>
-
-					<button>Sign up for free</button>
-				</div>
 
 				
+
+				<button>Sign up for free</button>
 			</div>
 		</div>
 
