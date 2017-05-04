@@ -57,8 +57,15 @@ box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75); position:relative;}
 				#intro p.address {font-size:14px; padding:4px 0;}
 				#intro p.cgs-summary {font-size:20px; padding:16px 0 8px; font-weight: bold;}
 
-				#photos {width:70%; float:left;}
+				#photos {width:70%;}
 				#photos #carousel img {width:100%;}
+				#photos .thumbnails {overflow:hidden; margin:0 -2px;}
+				#photos .thumbnails .thumb {float:left; width:calc(10% - 4px); background-color:#fff; border:solid 1px #ddd; height:80px; margin-right:2px; margin-left:2px; margin-bottom:4px;}
+
+				#overview {height:400px;}
+				
+				#room-rates {background-color:#dae9cc; border:solid 0px #028017; padding:16px;}
+				#room-rates .room {background-color:#fff; height:200px; margin-top:16px;}
 
 				#price-overview { text-align: right; padding:24px 0 0;}
 				#price-overview .price {font-size:28px; display:block; font-weight:bold; margin-bottom:4px;}
@@ -66,6 +73,9 @@ box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75); position:relative;}
 				#price-overview .t2 {font-size:14px; display:block;}
 				#price-overview .pg {font-size:16px; display:block; color:#003789; font-weight: bold; margin-top:8px;}
 
+				#map .map-image {height:200px; background-color:#fff; margin-top:35px; border:solid 1px #ddd;}
+				#guest-review {height:500px; background-color:#fff; margin-top:16px; border:solid 1px #ddd;}
+				#rewards {height:200px; background-color:#f2eaf0; margin-top:16px; border:solid 1px #906;}
 			}
 		</style>
 
@@ -138,9 +148,32 @@ box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75); position:relative;}
 				<div id="carousel">
 					<img src="https://exp.cdn-hotels.com/hotels/1000000/30000/22300/22262/22262_332_z.jpg" />
 				</div>
+				<div class="thumbnails">
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+					<div class="thumb"></div>
+				</div>
 			</div>
 			<div id="overview"></div>
-			<div style="position:absolute; top:0; right:0; width:30%">
+			
+			<div style="position:absolute; top:0; right:0; width:calc(30% - 16px);">
 				<div id="price-overview">
 					<span class="price">£132</span>
 					<span class="t1">price for 1 room for 1 night</span>
@@ -149,13 +182,22 @@ box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75); position:relative;}
 					<button style="border:0; background-color:#026dc5; border-radius:4px; padding:8px 16px; color:#fff; font-size:18px; border-bottom:4px solid #003789; display:inline-block; font-family:Helvetica; margin-top:12px; font-weight:bold;">Book now</button>
 					<span class="pg">Price Guarantee</span>
 				</div>
-				<div id="map"></div>
+				<div id="map">
+					<div class="map-image">
+
+					</div>
+				</div>
 				<div id="guest-review"></div>
 				<div id="rewards"></div>
 			</div>
 			
 
-			<div id="room-rates"></div>
+			<div id="room-rates">
+				<div class="room"></div>
+				<div class="room"></div>
+				<div class="room"></div>
+				<div class="room"></div>
+			</div>
 			<div class="rec-hotels"></div>
 			<div id="at-a-glance"></div>
 			<div id="amenities"></div>
