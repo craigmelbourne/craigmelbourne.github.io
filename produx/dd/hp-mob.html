@@ -73,27 +73,30 @@
 				</div>
 			</div>
 			<div id="rewards">
-				<h2>Hotels.com Rewards</h2>
+				<h2><img src="https://a2.cdn-hotels.com/da/assets/s/63.0.7734/images/brands/hcom/hcomrewards/logos/rewards-logo-white-no-moon-en_GB.png"/ style="height:16px;"></h2>
 				<div style="margin:20px 0 24px; position:relative; height:60px;">
-					<div style="position:absolute; top:0; left:0; height:60px; width:48px; background-color:#fff; border-radius:4px"></div>
+					<div style="position:absolute; top:0; left:0; height:60px; width:48px; border-radius:4px">
+						
+						<img src="i/Tag_50_white_horz.png" style="width:70px;"/>
+					</div>
 					
-					<div style="margin-left:60px">
-						<h3>Unlock instant savings now</h3>
-						<p>Save an extra 10% or more with Secret Prices</p>
+					<div style="margin-left:80px">
+						<h3>Instant savings now</h3>
+						<p>Save up to 50% on selected hotels with Secret Prices</p>
 					</div>
 				</div>
 				<div style="position:relative; height:60px;">
-					<div style="position:absolute; top:0; left:0; height:60px; width:48px; background-color:#fff; border-radius:4px"></div>
-					<div style="margin-left:60px;">
-						<h3>Get free nights later</h3>
+					<div style="position:absolute; top:0; left:0; height:60px; border-radius:4px">
+						<img src="i/Punchcards.png" style="width:70px"/>
+					</div>
+					<div style="margin-left:80px;">
+						<h3>Rewards nights later</h3>
 						<p>Collect 10 nights, get 1 free</p>
 					</div>
 				</div>
 				<button>Sign up for free</button>
 			</div>
-			<div id="rewards-current" style="text-align: center; background-color:#906; display:none;">
-				<img src="i/reward-hp-current.png" />
-			</div>
+			
 			<div id="footer"></div>
 		</div>
 
@@ -107,15 +110,7 @@
 
 			// run things on page load
 			$(function(){
-				$("#rewards").on("click", function(){
-					$(this).hide();
-					$("#rewards-current").show();
-				})
-
-				$("#rewards-current").on("click", function(){
-					$(this).hide();
-					$("#rewards").show();
-				})
+				
 			});
 
 		</script>
