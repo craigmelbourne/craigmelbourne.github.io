@@ -13,10 +13,7 @@
 			body {background-color:#f5f4f0; margin: 0; padding:0; font-family: arial; color:#555;}
 			h1, h2, h3 {margin:0; padding:0;}
 			a {text-decoration: none; color:#555;}
-			img {
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
-}
+			
 
 			input[type=text] {font-size:14px; padding:8px; outline: none; border:solid 1px #ccc; border-top-left-radius:4px; border-bottom-left-radius:4px; width:170px;}
 			.range-control {width:26px; height:26px; border-radius:50%; border:solid 2px #555; background-color:#fff; position:relative;}
@@ -279,24 +276,22 @@
 						</div>
 
 						<style type="text/css">
-							#rewards {background-color:#906; padding:12px 0; color:#fff;border-radius:4px; margin-top:12px; position:relative;}
+							#rewards {background-color:#906; padding:12px 0 24px; color:#fff;border-radius:4px; margin-top:12px; position:relative;}
 							#rewards .thumb {position:absolute; top:12px; left:28px; bottom:12px;}
-							#rewards h3 {font-size:20px; padding:0; margin:0 0 4px 0; margin-left:180px;}
-							#rewards p {font-size:16px; padding:0; margin:0; margin-left:180px;}
-							#rewards button {position:absolute; top:18px; right:20px; background-color:#fff; border-radius:4px; border:0; padding:8px 12px; font-size:16px; font-family: arial; }
+							#rewards h3 {font-size:20px; padding:0; margin:12px 0 4px 0; margin-left:150px;}
+							#rewards p {font-size:16px; padding:0; margin:0; margin-left:150px;}
+							#rewards button {position:absolute; top:26px; right:20px; background-color:#fff; border-radius:4px; border:0; padding:8px 12px; font-size:16px; font-family: arial; }
 						</style>
 
 						<div id="rewards">
 							<div class="thumb">
-								<img src="i/TAG_ANGLE_[white].svg" style="width:46px; display:inline-block; vertical-align:top;"/>
-								<div style="display:inline-block; vertical-align:top; width:70px;">
-									<img src="i/10_[white].svg" style="width:70px"/>
-									<img src="i/OFF_[white].svg" style="width:40px;"/>
+								<div style="display:inline-block; vertical-align:top;">
+									<img src="i/Tag_50_white_horz.svg" style="height:70px"/>
 								</div>
 								
 							</div>
-							<h3>Unlock instant savings now</h3>
-							<p>Save an extra 10% or more on selected hotels with Secret Prices</p>
+							<h3>Unlock Instant Savings now</h3>
+							<p>Save up to 50% on selected properties with Secret Prices</p>
 							<button>Sign up for free</button>
 						</div>
 						<div class="hotel-card">
@@ -429,7 +424,35 @@
 		</div>
 
 
-		
+		<style type="text/css">
+			#overlay {position:fixed; top:0; left:0; right:0; bottom:0; background-color:#000; opacity:0.7;}
+			#modal {position:fixed; top:0; left:12px; right:12px; background-color:#fff; padding:24px; width:520px; margin:50px auto;}
+			#modal input {display:block; border:solid 1px #ccc; padding:8px; box-sizing:border-box; font-size:16px; width:100%;}
+			#modal .sp {font-size:14px;}
+			#modal button {display:block; border:solid 1px #ccc; padding:12px 0; text-align:center; box-sizing:border-box; font-size:18px; font-family: arial; width:100%; margin:8px 0; background-color: #026dc5; color:#fff; border-radius:8px; border:0;}
+
+			
+
+		</style>
+
+		<div id="overlay"></div>
+		<div id="modal">
+			<div style="background-color:#906; height:30px; margin: -24px -24px 24px -24px; padding:12px 30px 4px">
+				<img src="https://a2.cdn-hotels.com/da/assets/s/63.0.7734/images/brands/hcom/hcomrewards/logos/rewards-logo-white-no-moon-en_GB.png"/ style="height:20px;">
+			</div>
+			<div style="position:absolute; top:45px; left:10px">
+				<img src="i/UPTO50Plum.svg" style="width:200px"/>
+				
+			</div>
+			<div style="width:320px; float:right">
+			<h2>Unlock instant savings now</h2>
+			<p style="font-size:16px; line-height:20px">Save <span style="background-color:#906; color:#fff; padding:2px 6px; border-radius:4px">upto 50%</span> on over 40,000 properties when you enter your email address</p>
+			<input type="text" placeholder="Enter email address"/>
+			<p class="sp">You agree to receive offers from Hotels.com and you can unsubscribe anytime.</p>
+			<button>Unlock now</button>
+			<a href="#" class="sp close">No thanks, I want to pay full price</a>
+			</div>
+		</div>
 		
 		
 	</body>
