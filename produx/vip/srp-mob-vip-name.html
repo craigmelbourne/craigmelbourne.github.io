@@ -30,7 +30,7 @@
 			.hotel-card .details, .hotel-card .price, .hotel-card .rating {margin-left:30%; box-sizing:border-box; padding-left:16px;}
 			.hotel-card .details {margin-top:8px;}
 			.hotel-card .name {font-size:14px; line-height: 16px; color:#026dc5;}
-			.vip {display:inline-block; background-color:#FFB300; color:#fff; padding:2px 4px; font-weight:bold; font-size:12px; margin-right:2px;}
+			.vip {display:inline-block; background-color:#F9A825; color:#fff; padding:2px 4px; font-weight:bold; font-size:12px; margin-right:2px;}
 			.hotel-card .neighbourhood {font-size:12px; line-height: 16px}
 			.hotel-card .proximity-base {font-size:12px; line-height: 16px}
 
@@ -71,7 +71,7 @@
 						
 					</div>
 					<div class="details">
-						<a href="#" class="name"><div class="vip">VIP</div> The Venitian Las Vegas</a>
+						<div class="name"><div class="vip">VIP</div><a href="#"> The Venitian Las Vegas</a></div>
 						<div class="neighbourhood">Las Vegas Strip</div>
 						<div class="neighbourhood">0.5m to city center</div>
 					</div>
@@ -102,7 +102,7 @@
 						
 					</div>
 					<div class="details">
-						<a href="#" class="name"><div class="vip">VIP</div> Trump International Hotel Las Vegas</a>
+						<div class="name"><div class="vip">VIP</div><a href="#"> Trump International Hotel Las Vegas</a></div>
 						<div class="neighbourhood">West of The Strip</div>
 						<div class="neighbourhood">1.0m to city center</div>
 					</div>
@@ -132,7 +132,7 @@
 						<img src="https://exp.cdn-hotels.com/hotels/1000000/50000/41100/41078/41078_74_l.jpg" />
 					</div>
 					<div class="details">
-						<a href="#" class="name">The Cromwell</a>
+						<div class="name"><a href="#">The Cromwell</a></div>
 						<div class="neighbourhood">Las Vegas Strip</div>
 						<div class="neighbourhood">0.0m to city center</div>
 					</div>
@@ -159,21 +159,13 @@
 		</div>
 
 		<style type="text/css">
-			#overlay {position:fixed; top:0; left:0; right:0; bottom:0; display:none; background-color:#000; opacity:0.7;}
-			#modal {position:fixed; top:0; left:12px; right:12px; background-color:#fff; display:none; padding:12px;}
-			#modal input {display:block; border:solid 1px #ccc; padding:8px; box-sizing:border-box; font-size:16px; width:100%;}
-			#modal button {display:block; border:solid 1px #ccc; padding:8px 0; text-align:center; box-sizing:border-box; font-size:16px; width:100%; margin:8px 0;}
-
+			.vip-message {background-color:#fff; position:fixed; top:20px; right:20px; display:none; width:200px; background-color:#F9A825; color:#fff; padding:16px 16px 8px;}
+			.vip-message p {font-size:14px; line-height: 18px; margin:0 0 8px 0;}
 		</style>
 
-		<div id="overlay"></div>
-		<div id="modal">
-			<h2>Unlock instant savings now</h2>
-			<p>Save an extra 10% or more on over 40,000 properties</p>
-			<input type="text" placeholder="Enter email address"/>
-			<p class="sp">You agree to receive offers from Hotels.com and you can unsubscribe anytime.</p>
-			<button>Unlock now</button>
-			<a href="#" class="sp close">No thanks, I want to pay full price</a>
+		<div class="vip-message">
+			<p>Our customers consistently receive exceptional service at these hotels. </p>
+ 			<p>As a Gold member, you will also get special amenities, services and free room upgrade when available.</p>
 		</div>
 
 		<!-- Scripts -->
@@ -184,22 +176,21 @@
 
 			// run things on page load
 			$(function(){
-				$("#rewards button").on("click", function(e){
-					e.preventDefault();
-					$("#overlay").show();
-					$("#modal").show();
-				});
+				$( ".vip" ).on("click", function() {
+  					var pos = $(this).offset();
+  					var s = $(document).scrollTop();
+  					console.log(pos.top + " " + s);
+  					$(".vip-message").css({
+  							top: (pos.top - s) + 24,
+  							left: pos.left - 30
+  					})
+    				$(".vip-message").show();
 
-				$("#overlay").on("click", function(e){
-					$(this).hide();
-					$("#modal").hide();
-				}); 
+  				});
 
-				$(".close").on("click", function(e){
-					e.preventDefault();
-					$("#overlay").hide();
-					$("#modal").hide();
-				})
+  				$(".vip-message").on("click", function(e){
+  					$(this).hide();
+  				})
 			});
 
 		</script>
