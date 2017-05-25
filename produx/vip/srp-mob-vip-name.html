@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<style type="text/css">
+			body {margin:0; padding:0; font-family: arial; color:#555; background-color:#f5f4f0;}
+			h2 {font-size:20px; margin:0 0 12px 0; padding:0; }
+			a {text-decoration: none; color:#555; font-weight:bold;}
+
+			.sp {font-size:12px;}
+
+			#wrapper {max-width:360px; margin:0 auto;}
+			#header {height:50px; background-color:#d41200;}
+			#change-search {height:70px; background-color:#eae8e0;}
+			#tools {overflow:hidden; padding:12px;}
+			#tools .tool {float:left; width:60px; padding:8px; font-size:14px; text-align: center; box-sizing:border-box; background-color:#fff; margin-right:4px; border:solid 1px #ccc;}
+			#tools .sort {float:left; width:calc(100% - 128px); padding:8px; font-size:14px; text-align: left; box-sizing:border-box; background-color:#fff; border:solid 1px #ccc;}
+			#results {}
+			
+
+			.hotel-card {background-color: #fff; min-height:120px; margin-bottom:4px; border-bottom: solid 1px #e5e3db; border-top: solid 1px #e5e3db; position:relative; padding-bottom:8px;}
+    		.hotel-card .thumbnail {position:absolute; top:8px; left:8px; bottom:8px; width:30%; text-align: center; overflow: hidden;}
+			.hotel-card .thumbnail img { position: relative; left: 100%; margin-left: -200%; height:100%;}
+			
+			.hotel-card .details, .hotel-card .price, .hotel-card .rating {margin-left:30%; box-sizing:border-box; padding-left:16px;}
+			.hotel-card .details {margin-top:8px;}
+			.hotel-card .name {font-size:14px; line-height: 16px; color:#026dc5;}
+			.vip {display:inline-block; background-color:#FFB300; color:#fff; padding:2px 4px; font-weight:bold; font-size:12px; margin-right:2px;}
+			.hotel-card .neighbourhood {font-size:12px; line-height: 16px}
+			.hotel-card .proximity-base {font-size:12px; line-height: 16px}
+
+			.hotel-card .rating {margin-top:8px;}
+			.hotel-card .rating .guest-rating {font-size: 14px; line-height: 16px; font-weight:bold;}
+			.hotel-card .rating .guest-rating .numReviews {font-size: 11px; line-height: 13px; color:#999; font-weight: normal; display:inline-block; vertical-align: bottom; margin-left:4px;}
+			.hotel-card .rating .taGuestReview {}
+			.hotel-card .rating .taGuestReview .owl {height:13px; display:inline-block;}
+			.hotel-card .rating .taGuestReview .numReviews {font-size:11px; line-height: 15px; color:#999; display:inline-block;}
+
+			.hotel-card .price {text-align:right; margin-top:8px; padding:0 12px;}
+			.promo-price-description {display:block; font-size:12px; line-height:16px; font-weight:bold; color:#d41200;}
+			.strikethrough {font-size: 14px; text-decoration: line-through;}
+			.total {font-size:20px; color:#d41200; font-weight:bold;}
+			.summary {font-size:11px; color:#999;}
+			.standard {font-size:20px; font-weight:bold;}
+			
+
+		</style>
+		
+
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<div id="header"></div>
+			<div id="change-search"></div>
+			<div id="tools">
+				<div class="tool">Filters</div>
+				<div class="tool">Map</div>
+				<div class="sort">Sort by</div>
+			</div>
+			<div id="results">
+				<div class="hotel-card">
+					<div class="thumbnail">
+
+						<img src="https://exp.cdn-hotels.com/hotels/1000000/10000/1500/1443/b1ec9a3d_l.jpg" />
+						
+					</div>
+					<div class="details">
+						<a href="#" class="name"><div class="vip">VIP</div> The Venitian Las Vegas</a>
+						<div class="neighbourhood">Las Vegas Strip</div>
+						<div class="neighbourhood">0.5m to city center</div>
+					</div>
+					<div class="rating">
+						<div class="guest-rating">
+							<span class="qual">Superb</span> 
+ 							<span class="score">4.6</span> / 5 
+ 							<span class="numReviews">24,236 reviews</span>
+						</div>
+						<div class="taGuestReview">
+       	 					<img class="owl" src="i/ta-owl.png" /><img class="circles" src="i/ta-circles.png" /> 
+       	 					<span class="numReviews">100 reviews</span>
+       	 				</div>
+					</div>
+						<div class="price">
+							<div class="special-deal">
+       	 						<span class="promo-price-description">Book early and save 20%</span>
+       	 						<span class="strikethrough">$227</span> 
+       	 						<span class="total">$181</span>
+       	 					</div>
+							<div class="sp">price for 1 room for 2 nights including taxes & fees</div>
+						</div>
+				</div>
+
+				<div class="hotel-card">
+					<div class="thumbnail">
+						<img src="https://exp.cdn-hotels.com/hotels/2000000/1860000/1857300/1857289/011c64fe_l.jpg" />
+						
+					</div>
+					<div class="details">
+						<a href="#" class="name"><div class="vip">VIP</div> Trump International Hotel Las Vegas</a>
+						<div class="neighbourhood">West of The Strip</div>
+						<div class="neighbourhood">1.0m to city center</div>
+					</div>
+					<div class="rating">
+						<div class="guest-rating">
+							<span class="qual">Superb</span> 
+ 							<span class="score">4.6</span> / 5 
+ 							<span class="numReviews">24,236 reviews</span>
+						</div>
+						<div class="taGuestReview">
+       	 					<img class="owl" src="i/ta-owl.png" /><img class="circles" src="i/ta-circles.png" /> 
+       	 					<span class="numReviews">100 reviews</span>
+       	 				</div>
+					</div>
+						<div class="price">
+							<div class="special-deal">
+       	 						<span class="promo-price-description">Save 20%</span>
+       	 						<span class="strikethrough">$165</span> 
+       	 						<span class="total">$132</span>
+       	 					</div>
+							<div class="sp">price for 1 room for 2 nights including taxes & fees</div>
+						</div>
+				</div>
+				
+				<div class="hotel-card">
+					<div class="thumbnail">
+						<img src="https://exp.cdn-hotels.com/hotels/1000000/50000/41100/41078/41078_74_l.jpg" />
+					</div>
+					<div class="details">
+						<a href="#" class="name">The Cromwell</a>
+						<div class="neighbourhood">Las Vegas Strip</div>
+						<div class="neighbourhood">0.0m to city center</div>
+					</div>
+					<div class="rating">
+						<div class="guest-rating">
+							<span class="qual">Very Good</span> 
+ 							<span class="score">4.2</span> / 5 
+ 							<span class="numReviews">24,236 reviews</span>
+						</div>
+						<div class="taGuestReview">
+       	 					<img class="owl" src="i/ta-owl.png" /><img class="circles" src="i/ta-circles.png" /> 
+       	 					<span class="numReviews">100 reviews</span>
+       	 				</div>
+					</div>
+						<div class="price">
+							<div class="standard">$157</div>
+							<div class="sp">price for 1 room for 2 nights including taxes & fees</div>
+						</div>
+				</div>
+
+			</div>
+		
+			<div id="footer"></div>
+		</div>
+
+		<style type="text/css">
+			#overlay {position:fixed; top:0; left:0; right:0; bottom:0; display:none; background-color:#000; opacity:0.7;}
+			#modal {position:fixed; top:0; left:12px; right:12px; background-color:#fff; display:none; padding:12px;}
+			#modal input {display:block; border:solid 1px #ccc; padding:8px; box-sizing:border-box; font-size:16px; width:100%;}
+			#modal button {display:block; border:solid 1px #ccc; padding:8px 0; text-align:center; box-sizing:border-box; font-size:16px; width:100%; margin:8px 0;}
+
+		</style>
+
+		<div id="overlay"></div>
+		<div id="modal">
+			<h2>Unlock instant savings now</h2>
+			<p>Save an extra 10% or more on over 40,000 properties</p>
+			<input type="text" placeholder="Enter email address"/>
+			<p class="sp">You agree to receive offers from Hotels.com and you can unsubscribe anytime.</p>
+			<button>Unlock now</button>
+			<a href="#" class="sp close">No thanks, I want to pay full price</a>
+		</div>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				$("#rewards button").on("click", function(e){
+					e.preventDefault();
+					$("#overlay").show();
+					$("#modal").show();
+				});
+
+				$("#overlay").on("click", function(e){
+					$(this).hide();
+					$("#modal").hide();
+				}); 
+
+				$(".close").on("click", function(e){
+					e.preventDefault();
+					$("#overlay").hide();
+					$("#modal").hide();
+				})
+			});
+
+		</script>
+	</body>
+</html>
