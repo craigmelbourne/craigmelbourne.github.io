@@ -15,6 +15,9 @@
 			a {text-decoration: none; color:#026dc5;}
 			p {margin:0; padding:0;}
 
+			#header {background-color:#d41200; height:60px;}
+				#navbar {background-color:#333; height:30px;}
+
 			input[type=text] {font-size:14px; padding:8px; outline: none; border:solid 1px #ccc; border-top-left-radius:4px; border-bottom-left-radius:4px; width:170px;}
 			.range-control {width:26px; height:26px; border-radius:50%; border:solid 2px #555; background-color:#fff; position:relative;}
 			.range-control i {font-size:18px; color:#555; position:absolute; top:3px; left:4px;}
@@ -43,7 +46,7 @@
 			#page-content #col-right #name {height:80px; font-size:16px;}
 			#page-content #col-right #name h1 {font-size:28px; margin-top:4px;}
 			#page-content #col-right #name .query {margin-top:4px;}
-			#page-content #col-right #sort {height:50px; background-color:#ddd; border-top:solid 1px #ddd; border-bottom:solid 1px#ddd;}
+			#page-content #col-right #sort {height:50px; border-top:solid 1px #ddd; border-bottom:solid 1px#ddd;}
 			#page-content #col-right .hotel-card {min-height:150px; margin-top:12px; background-color:#fff; border-radius:4px; padding:20px; overflow:hidden;border:solid 1px #e5e3db;}
 			#page-content #col-right .hotel-card .details {float:left; width:calc(100% - 230px); box-sizing:border-box;}
 			#page-content #col-right .hotel-card .details .hotel-name {display:block; font-size:18px; font-weight: bold; margin-bottom:4px;}
@@ -62,9 +65,9 @@
 			.hotel-card .price .standard {font-size:28px; font-weight: bold;}
 			.hotel-card .price .nights {font-size:13px; margin-top:8px; color:#7e7e7e;}
 			.hotel-card .price .nights > span {display:block;}
-			.hotel-card .price button {border:0; background-color:#026dc5; border-radius:4px; padding:8px 16px; color:#fff; font-size:16px; border-bottom:4px solid #000; display:inline-block; font-family: arial; margin-top:12px;}
+			.hotel-card .price button {border:0; background-color:#026dc5; border-radius:4px; padding:8px 16px; color:#fff; font-size:16px; border-bottom:2px solid #003789; display:inline-block; font-family: arial; margin-top:12px;}
 
-			.vip {display:inline-block; background-color:#F9A825; color:#fff; padding:4px 6px; font-weight:bold; font-size:16px; margin-right:2px; margin-top:-4px;}
+			.vip {display:inline-block; background-color:#003789; color:#fff; padding:4px 8px; font-weight:bold; font-size:16px; margin-right:2px; margin-top:-4px; border-radius:4px;}
 			.vip:hover {cursor:pointer;}
 			.collect {font-size:14px; margin-top:12px; color:#555; font-weight:bold; color:#906;}
 			.neighbourhood {font-size: 16px; font-weight: bold; color:#026dc5;;}
@@ -78,6 +81,7 @@
 	<body>
 		
 		<div id="header"></div>
+		<div id="navbar"></div>
 
 		
 		
@@ -302,7 +306,7 @@
 		</div>
 
 		<style type="text/css">
-			.vip-message {background-color:#fff; position:fixed; top:20px; right:20px; display:none; width:260px; background-color:#F9A825; color:#fff; padding:16px 16px 8px;}
+			.vip-message {background-color:#fff; position:fixed; top:20px; right:20px; display:none; width:260px; background-color:#003789; color:#fff; padding:16px 16px 8px;}
 			.vip-message p {font-size:14px; line-height: 18px; margin-bottom:8px;}
 		</style>
 
@@ -322,7 +326,7 @@
 
 			// run things on page load
 			$(function(){
-				$( "#header" ).load( "../tidyup/c-header-stripes.html" );
+				//$( "#header" ).load( "../tidyup/c-header-stripes.html" );
 
 				$( ".vip" ).hover(
   					

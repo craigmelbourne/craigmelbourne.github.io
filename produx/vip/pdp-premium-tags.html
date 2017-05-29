@@ -57,12 +57,12 @@
 				#price-overview .t3 {font-size:12px; display:block;}
 				#price-overview .pg {font-size:16px; display:block; color:#003789; font-weight: bold; margin-top:8px;}
 
-				#map .map-image {height:200px; background-color:#fff; margin-top:46px; border:solid 1px #ddd; overflow:hidden;}
+				#map .map-image {height:200px; background-color:#fff; margin-top:26px; border:solid 1px #ddd; overflow:hidden;}
 				#guest-review {height:450px; background-color:#fff; margin-top:16px; border:solid 1px #ddd;}
 				#rewards {height:200px; background-color:#f2eaf0; margin-top:16px; border:solid 1px #906;}
 
 				.vip {display:inline-block; background-color:#003789; color:#fff; padding:4px 6px 3px; font-weight:bold; font-size:18px; margin-right:8px; margin-top:0px; vertical-align: top; border-radius:4px;}
-				.jumpto {margin-top:20px; border-top:solid 0px #ddd; padding-top:0px;}
+				.jumpto {margin-top:32px; border-top:solid 0px #ddd; padding-top:0px;}
 				.jumpto span {font-weight: bold;}
 			}
 		</style>
@@ -87,23 +87,23 @@
 				<span class="vip">VIP</span><h1 class="name"> The Venetian Las Vegas, Las Vegas</h1>
 				<p class="address">3355 Las Vegas Blvd S, Las Vegas, NV, 89109, United States of America, 0203 564 5996</p>
 				<p class="cgs-summary">Luxury resort with 20 restaurants, near Fashion Show Mall</p>
-				<div style="margin:bottom:8px; ">
-					<div style="display:inline-block; padding:2px 2px 1px; border-radius:4px; background-color:#c79339; vertical-align:top; color:#fff;">
-						<i class="material-icons" style="font-size:16px; color:#fff; font-weight: bold;">&#xE7FD;</i>
+				<div style="margin:bottom:8px; border:solid 1px #c79339; background-color:#c79339; display:inline-block; border-radius:4px; vertical-align:top; margin-right:8px;">
+					<div style="display:inline-block; padding:4px 6px 2px 4px; background-color:#c79339; vertical-align:top; color:#fff; border-right:solid 1px #fff;">
+						<i class="material-icons" style="font-size:16px; color:#fff; font-weight: bold; display:inline-block;">&#xE7FD;</i> <span style="font-size:14px; padding-top:0px; font-weight:bold; display:inline-block; vertical-align:top">GOLD</span>
 						
-					</div><span style="display:inline-block; vertical-align:top; font-size:16px; color:#c79339; margin-left:8px; padding-top:4px; font-weight:bold;">Gold member offers: Airport shuttle</span>
+					</div><span style="display:inline-block; vertical-align:top; font-size:16px; color:#fff; font-weight:bold; padding:3px 8px 4px 8px;">Airport shuttle</span>
 				</div>
-				<div  style="margin-top:8px;">
-					<div style="display:inline-block; padding:3px 2px 0px; border-radius:4px; background-color:#3e6e00; vertical-align:top;">
+				<div  style="border:solid 1px #3e6e00; background-color:#3e6e00; display:inline-block; border-radius:4px; vertical-align:top; margin-right:8px;">
+					<div style="display:inline-block; padding:4px 4px 2px; background-color:#3e6e00; vertical-align:top;">
 						<i class="material-icons" style="font-size:16px; color:#fff; font-weight: bold;">&#xE876;</i>
 						
-					</div><span style="display:inline-block; vertical-align:top; font-size:16px; color:#3e6e00; margin-left:8px; padding-top:4px; font-weight:bold;">Free parking</span>
+					</div><span style="display:inline-block; vertical-align:top; font-size:16px; color:#fff; padding:3px 8px 4px 4px; font-weight:bold;">Free parking</span>
 				</div>
-				<div style="margin-top:8px;">
-					<div style="display:inline-block; padding:4px 4px; border-radius:4px; background-color:#906; vertical-align:top;">
+				<div style="border:solid 1px #906; background-color:#906; display:inline-block; border-radius:4px; vertical-align:top;">
+					<div style="display:inline-block; padding:3px 4px 4px 8px; background-color:#906; vertical-align:top;">
 						<img src="i/moon.png" style="width:14px"/>
 					</div>
-					<span style="display:inline-block; vertical-align:top; font-size:16px; color:#906; margin-left:4px; padding-top:4px; font-weight:bold;">Collect Hotels.com Rewards nights here</span>
+					<span style="display:inline-block; vertical-align:top; font-size:16px; color:#fff; padding:3px 8px 0 0px; font-weight:bold;">Collect Rewards nights</span>
 				</div>
 				<div class="jumpto">
 					<span>Jump to:</span> <a href="">Overview</a> &#8226; <a href="">Room choices</a> &#8226; <a href="">Hotel information</a>
@@ -155,16 +155,14 @@
 						<img src="https://maps.googleapis.com/maps/api/staticmap?center=WC1N+1HT&zoom=13&scale=false&size=600x300&maptype=roadmap&key=AIzaSyA9eDEJsiZn_yaK7qwUxJnoqhDcwIM4NNE&format=png&visual_refresh=true" />
 					</div>
 				</div>
-				<div id="guest-review"></div>
-				<div id="rewards"></div>
-			</div>
-			
-
-			<div id="room-rates">
-				<div class="room"></div>
-				<div class="room"></div>
-				<div class="room"></div>
-				<div class="room"></div>
+				<div id="guest-review">
+					<div style="border-bottom: solid 1px #ccc; padding:12px 16px;">
+						<span style="font-size:24px; font-weight:bold;">Superb 4.6 / 5</span>
+					</div>
+					<div style="padding:16px;"><img src="i/trust-you.png" /></div>
+					
+				</div>
+				
 			</div>
 			<div class="rec-hotels"></div>
 			<div id="at-a-glance"></div>
@@ -176,6 +174,15 @@
 
 		</div>
 
+		<style type="text/css">
+			.vip-message {background-color:#fff; position:absolute; top:20px; right:20px; display:none; width:200px; background-color:#003789; color:#fff; padding:16px 16px 8px;}
+			.vip-message p {font-size:14px; line-height: 18px; margin:0 0 8px 0;}
+		</style>
+
+		<div class="vip-message">
+			<p>Our customers consistently receive exceptional service at these hotels. </p>
+ 			<p>As a Gold member, you will also get special amenities, services and free room upgrade when available.</p>
+		</div>
 
 		<!-- Scripts -->
 		<!-- JQuery Google CDN -->
@@ -185,7 +192,18 @@
 
 			// run things on page load
 			$(function(){
-				//$( "#header" ).load( "../tidyup/c-header-stripes.html" );
+				$('.vip').hover(function(){
+					var pos = $(this).offset();
+  					var s = $(document).scrollTop();
+  					console.log(pos.top + " " + s);
+  					$(".vip-message").css({
+  							top: (pos.top - s) + 30,
+  							left: pos.left
+  					})
+        			$(".vip-message").show();
+    			}, function() {
+        			$(".vip-message").hide();
+    			});
 			});
 
 		</script>
