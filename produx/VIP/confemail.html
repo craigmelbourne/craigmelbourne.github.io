@@ -21,16 +21,41 @@
 			@media screen and (min-width: 850px) {}
 			@media screen and (min-width: 960px) {
 				#page-wrapper {padding:20px;}
-				.row {margin-top:16px;}
-				.row .label {display:inline-block; width:160px; font-weight:bold; font-size: 18px; vertical-align: top;}
-				.row .content {display:inline-block; font-size: 18px; vertical-align: top;}
 
-				.offers {margin-top:12px	;}
-				.offers .mem-badge {color:#c79339; background-color:#fff; font-weight: bold; font-size:18px; display:inline-block; border-bottom:dotted 1px #c79339; margin-bottom:4px;}
+				ul li {margin-bottom:4px;}
+
+				.block {width:600px; border:solid 1px #ddd; padding:12px;}
+				.block img {width:100%;}
+				h3 {padding:0; margin:0 0 12px 0;}
+				h4.name {display: inline-block; padding:0 0 0 0; margin:0; font-size:18px; vertical-align: top; font-weight: normal;}
+				.vip {display:inline-block; background-color:#003789; color:#fff; padding:4px 6px 3px; font-weight:bold; font-size:14px; margin-right:0px; margin-top:0px; vertical-align: top; border-radius:4px;}
+
+				p.address {font-size: 13px; margin:4px 0 12px 0;}
+				.row {margin-top:16px;}
+				.row .label {display:inline-block; width:180px; font-weight:bold; font-size: 16px; vertical-align: top;}
+				.row .content {display:inline-block; font-size: 16px; vertical-align: top; width:400px;}
+				.row .content p {font-size:14px; line-height:18px; }
+				.row .content .thing {margin-top:8px; line-height: 20px;}
+ 
+				.offers {margin:12px 0 24px;}
+				.offers .mem-badge {color:#c79339; background-color:#fff; font-weight: bold; font-size:16px; display:inline-block; border-bottom:dotted 1px #c79339; margin-bottom:4px;}
 				.offers .item {margin-top: 4px; color:#c79339; margin-right:8px;}
-				.offers .item i {display:inline-block; vertical-align: top; font-size:24px;}
-				.offers .item span {display: inline-block; vertical-align: top; margin-left:8px; font-size: 18px; padding-top:3px;}
+				.offers .item i {display:inline-block; vertical-align: top; font-size:22px;}
+				.offers .item span {display: inline-block; vertical-align: top; margin-left:8px; font-size: 16px; padding-top:3px;}
 				
+				.offers .mem-badge-silver {color:#5a5a5a; background-color:#fff; font-weight: bold; font-size:16px; display:inline-block; border-bottom:dotted 1px #5a5a5a; margin-bottom:0px;}
+				.offers .item-silver {margin-top: 4px; color:#5a5a5a; margin-right:8px;}
+				.offers .item-silver i {display:inline-block; vertical-align: top; font-size:22px;}
+				.offers .item-silver span {display: inline-block; vertical-align: top; margin-left:4px; font-size: 16px; padding-top:3px;}
+
+				.offers .mem-badge-base {color:#906; background-color:#fff; font-weight: bold; font-size:16px; display:inline-block; border-bottom:dotted 1px #906; margin-bottom:0px;}
+				.offers .item-base {margin-top: 4px; color:#906; margin-right:8px;}
+				.offers .item-base i {display:inline-block; vertical-align: top; font-size:22px;}
+				.offers .item-base span {display: inline-block; vertical-align: top; margin-left:4px; font-size: 16px; padding-top:3px;}
+
+				.offers .item-standard {margin-top: 4px; color:#555; display: inline-block;}
+				.offers .item-standard i {display:inline-block; vertical-align: top; font-size:22px;}
+				.offers .item-standard span {display: inline-block; vertical-align: top; margin-left:4px; font-size: 16px; padding-top:3px;}
 
 			}
 			@media screen and (min-width: 1160px) {
@@ -56,7 +81,29 @@
 			<h2>Premium member (Gold)</h2>
 
 			<div class="block">
-				<h3>Room details</h3>
+				<h3>Hotel details</h3>
+				<div>
+					<span class="vip">VIP</span>
+					<h4 class="name"> The Venetian Las Vegas, Las Vegas</h4>
+				</div>
+				<p class="address">3355 Las Vegas Blvd S, Las Vegas, NV, 89109, United States of America, 0203 564 5996</p>
+				<img src="i/conf-map.png" />
+				
+				<div class="row">
+					<span class="label">
+						Required at check-in
+					</span>
+					<div class="content ">
+						<ul>
+							<li>Credit card or cash deposit required</li>
+							<li>Government-issued photo ID required</li>
+							<li>Minimum check-in age is 18</li>
+						</ul>
+					</div>
+				</div>
+
+				<h3 style="margin-top:16px">Room details</h3>
+				
 				<div class="row">
 					<span class="label">
 						Room
@@ -71,6 +118,8 @@
 					</span>
 					<div class="content ">
 						Non Smoking, King Bed
+						<p>	
+Please note: Preferences and requests cannot be guaranteed. Special requests are subject to availability upon check-in and may incur additional charges.</p>
 					</div>
 				</div>
 				<div class="row">
@@ -78,7 +127,8 @@
 						Facilities
 					</span>
 					<div class="content ">
-						Free Breakfast for 2 (per day)
+						Breakfast included<br>
+
 						<div class="offers">
 							<div class="mem-badge">For Gold members</div>
 							<div class="item">
@@ -90,8 +140,16 @@
 							<div class="item">
 								<i class="material-icons">&#xE56C;</i><span>Dinner included</span>
 							</div>
-
+							<div class="item-standard" style="margin-top:16px">
+								<i class="material-icons">&#xE53E;</i><span>USD25 resort credit per day</span>
+							</div>
 						</div>
+
+						<div class="thing">1 king and 1 sofa bed</div>
+						<div class="thing"><strong>Entertainment</strong> - WiFi and wired Internet access, 55-inch LCD TV, video-game console</div>
+						<div class="thing"><strong>Food & Drink</strong> - Refrigerator, coffee/tea maker, and 24-hour room service</div>
+						<div class="thing"><strong>Sleep</strong> - Pillowtop bed </div>
+						<div class="thing"><strong>Bathroom</strong> - Private bathroom, slippers, and a shower with a rainfall showerhead</div>
 					</div>
 				</div>
 			</div>
@@ -100,27 +158,286 @@
 			<h2>Premium member (Silver)</h2>
 
 			<div class="block">
+				<h3>Hotel details</h3>
+				<div>
+					<span class="vip">VIP</span>
+					<h4 class="name"> The Venetian Las Vegas, Las Vegas</h4>
+				</div>
+				<p class="address">3355 Las Vegas Blvd S, Las Vegas, NV, 89109, United States of America, 0203 564 5996</p>
+				<img src="i/conf-map.png" />
 				
+				<div class="row">
+					<span class="label">
+						Required at check-in
+					</span>
+					<div class="content ">
+						<ul>
+							<li>Credit card or cash deposit required</li>
+							<li>Government-issued photo ID required</li>
+							<li>Minimum check-in age is 18</li>
+						</ul>
+					</div>
+				</div>
+
+				<h3 style="margin-top:16px">Room details</h3>
 				
+				<div class="row">
+					<span class="label">
+						Room
+					</span>
+					<div class="content ">
+						Luxury 1 King Suite
+					</div>
+				</div>
+				<div class="row">
+					<span class="label">
+						Preferences
+					</span>
+					<div class="content ">
+						Non Smoking, King Bed
+						<p>	
+Please note: Preferences and requests cannot be guaranteed. Special requests are subject to availability upon check-in and may incur additional charges.</p>
+					</div>
+				</div>
+				<div class="row">
+					<span class="label">
+						Facilities
+					</span>
+					<div class="content ">
+						Breakfast included<br>
+
+						<div class="offers">
+							<div class="mem-badge-silver">For Silver members</div>
+							<div class="item-silver">
+								<i class="material-icons">&#xE53D;</i><span>Airport transfer</span>
+							</div>
+							<div class="item-silver">
+								<i class="material-icons">&#xEB4C;</i><span>Spa</span>
+							</div>
+							<div class="item-silver">
+								<i class="material-icons">&#xE56C;</i><span>Dinner included</span>
+							</div>
+							<div class="item-standard" style="margin-top:16px">
+								<i class="material-icons">&#xE53E;</i><span>USD25 resort credit per day</span>
+							</div>
+						</div>
+
+						<div class="thing">1 king and 1 sofa bed</div>
+						<div class="thing"><strong>Entertainment</strong> - WiFi and wired Internet access, 55-inch LCD TV, video-game console</div>
+						<div class="thing"><strong>Food & Drink</strong> - Refrigerator, coffee/tea maker, and 24-hour room service</div>
+						<div class="thing"><strong>Sleep</strong> - Pillowtop bed </div>
+						<div class="thing"><strong>Bathroom</strong> - Private bathroom, slippers, and a shower with a rainfall showerhead</div>
+					</div>
+				</div>
 			</div>
 
 
 			<h2>Base member</h2>
 			<div class="block">
+				<h3>Hotel details</h3>
+				<div>
+					<span class="vip">VIP</span>
+					<h4 class="name"> The Venetian Las Vegas, Las Vegas</h4>
+				</div>
+				<p class="address">3355 Las Vegas Blvd S, Las Vegas, NV, 89109, United States of America, 0203 564 5996</p>
+				<img src="i/conf-map.png" />
 				
+				<div class="row">
+					<span class="label">
+						Required at check-in
+					</span>
+					<div class="content ">
+						<ul>
+							<li>Credit card or cash deposit required</li>
+							<li>Government-issued photo ID required</li>
+							<li>Minimum check-in age is 18</li>
+						</ul>
+					</div>
+				</div>
+
+				<h3 style="margin-top:16px">Room details</h3>
 				
+				<div class="row">
+					<span class="label">
+						Room
+					</span>
+					<div class="content ">
+						Luxury 1 King Suite
+					</div>
+				</div>
+				<div class="row">
+					<span class="label">
+						Preferences
+					</span>
+					<div class="content ">
+						Non Smoking, King Bed
+						<p>	
+Please note: Preferences and requests cannot be guaranteed. Special requests are subject to availability upon check-in and may incur additional charges.</p>
+					</div>
+				</div>
+				<div class="row">
+					<span class="label">
+						Facilities
+					</span>
+					<div class="content ">
+						Breakfast included<br>
+
+						<div class="offers">
+							<div class="mem-badge-base">For Hotels.com Rewards members</div>
+							<div class="item-base">
+								<i class="material-icons">&#xE56C;</i><span>Dinner included</span>
+							</div>
+							<div class="item-standard" style="margin-top:16px">
+								<i class="material-icons">&#xE53E;</i><span>USD25 resort credit per day</span>
+							</div>
+						</div>
+
+						<div class="thing">1 king and 1 sofa bed</div>
+						<div class="thing"><strong>Entertainment</strong> - WiFi and wired Internet access, 55-inch LCD TV, video-game console</div>
+						<div class="thing"><strong>Food & Drink</strong> - Refrigerator, coffee/tea maker, and 24-hour room service</div>
+						<div class="thing"><strong>Sleep</strong> - Pillowtop bed </div>
+						<div class="thing"><strong>Bathroom</strong> - Private bathroom, slippers, and a shower with a rainfall showerhead</div>
+					</div>
+				</div>
 			</div>
 
 
 			<h2>Subscriber</h2>
 			<div class="block">
-			
+				<h3>Hotel details</h3>
+				<div>
+					<span class="vip">VIP</span>
+					<h4 class="name"> The Venetian Las Vegas, Las Vegas</h4>
+				</div>
+				<p class="address">3355 Las Vegas Blvd S, Las Vegas, NV, 89109, United States of America, 0203 564 5996</p>
+				<img src="i/conf-map.png" />
+				
+				<div class="row">
+					<span class="label">
+						Required at check-in
+					</span>
+					<div class="content ">
+						<ul>
+							<li>Credit card or cash deposit required</li>
+							<li>Government-issued photo ID required</li>
+							<li>Minimum check-in age is 18</li>
+						</ul>
+					</div>
+				</div>
+
+				<h3 style="margin-top:16px">Room details</h3>
+				
+				<div class="row">
+					<span class="label">
+						Room
+					</span>
+					<div class="content ">
+						Luxury 1 King Suite
+					</div>
+				</div>
+				<div class="row">
+					<span class="label">
+						Preferences
+					</span>
+					<div class="content ">
+						Non Smoking, King Bed
+						<p>	
+Please note: Preferences and requests cannot be guaranteed. Special requests are subject to availability upon check-in and may incur additional charges.</p>
+					</div>
+				</div>
+				<div class="row">
+					<span class="label">
+						Facilities
+					</span>
+					<div class="content ">
+						Breakfast included<br>
+
+						<div class="offers">
+							<div class="mem-badge-base">For email subscribers</div>
+							<div class="item-base">
+								<i class="material-icons">&#xE56C;</i><span>Dinner included</span>
+							</div>
+							<div class="item-standard" style="margin-top:16px">
+								<i class="material-icons">&#xE53E;</i><span>USD25 resort credit per day</span>
+							</div>
+						</div>
+
+						<div class="thing">1 king and 1 sofa bed</div>
+						<div class="thing"><strong>Entertainment</strong> - WiFi and wired Internet access, 55-inch LCD TV, video-game console</div>
+						<div class="thing"><strong>Food & Drink</strong> - Refrigerator, coffee/tea maker, and 24-hour room service</div>
+						<div class="thing"><strong>Sleep</strong> - Pillowtop bed </div>
+						<div class="thing"><strong>Bathroom</strong> - Private bathroom, slippers, and a shower with a rainfall showerhead</div>
+					</div>
+				</div>
 			</div>
 
 			<h2>Anonymous</h2>
 
 			<div class="block">
+				<h3>Hotel details</h3>
+				<div>
+					<span class="vip">VIP</span>
+					<h4 class="name"> The Venetian Las Vegas, Las Vegas</h4>
+				</div>
+				<p class="address">3355 Las Vegas Blvd S, Las Vegas, NV, 89109, United States of America, 0203 564 5996</p>
+				<img src="i/conf-map.png" />
 				
+				<div class="row">
+					<span class="label">
+						Required at check-in
+					</span>
+					<div class="content ">
+						<ul>
+							<li>Credit card or cash deposit required</li>
+							<li>Government-issued photo ID required</li>
+							<li>Minimum check-in age is 18</li>
+						</ul>
+					</div>
+				</div>
+
+				<h3 style="margin-top:16px">Room details</h3>
+				
+				<div class="row">
+					<span class="label">
+						Room
+					</span>
+					<div class="content ">
+						Luxury 1 King Suite
+					</div>
+				</div>
+				<div class="row">
+					<span class="label">
+						Preferences
+					</span>
+					<div class="content ">
+						Non Smoking, King Bed
+						<p>	
+Please note: Preferences and requests cannot be guaranteed. Special requests are subject to availability upon check-in and may incur additional charges.</p>
+					</div>
+				</div>
+				<div class="row">
+					<span class="label">
+						Facilities
+					</span>
+					<div class="content ">
+						Breakfast included<br>
+
+						<div class="offers">
+							
+							<div class="item-standard" style="">
+								<i class="material-icons">&#xE53E;</i><span>USD25 resort credit per day</span>
+							</div>
+						
+
+						</div>
+
+						<div class="thing">1 king and 1 sofa bed</div>
+						<div class="thing"><strong>Entertainment</strong> - WiFi and wired Internet access, 55-inch LCD TV, video-game console</div>
+						<div class="thing"><strong>Food & Drink</strong> - Refrigerator, coffee/tea maker, and 24-hour room service</div>
+						<div class="thing"><strong>Sleep</strong> - Pillowtop bed </div>
+						<div class="thing"><strong>Bathroom</strong> - Private bathroom, slippers, and a shower with a rainfall showerhead</div>
+					</div>
+				</div>
 			</div>
 
 		</div>
