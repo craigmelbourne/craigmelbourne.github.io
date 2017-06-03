@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<style type="text/css">
+			body {margin: 0; padding:0; font-family: arial; color:#555;}
+			h1, h2, h3 {margin:0; padding:0;}
+			a {text-decoration: none; color:#026dc5;}
+			p {margin:0; padding:0;}
+
+			#header {background-color:#d41200; height:60px;}
+				#navbar {background-color:#333; height:33px; background-color:#c79339; background:url('http://craigmelbourne.github.io/produx/VIP/i/bg.png');}
+
+			input[type=text] {font-size:14px; padding:8px; outline: none; border:solid 1px #ccc; border-top-left-radius:4px; border-bottom-left-radius:4px; width:150px;}
+			.range-control {width:26px; height:26px; border-radius:50%; border:solid 2px #555; background-color:#fff; position:relative;}
+			.range-control i {font-size:18px; color:#555; position:absolute; top:3px; left:4px;}
+			.range-bar {height:4px; background-color: #555; }
+			
+			#map {height:68px; background-color:#455A64; margin-bottom:12px; border-radius:4px;}
+			#name {height:80px; font-size:16px;}
+			#name h1 {font-size:28px; margin-top:4px;}
+			#name .query {margin-top:4px;}
+
+			#page-wrapper {margin-top:0px;}
+			#page-content {margin:0px auto; max-width:1260px; overflow:hidden;}
+			#page-content #col-left {float:left; width:225px; }
+			
+			#page-content #col-left #filters {min-height:1200px; box-sizing:border-box;}
+			#page-content #col-left #filters ul {list-style-type: none; margin:0; padding:0;}
+			#page-content #col-left #filters h2 {font-size:18px;}
+			#page-content #col-left #filters .total-results {font-size:13px;}
+			#page-content #col-left #filters .section {padding:12px 0; position:relative; padding-left:2px; margin-bottom:16px;}
+			#page-content #col-left #filters .section h3 {font-size:16px; margin:0 0 8px 20px;}
+			#page-content #col-left #filters .section i.arrow {position:absolute; top:12px; left:0; font-size:20px;}
+			#page-content #col-left #filters .section i.star {color:#555; font-size:18px; display:inline-block; margin-left:-4px;}
+			#page-content #col-left #filters .open {min-height:60px;}
+
+			
+
+			#page-content #col-left #filters #star-rating input {display:inline-block; vertical-align:top;}
+			
+			
+			#page-content #col-right {float:left; width:calc(100% - 249px); box-sizing:border-box; margin-left:24px;}
+			
+			#page-content #col-right #sort {height:50px; border-bottom:solid 1px#ddd;}
+			#page-content #col-right .hotel-card {min-height:150px; margin-top:12px; background-color:#fff; border-radius:4px; padding:4px; overflow:hidden;border:solid 1px #e5e3db;}
+			#page-content #col-right .hotel-card .details {float:left; width:calc(100% - 230px); box-sizing:border-box; background-color:#f5f4f0; padding:16px;}
+			#page-content #col-right .hotel-card .details .hotel-name {display:block; font-size:18px; font-weight: bold; margin-bottom:4px;}
+			#page-content #col-right .hotel-card .details .address {font-size:13px;}
+			#page-content #col-right .hotel-card .details .thumbnail {height:160px; margin-top:16px;}
+			#page-content #col-right .hotel-card .details .thumbnail img {height:100%;}
+
+
+			#page-content #col-right .hotel-card .price {float:left; width:230px; box-sizing:border-box; text-align:right; padding:16px;}
+			.hotel-card .price .special-deal .tag {display:inline-block; background-color:#d41200; color:#fff;  padding:6px 8px 4px; border-radius:2px; margin-bottom:12px}
+			.hotel-card .price .special-deal .tag i {font-size:16px; display:inline-block; vertical-align: top;}
+			.hotel-card .price .special-deal .tag span {display:inline-block; font-weight:bold; font-size:13px; vertical-align: top;}
+			.hotel-card .price .special-deal .strikethrough {text-decoration: line-through; font-size:18px;}
+			.hotel-card .price .special-deal .total {color:#555; font-weight: bold; font-size:28px;}
+			.hotel-card .price .special-deal .total-deal {color:#d41200; font-weight: bold; font-size:28px;}
+			.hotel-card .price .standard {font-size:28px; font-weight: bold;}
+			.hotel-card .price .nights {font-size:13px; margin-top:8px; color:#7e7e7e;}
+			.hotel-card .price .nights > span {display:block;}
+			.hotel-card .price button {border:0; background-color:#026dc5; border-radius:4px; padding:8px 16px; color:#fff; font-size:16px; border-bottom:2px solid #003789; display:inline-block; font-family: arial; margin-top:12px;}
+
+			.vip {display:inline-block; background-color:#003789; color:#fff; padding:4px 8px; font-weight:bold; font-size:16px; margin-right:2px; margin-top:-4px; border-radius:4px;}
+			.vip:hover {cursor:pointer;}
+			.collect {font-size:14px; margin-top:12px; color:#555; font-weight:bold; color:#906;}
+			.neighbourhood {font-size: 16px; font-weight: bold; color:#026dc5;;}
+
+			
+
+		</style>
+
+	</head>
+
+	<body>
+		
+		<div id="header"></div>
+		<div id="navbar">
+			<img src="http://craigmelbourne.github.io/produx/VIP/i/gold-nav.png" style="width:1260px; margin:0 auto; display: block"/>
+		</div>
+
+		<div class="search-strip" style="background-color:#eae8e0; height:100px;">
+			<div style="width:1260px; margin:0 auto; padding:16px 0;"> 
+				<div id="map" style="display:inline-block; width:225px;"></div>
+				<div id="name" style="display:inline-block; vertical-align:top; margin-left:20px">
+					<h1>Las Vegas, Nevada, USA</h1>
+					<div class="query">Wed 8 - Thu 9 March 2017, 1 night, 1 room, 2 adults</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<div id="page-wrapper">
+			<div id="page-content">
+				<div id="col-left">
+					
+					<div id="filters" style="background-color:#f5f4f0; padding:0 12px;">
+						<div style="padding:12px 4px">
+							<h2>Narrow results</h2>
+							<span class="total-results">100 hotels and holiday rentals</span>
+						</div>
+						<div class="section open">
+							<i class="material-icons arrow">&#xE313;</i>
+							<h3>Name contains</h3>
+							<input type="text" placeholder="Hotel name..." style="display:inline-block; vertical-align:top;"/>
+							<button style="position:relative; margin-left:-4px; border:0; background-color:#555; border-top-right-radius:4px; border-bottom-right-radius:4px; color:#fff; font-size:18px; border-bottom:0px solid #003789; display:inline-block; font-family: arial; vertical-align:top; box-sizing-border-box; padding-top:4px; width:30px; height:35px;"><i class="material-icons" style="position:absolute; top:6px; left:3px">&#xE315;</i></button>
+						</div>
+						<div class="section open">
+							<i class="material-icons arrow">&#xE313;</i>
+							<h3>Nightly Price</h3>
+							<div style="text-align:center; font-size:13px; margin:8px 0 0px; font-weight:bold;">$0 to $500+</div>
+							<div style="position:relative; padding-top:12px">
+								
+								<div class="range-control" style="position:absolute; top:0; left:0;"><i class="material-icons">&#xE86F;</i></div>
+								<div class="range-control" style="position:absolute; top:0; right:0;"><i class="material-icons">&#xE86F;</i></div>
+								<div class="range-bar" style=""></div>
+							</div>
+						</div>
+						<div id="star-rating" class="section open">
+							<i class="material-icons arrow">&#xE313;</i>
+							<h3>Star rating</h3>
+							<ul>
+								<li><input type="checkbox" id="c5"/>
+									<label for="c5">
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+								<li><input type="checkbox" id="c4"/>
+									<label for="c4">
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+								<li><input type="checkbox" id="c3"/>
+									<label for="c3">
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+								<li><input type="checkbox" id="c2"/>
+									<label for="c2">
+										<i class="material-icons star">&#xE838;</i>
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+								<li><input type="checkbox" id="c1"/>
+									<label for="c1">
+										<i class="material-icons star">&#xE838;</i>
+									</label>
+								</li>
+							</ul>
+						</div>
+						<div class="section open">
+							<i class="material-icons arrow">&#xE313;</i>
+							<h3>Guest rating</h3>
+							<div style="text-align:center; font-size:13px; margin:8px 0 0px; font-weight:bold;">0 to 5</div>
+							
+							<div style="position:relative; padding-top:12px">
+								
+								<div class="range-control" style="position:absolute; top:0; left:0;"><i class="material-icons">&#xE86F;</i></div>
+								<div class="range-control" style="position:absolute; top:0; right:0;"><i class="material-icons">&#xE86F;</i></div>
+								<div class="range-bar" style=""></div>
+							</div>
+						</div>
+						<div class="section open"></div>
+					</div>
+					<div id="why">
+					</div>
+				</div>
+
+				<div id="col-right">
+					<div id="sort">
+						<img src="i/sort.png" style="width:102%;"/>
+					</div>
+					<div id="hotel-list">
+						<div class="hotel-card"> 
+							<div class="details" style='position:relative;'>
+								<div class="hotel-name"><div class="vip">VIP</div><a href="#"> The Venitian Las Vegas</a></div>
+ 								<span class="address">3355 Las Vegas Blvd S, Las Vegas, NV, 89109 United States, 0203 450 6788</span>
+
+ 								<div style="position:absolute; top:16px; right:16px; color:#d41200; border:solid 2px #d41200; padding:4px 8px; font-size:14px; font-weight:bold; border-radius:4px; background-color:#fff;">Top Hotel</div>
+
+ 								<div style="position:relative">
+ 										<div class="thumbnail" style="float:left; width:283px; background-color:#ddd;">
+ 											<img src="https://exp.cdn-hotels.com/hotels/1000000/10000/1500/1443/b1ec9a3d_l.jpg" />
+ 										</div>
+ 										<div style="float:left; width:calc(100% - 283px); position:relative;">
+ 											<div style="float:left; width:60%; box-sizing:border-box; padding:16px;">
+ 												<div class="neighbourhood">Las Vegas Strip</div>
+ 												<div style="font-size:13px; margin-top:4px">0.5 miles to City centre</div>
+ 												<div style="font-size:13px; margin-top:4px">1.8 miles to Las Vegas Convention Center</div>
+ 												<div style="font-size:13px; margin-top:4px">2.2 miles to Las Vegas, NV (LAS-McCarran Intl.)</div>
+ 												<div class="collect">Collect nights</div>
+ 											</div>
+ 											<div style="float:left; width:37%; box-sizing:border-box; padding:12px; background-color:#fff; border-radius:4px; text-align:center; border:solid 1px #ddd">
+ 												<div style="font-size:18px; font-weight:bold; margin-bottom:2px;">Superb 4.6/5</div>
+ 												<a href="#" style="display:block; font-size:13px; margin-bottom:4px">1234 Hotels.com guest reviews</a>
+
+ 												<div style="margin-top:12px;"><img src="../tidyup/i/srp-ta.png" /></div>
+
+ 											</div>
+ 										</div>
+ 									</div>
+							</div>
+							<div class="price">
+       	 								<div class="special-deal">
+       	 									<div class="tag"><i class="material-icons">&#xE54E;</i> <span>Special deal</span></div><br />
+       	 									<span class="strikethrough">$227</span> 
+       	 									<span class="total-deal">£181</span>
+       	 								</div>
+       	 							<button>Choose room</button>
+ 								</div>
+						</div>
+
+						<div class="hotel-card">
+							<div class="details">
+								<a href="#" class="hotel-name">The Cromwell</a>
+ 								<span class="address">9940 Las Vegas Blvd S, Las Vegas, NV, 89183 United States, 0203 450 6788</span>
+
+ 								<div style="position:relative">
+ 										<div class="thumbnail" style="float:left; width:283px; background-color:#ddd;">
+ 											<img src="https://exp.cdn-hotels.com/hotels/1000000/50000/41100/41078/41078_74_l.jpg" />
+ 										</div>
+ 										<div style="float:left; width:calc(100% - 283px); position:relative;">
+ 											<div style="float:left; width:60%; box-sizing:border-box; padding:16px;">
+ 												<div class="neighbourhood">Las Vegas Strip</div>
+ 												<div style="font-size:13px; margin-top:4px">0.7 miles to City centre</div>
+ 												<div style="font-size:13px; margin-top:4px">1.2 miles to Las Vegas Convention Center</div>
+ 												<div style="font-size:13px; margin-top:4px">2.1 miles to Las Vegas, NV (LAS-McCarran Intl.)</div>
+ 												<div class="collect">Collect nights</div>
+ 											</div>
+ 											<div style="float:left; width:37%; box-sizing:border-box; padding:12px; background-color:#fff; border-radius:4px; text-align:center;">
+ 												<div style="font-size:20px; font-weight:bold; margin-bottom:2px;">Fabulous 4.3/5 </div>
+ 												<a href="#" style="display:block; font-size:13px; margin-bottom:4px">1234	 Hotels.com guest reviews</a>
+
+ 												<div style="margin-top:12px;"><img src="../tidyup/i/srp-ta.png" /></div>
+
+ 											</div>
+ 										</div>
+ 									</div>
+							</div>
+							<div class="price">
+       	 								<div class="special-deal">
+       	 									<div class="tag"><i class="material-icons">&#xE54E;</i> <span>Special deal</span></div><br />
+       	 									<span class="strikethrough">$567</span> 
+       	 									<span class="total">£388</span>
+       	 								</div>
+       	 							<button>Choose room</button>
+ 								</div>
+						</div>
+
+						<div class="hotel-card"> 
+							<div class="details">
+								<a href="#" class="hotel-name"><div class="vip">VIP</div> Trump International Hotel Las Vegas</a>
+ 								<span class="address">2000 Fashion Show Drive, Las Vegas, NV, 89109 United States, 0203 450 6788</span>
+
+ 								<div style="position:relative">
+ 										<div class="thumbnail" style="float:left; width:283px; background-color:#ddd;">
+ 											<img src="https://exp.cdn-hotels.com/hotels/2000000/1860000/1857300/1857289/011c64fe_l.jpg" />
+ 										</div>
+ 										<div style="float:left; width:calc(100% - 283px); position:relative;">
+ 											<div style="float:left; width:60%; box-sizing:border-box; padding:16px;">
+ 												<div class="neighbourhood">West of The Strip</div>
+ 												<div style="font-size:13px; margin-top:4px">1.0 miles to City centre</div>
+ 												<div style="font-size:13px; margin-top:4px">1.1 miles to Las Vegas Convention Center</div>
+ 												<div style="font-size:13px; margin-top:4px">3.3 miles to Las Vegas, NV (LAS-McCarran Intl.)</div>
+ 												<div class="collect">Collect nights</div>
+ 											</div>
+ 											<div style="float:left; width:37%; box-sizing:border-box; padding:12px; background-color:#fff; border-radius:4px; text-align:center;">
+ 												<div style="font-size:20px; font-weight:bold; margin-bottom:2px;">Superb 4.6/5 </div>
+ 												<a href="#" style="display:block; font-size:13px; margin-bottom:4px">1234	 Hotels.com guest reviews</a>
+
+ 												<div style="margin-top:12px;"><img src="../tidyup/i/srp-ta.png" /></div>
+
+ 											</div>
+ 										</div>
+ 									</div>
+							</div>
+							<div class="price">
+       	 								<div class="special-deal"> 
+       	 									<span class="total">£222</span>
+       	 								</div>
+       	 							<button>Choose room</button>
+ 								</div>
+						</div>
+						
+
+						
+						
+											 
+       	 									
+						
+					</div>
+
+
+					
+				</div>
+
+			
+			</div>
+		</div>
+
+		<style type="text/css">
+			.vip-message {background-color:#fff; position:fixed; top:20px; right:20px; display:none; width:260px; background-color:#003789; color:#fff; padding:16px 16px 8px;}
+			.vip-message p {font-size:14px; line-height: 18px; margin-bottom:8px;}
+		</style>
+
+		<div class="vip-message">
+			<p>Our customers consistently receive exceptional service at these hotels. </p>
+ 			<p>As a Gold member, you will also get special amenities, services and free room upgrade when available.</p>
+		</div>
+		
+	</body>
+
+	<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				//$( "#header" ).load( "../tidyup/c-header-stripes.html" );
+
+				$( ".vip" ).hover(
+  					
+  					function() {
+  						var pos = $(this).offset();
+  						var s = $(document).scrollTop();
+  						console.log(pos.top + " " + s);
+  						$(".vip-message").css({
+  							top: (pos.top - s) + 30,
+  							left: pos.left - 30
+  						})
+    					$(".vip-message").show();
+
+  					}, function() {
+    					$(".vip-message").hide();
+  					}
+				);
+				
+  						
+			});
+
+			
+
+
+		</script>
+</html>
