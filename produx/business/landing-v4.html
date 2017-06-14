@@ -13,6 +13,11 @@
 			body {font-family:Helvetica; margin:0; padding:0; background-color: #f1f1f1}
 			h2, h3, p {padding:0; margin:0;}
 			button {border:solid 1px 0;}
+
+			img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
 			
 			#header {background-color: #d41200; padding:12px 20px; overflow:hidden;}
 			#header-content {width:1160px; margin:0 auto; height:24px; overflow:hidden;}
@@ -56,12 +61,20 @@
 				.inner h3 {font-size:20px; margin:0 0 8px 0;}
 			}
 			@media screen and (min-width: 960px) {
-				.inner {padding:40px 0;}
-				.inner .content {width:45%;}
-				.inner .right {margin-left:50%;}
-				#section-1 h1 {font-size:36px; margin:0 0 20px 0; padding:0;}
-				#section-1 .inner p {width:45%; font-size: 18px;}
-				#section-1 .inner ul {font-size: 18px}
+				.inner {padding:40px 0; position:relative;}
+				.inner .content {width:65%;}
+				.inner .right {margin-left:35%; }
+				.inner .left {position:absolute; left:0; top:0;}
+				.inner .left img.rw {margin-left:80px; height:280px; margin-top:20px;}
+
+				.inner .image-right {position:absolute; right:0; top:0;}
+				.inner .image-right .amen {font-size:260px; display: block; margin-top:0px; margin-right:80px;}
+				.inner .left .phone {font-size:300px; display: block; margin-top:40px; margin-left:40px;}
+				#section-1 {padding-bottom:20px;}
+				#section-1 h1 {font-size:36px; margin:20px 0 20px 0; padding:0;}
+				#section-1 .inner p {width:45%; font-size: 18px; margin-bottom: 24px}
+				#section-1 .inner ul {font-size: 18px; width:45%;}
+				#section-1 .inner ul li {line-height: 24px; margin-bottom:12px;}
 				#section-testimonials .inner p.testimonial:first-child {display:inline-block;}
 				#section-testimonials .inner p.testimonial {display:inline-block; width:33%; vertical-align:top; font-style: italic; margin-top:0;}
 				#section-testimonials .inner div.feefo {text-align:center; display:inline-block; width:33%; vertical-align:top;}
@@ -104,10 +117,17 @@
 					<li><i class="material-icons">&#xE876;</i> Get instant savings on 40,000 properties with Secret Prices</li>
 					<li><i class="material-icons">&#xE876;</i> Free cancellation on most rooms!</li>
 				</ul>
+				<div>
+					<!--<input type="text/css" style="display:inline-block; vertical-align: top"/> -->
+					<button style="display:inline-block; vertical-align:top; font-size:18px; border:0; padding:12px; background-color:#fff; border-radius:4px; margin-top:12px;">Sign up now</button>
+				</div>
+
+				
 			</div>
 		</div>
 		<div id="section-2">
 			<div class="inner">
+				<div class="left"><img src="https://uk.hotels.com/da/assets/s/63.0.7820/images/brands/hcom/pages/hwa/pillar/member/keep-going.svg" class="rw" /></div>
 				<div class="content right">
 					<h2>We’re the obvious choice for business travel.</h2>
 					<!--<h3>Get instant savings</h3>-->
@@ -144,13 +164,20 @@
 				<p>Use our filters to find properties with the amenities you need. We’re pretty sure WiFi and breakfast will be on your list, along with a few other home comforts.</p>
 
 				<p>Rely on over [insert number] verified reviews from genuine Hotels.com guests.</p>
-			</div>
+				</div>
+
+				<div class="image-right">
+					<i class="material-icons amen">&#xE63E;</i>
+				</div>
 			</div>
 			
 		</div>
 
 		<div id="section-4">
 			<div class="inner">
+				<div class="left">
+					<i class="material-icons phone">&#xE324;</i>
+				</div>
 				<div class="content right">
 					<h2>Let’s get down to business...</h2>
 					<p>Need to change or cancel? No problem, you can change your booking at any time and cancel for free on most rooms. Did we mention you also have the choice to ‘Pay now’ or ‘Pay later’?</p>
