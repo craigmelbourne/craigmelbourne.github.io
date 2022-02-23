@@ -50,7 +50,7 @@ ul#companies {list-style-type: none; padding:0; margin:20px 0 0 0; overflow:hidd
     ul#brands li span.description {display:block; float:left;}
 
 
-    ul#companies li {display:block; float:left; width:33%; height:44px;}
+    ul#companies li {display:block; float:left; width:33%; height:44px;margin-bottom:12px;}
     ul li img{display:block; margin:auto}
     ul li#hotels img{height:30px;}
     ul li#blinkbox img{height:18px; margin-top: 6px;}
