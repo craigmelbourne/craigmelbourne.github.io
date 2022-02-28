@@ -12,6 +12,41 @@ ul#brands, #links ul {list-style-type: none; padding:0; margin:0; overflow:hidde
 ul#companies {list-style-type: none; padding:0; margin:20px 0 0 0; overflow:hidden;}
 .separator .line {width:We 75%; height:4px; background-color: #eee; border-radiius:2px; margin:0 auto;}
 
+#intro {position:fixed; top: 0; left:0; bottom:0; width: 400px; background-color:#fff; border-right:solid 2px #eee; padding:20px 40px; box-sizing: border-box;}
+.profile-pic {width:80%; margin:30px auto 0;}
+#links {position:absolute; bottom:0; left:40px; right:40px;}
+#links ul li {margin-bottom:20px;}
+
+#main-body {margin-left: 440px; width:740px; box-sizing: border-box; padding:20px 20px;}
+#main-body .block {margin-bottom:80px;}
+.headline {font-size:28px; margin-bottom: 40px; font-weight: bold;}
+
+
+
+  .col {float:left; overflow:hidden;}
+  .col > div {padding:20px 40px;}
+
+
+  ul#skills {list-style-type: none; margin:20px 0 0 0; padding:0;}
+  ul#skills li {margin-bottom:12px}
+
+  #history {width:50%;}
+  #case-studies {width:50%}
+  ul#brands li{display:block; padding:20px 20px 0 0; overflow:hidden;}
+  ul#brands li span.brand-name {width:180px; display:block; float:left; box-sizing: border-box; padding-right:20px}
+  ul#brands li span.description {display:block; float:left;}
+
+
+  ul#companies li {display:block; float:left; width:33%; height:44px;margin-bottom:12px;}
+  ul li img{display:block; margin:auto}
+  ul li#hotels img{height:30px;}
+  ul li#blinkbox img{height:18px; margin-top: 6px;}
+  ul li#network-rail img{height:20px; margin-top: 4px;}
+  ul li#bbc-sport img{height:24px;}
+  ul li#times img{height:18px; margin-top: 4px;}
+  ul li#nme img{height:24px;}
+
+
 /* Media Queries for break points */
 @media only screen and (min-width:0px) {
 /* this isn't really needed  */
@@ -24,41 +59,9 @@ ul#companies {list-style-type: none; padding:0; margin:20px 0 0 0; overflow:hidd
 @media only screen and (min-width:750px) {
 }
 
-@media only screen and (min-width:960px) {
-  #intro {position:fixed; top: 0; left:0; bottom:0; width: 400px; background-color:#fff; border-right:solid 2px #eee; padding:20px 40px; box-sizing: border-box;}
-  .profile-pic {width:80%; margin:30px auto 0;}
-  #links {position:absolute; bottom:0; left:40px; right:40px;}
-  #links ul li {margin-bottom:20px;}
-
-  #main-body {margin-left: 440px; width:740px; box-sizing: border-box; padding:20px 20px;}
-  #main-body .block {margin-bottom:80px;}
-  .headline {font-size:28px; margin-bottom: 40px; font-weight: bold;}
+@media only screen and (min-width:960px) {}
 
 
-
-    .col {float:left; overflow:hidden;}
-    .col > div {padding:20px 40px;}
-
-
-    ul#skills {list-style-type: none; margin:20px 0 0 0; padding:0;}
-    ul#skills li {margin-bottom:12px}
-
-    #history {width:50%;}
-    #case-studies {width:50%}
-    ul#brands li{display:block; padding:20px 20px 0 0; overflow:hidden;}
-    ul#brands li span.brand-name {width:180px; display:block; float:left; box-sizing: border-box; padding-right:20px}
-    ul#brands li span.description {display:block; float:left;}
-
-
-    ul#companies li {display:block; float:left; width:33%; height:44px;margin-bottom:12px;}
-    ul li img{display:block; margin:auto}
-    ul li#hotels img{height:30px;}
-    ul li#blinkbox img{height:18px; margin-top: 6px;}
-    ul li#network-rail img{height:20px; margin-top: 4px;}
-    ul li#bbc-sport img{height:24px;}
-    ul li#times img{height:18px; margin-top: 4px;}
-    ul li#nme img{height:24px;}
-}
 
 @media only screen and (min-width:1260px) {
 
