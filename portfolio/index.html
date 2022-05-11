@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z11F4FDFGE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z11F4FDFGE');
+</script>
+
+
 		<!-- Meta tags -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,9 +19,11 @@
 
 		<!-- style sheets -->
 		<link rel="stylesheet" type="text/css" href="reset.css">
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="portfolio.css">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-      rel="stylesheet">
 
 
 		<!-- Scripts -->
@@ -26,23 +39,21 @@
 
 	<body>
 
-		<div id="intro">
-			<h1>Craig Melbourne</h1>
-			<p>User experience strategy and design</p>
-			<div class="profile-pic"><img src="img/profile.png" /></div>
-			<div id="links">
+
+		<div id="links-wrapper" style="padding:12px 0; border-bottom:solid 1px #ddd; ">
+			<div id="links" style="width:800px; margin:0 auto;">
 				<ul>
 					<li>
-						<span style="display:inline-block; width: 30px; vertical-align:top; margin:0 auto;"><i class="fa-solid fa-file-arrow-down" style="font-size:24px;"></i></span>
-						<a style="display:inline-block; vertical-align:center; font-size:18px; " target="_blank" href="https://drive.google.com/file/d/1RlCAcho7l07VRgCjy47N7fO8EPumqrag/view?usp=sharing">Download my full CV</a> (pdf)
+						<span style="display:inline-block; width: 20px; vertical-align:top; margin:0 auto;"><i class="fa-solid fa-file-arrow-down" style="font-size:24px;"></i></span>
+						<a style="display:inline-block; vertical-align:center; font-size:18px; " target="_blank" href="https://drive.google.com/file/d/1RlCAcho7l07VRgCjy47N7fO8EPumqrag/view?usp=sharing">Download CV</a>
 					</li>
 					<li>
-						<span style="display:inline-block; width: 30px; vertical-align:top; margin:0 auto;"><i class="fa-solid fa-envelope-open-text" style="font-size:24px;"></i></span>
-						<a style="display:inline-block; vertical-align:top; font-size:18px;" target="_blank" href="mailto:craig.melbourne@gmail.com">craig.melbourne@gmail.com</a>
+						<span style="display:inline-block; width: 24px; vertical-align:top; margin:0 auto;"><i class="fa-solid fa-envelope-open-text" style="font-size:24px;"></i></span>
+						<a style="display:inline-block; vertical-align:top; font-size:18px;" target="_blank" href="mailto:craig.melbourne@gmail.com">Email</a>
 					</li>
 					<li>
-						<span style="display:inline-block; width: 30px; vertical-align:top; margin:0 auto;"><i class="fa-brands fa-linkedin" style="font-size:24px;"></i></span>
-						<a href="https://www.linkedin.com/in/craig-melbourne-0b28862/" target="_blank">LinkedIn profile</a></li>
+						<span style="display:inline-block; width: 22px; vertical-align:top; margin:0 auto;"><i class="fa-brands fa-linkedin" style="font-size:24px;"></i></span>
+						<a href="https://www.linkedin.com/in/craig-melbourne-0b28862/" target="_blank">LinkedIn</a></li>
 				</ul>
 			</div>
 		</div>
@@ -50,64 +61,63 @@
 
 		<div id="main-body">
 			<div>
+
+				<div style="overflow:hidden; margin-bottom:40px;">
+					<div style="float:left; width:70%; box-sizing:border-box; padding:20px 60px 0 0" >
+						<h1 style="margin-bottom:16px;">Hi, I'm Craig</h1>
+						<p style="font-size:24px;">I provide user experience strategy and design services to organisations of all shapes and sizes. </p>
+					</div>
+					<div  style="float:left; width:30%;"><img src="img/profile.png" /></div>
+				</div>
 				<!--<p class="headline">For the past 20 odd years I've been helping organisations deliver customer centric products and run impactful design teams </p>-->
 
-				<div class="block">
-					<h2>What I help with</h2>
-					<p>I help organisations build meaningful and useful products through my experience
-					and skills in:</p>
+				<div class="block" style="background-color:#eee; border-radius:4px; text-align:center; padding:20px 0 0; margin: 0 0 40px 0">
+					<h2 style="font-size:20px; margin-bottom:16px;">Some of the organisations I've worked with</h2>
 
-					<ul id="skills">
-						<li><b>Uncovering opportunity areas:</b> analysis of customer insights to identify opportunities to
-						enhance and evolve product experience.</li>
-						<li><b>Solution exploration:</b> collaborative ideation and prototyping to explore potential ways to
-						address problems and opportunities</li>
-						<li><b>Design execution and evaluation:</b> final interface and interaction design with evaluation techniques
-						for delivering on the desired outcomes.</li>
-					</ul>
-				</div>
-
-				<div class="block">
-					<h2 style="margin-bottom:30px;">Some of the companies I've worked with</h2>
-
-					<ul id="companies">
+					<ul id="companies" style="margin:0 20px; display:inline-block">
 						<li id="hotels"><img src="img/hotels-logo.png"/></li>
 						<li id="blinkbox"><img src="img/blinkbox-logo.png"/></li>
-						<li id="network-rail"><img src="img/network-rail-logo.png"/></li>
+						<!--<li id="network-rail"><img src="img/network-rail-logo.png"/></li>-->
 						<li id="times"><img src="img/times-logo.png"/></li>
 						<li id="bbc-sport"><img src="img/bbc-sport-logo.png"/></li>
 						<li id="nme"><img src="img/nme-logo.png"/></li>
 					</ul>
 				</div>
 
+				<div class="block">
+					<h2>My superpowers</h2>
+					<p>I lean on these strengths to help teams build impactful and useful products </p>
+					<ul id="skills">
+						<li><strong>Uncovering opportunity areas</strong><br/> Analysis of customer insights to identify opportunities for
+						enhancing and evolving the product experience.</li>
+						<li><strong>Solution exploration</strong><br /> Collaborative ideation and prototyping to explore potential ways to
+						address problems and opportunities</li>
+						<li><strong>Design execution and evaluation</strong> <br />Final interface and interaction design with evaluation techniques
+						for delivering on the desired outcomes.</li>
+					</ul>
+				</div>
+
+
+
 				<div class="seperator"><div class="line"></div></div>
 
 
 
 				<div class="block">
-					<h2 style="margin-bottom:20px;">Recent work history</h2>
+					<h2 style="margin-bottom:20px;">Current project</h2>
 					<div style="overflow:hidden;">
-						<div style="float:left; width:76px;"><img src="img/hotels-logo-sm.jpeg" /></div>
-						<div style="float:left; width:calc(100% - 76px); padding:12px 20px 10px; box-sizing: border-box;">
-							<h3>Hotels.com (part of Expedia Group)</h3>
-							<p style="color:#999;">Jan 2015 - Dec 2021</p>
-							<div style="margin-top:20px;">
-								<p style="font-weight:bold;">Principal, Experience Strategy and Design</p>
-								<p style="font-size:14px; color:#999;">Jul 2019 - Dec 2021 </p>
-								<p>Responsible for planning and leading UX activities to guide strategic initiatives.</p>
-							</div>
-							<div style="margin-top:20px;">
-								<p style="font-weight:bold;">Director, Product Design and User Research</p>
-								<p style="font-size:14px; color:#999;">Mar 2016 - Jun 2019 </p>
-								<p>Reporting into the head of product I led the Hotels.com design organisation where I was primarily
-responsible for team operations and shaping product strategy.</p>
-							</div>
-						</div>
-					</div>
 
-					<div style="margin-top:20px; overflow:hidden; position:relative; padding:20px 0; ">
-						<img src="img/cv.svg" style="position:absolute; top:6px; left: 0px; width:76px;"/>
-						<div style="box-sizing:border-box; padding:10px 10px 10px 76px; margin-left:20px; background-color:#eee;"><a href="#">Download my full CV</a></div>
+						<div style="float:left; width:calc(100% - 240px); padding:12px 20px 10px 0; box-sizing: border-box;">
+							<h3>Ada Health</h3>
+							<p style="">Ada is a HealthTech company that provies symptom assesment technology to healthcare providers cross the globe. </p>
+							<div style="margin-top:20px;">
+								<p style="font-weight:bold;">Interim Lead Product Designer - Client Portal</p>
+								<!--<p style="font-size:14px; color:#999;">Jul 2019 - Dec 2021 </p>-->
+								<p>Leading the product design activities for the development of a SaaS application for healchcars clients to self manage and configure their Ada services. </p>
+							</div>
+
+						</div>
+						<div style="float:left; width:180px;"><img src="img/Ada_logo_new.jpeg" style="text-align:right;"/></div>
 					</div>
 				</div>
 
@@ -123,9 +133,10 @@ box-shadow: 0px 1px 2px 1px rgba(204,204,204,1);}
 					</style>
 
 				<div class="block">
-					<h2 style="margin-bottom:30px;">Case studies</h2>
+					<h2 style="">Case studies</h2>
+					<p style="font-size:14px;">[Disclaimer: I've spent the last 7 years working for Hotels.com so these case studies are based on my time there] </p>
 
-					<div class="case-study-row">
+					<div class="case-study-row" style="margin-top:30px;">
 						<div class="image">
 							<img src="img/cs-property.png" style="margin-bottom:12px;"/>
 							<img src="img/cs-property-02.png" />
@@ -133,7 +144,7 @@ box-shadow: 0px 1px 2px 1px rgba(204,204,204,1);}
 						<div class="details">
 							<p class="client">Hotels.com</p>
 							<p class="project" style=""><a href="https://drive.google.com/file/d/1jumNLQyXqCQgQANWMEze7vwCxFvqvVHM/view?usp=sharing" target="_blank">Scaling the property display experience</a></p>
-							<p class="description">To hit their growth targets Hotels.com invested heavily in increasing the volume and diversity of accommodation options in their product. I worked the creation of an experience strategy for a more scalable and personalised property details experience.</p>
+							<p class="description">To hit their growth targets Hotels.com invested heavily in increasing the volume and diversity of accommodation options in their product. I worked on the creation of an experience strategy for a more scalable and personalised property details experience.</p>
 						</div>
 					</div>
 					<div class="case-study-row">
