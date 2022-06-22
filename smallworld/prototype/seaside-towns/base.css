@@ -11,7 +11,7 @@ body {
 	.header {background-color:#000; color:#fff; padding:12px 20px;}
 	.block {min-height: 300px; background-color:#dddddd; color:#999999; padding:20px; margin-bottom:20px;}
 
-	.list-scroll {overflow-y: auto; overflow-x: hidden; white-space:nowrap; -webkit-overflow-scrolling: touch;}
+	.list-scroll {overflow-y: auto; white-space:nowrap; -webkit-overflow-scrolling: touch;}
 	.list-scroll li {display: inline-block; margin-left: 20px; padding:12px;}
 
 
