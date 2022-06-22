@@ -1,0 +1,34 @@
+/* Site wide CSS */
+/* red: #D41200 */
+body {
+	font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Media Queries - HCOM breakpoints */
+@media only screen and (min-width:0px) {
+/* this isn't really needed  */
+	.page-wrap {}
+	.header {background-color:#000; color:#fff; padding:12px 20px;}
+	.block {min-height: 300px; background-color:#dddddd; color:#999999; padding:20px; margin-bottom:20px;}
+
+	.list-scroll {overflow-y: auto; overflow-x: hidden; white-space:nowrap; -webkit-overflow-scrolling: touch;}
+	.list-scroll li {display: inline-block; margin-left: 20px; padding:12px;}
+
+
+}
+
+@media only screen and (min-width:380px) {
+	.page-wrap {width:380px; margin:0 auto;}
+}
+
+@media only screen and (min-width:750px) {
+}
+
+@media only screen and (min-width:850px) {
+}
+
+@media only screen and (min-width:960px) {
+}
+
+@media only screen and (min-width:1260px) {
+}
