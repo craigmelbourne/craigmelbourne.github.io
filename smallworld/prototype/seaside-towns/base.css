@@ -11,7 +11,7 @@ a {text-decoration: none;}
 /* slider styles */
 .tiny-slider__item {padding: 12px; background-color:#eee; height:200px}
 .tiny-slider__item p.author {font-size:12px; margin:4px 0 4px 0; font-weight:bold}
-.tiny-slider__item a {font-size:14px;}
+.tiny-slider__item a {font-size:16px;}
 
 /* Media Queries - HCOM breakpoints */
 @media only screen and (min-width:0px) {
