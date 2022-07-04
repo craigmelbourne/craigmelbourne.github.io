@@ -41,22 +41,26 @@
 				<p class="summary">“With a sandy beach, clifftop walks and old-school seaside charm, this stretch of Kent coast is a bucolic dream”.</p>
 			</div>
 			<div class="articles section">
-				Articles
+				<!--Articles-->
 
 				<div class="tiny-slider-wrap">
 					<div class="tiny-slider" data-chunksize="3">
 						<div class="tiny-slider__item">
-							<img src="https://media.timeout.com/images/105522684/750/422/image.jpg" style="width:180px;"/>
+							<div class="img-container">
+								<img src="https://media.timeout.com/images/105522684/750/422/image.jpg"/>
+							</div>
 							<p class="author">Time Out</p>
 							<a href="#">16 of the very best things to do in Broadstairs</a>
 						</div>
 						<div class="tiny-slider__item">
-							<img src="https://media.cntraveller.com/photos/611bf3faa86777b29fbc5ab0/16:9/w_320%2Cc_limit/row-boats-on-the-beach-broadstairs-kent-conde-nast-traveller-6oct15-laura-edwards_.jpg" style="width:180px;" />
+							<div class="img-container">
+								<img src="https://media.cntraveller.com/photos/611bf3faa86777b29fbc5ab0/16:9/w_320%2Cc_limit/row-boats-on-the-beach-broadstairs-kent-conde-nast-traveller-6oct15-laura-edwards_.jpg" />
+							</div>
 							<p class="author">CN Traveller</p>
 							<a href="#">Seaside town of the moment: Broadstairs</a>
 						</div>
 						<div class="tiny-slider__item">
-							<img src="https://static.nationalgeographic.co.uk/files/styles/image_3200/public/st_stayathome_gettyimages-1044098676_hr_web.webp?w=1600&h=1067" style="width:180px;"/ >
+							<img src="https://static.nationalgeographic.co.uk/files/styles/image_3200/public/st_stayathome_gettyimages-1044098676_hr_web.webp?w=1600&h=1067"/ >
 							<p class="author">National Geographic</p>
 							<a href="#">What to do in Broadstairs, Kent</a>
 						</div>
@@ -97,11 +101,13 @@
         slideBy: "page",
         autoplay: false,
         autoplayButtonOutput: false,
-        loop: true,
+        loop: false,
         mouseDrag: true,
-        controls: true,
+        controls: false,
         navPosition: "bottom",
         nav: false,
+				gutter: 10,
+				edgePadding: 20,
      });
 </script>
 	</body>

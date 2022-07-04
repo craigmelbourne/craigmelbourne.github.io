@@ -10,7 +10,8 @@ body {
 a {text-decoration: none;}
 
 /* slider styles */
-.tiny-slider__item {padding: 12px; background-color:#eee; height:200px}
+.tiny-slider__item {height:200px}
+.tiny-slider__item img {width:100%}
 .tiny-slider__item p.author {font-size:12px; margin:4px 0 4px 0; font-weight:bold}
 .tiny-slider__item a {font-size:16px;}
 
@@ -30,12 +31,7 @@ a {text-decoration: none;}
 	.intro h1 {font-size:24px; margin:0 0 8px 0;}
 	.intro p.summary {}
 
-	.list-scroll {overflow-y: auto; white-space:nowrap; -webkit-overflow-scrolling: touch; margin:0; padding:0 0 0 16px}
-	.list-scroll li {display: inline-block; margin: 0 0px; background-color:#fff; vertical-align: top;}
 
-	.articles ul li {width:180px; white-space: normal; height:200px border:solid 1px #ddd;}
-	.articles ul li p.author {font-size:11px; margin:0 0 0px 0}
-	.articles ul li a {font-size:14px;}
 
 
 }
