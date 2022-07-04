@@ -2,6 +2,7 @@
 /* red: #D41200 */
 body {
 	font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+	font-size:16px;
 	margin:0;
 	padding:0;
 }
@@ -23,6 +24,11 @@ a {text-decoration: none;}
 
 	.image-gallery {height:300px; background-color:#eee; overflow:hidden;}
 	.image-gallery img {height:300px}
+
+	.intro {padding:0 20px;}
+	.intro .county {font-size:12px;margin:0 0 4px 0;}
+	.intro h1 {font-size:24px; margin:0 0 8px 0;}
+	.intro p.summary {}
 
 	.list-scroll {overflow-y: auto; white-space:nowrap; -webkit-overflow-scrolling: touch; margin:0; padding:0 0 0 16px}
 	.list-scroll li {display: inline-block; margin: 0 0px; background-color:#fff; vertical-align: top;}
