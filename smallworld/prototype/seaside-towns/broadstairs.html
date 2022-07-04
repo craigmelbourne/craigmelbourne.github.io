@@ -9,6 +9,8 @@
 		<!-- style sheets -->
 		<link rel="stylesheet" type="text/css" href="reset.css">
 		<link rel="stylesheet" type="text/css" href="base.css">
+		<!-- tiny slider CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css">
 
 		<!-- Scripts -->
 		<!-- JQuery Google CDN -->
@@ -30,30 +32,72 @@
 			<div class="header">
 				<h2>Header</h2>
 			</div>
-			<div class="image-gallery block">
-				Images
+			<div class="image-gallery section">
+				<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/ad/7f/1d/img-20180916-164926-largejpg.jpg?w=1200&h=-1&s=1" />
 			</div>
-			<div class="articles block">
+			<div class="articles section">
 				Articles
 
-				<ul class="list-scroll">
+				<div class="tiny-slider-wrap">
+					<div class="tiny-slider" data-chunksize="3">
+						<div class="tiny-slider__item">
+							<img src="https://media.timeout.com/images/105522684/750/422/image.jpg" style="width:180px;"/>
+							<p class="author">Time Out</p>
+							<a href="#">16 of the very best things to do in Broadstairs</a>
+						</div>
+						<div class="tiny-slider__item">
+							<img src="https://media.cntraveller.com/photos/611bf3faa86777b29fbc5ab0/16:9/w_320%2Cc_limit/row-boats-on-the-beach-broadstairs-kent-conde-nast-traveller-6oct15-laura-edwards_.jpg" style="width:180px;" />
+							<p class="author">CN Traveller</p>
+							<a href="#">Seaside town of the moment: Broadstairs</a>
+						</div>
+						<div class="tiny-slider__item">
+							<img src="https://static.nationalgeographic.co.uk/files/styles/image_3200/public/st_stayathome_gettyimages-1044098676_hr_web.webp?w=1600&h=1067" style="width:180px;"/ >
+							<p class="author">National Geographic</p>
+							<a href="#">What to do in Broadstairs, Kent</a>
+						</div>
+					</div>
+				</div>
+
+
+				<!--<ul class="list-scroll">
 					<li>
+						<img src="https://media.timeout.com/images/105522684/750/422/image.jpg" style="width:180px;"/>
 						<p class="author">Time Out</p>
 						<a href="#">16 of the very best things to do in Broadstairs</a>
 					</li>
 					<li>
+						<img src="https://media.cntraveller.com/photos/611bf3faa86777b29fbc5ab0/16:9/w_320%2Cc_limit/row-boats-on-the-beach-broadstairs-kent-conde-nast-traveller-6oct15-laura-edwards_.jpg" style="width:180px;" />
 						<p class="author">CN Traveller</p>
 						<a href="#">Seaside town of the moment: Broadstairs</a>
 					</li>
 					<li>
+						<img src="https://static.nationalgeographic.co.uk/files/styles/image_3200/public/st_stayathome_gettyimages-1044098676_hr_web.webp?w=1600&h=1067" style="width:180px;"/ >
 						<p class="author">National Geographic</p>
 						<a href="#">What to do in Broadstairs, Kent</a>
 					</li>
-				</ul>
+				</ul>-->
 			</div>
 			<div class="beaches block">
 				Beaches
 			</div>
 		</div>
+
+		<!-- tiny slider js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+		<script>
+    //initialize tiny slider
+    let slider = tns({
+        container: ".tiny-slider",
+        items: 2,
+        slideBy: "page",
+        autoplay: false,
+        autoplayButtonOutput: false,
+        loop: true,
+        mouseDrag: true,
+        controls: true,
+        navPosition: "bottom",
+        nav: false,
+     });
+</script>
 	</body>
 </html>
