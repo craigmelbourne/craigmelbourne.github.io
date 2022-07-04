@@ -7,10 +7,14 @@ body {
 	padding:0;
 }
 
+h1 {}
+h2 {font-size: 20px; padding:0 20px;}
+
 a {text-decoration: none;}
 
 /* slider styles */
 .tiny-slider__item {height:200px}
+.tiny-slider__item .img-container {position:relative; height:135px; overflow:hidden;}
 .tiny-slider__item img {width:100%}
 .tiny-slider__item p.author {font-size:12px; margin:4px 0 4px 0; font-weight:bold}
 .tiny-slider__item a {font-size:16px;}
@@ -21,12 +25,12 @@ a {text-decoration: none;}
 	.page-wrap {}
 	.header {background-color:#000; color:#fff; padding:12px 20px;}
 	.block {min-height: 300px; background-color:#dddddd; color:#999999; padding:20px; margin-bottom:20px;}
-	.section {padding:0; margin-bottom:20px;}
+	.section {border-bottom:solid 1px #eee; padding:20px 0;}
 
 	.image-gallery {height:300px; background-color:#eee; overflow:hidden;}
 	.image-gallery img {height:300px}
 
-	.intro {padding:0 20px;}
+	.intro {padding:20px;}
 	.intro .county {font-size:12px;margin:0 0 4px 0;}
 	.intro h1 {font-size:24px; margin:0 0 8px 0;}
 	.intro p.summary {}

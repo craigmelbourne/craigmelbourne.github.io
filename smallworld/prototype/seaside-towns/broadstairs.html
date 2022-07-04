@@ -32,7 +32,7 @@
 			<div class="header">
 				<h2>Header</h2>
 			</div>
-			<div class="image-gallery section">
+			<div class="image-gallery">
 				<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/ad/7f/1d/img-20180916-164926-largejpg.jpg?w=1200&h=-1&s=1" />
 			</div>
 			<div class="intro section">
@@ -60,7 +60,9 @@
 							<a href="#">Seaside town of the moment: Broadstairs</a>
 						</div>
 						<div class="tiny-slider__item">
-							<img src="https://static.nationalgeographic.co.uk/files/styles/image_3200/public/st_stayathome_gettyimages-1044098676_hr_web.webp?w=1600&h=1067"/ >
+							<div class="img-container">
+								<img src="https://static.nationalgeographic.co.uk/files/styles/image_3200/public/st_stayathome_gettyimages-1044098676_hr_web.webp?w=1600&h=1067"/ >
+							</div>
 							<p class="author">National Geographic</p>
 							<a href="#">What to do in Broadstairs, Kent</a>
 						</div>
@@ -86,8 +88,8 @@
 					</li>
 				</ul>-->
 			</div>
-			<div class="beaches block">
-				Beaches
+			<div class="beaches section">
+				<h2>Beaches</h2>
 			</div>
 		</div>
 
@@ -108,6 +110,7 @@
         nav: false,
 				gutter: 10,
 				edgePadding: 20,
+				fixedWidth: 240,
      });
 </script>
 	</body>
