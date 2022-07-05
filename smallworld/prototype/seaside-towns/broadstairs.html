@@ -30,10 +30,21 @@
 	<body>
 		<div class="page-wrap">
 			<div class="header">
-				<h2>Header</h2>
+				Header
 			</div>
 			<div class="image-gallery">
-				<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/ad/7f/1d/img-20180916-164926-largejpg.jpg?w=1200&h=-1&s=1" />
+				<div class="hero">
+					<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/ad/7f/1d/img-20180916-164926-largejpg.jpg?w=1200&h=-1&s=1" />
+				</div>
+				<div class="grid">
+					<div>
+						<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/73/77/06/12-stone-bay-broadstairs.jpg?w=1200&h=-1&s=1" />
+					</div>
+					<div>
+						<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-s/03/17/d7/82/lillyputt-minigolf.jpg?w=600&h=-1&s=1" />
+					</div>
+				</div>
+
 			</div>
 			<div class="intro section">
 				<div class="county">Kent</div>
@@ -42,7 +53,7 @@
 			</div>
 			<div class="articles section">
 				<!--Articles-->
-
+				<h2>Popular articles</h2>
 				<div class="tiny-slider-wrap">
 					<div class="tiny-slider" data-chunksize="3">
 						<div class="tiny-slider__item">
@@ -68,36 +79,40 @@
 						</div>
 					</div>
 				</div>
-
-
-				<!--<ul class="list-scroll">
-					<li>
-						<img src="https://media.timeout.com/images/105522684/750/422/image.jpg" style="width:180px;"/>
-						<p class="author">Time Out</p>
-						<a href="#">16 of the very best things to do in Broadstairs</a>
-					</li>
-					<li>
-						<img src="https://media.cntraveller.com/photos/611bf3faa86777b29fbc5ab0/16:9/w_320%2Cc_limit/row-boats-on-the-beach-broadstairs-kent-conde-nast-traveller-6oct15-laura-edwards_.jpg" style="width:180px;" />
-						<p class="author">CN Traveller</p>
-						<a href="#">Seaside town of the moment: Broadstairs</a>
-					</li>
-					<li>
-						<img src="https://static.nationalgeographic.co.uk/files/styles/image_3200/public/st_stayathome_gettyimages-1044098676_hr_web.webp?w=1600&h=1067" style="width:180px;"/ >
-						<p class="author">National Geographic</p>
-						<a href="#">What to do in Broadstairs, Kent</a>
-					</li>
-				</ul>-->
 			</div>
+			<!-- beaches -->
 			<div class="beaches section">
 				<h2>Beaches</h2>
+				<div class="beach-slider-wrap">
+					<div class="beach-slider" data-chunksize="3">
+						<div class=beach-slider__item>Viking Bay</div>
+						<div class=beach-slider__item>Stone Bay</div>
+						<div class=beach-slider__item>Joss Bay Bay</div>
+					</div>
+				</div>
 			</div>
+			<!-- expereiences -->
+			<div class="expereinces section">
+				<h2>Experiences</h2>
+				<div class="experience-slider-wrap">
+					<div class="experience-slider" data-chunksize="3">
+						<div class=experience-slider__item>Palace cinema</div>
+						<div class=experience-slider__item>Lilliput mini golf</div>
+						<div class=experience-slider__item>Dickens museum</div>
+					</div>
+				</div>
+			</div>
+			<!-- places to stay -->
+
+			<!-- footer -->
+			<div class="footer"></div>
 		</div>
 
 		<!-- tiny slider js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 		<script>
     //initialize tiny slider
-    let slider = tns({
+    let articleSlider = tns({
         container: ".tiny-slider",
         items: 2,
         slideBy: "page",
@@ -112,6 +127,39 @@
 				edgePadding: 20,
 				fixedWidth: 240,
      });
+
+		 let beachSlider = tns({
+         container: ".beach-slider",
+         items: 2,
+         slideBy: "page",
+         autoplay: false,
+         autoplayButtonOutput: false,
+         loop: false,
+         mouseDrag: true,
+         controls: false,
+         navPosition: "bottom",
+         nav: false,
+ 				 gutter: 10,
+ 				 edgePadding: 20,
+ 				 fixedWidth: 180,
+      });
+
+			let experienceSlider = tns({
+          container: ".experience-slider",
+          items: 2,
+          slideBy: "page",
+          autoplay: false,
+          autoplayButtonOutput: false,
+          loop: false,
+          mouseDrag: true,
+          controls: false,
+          navPosition: "bottom",
+          nav: false,
+  				 gutter: 10,
+  				 edgePadding: 20,
+  				 fixedWidth: 180,
+       });
+
 </script>
 	</body>
 </html>
