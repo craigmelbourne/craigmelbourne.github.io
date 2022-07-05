@@ -7,7 +7,7 @@ body {
 	padding:0;
 }
 
-h1 {}
+h1 {font-size:28px; margin:0 0 8px 0; font-weight:bold;}
 h2 {font-size: 20px; padding:0 20px; margin-bottom:20px;}
 
 a {text-decoration: none;}
@@ -20,7 +20,12 @@ a {text-decoration: none;}
 .tiny-slider__item a {font-size:16px;}
 
 .beach-slider__item {}
-.beach-slider__item img {width:100%;}
+.beach-slider__item .img-container {position:relative; height:100px; overflow:hidden;}
+.beach-slider__item img {width:100%; position:absolute; bottom:0}
+
+.experience-slider__item {}
+	.experience-slider__item .img-container {position:relative; height:100px; overflow:hidden;}
+	.experience-slider__item img {width:100%; position:absolute; bottom:0}
 
 .expereince-slider__item {background-color:#eee; padding:12px;}
 
@@ -43,7 +48,6 @@ a {text-decoration: none;}
 
 	.intro {padding:20px;}
 	.intro .county {font-size:12px;margin:0 0 4px 0;}
-	.intro h1 {font-size:24px; margin:0 0 8px 0;}
 	.intro p.summary {}
 
 
