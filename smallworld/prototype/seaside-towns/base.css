@@ -19,7 +19,8 @@ a {text-decoration: none;}
 .tiny-slider__item p.author {font-size:12px; margin:4px 0 4px 0; font-weight:bold}
 .tiny-slider__item a {font-size:16px;}
 
-.beach-slider__item {background-color:#eee; padding:12px;}
+.beach-slider__item {}
+.beach-slider__item img {width:100%;}
 
 .expereince-slider__item {background-color:#eee; padding:12px;}
 
