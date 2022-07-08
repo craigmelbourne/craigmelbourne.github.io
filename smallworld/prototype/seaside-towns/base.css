@@ -9,7 +9,7 @@ body {
 }
 
 h1 {font-size:28px; margin:0 0 8px 0; font-weight:bold;}
-h2 {font-size: 20px; padding:0 20px; margin-bottom:20px;}
+h2 {font-size: 20px; padding:0 20px; margin-bottom:20px; font-weight:bold;}
 
 a {text-decoration: none;}
 
