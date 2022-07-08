@@ -1,0 +1,55 @@
+/* slider styles */
+.tiny-slider__item {height:200px}
+.tiny-slider__item .img-container {position:relative; height:135px; overflow:hidden;}
+.tiny-slider__item img {width:100%}
+.tiny-slider__item p.author {font-size:12px; margin:4px 0 4px 0; font-weight:bold}
+.tiny-slider__item a {font-size:16px;}
+
+.beach-slider__item {}
+.beach-slider__item .img-container {position:relative; height:100px; overflow:hidden;}
+.beach-slider__item img {width:100%; position:absolute; bottom:0}
+
+.experience-slider__item {}
+	.experience-slider__item .img-container {position:relative; height:100px; overflow:hidden;}
+	.experience-slider__item img {width:100%; position:absolute; bottom:0}
+
+.expereince-slider__item {background-color:#eee; padding:12px;}
+
+
+/* Media Queries - HCOM breakpoints */
+@media only screen and (min-width:0px) {
+/* this isn't really needed  */
+
+	.image-gallery {}
+	.image-gallery img {width:100%}
+	.image-gallery .grid {overflow:hidden;}
+	.image-gallery .grid > div {float:left; width:50%; box-sizing: border-box; overflow:hidden; height:120px; background-color: #eee;}
+  .image-gallery .grid > div img {width:100%}
+
+	.info-container {padding:8px 0}
+
+
+	.intro {padding:20px;}
+	.intro .county {font-size:12px;margin:0 0 4px 0;}
+	.intro p.summary {}
+
+
+
+
+}
+
+@media only screen and (min-width:460px) {
+
+}
+
+@media only screen and (min-width:750px) {
+}
+
+@media only screen and (min-width:850px) {
+}
+
+@media only screen and (min-width:960px) {
+}
+
+@media only screen and (min-width:1260px) {
+}

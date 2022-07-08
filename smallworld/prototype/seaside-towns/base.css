@@ -3,6 +3,7 @@
 body {
 	font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
 	font-size:16px;
+	line-height: 24px;
 	margin:0;
 	padding:0;
 }
@@ -12,24 +13,9 @@ h2 {font-size: 20px; padding:0 20px; margin-bottom:20px;}
 
 a {text-decoration: none;}
 
-/* slider styles */
-.tiny-slider__item {height:200px}
-.tiny-slider__item .img-container {position:relative; height:135px; overflow:hidden;}
-.tiny-slider__item img {width:100%}
-.tiny-slider__item p.author {font-size:12px; margin:4px 0 4px 0; font-weight:bold}
-.tiny-slider__item a {font-size:16px;}
 
-.beach-slider__item {}
-.beach-slider__item .img-container {position:relative; height:100px; overflow:hidden;}
-.beach-slider__item img {width:100%; position:absolute; bottom:0}
 
-.experience-slider__item {}
-	.experience-slider__item .img-container {position:relative; height:100px; overflow:hidden;}
-	.experience-slider__item img {width:100%; position:absolute; bottom:0}
-
-.expereince-slider__item {background-color:#eee; padding:12px;}
-
-.footer {height:100px;}
+.footer {height:100px; background-color: #eee;}
 
 /* Media Queries - HCOM breakpoints */
 @media only screen and (min-width:0px) {
@@ -39,16 +25,6 @@ a {text-decoration: none;}
 	.block {min-height: 300px; background-color:#dddddd; color:#999999; padding:20px; margin-bottom:20px;}
 	.section {border-bottom:solid 1px #eee; padding:20px 0;}
 
-	.image-gallery {}
-	.image-gallery img {width:100%}
-	.image-gallery .grid {overflow:hidden;}
-	.image-gallery .grid > div {float:left; width:50%; box-sizing: border-box; overflow:hidden; height:120px; background-color: #eee;}
-  .image-gallery .grid > div img {width:100%}
-
-
-	.intro {padding:20px;}
-	.intro .county {font-size:12px;margin:0 0 4px 0;}
-	.intro p.summary {}
 
 
 
