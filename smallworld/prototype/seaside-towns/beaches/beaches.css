@@ -8,8 +8,9 @@
   .image-gallery .grid > div img {width:100%}
 
 	.info-container {padding:8px 0}*/
-
-  .facilities .item {display: inline-block; vertical-align: top;}
+	.facilities {margin-top:12px;}
+  .facilities .item {display: inline-block; vertical-align: top; margin-right:12px;}
+	.facilities .item i {font-size:24px;}
 
 	.intro {padding:20px;}
 	.intro .county {font-size:12px;margin:0 0 4px 0;}
@@ -17,6 +18,10 @@
 
   .section p {margin: 12px 20px;}
 
+	.other {}
+	.other .item {margin:0 20px 20px;}
+	.other .item .icon {display:inline-block; width:50px; vertical-align:top; font-size:24px;}
+	.other .item .details {display:inline-block; margin:0; vertical-align:top; width:calc(100% - 80px)}
 
 }
 
