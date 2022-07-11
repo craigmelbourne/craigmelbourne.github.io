@@ -9,8 +9,9 @@
 
 	.info-container {padding:8px 0}*/
 	.facilities {margin-top:12px;}
-  .facilities .item {display: inline-block; vertical-align: top; margin-right:12px;}
-	.facilities .item i {font-size:24px;}
+  .facilities .item {display: inline-block; vertical-align: top; margin:0 4px 8px 0; background-color:#eee; padding:0 8px; border-radius:4px;}
+	.facilities .item i {font-size:14px;}
+	.facilities .item span {font-size:14px;}
 
 	.intro {padding:20px;}
 	.intro .county {font-size:12px;margin:0 0 4px 0;}
