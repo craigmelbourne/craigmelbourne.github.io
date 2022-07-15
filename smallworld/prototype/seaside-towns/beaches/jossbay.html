@@ -132,7 +132,48 @@
 
 			<div class="towns section">
 				<h2>Nearby towns</h2>
+				<div class="town-slider-wrap">
+					<div class="town-slider" data-chunksize="3">
+						<div class=town-slider__item>
+							<div class="img-container">
+								<img src="https://live.staticflickr.com/7584/16371532833_cbf3214d69_b.jpg" />
+							</div>
+							<div class="info-container"><a href="#">Broadstairs</a></div>
+						</div>
+						<div class=town-slider__item>
+							<div class="img-container">
+								<img src="https://cktravels.com/wp-content/uploads/2020/09/things-to-do-in-ramsgate-6.jpg" />
+							</div>
+							<div class="info-container"><a href="#">Ramsgate</a></div>
+						</div>
+						<div class=town-slider__item>
+							<div class="img-container">
+								<img src="https://www.planetware.com/wpimages/2022/06/england-kent-margate-best-beaches-margate-main-sands-cloudy.jpg" />
+							</div>
+							<div class="info-container"><a href="#">Margate</a></div>
+						</div>
+					</div>
+				</div>
 			</div>
 
     </div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+		<script>
+		let townSlider = tns({
+				container: ".town-slider",
+				items: 2,
+				slideBy: "page",
+				autoplay: false,
+				autoplayButtonOutput: false,
+				loop: false,
+				mouseDrag: true,
+				controls: false,
+				navPosition: "bottom",
+				nav: false,
+				gutter: 10,
+				edgePadding: 20,
+				fixedWidth: 240,
+		 });
+		</script>
   </body>
