@@ -7,11 +7,13 @@
 
 .beach-slider__item {}
 .beach-slider__item .img-container {position:relative; height:200px; overflow:hidden; border-radius:8px;}
-.beach-slider__item img {height:100%; position:absolute; bottom:0; border-radius:8px;}
+.beach-slider__item img {height:100%; position:absolute; bottom:0; border-radius:8px; left: 50%;
+    transform: translate(-50%, 0);}
 
 .experience-slider__item {}
-.experience-slider__item .img-container {position:relative; height:100px; overflow:hidden;}
-.experience-slider__item img {width:100%; position:absolute; bottom:0}
+.experience-slider__item .img-container {position:relative; height:200px; overflow:hidden; border-radius:8px;}
+.experience-slider__item img {height:100%; position:absolute; bottom:0; border-radius:8px; left: 50%;
+    transform: translate(-50%, 0);}
 .expereince-slider__item {background-color:#eee; padding:12px;}
 
 
