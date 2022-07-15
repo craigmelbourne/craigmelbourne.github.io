@@ -1,18 +1,17 @@
 /* slider styles */
-.tiny-slider__item {height:200px}
-.tiny-slider__item .img-container {position:relative; height:135px; overflow:hidden;}
-.tiny-slider__item img {width:100%}
-.tiny-slider__item p.author {font-size:12px; margin:4px 0 4px 0; font-weight:bold}
-.tiny-slider__item a {font-size:16px;}
+.article-slider__item {min-height:200px}
+.article-slider__item .img-container {position:relative; height:135px; overflow:hidden;}
+.article-slider__item img {width:100%; border-radius: 8px;}
+.article-slider__item p.author {font-size:12px; margin:4px 0 4px 0; font-weight:bold}
+.article-slider__item a {font-size:16px;}
 
 .beach-slider__item {}
-.beach-slider__item .img-container {position:relative; height:100px; overflow:hidden;}
-.beach-slider__item img {width:100%; position:absolute; bottom:0}
+.beach-slider__item .img-container {position:relative; height:200px; overflow:hidden; border-radius:8px;}
+.beach-slider__item img {height:100%; position:absolute; bottom:0; border-radius:8px;}
 
 .experience-slider__item {}
-	.experience-slider__item .img-container {position:relative; height:100px; overflow:hidden;}
-	.experience-slider__item img {width:100%; position:absolute; bottom:0}
-
+.experience-slider__item .img-container {position:relative; height:100px; overflow:hidden;}
+.experience-slider__item img {width:100%; position:absolute; bottom:0}
 .expereince-slider__item {background-color:#eee; padding:12px;}
 
 
