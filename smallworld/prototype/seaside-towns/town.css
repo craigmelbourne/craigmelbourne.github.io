@@ -23,7 +23,7 @@
 
 	.image-gallery {}
 	.image-gallery img {width:100%}
-	.image-gallery .grid {overflow:hidden;}
+	.image-gallery .grid {overflow:hidden; margin:-6px 0 0; padding:0}
 	.image-gallery .grid > div {float:left; width:50%; box-sizing: border-box; overflow:hidden; height:120px; background-color: #eee;}
   .image-gallery .grid > div img {width:100%}
 
