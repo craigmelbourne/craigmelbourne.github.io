@@ -8,7 +8,7 @@ body {
 	padding:0;
 }
 
-h1 {font-size:28px; margin:0 0 8px 0; font-weight:bold;}
+h1 {font-size:28px; margin:0 0 8px 0; font-weight:bold; line-height: 36px;}
 h2 {font-size: 24px; padding:0 20px; margin-bottom:20px; font-weight:bold;}
 h3 {font-size: 18px; margin-bottom:8px; font-weight:bold;}
 
@@ -25,6 +25,8 @@ a {text-decoration: none;}
 	.header {background-color:#000; color:#fff; padding:12px 20px;}
 	.block {min-height: 300px; background-color:#dddddd; color:#999999; padding:20px; margin-bottom:20px;}
 	.section {border-bottom:solid 1px #eee; padding:20px 0;}
+	.section-header {position:relative;}
+	.section-header .see-all {position:absolute; right:20px; top: 4px; font-size:12px;}
 
 
 
