@@ -156,6 +156,28 @@
 				<div class="section-header">
 					<h2>Places to stay</h2>
 					<a href="#" class="see-all">see all</a>
+					<div class="accommodation-slider-wrap">
+						<div class="accommodation-slider" data-chunksize="3">
+							<div class=accommodation-slider__item>
+								<div class="img-container">
+									<img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/231338905.jpg?k=74c95b6a0ee0e90b267f8deb18a8e0ecb95a22d7325ce2b3eec367413fe39275&o=&hp=1" />
+								</div>
+								<div class="info-container"><a href="#">Royal Albion Broadstairs</a></div>
+							</div>
+							<div class=accommodation-slider__item>
+								<div class="img-container">
+									<img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/101944470.jpg?k=67ee1d017d770f88d3831a37ec35383937d99a1076351f2153bb5b25b985bf0a&o=&hp=1" />
+								</div>
+								<div class="info-container"><a href="#">Yarrow Hotel</a></div>
+							</div>
+							<div class=accommodation-slider__item>
+								<div class="img-container">
+									<img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/254008625.jpg?k=e869c2d8e2319e206e9c3afe17f65a258059f5445ddb3b43a5e6e2b9f42f39fc&o=&hp=1" />
+								</div>
+								<div class="info-container"><a href="#">Artfuls</a></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<!-- footer -->
@@ -213,6 +235,22 @@
   				 edgePadding: 20,
   				 fixedWidth: 240,
        });
+
+			 let accommodationSlider = tns({
+						container: ".accommodation-slider",
+						items: 2,
+						slideBy: "page",
+						autoplay: false,
+						autoplayButtonOutput: false,
+						loop: false,
+						mouseDrag: true,
+						controls: false,
+						navPosition: "bottom",
+						nav: false,
+						gutter: 10,
+						edgePadding: 20,
+						fixedWidth: 240,
+				 });
 
 </script>
 	</body>

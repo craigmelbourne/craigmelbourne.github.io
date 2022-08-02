@@ -16,6 +16,12 @@
     transform: translate(-50%, 0);}
 .expereince-slider__item {background-color:#eee; padding:12px;}
 
+.accommodation-slider__item {}
+.accommodation-slider__item .img-container {position:relative; height:200px; overflow:hidden; border-radius:8px;}
+.accommodation-slider__item img {height:100%; position:absolute; bottom:0; border-radius:8px; left: 50%;
+    transform: translate(-50%, 0);}
+.accommodation-slider__item {padding:12px;}
+
 
 /* Media Queries - HCOM breakpoints */
 @media only screen and (min-width:0px) {
