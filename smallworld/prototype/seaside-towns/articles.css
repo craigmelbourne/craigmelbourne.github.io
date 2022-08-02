@@ -7,7 +7,7 @@
     transform: translate(-50%, 0);}
 .article .author {font-size:14px; font-weight:bold;}
 .article .date {font-size:14px; }
-.articles a {}
+.articles a {font-size:18px;}
 
 }
 
