@@ -32,7 +32,7 @@
 
 	.intro {padding:20px;}
 	.intro .county {font-size:12px;margin:0 0 4px 0;}
-	.intro .summary p {margin-bottom:20px;}
+	.intro .summary p {margin-bottom:20px; line-height:22px;}
   .intro .summary p:last-child {margin-bottom:0;}
 
 

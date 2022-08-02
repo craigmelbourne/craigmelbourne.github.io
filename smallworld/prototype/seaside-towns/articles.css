@@ -1,5 +1,6 @@
 @media only screen and (min-width:0px) {
 /* this isn't really needed  */
+.intro {padding: 20px}
 
 .article {padding:20px; border-bottom:solid 1px #eee;}
 .article .img-container {position:relative; height:200px; overflow:hidden; border-radius:8px;}
@@ -8,7 +9,7 @@
 .article .details {margin: 8px 0 4px;}
 .article .author {font-size:14px; font-weight:bold;}
 .article .date {font-size:14px; }
-.article a {font-size:18px;}
+.article a {font-size:18px; color:#111;}
 
 }
 
