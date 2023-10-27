@@ -8,8 +8,9 @@ body {
 }
 
 a {text-decoration:none; color:#DF2C2C}
-h1, h2{text-transform: uppercase;}
+h1, h2, h3{text-transform: uppercase;}
 i {color:#333333;}
+p {margin-bottom:20px;}
 
 
 ul#brands, #links ul {list-style-type: none; padding:0; margin:0; overflow:hidden;}
