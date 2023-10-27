@@ -28,7 +28,7 @@ ul#companies {list-style-type: none; padding:0; margin:20px 0 0 0; overflow:hidd
 #links ul li {margin-right:24px; float:left}
 
 #main-body {}
-.wrapper {margin:0 auto; width:1200px; box-sizing: border-box; padding:40px 60px;}
+.wrapper {margin:0 auto; width:1200px; box-sizing: border-box; padding:40px 40px;}
 .block-bg {background-color: #ffffff;}
 .headline {font-size:36px; margin-bottom: 40px; font-weight: bold;}
 
