@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Map Split View</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script type="module" src="map.js"></script>
+
+    <style type="text/css">
+      body {font-family:Arial; color:#313137}
+      #header {position:absolute; top:0; left:0; right:0; height:80px; border-bottom: solid 1px #ddd;}
+      #page {position:absolute; top:80px; left:0; right:0; bottom:0; background-color:#eee;}
+      #page #filters {position:absolute; top:0; height:60px; left:0; right:0;}
+      #page #hotel-list {position:absolute; top:60px; bottom:0; left:0; width:700px;}
+      #page #hotel-list #hotels {position: absolute; top:0px; left:20px; right:20px; bottom:20px; overflow-y:scroll;}
+      #page #hotel-list #hotels .hotel {height:386px; background-color:#fff; border:8px; margin-bottom:20px; position:relative}
+      .hotel .title{height:66px; border-bottom:solid 1px #eee; box-sizing:border-box; padding:12px;}
+      .hotel .content {position:relative; height:}
+      .hotel .content .photo {position:absolute; top:0; left:0; bottom:0; height:318px; width:calc(100% - 300px); overflow:hidden;}
+      .hotel .content .photo img {height:400px;}
+      .hotel .content .data {position:absolute; top:0; right:0; width:300px; height:320px;}
+      .hotel .content .data .package {padding:12px;}
+
+      .hotel .content .data .package .item {margin-bottom:8px; font-size:14px;}
+      .hotel .content .data .price {position:absolute; bottom:0; right:0; left:0; border-top:solid 1px #ddd; box-sizing:border-box; padding: 12px;}
+      .hotel .content .data .price button {width:100%; border:0; padding:12px; background-color:#fedc07; border-radius:4px;}
+      #page #map-area {position:absolute; top:60px; bottom:0; left:700px; width:calc(100% - 700px); background-color:#fff;}
+      #map {height: 100%; width: 100%; }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="header">Header</div>
+    <div id="page">
+      <div id="filters">Filters</div>
+      <div id="hotel-list">
+          <div id="hotels">
+            <div class="hotel">
+              <div class="title">
+                <div class="hotel-name" style="font-weight:bold; font-size:20px;">Sol Tenerife</div>
+                <div class="hotel-location" style="font-size:14px;">Playa De Las Americas, Tenerife, Spain</div>
+
+              </div>
+              <div class="content">
+                <div class="photo">
+                  <img src="https://bynder.onthebeach.co.uk/cdn-cgi/image/width=640,quality=70,fit=cover,format=auto/m/10627e6777fdbbc2/original/Checkin-Bungalows-Atlantida.jpg" />
+                </div>
+                <div class="data">
+                  <div class="package">
+                    <div class="item dates">Wed 11 Sep 2024 - Wed 18 Sep 2024</div>
+                    <div class="item flights">Direct from London Stansted</div>
+                    <div class="item board">Bed & Breakfast</div>
+                    <div class="item bags">Hold bags: 0</div>
+                    <div class="item perk">FREE Mobile Data</div>
+                  </div>
+                  <div class="price">
+                    <div style="padding:8px 0">
+                      <span style="display:inline-block; width:40px; font-size:14px; margin-right:12px; padding-top:2px;">Prices from</span>
+                      <span style="display:inline-block; vertical-align:top; font-size:36px; font-weight:bold;">£447</span>
+                    </div>
+                    <button>See more details</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hotel">
+            </div>
+            <div class="hotel">
+            </div>
+            <div class="hotel">
+            </div>
+            <div class="hotel">
+            </div>
+          </div>
+      </div>
+      <div id="map-area">
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyBFKu5U0zQKrjQO29Tbp9Q_CJwyPehvVI4", v: "weekly"});</script>
+  </body>
+</html>
