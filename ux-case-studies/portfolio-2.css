@@ -45,7 +45,7 @@ ul#companies {list-style-type: none; padding:0; margin:20px 0 0 0; overflow:hidd
 .block {margin-bottom:40px;}
 .block h2 {margin-bottom: 24px;}
 
-.strengths > div {margin-bottom:16px;}
+.strengths > div {margin-bottom:16px; font-size:16px;}
 .strengths > div > span {font-weight: 500}
 
 .case-studies > div {margin-bottom:30px;}
