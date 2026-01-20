@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		<link rel="stylesheet" type="text/css" href="es-base.css">
+		<style type="text/css">
+			body {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";}
+
+
+			.response-window {position:absolute; top:0; left:20px; bottom:0; right:20px; overflow-y: scroll; padding-top:30px;}
+			.prompt {max-width:200px;padding:12px 16px; border-radius:8px; background-color: #f1f1f1; color:#666666; line-height: 1.5; float:right; font-size:14px;}
+			.chat-input {position:absolute; bottom:0; left:0; right:0; padding:20px; background-color: #fff;}
+			.chat-input .chatbox {border:solid 1px #ddd; padding:12px 12px 6px; border-radius:16px; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;}
+			.chat-input .disclaimer {text-align: center; padding:12px 0 0 0; font-size: 12px;}
+			.row-tools > div {display: inline-block; vertical-align: middle}
+
+			.service {width:280px; border:solid 1px #eee; border-radius:8px; padding:20px; font-size: 14px;}
+			.service .gridx2 {margin-bottom:6px; position:relative;}
+			.service .price {font-size:16px; font-weight: bold;}
+			.service .date {font-size:16px; font-weight: bold; width:200px;}
+			.service .leg {font-weight: bold;}
+			.service .route-details {margin:20px 0;}
+			.service .route-details .details {font-size:12px; color:#666; margin:8px 0}
+			.service button.cta {width:100%; padding:8px 0; background-color: #000; color:#fff; border-radius:20px;}
+			.service .badge {font-size:11px; background-color:#eee; padding:2px 4px; border-radius:2px;}
+			.service .right {position:absolute; right:0; top:0;}
+			.response-carousel {overflow: auto; white-space: nowrap;}
+			.response-carousel > div {display:inline-block; margin-right: 12px; vertical-align: top;}
+
+			.model-response {margin-top:20px; line-height: 1.5; margin-bottom:160px}
+
+			@media (min-width: 600px) {
+				.page-wrapper {position:absolute; top:0; bottom:0; width:800px; left: 50%;
+	margin-left: -400px; }
+				.prompt {max-width:300px;}
+			}
+
+
+		</style>
+
+	</head>
+
+	<body>
+
+	<div class="page-wrapper">
+		<div class="response-window">
+			<div style="overflow:hidden; margin-bottom:30px;">
+				<div class="prompt">What are the train times and prices from London to Lyon on Wed 18 Feb?</div>
+			</div>
+			<div class="app-response">
+				<div style="margin-bottom:12px;">
+					<img src="img/eurostar-favicon.png" style="display:inline-block; vertical-align:top;"/>
+					<span style="display:inline-block; vertical-align:top;">Eurostar</span>
+				</div>
+				<div class="response-carousel">
+					<div class="service">
+						<div class="gridx2">
+							<div class="date">Wed 18 Feb</div>
+							<div class="price right">£158.70</div>
+						</div>
+						<div class="gridx2">
+							<div class="passengers">1 passenger</div>
+							<div class="badge right">Eurostar Standard</div>
+						</div>
+						<div class="route-details">
+							<div class="leg">07:01 - London St Pancras Int’l</div>
+
+							<div class="leg">13:56 - Lyon Part-Dieu</div>
+							<div class="details">1 change • 5h 55mins</div>
+						</div>
+						<div>
+							<button class="cta">Book on Eurostar</button>
+						</div>
+					</div>
+					<div class="service">
+						<div class="gridx2">
+							<div class="date">Wed 18 Feb</div>
+							<div class="price right">£256.17</div>
+						</div>
+						<div class="gridx2">
+							<div class="passengers">1 passenger</div>
+							<div class="badge right">Eurostar Standard</div>
+						</div>
+						<div class="route-details">
+							<div class="leg">08:01 - London St Pancras Int’l</div>
+							<div class="details">1 change • 5h 55mins</div>
+							<div class="leg">14:56 - Lyon Part-Dieu</div>
+						</div>
+						<div>
+							<button class="cta">Book on Eurostar</button>
+						</div>
+					</div>
+					<div class="service">
+						<div class="gridx2">
+							<div class="date">Wed 18 Feb</div>
+							<div class="price right">£184.17</div>
+						</div>
+						<div class="gridx2">
+							<div class="passengers">1 passenger</div>
+							<div class="badge right">Eurostar Standard</div>
+						</div>
+						<div class="route-details">
+							<div class="leg">09:31 - London St Pancras Int’l</div>
+							<div class="details">1 change • 5h 25mins</div>
+							<div class="leg">15:56 - Lyon Part-Dieu</div>
+						</div>
+						<div>
+							<button class="cta">Book on Eurostar</button>
+						</div>
+					</div>
+					<div class="service">
+						<div class="gridx2">
+							<div class="date">Wed 18 Feb</div>
+							<div class="price right">£184.17</div>
+						</div>
+						<div class="gridx2">
+							<div class="passengers">1 passenger</div>
+							<div class="badge right">Eurostar Standard</div>
+						</div>
+						<div class="route-details">
+							<div class="leg">10:31 - London St Pancras Int’l</div>
+							<div class="details">1 change • 5h 25mins</div>
+							<div class="leg">16:56 - Lyon Part-Dieu</div>
+						</div>
+						<div>
+							<button class="cta">Book on Eurostar</button>
+						</div>
+					</div>
+					<div class="service">
+						<div class="gridx2">
+							<div class="date">Wed 18 Feb</div>
+							<div class="price right">£326.13</div>
+						</div>
+						<div class="gridx2">
+							<div class="passengers">1 passenger</div>
+							<div class="badge right">Eurostar Standard</div>
+						</div>
+						<div class="route-details">
+							<div class="leg">11:04 - London St Pancras Int’l</div>
+							<div class="details">1 change • 4h 55mins</div>
+							<div class="leg">16:59 - Lyon Part-Dieu</div>
+						</div>
+						<div>
+							<button class="cta">Book on Eurostar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="model-response">
+
+				<div>
+					<p>Here are the options currently available for your trip on Feb 18 between London, UK and Lyon, France, sorted by departure time within Eurostar’s inventory.</p>
+					<p>You can book directly from Eurostar via the carousel shown above</p>
+				</div>
+				<div style="border-top:solid 1px #ddd; margin-top:30px;">
+					<h2>Journey Planning Notes</h2>
+					<p>You’ll usually need to change at Paris (from Eurostar at Gare du Nord to TGV at Gare de Lyon) — allow ~45–60 min for the transfer.</p>
+					<p>Total journey time is typically ~5 h to 6 h+ depending on connection</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="chat-input">
+
+				<div class="chatbox">
+					<div>
+						<div>Ask anything</div>
+					</div>
+					<div class="row-tools">
+						<div><img src="img/add.svg" /></div>
+						<div>Eurostar</div>
+						<div class=""><img src="img/mic.svg" /></div>
+						<div><img src="img/send.svg" /></div>
+					</div>
+				</div>
+				<div class="disclaimer">ChatGPT can make mistakes. Check important info.</div>
+
+		</div>
+	</div>
+
+
+
+
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+
+			});
+
+		</script>
+	</body>
+</html>
